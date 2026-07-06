@@ -1,0 +1,580 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../core/answer_check.dart';
+import '../core/transliteration.dart';
+import '../data/progress_store.dart';
+import '../data/settings_store.dart';
+import '../data/word.dart';
+import '../data/words_repository.dart';
+import '../services/audio_service.dart';
+import '../theme/app_colors.dart';
+import '../widgets/common.dart';
+import '../widgets/onscreen_keyboard.dart';
+
+enum SessionMode { full, reviewsOnly, retry }
+
+enum TaskKind { presentation, typingPlToRu, typingRuToPl }
+
+class SessionTask {
+  const SessionTask({required this.word, required this.kind});
+
+  final Word word;
+  final TaskKind kind;
+}
+
+class SessionMistake {
+  const SessionMistake({required this.word, required this.kind, required this.given});
+
+  final Word word;
+  final TaskKind kind;
+  final String given;
+
+  String get correctAnswer => kind == TaskKind.typingRuToPl ? word.pl.join(', ') : word.ruAccented;
+}
+
+class SessionScreen extends ConsumerStatefulWidget {
+  const SessionScreen({super.key, required this.mode, this.retryWords = const []});
+
+  final SessionMode mode;
+  final List<Word> retryWords;
+
+  @override
+  ConsumerState<SessionScreen> createState() => _SessionScreenState();
+}
+
+class _SessionScreenState extends ConsumerState<SessionScreen> {
+  List<SessionTask>? _tasks;
+  int _index = 0;
+  int _answered = 0;
+  int _correct = 0;
+  final List<SessionMistake> _mistakes = [];
+  bool _finished = false;
+
+  List<SessionTask> _buildTasks(List<Word> words) {
+    final progress = ref.read(progressProvider);
+    final notifier = ref.read(progressProvider.notifier);
+    final settings = ref.read(settingsProvider);
+    final rng = Random();
+    final now = DateTime.now();
+    switch (widget.mode) {
+      case SessionMode.full:
+        final fresh = words.where((w) => progress.statusOf(w.id) == WordStatus.fresh).take(settings.dailyGoal);
+        final due = words.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
+        return [
+          for (final word in fresh) ...[
+            SessionTask(word: word, kind: TaskKind.presentation),
+            SessionTask(word: word, kind: TaskKind.typingPlToRu),
+          ],
+          for (final word in due)
+            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+        ];
+      case SessionMode.reviewsOnly:
+        final due = words.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
+        return [
+          for (final word in due)
+            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+        ];
+      case SessionMode.retry:
+        return [for (final word in widget.retryWords) SessionTask(word: word, kind: TaskKind.typingPlToRu)];
+    }
+  }
+
+  void _onTypingResult(SessionTask task, bool correct, String given) {
+    ref.read(progressProvider.notifier).recordAnswer(task.word.id, correct);
+    setState(() {
+      _answered++;
+      if (correct) {
+        _correct++;
+      } else {
+        _mistakes.add(SessionMistake(word: task.word, kind: task.kind, given: given));
+      }
+    });
+  }
+
+  void _next() {
+    final tasks = _tasks!;
+    setState(() {
+      if (_index + 1 >= tasks.length) {
+        _finished = true;
+        ref.read(progressProvider.notifier).finishSession();
+      } else {
+        _index++;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final wordsAsync = ref.watch(wordsProvider);
+    return Scaffold(
+      body: wordsAsync.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, _) => const Center(child: Text('Nie udało się wczytać kursu')),
+        data: (words) {
+          _tasks ??= _buildTasks(words);
+          final tasks = _tasks!;
+          if (tasks.isEmpty) return _EmptySession(onBack: () => Navigator.of(context).pop());
+          if (_finished) {
+            return _SummaryView(
+              correct: _correct,
+              total: _answered,
+              mistakes: _mistakes,
+              onRetry: () {
+                final retryWords = {for (final m in _mistakes) m.word.id: m.word}.values.toList();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (_) => SessionScreen(mode: SessionMode.retry, retryWords: retryWords),
+                  ),
+                );
+              },
+              onFinish: () => Navigator.of(context).pop(),
+            );
+          }
+          final task = tasks[_index];
+          return Column(
+            children: [
+              _SessionTopBar(index: _index, total: tasks.length),
+              Expanded(
+                child: KeyedSubtree(
+                  key: ValueKey(_index),
+                  child: task.kind == TaskKind.presentation
+                      ? _PresentationView(word: task.word, onNext: _next)
+                      : _TypingView(
+                          word: task.word,
+                          kind: task.kind,
+                          onResult: (correct, given) => _onTypingResult(task, correct, given),
+                          onNext: _next,
+                        ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _SessionTopBar extends StatelessWidget {
+  const _SessionTopBar({required this.index, required this.total});
+
+  final int index;
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 64,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: context.c.border))),
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: Icon(Icons.close, size: 18, color: context.c.mutedForeground),
+            tooltip: 'Przerwij sesję',
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                value: total == 0 ? 0 : index / total,
+                minHeight: 8,
+                backgroundColor: context.c.muted,
+                color: context.c.primary,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Text('${index + 1} / $total',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+        ],
+      ),
+    );
+  }
+}
+
+class _SessionFooter extends StatelessWidget {
+  const _SessionFooter({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 88,
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      decoration: BoxDecoration(border: Border(top: BorderSide(color: context.c.border))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: children,
+      ),
+    );
+  }
+}
+
+class _PresentationView extends ConsumerStatefulWidget {
+  const _PresentationView({required this.word, required this.onNext});
+
+  final Word word;
+  final VoidCallback onNext;
+
+  @override
+  ConsumerState<_PresentationView> createState() => _PresentationViewState();
+}
+
+class _PresentationViewState extends ConsumerState<_PresentationView> {
+  @override
+  void initState() {
+    super.initState();
+    final settings = ref.read(settingsProvider);
+    if (settings.autoplay) {
+      ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const AppBadge(label: 'Nowe słówko'),
+                const SizedBox(height: 24),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(widget.word.ruAccented,
+                        style: TextStyle(fontSize: 48, fontWeight: FontWeight.w600, color: context.c.foreground)),
+                    const SizedBox(width: 16),
+                    SpeakerButton(text: widget.word.ru, size: 44),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                Container(width: 64, height: 1, color: context.c.border),
+                const SizedBox(height: 24),
+                Text(widget.word.pl.join(', '),
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: context.c.foreground)),
+                const SizedBox(height: 24),
+                AppBadge(label: widget.word.category),
+              ],
+            ),
+          ),
+        ),
+        _SessionFooter(
+          children: [
+            Text('Enter ↵ — dalej', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+            const SizedBox(width: 16),
+            FilledButton(autofocus: true, onPressed: widget.onNext, child: const Text('Dalej')),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _TypingView extends ConsumerStatefulWidget {
+  const _TypingView({
+    required this.word,
+    required this.kind,
+    required this.onResult,
+    required this.onNext,
+  });
+
+  final Word word;
+  final TaskKind kind;
+  final void Function(bool correct, String given) onResult;
+  final VoidCallback onNext;
+
+  @override
+  ConsumerState<_TypingView> createState() => _TypingViewState();
+}
+
+class _TypingViewState extends ConsumerState<_TypingView> {
+  final _controller = TextEditingController();
+  final _nextFocus = FocusNode();
+  bool? _feedback;
+
+  bool get _isPlToRu => widget.kind == TaskKind.typingPlToRu;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!_isPlToRu) {
+      final settings = ref.read(settingsProvider);
+      if (settings.autoplay) {
+        ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _nextFocus.dispose();
+    super.dispose();
+  }
+
+  void _check() {
+    if (_feedback != null) return;
+    final given = _controller.text.trim();
+    if (given.isEmpty) return;
+    final correct = _isPlToRu ? checkRuAnswer(widget.word, given) : checkPlAnswer(widget.word, given);
+    setState(() => _feedback = correct);
+    widget.onResult(correct, given);
+    _nextFocus.requestFocus();
+  }
+
+  void _giveUp() {
+    if (_feedback != null) return;
+    setState(() => _feedback = false);
+    widget.onResult(false, _controller.text.trim());
+    _nextFocus.requestFocus();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final settings = ref.watch(settingsProvider);
+    final correctAnswer = _isPlToRu ? widget.word.ruAccented : widget.word.pl.join(', ');
+    final borderColor = switch (_feedback) {
+      null => context.c.inputBorder,
+      true => context.c.success,
+      false => context.c.destructive,
+    };
+
+    return Column(
+      children: [
+        Expanded(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(_isPlToRu ? 'Przetłumacz na rosyjski' : 'Przetłumacz na polski',
+                      style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(_isPlToRu ? widget.word.plPrimary : widget.word.ruAccented,
+                          style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground)),
+                      if (!_isPlToRu) ...[
+                        const SizedBox(width: 14),
+                        SpeakerButton(text: widget.word.ru, size: 40),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 480,
+                    child: TextField(
+                      controller: _controller,
+                      autofocus: true,
+                      enabled: _feedback == null,
+                      inputFormatters: _isPlToRu ? [TransliterationFormatter()] : null,
+                      onSubmitted: (_) => _check(),
+                      style: TextStyle(fontSize: 22, color: context.c.foreground),
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: borderColor, width: _feedback == null ? 1 : 2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: _feedback == null ? context.c.ring : borderColor, width: 2),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: borderColor, width: 2),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  if (_feedback == null && _isPlToRu && settings.showHints)
+                    Text('pisz „spasibo” — litery łacińskie zamienią się w cyrylicę',
+                        style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+                  if (_feedback == true)
+                    Text('Świetnie!',
+                        style:
+                            TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
+                  if (_feedback == false)
+                    Text('Poprawna odpowiedź: $correctAnswer',
+                        style:
+                            TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
+                  if (settings.showKeyboard) ...[
+                    const SizedBox(height: 24),
+                    OnScreenKeyboard(
+                      layout: _isPlToRu ? KeyboardLayoutType.russian : KeyboardLayoutType.polish,
+                      onText: (text) {
+                        if (_feedback == null) insertIntoController(_controller, text);
+                      },
+                      onBackspace: () {
+                        if (_feedback == null) backspaceInController(_controller);
+                      },
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        ),
+        _SessionFooter(
+          children: _feedback == null
+              ? [
+                  TextButton(onPressed: _giveUp, child: const Text('Nie wiem')),
+                  const SizedBox(width: 12),
+                  FilledButton(onPressed: _check, child: const Text('Sprawdź')),
+                ]
+              : [
+                  FilledButton(focusNode: _nextFocus, onPressed: widget.onNext, child: const Text('Dalej')),
+                ],
+        ),
+      ],
+    );
+  }
+}
+
+class _SummaryView extends StatelessWidget {
+  const _SummaryView({
+    required this.correct,
+    required this.total,
+    required this.mistakes,
+    required this.onRetry,
+    required this.onFinish,
+  });
+
+  final int correct;
+  final int total;
+  final List<SessionMistake> mistakes;
+  final VoidCallback onRetry;
+  final VoidCallback onFinish;
+
+  @override
+  Widget build(BuildContext context) {
+    final percent = total == 0 ? 100 : (correct * 100 / total).round();
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 72,
+              height: 72,
+              decoration: BoxDecoration(color: context.c.muted, shape: BoxShape.circle),
+              child: Icon(Icons.check, size: 32, color: context.c.success),
+            ),
+            const SizedBox(height: 24),
+            Text('Sesja ukończona!',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: context.c.foreground)),
+            const SizedBox(height: 8),
+            Text('$correct z $total poprawnie · $percent%',
+                style: TextStyle(fontSize: 16, color: context.c.mutedForeground)),
+            if (mistakes.isNotEmpty) ...[
+              const SizedBox(height: 24),
+              SizedBox(
+                width: 560,
+                child: AppCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Do poprawki (${mistakes.length})',
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: context.c.foreground)),
+                      for (final mistake in mistakes)
+                        Container(
+                          height: 44,
+                          margin: const EdgeInsets.only(top: 8),
+                          decoration:
+                              BoxDecoration(border: Border(top: BorderSide(color: context.c.border))),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 150,
+                                child: Text(
+                                  mistake.kind == TaskKind.typingRuToPl
+                                      ? mistake.word.ruAccented
+                                      : mistake.word.plPrimary,
+                                  style: TextStyle(
+                                      fontSize: 15, fontWeight: FontWeight.w500, color: context.c.foreground),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 160,
+                                child: Text(
+                                  mistake.given.isEmpty ? '—' : mistake.given,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: context.c.destructive,
+                                    decoration: TextDecoration.lineThrough,
+                                    decorationColor: context.c.destructive,
+                                  ),
+                                ),
+                              ),
+                              Icon(Icons.arrow_forward, size: 14, color: context.c.mutedForeground),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  mistake.correctAnswer,
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+            const SizedBox(height: 24),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (mistakes.isNotEmpty) ...[
+                  OutlinedButton(onPressed: onRetry, child: Text('Powtórz błędne (${mistakes.length})')),
+                  const SizedBox(width: 12),
+                ],
+                FilledButton(autofocus: true, onPressed: onFinish, child: const Text('Zakończ')),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _EmptySession extends StatelessWidget {
+  const _EmptySession({required this.onBack});
+
+  final VoidCallback onBack;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Brak słówek do nauki na dziś',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: context.c.foreground)),
+          const SizedBox(height: 8),
+          Text('Wróć jutro albo zwiększ cel dzienny w ustawieniach',
+              style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+          const SizedBox(height: 20),
+          FilledButton(autofocus: true, onPressed: onBack, child: const Text('Wróć')),
+        ],
+      ),
+    );
+  }
+}
