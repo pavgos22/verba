@@ -4,6 +4,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../data/progress_store.dart';
 import '../data/settings_store.dart';
+import '../services/audio_service.dart';
 import '../theme/app_colors.dart';
 import '../theme/theme_fade.dart';
 import '../widgets/common.dart';
@@ -51,6 +52,22 @@ class SettingsScreen extends ConsumerWidget {
           _Section(
             title: 'Audio',
             rows: [
+              _SettingRow(
+                title: 'Lektor',
+                description: 'Głos czytający rosyjskie słówka',
+                control: SegmentedButton<Lector>(
+                  segments: const [
+                    ButtonSegment(value: Lector.dmitri, label: Text('Dmitrij')),
+                    ButtonSegment(value: Lector.system, label: Text('Systemowy')),
+                  ],
+                  selected: {settings.lector},
+                  onSelectionChanged: (selection) {
+                    notifier.setLector(selection.first);
+                    ref.read(audioServiceProvider).speakRussian('привет');
+                  },
+                  showSelectedIcon: false,
+                ),
+              ),
               _SettingRow(
                 title: 'Auto-czytanie słówek',
                 description: 'Czytaj na głos nowe słówka i pytania po rosyjsku',

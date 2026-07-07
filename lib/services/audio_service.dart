@@ -1,30 +1,72 @@
+import 'dart:convert';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+
+import '../data/settings_store.dart';
+
+enum Lector {
+  dmitri,
+  system;
+
+  static Lector fromName(String? name) =>
+      Lector.values.firstWhere((l) => l.name == name, orElse: () => Lector.dmitri);
+}
+
+String lectorKey(String text) {
+  var hash = BigInt.parse('14695981039346656037');
+  final prime = BigInt.parse('1099511628211');
+  final mask = (BigInt.one << 64) - BigInt.one;
+  for (final b in utf8.encode(text)) {
+    hash = hash ^ BigInt.from(b);
+    hash = (hash * prime) & mask;
+  }
+  return hash.toRadixString(16).padLeft(16, '0');
+}
 
 abstract class AudioService {
   Future<bool> speakRussian(String text, {bool slow = false});
 }
 
-class TtsAudioService implements AudioService {
+class VerbaAudioService implements AudioService {
+  VerbaAudioService(this._ref);
+
+  final Ref _ref;
+  final AudioPlayer _player = AudioPlayer()..setReleaseMode(ReleaseMode.stop);
   final FlutterTts _tts = FlutterTts();
-  bool _configured = false;
+  bool _ttsConfigured = false;
+
+  @override
+  Future<bool> speakRussian(String text, {bool slow = false}) async {
+    final lector = _ref.read(settingsProvider).lector;
+    if (lector == Lector.dmitri) {
+      if (await _playPiper(text, slow: slow)) return true;
+    }
+    return _speakSystem(text, slow: slow);
+  }
+
+  Future<bool> _playPiper(String text, {required bool slow}) async {
+    try {
+      await _player.stop();
+      await _player.setPlaybackRate(slow ? 0.75 : 1.0);
+      await _player.play(AssetSource('lector/${lectorKey(text)}.mp3'));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 
   Future<bool> _ensureRussianVoice() async {
-    if (_configured) return true;
+    if (_ttsConfigured) return true;
     try {
       final voices = await _tts.getVoices;
       if (voices is List) {
         for (final voice in voices) {
-          if (voice is Map) {
-            final locale = voice['locale']?.toString().toLowerCase() ?? '';
-            if (locale.startsWith('ru')) {
-              await _tts.setVoice({
-                'name': voice['name'].toString(),
-                'locale': voice['locale'].toString(),
-              });
-              _configured = true;
-              return true;
-            }
+          if (voice is Map && (voice['locale']?.toString().toLowerCase() ?? '').startsWith('ru')) {
+            await _tts.setVoice({'name': voice['name'].toString(), 'locale': voice['locale'].toString()});
+            _ttsConfigured = true;
+            return true;
           }
         }
       }
@@ -33,7 +75,7 @@ class TtsAudioService implements AudioService {
         for (final language in languages) {
           if (language.toString().toLowerCase().startsWith('ru')) {
             await _tts.setLanguage(language.toString());
-            _configured = true;
+            _ttsConfigured = true;
             return true;
           }
         }
@@ -44,8 +86,7 @@ class TtsAudioService implements AudioService {
     }
   }
 
-  @override
-  Future<bool> speakRussian(String text, {bool slow = false}) async {
+  Future<bool> _speakSystem(String text, {required bool slow}) async {
     if (!await _ensureRussianVoice()) return false;
     try {
       await _tts.stop();
@@ -58,4 +99,4 @@ class TtsAudioService implements AudioService {
   }
 }
 
-final audioServiceProvider = Provider<AudioService>((ref) => TtsAudioService());
+final audioServiceProvider = Provider<AudioService>((ref) => VerbaAudioService(ref));

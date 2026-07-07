@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../services/audio_service.dart';
+
 final prefsProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('prefsProvider requires an override');
 });
@@ -17,6 +19,7 @@ class Settings {
     required this.showHints,
     required this.showAccents,
     required this.answerSounds,
+    required this.lector,
     required this.activeCourseId,
     required this.dailyGoal,
     required this.practiceDirection,
@@ -30,6 +33,7 @@ class Settings {
   final bool showHints;
   final bool showAccents;
   final bool answerSounds;
+  final Lector lector;
   final String activeCourseId;
   final int dailyGoal;
   final SessionDirection practiceDirection;
@@ -43,6 +47,7 @@ class Settings {
     bool? showHints,
     bool? showAccents,
     bool? answerSounds,
+    Lector? lector,
     String? activeCourseId,
     int? dailyGoal,
     SessionDirection? practiceDirection,
@@ -56,6 +61,7 @@ class Settings {
       showHints: showHints ?? this.showHints,
       showAccents: showAccents ?? this.showAccents,
       answerSounds: answerSounds ?? this.answerSounds,
+      lector: lector ?? this.lector,
       activeCourseId: activeCourseId ?? this.activeCourseId,
       dailyGoal: dailyGoal ?? this.dailyGoal,
       practiceDirection: practiceDirection ?? this.practiceDirection,
@@ -76,6 +82,7 @@ class SettingsNotifier extends Notifier<Settings> {
       showHints: prefs.getBool('settings.showHints') ?? true,
       showAccents: prefs.getBool('settings.showAccents') ?? true,
       answerSounds: prefs.getBool('settings.answerSounds') ?? true,
+      lector: Lector.fromName(prefs.getString('settings.lector')),
       activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
       practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
@@ -123,6 +130,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setActiveCourseId(String value) {
     state = state.copyWith(activeCourseId: value);
     ref.read(prefsProvider).setString('settings.activeCourseId', value);
+  }
+
+  void setLector(Lector value) {
+    state = state.copyWith(lector: value);
+    ref.read(prefsProvider).setString('settings.lector', value.name);
   }
 
   void setPracticeDirection(SessionDirection value) {
