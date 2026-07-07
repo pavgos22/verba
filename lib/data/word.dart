@@ -2,16 +2,18 @@ class Word {
   const Word({
     required this.id,
     required this.ru,
-    required this.ruAccented,
+    String? ruAccented,
     required this.pl,
-    required this.category,
-  });
+    this.category,
+    this.pronunciation,
+  }) : ruAccented = ruAccented ?? ru;
 
   final String id;
   final String ru;
   final String ruAccented;
   final List<String> pl;
-  final String category;
+  final String? category;
+  final String? pronunciation;
 
   String get plPrimary => pl.first;
 
@@ -19,9 +21,10 @@ class Word {
     return Word(
       id: json['id'] as String,
       ru: json['ru'] as String,
-      ruAccented: json['ruAccented'] as String,
+      ruAccented: json['ruAccented'] as String?,
       pl: [for (final v in json['pl'] as List<dynamic>) v as String],
-      category: json['category'] as String,
+      category: json['category'] as String?,
+      pronunciation: json['pronunciation'] as String?,
     );
   }
 }

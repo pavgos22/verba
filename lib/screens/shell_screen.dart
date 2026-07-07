@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/sidebar.dart';
+import 'courses_screen.dart';
 import 'dashboard_screen.dart';
 import 'keyboard_screen.dart';
 import 'settings_screen.dart';
@@ -28,6 +29,7 @@ class _ShellScreenState extends State<ShellScreen> {
               index: _index,
               children: const [
                 DashboardScreen(),
+                CoursesScreen(),
                 WordsScreen(),
                 KeyboardScreen(),
                 StatsScreen(),

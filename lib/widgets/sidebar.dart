@@ -13,6 +13,7 @@ class SidebarItem {
 
 const sidebarItems = [
   SidebarItem(icon: Icons.home_outlined, label: 'Start'),
+  SidebarItem(icon: Icons.school_outlined, label: 'Kursy'),
   SidebarItem(icon: Icons.menu_book_outlined, label: 'Słówka'),
   SidebarItem(icon: Icons.keyboard_outlined, label: 'Klawiatura'),
   SidebarItem(icon: Icons.bar_chart_outlined, label: 'Statystyki'),

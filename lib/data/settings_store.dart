@@ -17,6 +17,7 @@ class Settings {
     required this.showHints,
     required this.showAccents,
     required this.answerSounds,
+    required this.activeCourseId,
     required this.dailyGoal,
     required this.practiceDirection,
     required this.testDirection,
@@ -29,6 +30,7 @@ class Settings {
   final bool showHints;
   final bool showAccents;
   final bool answerSounds;
+  final String activeCourseId;
   final int dailyGoal;
   final SessionDirection practiceDirection;
   final SessionDirection testDirection;
@@ -41,6 +43,7 @@ class Settings {
     bool? showHints,
     bool? showAccents,
     bool? answerSounds,
+    String? activeCourseId,
     int? dailyGoal,
     SessionDirection? practiceDirection,
     SessionDirection? testDirection,
@@ -53,6 +56,7 @@ class Settings {
       showHints: showHints ?? this.showHints,
       showAccents: showAccents ?? this.showAccents,
       answerSounds: answerSounds ?? this.answerSounds,
+      activeCourseId: activeCourseId ?? this.activeCourseId,
       dailyGoal: dailyGoal ?? this.dailyGoal,
       practiceDirection: practiceDirection ?? this.practiceDirection,
       testDirection: testDirection ?? this.testDirection,
@@ -72,6 +76,7 @@ class SettingsNotifier extends Notifier<Settings> {
       showHints: prefs.getBool('settings.showHints') ?? true,
       showAccents: prefs.getBool('settings.showAccents') ?? true,
       answerSounds: prefs.getBool('settings.answerSounds') ?? true,
+      activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
       practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
           SessionDirection.random,
@@ -113,6 +118,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setAnswerSounds(bool value) {
     state = state.copyWith(answerSounds: value);
     ref.read(prefsProvider).setBool('settings.answerSounds', value);
+  }
+
+  void setActiveCourseId(String value) {
+    state = state.copyWith(activeCourseId: value);
+    ref.read(prefsProvider).setString('settings.activeCourseId', value);
   }
 
   void setPracticeDirection(SessionDirection value) {

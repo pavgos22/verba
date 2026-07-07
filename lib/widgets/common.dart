@@ -46,6 +46,32 @@ class AppBadge extends StatelessWidget {
   }
 }
 
+class PronunciationSlot extends StatelessWidget {
+  const PronunciationSlot({
+    super.key,
+    required this.pronunciation,
+    required this.visible,
+    this.fontSize = 13,
+  });
+
+  final String? pronunciation;
+  final bool visible;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: fontSize + 8,
+      child: visible && pronunciation != null
+          ? Text(
+              pronunciation!,
+              style: TextStyle(fontSize: fontSize, color: context.c.mutedForeground),
+            )
+          : null,
+    );
+  }
+}
+
 class SpeakerButton extends ConsumerWidget {
   const SpeakerButton({super.key, required this.text, this.size = 36});
 

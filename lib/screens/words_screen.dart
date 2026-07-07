@@ -28,6 +28,10 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
       error: (error, _) => const Center(child: Text('Nie udało się wczytać kursu')),
       data: (words) {
         final query = _query.trim().toLowerCase();
+        final categories = <String>{
+          for (final w in words)
+            if (w.category != null) w.category!,
+        }.toList();
         final filtered = words.where((w) {
           if (_category != null && w.category != _category) return false;
           if (query.isEmpty) return true;
@@ -72,17 +76,19 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                       ),
                     ),
                   ),
-                  _FilterChip(
-                    label: 'Wszystkie (${words.length})',
-                    active: _category == null,
-                    onTap: () => setState(() => _category = null),
-                  ),
-                  for (final category in wordCategories)
+                  if (categories.isNotEmpty) ...[
                     _FilterChip(
-                      label: category,
-                      active: _category == category,
-                      onTap: () => setState(() => _category = category),
+                      label: 'Wszystkie (${words.length})',
+                      active: _category == null,
+                      onTap: () => setState(() => _category = null),
                     ),
+                    for (final category in categories)
+                      _FilterChip(
+                        label: category,
+                        active: _category == category,
+                        onTap: () => setState(() => _category = category),
+                      ),
+                  ],
                 ],
               ),
               const SizedBox(height: 20),
@@ -237,7 +243,12 @@ class _WordRow extends StatelessWidget {
           child: Text(word.pl.join(', '),
               overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, color: context.c.foreground)),
         ),
-        Align(alignment: Alignment.centerLeft, child: AppBadge(label: word.category)),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: word.category != null
+              ? AppBadge(label: word.category!)
+              : Text('—', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+        ),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(statusLabel,

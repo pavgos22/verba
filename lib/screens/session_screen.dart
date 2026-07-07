@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/answer_check.dart';
@@ -54,6 +55,17 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   int _correct = 0;
   final List<SessionMistake> _mistakes = [];
   bool _finished = false;
+  bool _tabHeld = false;
+
+  KeyEventResult _handleKey(FocusNode node, KeyEvent event) {
+    if (event.logicalKey != LogicalKeyboardKey.tab) return KeyEventResult.ignored;
+    if (event is KeyDownEvent && !_tabHeld) {
+      setState(() => _tabHeld = true);
+    } else if (event is KeyUpEvent && _tabHeld) {
+      setState(() => _tabHeld = false);
+    }
+    return KeyEventResult.handled;
+  }
 
   List<SessionTask> _buildTasks(List<Word> words) {
     final progress = ref.read(progressProvider);
@@ -171,24 +183,28 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             SessionMode.retry => 'Poprawka',
             _ => null,
           };
-          return Column(
-            children: [
-              _SessionTopBar(index: _index, total: tasks.length, modeLabel: modeLabel),
-              Expanded(
-                child: KeyedSubtree(
-                  key: ValueKey(_index),
-                  child: task.kind == TaskKind.presentation
-                      ? _PresentationView(word: task.word, onNext: _next)
-                      : _TypingView(
-                          word: task.word,
-                          kind: task.kind,
-                          showCorrections: widget.mode != SessionMode.test,
-                          onResult: (grade, given) => _onTypingResult(task, grade, given),
-                          onNext: _next,
-                        ),
+          return Focus(
+            onKeyEvent: _handleKey,
+            child: Column(
+              children: [
+                _SessionTopBar(index: _index, total: tasks.length, modeLabel: modeLabel),
+                Expanded(
+                  child: KeyedSubtree(
+                    key: ValueKey(_index),
+                    child: task.kind == TaskKind.presentation
+                        ? _PresentationView(word: task.word, showPronunciation: _tabHeld, onNext: _next)
+                        : _TypingView(
+                            word: task.word,
+                            kind: task.kind,
+                            showCorrections: widget.mode != SessionMode.test,
+                            showPronunciation: _tabHeld,
+                            onResult: (grade, given) => _onTypingResult(task, grade, given),
+                            onNext: _next,
+                          ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
@@ -261,9 +277,10 @@ class _SessionFooter extends StatelessWidget {
 }
 
 class _PresentationView extends ConsumerStatefulWidget {
-  const _PresentationView({required this.word, required this.onNext});
+  const _PresentationView({required this.word, required this.showPronunciation, required this.onNext});
 
   final Word word;
+  final bool showPronunciation;
   final VoidCallback onNext;
 
   @override
@@ -300,20 +317,30 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                     SpeakerButton(text: widget.word.ru, size: 44),
                   ],
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 8),
+                PronunciationSlot(
+                  pronunciation: widget.word.pronunciation,
+                  visible: widget.showPronunciation,
+                  fontSize: 15,
+                ),
+                const SizedBox(height: 16),
                 Container(width: 64, height: 1, color: context.c.border),
                 const SizedBox(height: 24),
                 Text(widget.word.pl.join(', '),
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: context.c.foreground)),
                 const SizedBox(height: 24),
-                AppBadge(label: widget.word.category),
+                if (widget.word.category != null) AppBadge(label: widget.word.category!),
               ],
             ),
           ),
         ),
         _SessionFooter(
           children: [
-            Text('Enter ↵ — dalej', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+            Text(
+                widget.word.pronunciation != null
+                    ? 'Tab — wymowa · Enter ↵ — dalej'
+                    : 'Enter ↵ — dalej',
+                style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
             const SizedBox(width: 16),
             FilledButton(autofocus: true, onPressed: widget.onNext, child: const Text('Dalej')),
           ],
@@ -328,6 +355,7 @@ class _TypingView extends ConsumerStatefulWidget {
     required this.word,
     required this.kind,
     required this.showCorrections,
+    required this.showPronunciation,
     required this.onResult,
     required this.onNext,
   });
@@ -335,6 +363,7 @@ class _TypingView extends ConsumerStatefulWidget {
   final Word word;
   final TaskKind kind;
   final bool showCorrections;
+  final bool showPronunciation;
   final void Function(AnswerGrade grade, String given) onResult;
   final VoidCallback onNext;
 
@@ -531,7 +560,13 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                       ],
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 4),
+                  PronunciationSlot(
+                    pronunciation: _isPlToRu ? null : widget.word.pronunciation,
+                    visible: widget.showPronunciation,
+                    fontSize: 13,
+                  ),
+                  const SizedBox(height: 12),
                   AnimatedBuilder(
                     animation: _shake,
                     builder: (context, child) {
@@ -597,6 +632,11 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                 ]
               : _grade == null
                   ? [
+                      if (!_isPlToRu && widget.word.pronunciation != null) ...[
+                        Text('Tab — wymowa',
+                            style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+                        const SizedBox(width: 16),
+                      ],
                       TextButton(onPressed: _giveUp, child: const Text('Nie wiem')),
                       const SizedBox(width: 12),
                       FilledButton(onPressed: _check, child: const Text('Sprawdź')),
