@@ -8,6 +8,7 @@ import '../services/audio_service.dart';
 import '../theme/app_colors.dart';
 import '../theme/theme_fade.dart';
 import '../widgets/common.dart';
+import '../widgets/lector_dropdown.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -55,7 +56,7 @@ class SettingsScreen extends ConsumerWidget {
               _SettingRow(
                 title: 'Lektor',
                 description: 'Głos czytający rosyjskie słówka',
-                control: _LectorDropdown(
+                control: LectorDropdown(
                   value: settings.lector,
                   onChanged: (lector) {
                     notifier.setLector(lector);
@@ -229,46 +230,6 @@ class _SettingRow extends StatelessWidget {
           const SizedBox(width: 16),
           control,
         ],
-      ),
-    );
-  }
-}
-
-class _LectorDropdown extends StatelessWidget {
-  const _LectorDropdown({required this.value, required this.onChanged});
-
-  final Lector value;
-  final ValueChanged<Lector> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 36,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: context.c.background,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: context.c.inputBorder),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<Lector>(
-          value: value,
-          isDense: true,
-          borderRadius: BorderRadius.circular(8),
-          dropdownColor: context.c.card,
-          style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
-          icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
-          items: [
-            for (final lector in Lector.values)
-              DropdownMenuItem(
-                value: lector,
-                child: Text(lector.isPiper ? '${lector.label} (neuronowy)' : lector.label),
-              ),
-          ],
-          onChanged: (lector) {
-            if (lector != null) onChanged(lector);
-          },
-        ),
       ),
     );
   }

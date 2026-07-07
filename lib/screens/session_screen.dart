@@ -15,6 +15,7 @@ import '../services/sfx_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
+import '../widgets/lector_dropdown.dart';
 import '../widgets/onscreen_keyboard.dart';
 
 enum SessionMode { full, reviewsOnly, practice, test, retry }
@@ -258,9 +259,10 @@ class _SessionTopBar extends StatelessWidget {
 }
 
 class _SessionFooter extends StatelessWidget {
-  const _SessionFooter({required this.children});
+  const _SessionFooter({required this.children, this.leading});
 
   final List<Widget> children;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -269,8 +271,11 @@ class _SessionFooter extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 40),
       decoration: BoxDecoration(border: Border(top: BorderSide(color: context.c.border))),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: children,
+        children: [
+          ?leading,
+          const Spacer(),
+          ...children,
+        ],
       ),
     );
   }
@@ -626,17 +631,21 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
           ),
         ),
         _SessionFooter(
+          leading: LectorDropdown(
+            value: settings.lector,
+            onChanged: (lector) {
+              ref.read(settingsProvider.notifier).setLector(lector);
+              if (!_isPlToRu) {
+                ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+              }
+            },
+          ),
           children: _done
               ? [
                   FilledButton(focusNode: _nextFocus, onPressed: widget.onNext, child: const Text('Dalej')),
                 ]
               : _grade == null
                   ? [
-                      if (!_isPlToRu && widget.word.pronunciation != null) ...[
-                        Text('Tab — wymowa',
-                            style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
-                        const SizedBox(width: 16),
-                      ],
                       TextButton(onPressed: _giveUp, child: const Text('Nie wiem')),
                       const SizedBox(width: 12),
                       FilledButton(onPressed: _check, child: const Text('Sprawdź')),
