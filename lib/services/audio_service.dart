@@ -7,8 +7,15 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../data/settings_store.dart';
 
 enum Lector {
-  dmitri,
-  system;
+  dmitri('Dmitrij', true),
+  irina('Irina', true),
+  ruslan('Rusłan', true),
+  system('Systemowy', false);
+
+  const Lector(this.label, this.isPiper);
+
+  final String label;
+  final bool isPiper;
 
   static Lector fromName(String? name) =>
       Lector.values.firstWhere((l) => l.name == name, orElse: () => Lector.dmitri);
@@ -40,17 +47,17 @@ class VerbaAudioService implements AudioService {
   @override
   Future<bool> speakRussian(String text, {bool slow = false}) async {
     final lector = _ref.read(settingsProvider).lector;
-    if (lector == Lector.dmitri) {
-      if (await _playPiper(text, slow: slow)) return true;
+    if (lector.isPiper) {
+      if (await _playPiper(lector, text, slow: slow)) return true;
     }
     return _speakSystem(text, slow: slow);
   }
 
-  Future<bool> _playPiper(String text, {required bool slow}) async {
+  Future<bool> _playPiper(Lector lector, String text, {required bool slow}) async {
     try {
       await _player.stop();
       await _player.setPlaybackRate(slow ? 0.75 : 1.0);
-      await _player.play(AssetSource('lector/${lectorKey(text)}.mp3'));
+      await _player.play(AssetSource('lector/${lector.name}/${lectorKey(text)}.mp3'));
       return true;
     } catch (_) {
       return false;

@@ -1,7 +1,7 @@
 name: verba
 description: Russian vocabulary learning app for Windows.
 publish_to: 'none'
-version: 0.7.3+55
+version: 0.7.4+57
 
 environment:
   sdk: ^3.12.2
@@ -26,7 +26,9 @@ flutter:
   assets:
     - assets/data/
     - assets/sounds/
-    - assets/lector/
+    - assets/lector/dmitri/
+    - assets/lector/irina/
+    - assets/lector/ruslan/
   fonts:
     - family: Inter
       fonts:

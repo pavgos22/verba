@@ -55,17 +55,12 @@ class SettingsScreen extends ConsumerWidget {
               _SettingRow(
                 title: 'Lektor',
                 description: 'Głos czytający rosyjskie słówka',
-                control: SegmentedButton<Lector>(
-                  segments: const [
-                    ButtonSegment(value: Lector.dmitri, label: Text('Dmitrij')),
-                    ButtonSegment(value: Lector.system, label: Text('Systemowy')),
-                  ],
-                  selected: {settings.lector},
-                  onSelectionChanged: (selection) {
-                    notifier.setLector(selection.first);
+                control: _LectorDropdown(
+                  value: settings.lector,
+                  onChanged: (lector) {
+                    notifier.setLector(lector);
                     ref.read(audioServiceProvider).speakRussian('привет');
                   },
-                  showSelectedIcon: false,
                 ),
               ),
               _SettingRow(
@@ -234,6 +229,46 @@ class _SettingRow extends StatelessWidget {
           const SizedBox(width: 16),
           control,
         ],
+      ),
+    );
+  }
+}
+
+class _LectorDropdown extends StatelessWidget {
+  const _LectorDropdown({required this.value, required this.onChanged});
+
+  final Lector value;
+  final ValueChanged<Lector> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 36,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        color: context.c.background,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: context.c.inputBorder),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<Lector>(
+          value: value,
+          isDense: true,
+          borderRadius: BorderRadius.circular(8),
+          dropdownColor: context.c.card,
+          style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
+          icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
+          items: [
+            for (final lector in Lector.values)
+              DropdownMenuItem(
+                value: lector,
+                child: Text(lector.isPiper ? '${lector.label} (neuronowy)' : lector.label),
+              ),
+          ],
+          onChanged: (lector) {
+            if (lector != null) onChanged(lector);
+          },
+        ),
       ),
     );
   }

@@ -6,10 +6,13 @@ import sys
 
 SCRATCH = sys.argv[1]
 PIPER = rf"{SCRATCH}\piperbin\piper\piper.exe"
-MODEL = rf"{SCRATCH}\piperbin\voice.onnx"
 PROJECT = r"D:\Dev\FlutterProjects\Verba"
-OUT_DIR = rf"{PROJECT}\assets\lector"
-WAV_DIR = rf"{SCRATCH}\lector_wav"
+
+VOICES = {
+    "dmitri": rf"{SCRATCH}\piperbin\voice.onnx",
+    "irina": rf"{SCRATCH}\piperbin\irina.onnx",
+    "ruslan": rf"{SCRATCH}\piperbin\ruslan.onnx",
+}
 
 def fnv1a(text):
     h = 14695981039346656037
@@ -22,40 +25,32 @@ texts = {}
 for path in glob.glob(rf"{PROJECT}\assets\data\course_*.json"):
     course = json.load(open(path, encoding="utf-8"))
     for w in course["words"]:
-        ru = w["ru"]
-        texts[fnv1a(ru)] = ru
+        texts[fnv1a(w["ru"])] = w["ru"]
 print(f"unique words: {len(texts)}")
 
-os.makedirs(OUT_DIR, exist_ok=True)
-os.makedirs(WAV_DIR, exist_ok=True)
+for voice, model in VOICES.items():
+    out_dir = rf"{PROJECT}\assets\lector\{voice}"
+    wav_dir = rf"{SCRATCH}\lector_wav_{voice}"
+    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(wav_dir, exist_ok=True)
 
-lines = []
-for key, ru in texts.items():
-    lines.append(json.dumps({"text": ru, "output_file": rf"{WAV_DIR}\{key}.wav"}))
-payload = "\n".join(lines).encode("utf-8")
-
-print("generating with piper...")
-p = subprocess.run([PIPER, "--model", MODEL, "--json-input"], input=payload, capture_output=True)
-if p.returncode != 0:
-    print(p.stderr.decode("utf-8", "replace")[-500:])
-    raise SystemExit(1)
-
-print("compressing to mp3 with lead-in silence...")
-done = 0
-for key in texts:
-    wav = rf"{WAV_DIR}\{key}.wav"
-    mp3 = rf"{OUT_DIR}\{key}.mp3"
-    r = subprocess.run([
-        "ffmpeg", "-y", "-loglevel", "error", "-i", wav,
-        "-af", "adelay=60:all=1",
-        "-ac", "1", "-b:a", "64k", mp3,
-    ], capture_output=True)
-    if r.returncode != 0:
-        print(f"ffmpeg failed for {key}: {r.stderr.decode('utf-8', 'replace')[:200]}")
+    payload = "\n".join(
+        json.dumps({"text": ru, "output_file": rf"{wav_dir}\{key}.wav"}) for key, ru in texts.items()
+    ).encode("utf-8")
+    print(f"[{voice}] piper...")
+    p = subprocess.run([PIPER, "--model", model, "--json-input"], input=payload, capture_output=True)
+    if p.returncode != 0:
+        print(p.stderr.decode("utf-8", "replace")[-500:])
         raise SystemExit(1)
-    done += 1
-    if done % 100 == 0:
-        print(f"  {done}/{len(texts)}")
 
-total = sum(os.path.getsize(rf"{OUT_DIR}\{k}.mp3") for k in texts)
-print(f"done: {done} mp3 files, {total // 1024 // 1024} MB total")
+    print(f"[{voice}] mp3...")
+    for key in texts:
+        r = subprocess.run([
+            "ffmpeg", "-y", "-loglevel", "error", "-i", rf"{wav_dir}\{key}.wav",
+            "-af", "adelay=60:all=1", "-ac", "1", "-b:a", "64k", rf"{out_dir}\{key}.mp3",
+        ], capture_output=True)
+        if r.returncode != 0:
+            print(f"ffmpeg failed {voice}/{key}: {r.stderr.decode('utf-8', 'replace')[:200]}")
+            raise SystemExit(1)
+    total = sum(os.path.getsize(rf"{out_dir}\{k}.mp3") for k in texts)
+    print(f"[{voice}] done: {len(texts)} files, {total // 1024 // 1024} MB")
