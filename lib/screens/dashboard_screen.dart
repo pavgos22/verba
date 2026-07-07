@@ -279,18 +279,24 @@ class _ModeCard extends StatelessWidget {
   }
 }
 
-class _SessionSettingsDialog extends ConsumerWidget {
+class _SessionSettingsDialog extends ConsumerStatefulWidget {
   const _SessionSettingsDialog({required this.forTest});
 
   final bool forTest;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_SessionSettingsDialog> createState() => _SessionSettingsDialogState();
+}
+
+class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> {
+  SessionDirection? _selected;
+
+  @override
+  Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
-    final notifier = ref.read(settingsProvider.notifier);
-    final current = forTest ? settings.testDirection : settings.practiceDirection;
+    final current = _selected ?? (widget.forTest ? settings.testDirection : settings.practiceDirection);
     return AlertDialog(
-      title: Text(forTest ? 'Ustawienia testu' : 'Ustawienia utrwalania'),
+      title: Text(widget.forTest ? 'Ustawienia testu' : 'Ustawienia utrwalania'),
       content: SizedBox(
         width: 380,
         child: Column(
@@ -309,18 +315,26 @@ class _SessionSettingsDialog extends ConsumerWidget {
               _DirectionOption(
                 label: label,
                 selected: current == direction,
-                onTap: () {
-                  if (forTest) {
-                    notifier.setTestDirection(direction);
-                  } else {
-                    notifier.setPracticeDirection(direction);
-                  }
-                  Navigator.of(context).pop();
-                },
+                onTap: () => setState(() => _selected = direction),
               ),
           ],
         ),
       ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Anuluj')),
+        FilledButton(
+          onPressed: () {
+            final notifier = ref.read(settingsProvider.notifier);
+            if (widget.forTest) {
+              notifier.setTestDirection(current);
+            } else {
+              notifier.setPracticeDirection(current);
+            }
+            Navigator.of(context).pop();
+          },
+          child: const Text('Zapisz'),
+        ),
+      ],
     );
   }
 }
