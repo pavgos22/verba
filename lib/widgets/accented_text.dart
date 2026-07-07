@@ -28,22 +28,22 @@ class AccentedText extends ConsumerWidget {
         strippedCount++;
       }
     }
-    final painter = TextPainter(
+    final textPainter = TextPainter(
       text: TextSpan(text: stripped, style: style),
       textDirection: TextDirection.ltr,
     )..layout();
-    final fontSize = style.fontSize ?? 14;
-    final topPad = fontSize * 0.24;
+    final markPainter = TextPainter(
+      text: TextSpan(text: '´', style: style),
+      textDirection: TextDirection.ltr,
+    )..layout();
     return SizedBox(
-      width: painter.width,
-      height: painter.height + topPad,
+      width: textPainter.width,
+      height: textPainter.height,
       child: CustomPaint(
         painter: _AccentPainter(
-          textPainter: painter,
+          textPainter: textPainter,
+          markPainter: markPainter,
           stressIndices: stressIndices,
-          topPad: topPad,
-          fontSize: fontSize,
-          color: style.color ?? Theme.of(context).colorScheme.onSurface,
         ),
       ),
     );
@@ -53,42 +53,31 @@ class AccentedText extends ConsumerWidget {
 class _AccentPainter extends CustomPainter {
   _AccentPainter({
     required this.textPainter,
+    required this.markPainter,
     required this.stressIndices,
-    required this.topPad,
-    required this.fontSize,
-    required this.color,
   });
 
   final TextPainter textPainter;
+  final TextPainter markPainter;
   final List<int> stressIndices;
-  final double topPad;
-  final double fontSize;
-  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
-    textPainter.paint(canvas, Offset(0, topPad));
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = fontSize * 0.075
-      ..strokeCap = StrokeCap.round;
+    textPainter.paint(canvas, Offset.zero);
+    final textBaseline = textPainter.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+    final markBaseline = markPainter.computeDistanceToActualBaseline(TextBaseline.alphabetic);
     for (final index in stressIndices) {
       final left = textPainter.getOffsetForCaret(TextPosition(offset: index), Rect.zero).dx;
       final right = textPainter.getOffsetForCaret(TextPosition(offset: index + 1), Rect.zero).dx;
       final midX = (left + right) / 2;
-      canvas.drawLine(
-        Offset(midX - fontSize * 0.055, topPad * 0.88),
-        Offset(midX + fontSize * 0.055, topPad * 0.16),
-        paint,
-      );
+      markPainter.paint(canvas, Offset(midX - markPainter.width / 2, textBaseline - markBaseline));
     }
   }
 
   @override
   bool shouldRepaint(_AccentPainter oldDelegate) {
     return oldDelegate.textPainter.text != textPainter.text ||
-        oldDelegate.color != color ||
-        oldDelegate.fontSize != fontSize ||
+        oldDelegate.markPainter.text != markPainter.text ||
         oldDelegate.stressIndices.toString() != stressIndices.toString();
   }
 }
