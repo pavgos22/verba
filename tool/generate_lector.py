@@ -53,5 +53,8 @@ for voice, model in VOICES.items():
         if r.returncode != 0:
             print(f"ffmpeg failed {voice}/{key}: {r.stderr.decode('utf-8', 'replace')[:200]}")
             raise SystemExit(1)
+    stale = [f for f in os.listdir(out_dir) if f.endswith(".mp3") and f[:-4] not in texts]
+    for f in stale:
+        os.remove(os.path.join(out_dir, f))
     total = sum(os.path.getsize(rf"{out_dir}\{k}.mp3") for k in texts)
-    print(f"[{voice}] done: {len(texts)} files, {total // 1024 // 1024} MB")
+    print(f"[{voice}] done: {len(texts)} files, pruned {len(stale)} stale, {total // 1024 // 1024} MB")
