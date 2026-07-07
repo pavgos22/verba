@@ -1,0 +1,8216 @@
+{
+ "id": "ru1000",
+ "name": "1000 rosyjskich słówek na start",
+ "description": "Najczęściej używane rosyjskie słowa",
+ "words": [
+  {
+   "id": "ru1000-001",
+   "rank": 1,
+   "ru": "и",
+   "pl": [
+    "i"
+   ],
+   "pronunciation": "i"
+  },
+  {
+   "id": "ru1000-002",
+   "rank": 2,
+   "ru": "в",
+   "pl": [
+    "w"
+   ],
+   "pronunciation": "w"
+  },
+  {
+   "id": "ru1000-003",
+   "rank": 3,
+   "ru": "не",
+   "pl": [
+    "nie"
+   ],
+   "pronunciation": "nie"
+  },
+  {
+   "id": "ru1000-004",
+   "rank": 4,
+   "ru": "он",
+   "pl": [
+    "on"
+   ],
+   "pronunciation": "on"
+  },
+  {
+   "id": "ru1000-005",
+   "rank": 5,
+   "ru": "на",
+   "pl": [
+    "na"
+   ],
+   "pronunciation": "na"
+  },
+  {
+   "id": "ru1000-006",
+   "rank": 6,
+   "ru": "я",
+   "pl": [
+    "ja"
+   ],
+   "pronunciation": "ja"
+  },
+  {
+   "id": "ru1000-007",
+   "rank": 7,
+   "ru": "что",
+   "pl": [
+    "co",
+    "że"
+   ],
+   "pronunciation": "szto"
+  },
+  {
+   "id": "ru1000-008",
+   "rank": 8,
+   "ru": "тот",
+   "pl": [
+    "tamten"
+   ],
+   "pronunciation": "tot"
+  },
+  {
+   "id": "ru1000-009",
+   "rank": 9,
+   "ru": "быть",
+   "pl": [
+    "być"
+   ],
+   "pronunciation": "byt'"
+  },
+  {
+   "id": "ru1000-010",
+   "rank": 10,
+   "ru": "с",
+   "pl": [
+    "z"
+   ],
+   "pronunciation": "s"
+  },
+  {
+   "id": "ru1000-011",
+   "rank": 11,
+   "ru": "а",
+   "pl": [
+    "ale"
+   ],
+   "pronunciation": "a"
+  },
+  {
+   "id": "ru1000-012",
+   "rank": 12,
+   "ru": "весь",
+   "pl": [
+    "cały"
+   ],
+   "pronunciation": "wjes'"
+  },
+  {
+   "id": "ru1000-013",
+   "rank": 13,
+   "ru": "это",
+   "pl": [
+    "to"
+   ],
+   "pronunciation": "eta"
+  },
+  {
+   "id": "ru1000-014",
+   "rank": 14,
+   "ru": "как",
+   "pl": [
+    "jak"
+   ],
+   "pronunciation": "kak"
+  },
+  {
+   "id": "ru1000-015",
+   "rank": 15,
+   "ru": "она",
+   "pl": [
+    "ona"
+   ],
+   "pronunciation": "ana"
+  },
+  {
+   "id": "ru1000-016",
+   "rank": 16,
+   "ru": "по",
+   "pl": [
+    "po"
+   ],
+   "pronunciation": "po"
+  },
+  {
+   "id": "ru1000-017",
+   "rank": 17,
+   "ru": "но",
+   "pl": [
+    "ale"
+   ],
+   "pronunciation": "no"
+  },
+  {
+   "id": "ru1000-018",
+   "rank": 18,
+   "ru": "они",
+   "pl": [
+    "oni"
+   ],
+   "pronunciation": "ani"
+  },
+  {
+   "id": "ru1000-019",
+   "rank": 19,
+   "ru": "к",
+   "pl": [
+    "do"
+   ],
+   "pronunciation": "k"
+  },
+  {
+   "id": "ru1000-020",
+   "rank": 20,
+   "ru": "у",
+   "pl": [
+    "u"
+   ],
+   "pronunciation": "u"
+  },
+  {
+   "id": "ru1000-021",
+   "rank": 21,
+   "ru": "из",
+   "pl": [
+    "z"
+   ],
+   "pronunciation": "iż"
+  },
+  {
+   "id": "ru1000-022",
+   "rank": 22,
+   "ru": "мы",
+   "pl": [
+    "my"
+   ],
+   "pronunciation": "my"
+  },
+  {
+   "id": "ru1000-023",
+   "rank": 23,
+   "ru": "за",
+   "pl": [
+    "za"
+   ],
+   "pronunciation": "za"
+  },
+  {
+   "id": "ru1000-024",
+   "rank": 24,
+   "ru": "ты",
+   "pl": [
+    "ty"
+   ],
+   "pronunciation": "ty"
+  },
+  {
+   "id": "ru1000-025",
+   "rank": 25,
+   "ru": "вы",
+   "pl": [
+    "wy"
+   ],
+   "pronunciation": "wy"
+  },
+  {
+   "id": "ru1000-026",
+   "rank": 26,
+   "ru": "так",
+   "pl": [
+    "tak"
+   ],
+   "pronunciation": "tak"
+  },
+  {
+   "id": "ru1000-027",
+   "rank": 27,
+   "ru": "сказать",
+   "pl": [
+    "powiedzieć"
+   ],
+   "pronunciation": "skazat'"
+  },
+  {
+   "id": "ru1000-028",
+   "rank": 28,
+   "ru": "от",
+   "pl": [
+    "od"
+   ],
+   "pronunciation": "ot"
+  },
+  {
+   "id": "ru1000-029",
+   "rank": 29,
+   "ru": "этот",
+   "pl": [
+    "ten"
+   ],
+   "pronunciation": "etat"
+  },
+  {
+   "id": "ru1000-030",
+   "rank": 30,
+   "ru": "который",
+   "pl": [
+    "który"
+   ],
+   "pronunciation": "katoryj"
+  },
+  {
+   "id": "ru1000-031",
+   "rank": 31,
+   "ru": "мочь",
+   "pl": [
+    "móc"
+   ],
+   "pronunciation": "moć"
+  },
+  {
+   "id": "ru1000-032",
+   "rank": 32,
+   "ru": "о",
+   "pl": [
+    "o"
+   ],
+   "pronunciation": "o"
+  },
+  {
+   "id": "ru1000-033",
+   "rank": 33,
+   "ru": "человек",
+   "pl": [
+    "człowiek"
+   ],
+   "pronunciation": "cieławjek"
+  },
+  {
+   "id": "ru1000-034",
+   "rank": 34,
+   "ru": "один",
+   "pl": [
+    "jeden"
+   ],
+   "pronunciation": "adin"
+  },
+  {
+   "id": "ru1000-035",
+   "rank": 35,
+   "ru": "еще",
+   "pl": [
+    "jeszcze"
+   ],
+   "pronunciation": "jeścio"
+  },
+  {
+   "id": "ru1000-036",
+   "rank": 36,
+   "ru": "такой",
+   "pl": [
+    "taki"
+   ],
+   "pronunciation": "takoj"
+  },
+  {
+   "id": "ru1000-037",
+   "rank": 37,
+   "ru": "только",
+   "pl": [
+    "tylko"
+   ],
+   "pronunciation": "tol'ka"
+  },
+  {
+   "id": "ru1000-038",
+   "rank": 38,
+   "ru": "себя",
+   "pl": [
+    "siebie"
+   ],
+   "pronunciation": "sjebja"
+  },
+  {
+   "id": "ru1000-039",
+   "rank": 39,
+   "ru": "свое",
+   "pl": [
+    "swoje"
+   ],
+   "pronunciation": "swajo"
+  },
+  {
+   "id": "ru1000-040",
+   "rank": 40,
+   "ru": "какой",
+   "pl": [
+    "jaki"
+   ],
+   "pronunciation": "kakoj"
+  },
+  {
+   "id": "ru1000-041",
+   "rank": 41,
+   "ru": "для",
+   "pl": [
+    "dla"
+   ],
+   "pronunciation": "dlja"
+  },
+  {
+   "id": "ru1000-042",
+   "rank": 42,
+   "ru": "уже",
+   "pl": [
+    "już"
+   ],
+   "pronunciation": "uże"
+  },
+  {
+   "id": "ru1000-043",
+   "rank": 43,
+   "ru": "когда",
+   "pl": [
+    "kiedy"
+   ],
+   "pronunciation": "kagda"
+  },
+  {
+   "id": "ru1000-044",
+   "rank": 44,
+   "ru": "кто",
+   "pl": [
+    "kto"
+   ],
+   "pronunciation": "kto"
+  },
+  {
+   "id": "ru1000-045",
+   "rank": 45,
+   "ru": "вот",
+   "pl": [
+    "oto",
+    "otóż"
+   ],
+   "pronunciation": "wot"
+  },
+  {
+   "id": "ru1000-046",
+   "rank": 46,
+   "ru": "да",
+   "pl": [
+    "tak"
+   ],
+   "pronunciation": "da"
+  },
+  {
+   "id": "ru1000-047",
+   "rank": 47,
+   "ru": "год",
+   "pl": [
+    "rok"
+   ],
+   "pronunciation": "god"
+  },
+  {
+   "id": "ru1000-048",
+   "rank": 48,
+   "ru": "знать",
+   "pl": [
+    "wiedzieć",
+    "znać"
+   ],
+   "pronunciation": "znat'"
+  },
+  {
+   "id": "ru1000-049",
+   "rank": 49,
+   "ru": "если",
+   "pl": [
+    "jeśli"
+   ],
+   "pronunciation": "jeśli"
+  },
+  {
+   "id": "ru1000-050",
+   "rank": 50,
+   "ru": "до",
+   "pl": [
+    "do"
+   ],
+   "pronunciation": "do"
+  },
+  {
+   "id": "ru1000-051",
+   "rank": 51,
+   "ru": "говорить",
+   "pl": [
+    "mówić"
+   ],
+   "pronunciation": "gawarit'"
+  },
+  {
+   "id": "ru1000-052",
+   "rank": 52,
+   "ru": "или",
+   "pl": [
+    "albo"
+   ],
+   "pronunciation": "ili"
+  },
+  {
+   "id": "ru1000-053",
+   "rank": 53,
+   "ru": "мой",
+   "pl": [
+    "mój"
+   ],
+   "pronunciation": "moj"
+  },
+  {
+   "id": "ru1000-054",
+   "rank": 54,
+   "ru": "время",
+   "pl": [
+    "czas"
+   ],
+   "pronunciation": "wrjemja"
+  },
+  {
+   "id": "ru1000-055",
+   "rank": 55,
+   "ru": "рука",
+   "pl": [
+    "ręka"
+   ],
+   "pronunciation": "ruka"
+  },
+  {
+   "id": "ru1000-056",
+   "rank": 56,
+   "ru": "самый",
+   "pl": [
+    "naj-"
+   ],
+   "pronunciation": "samyj"
+  },
+  {
+   "id": "ru1000-057",
+   "rank": 57,
+   "ru": "нет",
+   "pl": [
+    "nie"
+   ],
+   "pronunciation": "niet"
+  },
+  {
+   "id": "ru1000-058",
+   "rank": 58,
+   "ru": "ни",
+   "pl": [
+    "ani"
+   ],
+   "pronunciation": "ni"
+  },
+  {
+   "id": "ru1000-059",
+   "rank": 59,
+   "ru": "стать",
+   "pl": [
+    "stać się"
+   ],
+   "pronunciation": "stat'"
+  },
+  {
+   "id": "ru1000-060",
+   "rank": 60,
+   "ru": "большой",
+   "pl": [
+    "duży"
+   ],
+   "pronunciation": "balszoj"
+  },
+  {
+   "id": "ru1000-061",
+   "rank": 61,
+   "ru": "наш",
+   "pl": [
+    "nasz"
+   ],
+   "pronunciation": "nasz"
+  },
+  {
+   "id": "ru1000-062",
+   "rank": 62,
+   "ru": "даже",
+   "pl": [
+    "nawet"
+   ],
+   "pronunciation": "daże"
+  },
+  {
+   "id": "ru1000-063",
+   "rank": 63,
+   "ru": "другой",
+   "pl": [
+    "inny"
+   ],
+   "pronunciation": "drugoj"
+  },
+  {
+   "id": "ru1000-064",
+   "rank": 64,
+   "ru": "свой",
+   "pl": [
+    "swój"
+   ],
+   "pronunciation": "swoj"
+  },
+  {
+   "id": "ru1000-065",
+   "rank": 65,
+   "ru": "дело",
+   "pl": [
+    "sprawa"
+   ],
+   "pronunciation": "djeło"
+  },
+  {
+   "id": "ru1000-066",
+   "rank": 66,
+   "ru": "под",
+   "pl": [
+    "p od"
+   ],
+   "pronunciation": "pod"
+  },
+  {
+   "id": "ru1000-067",
+   "rank": 67,
+   "ru": "где",
+   "pl": [
+    "gdzie"
+   ],
+   "pronunciation": "gdje"
+  },
+  {
+   "id": "ru1000-068",
+   "rank": 68,
+   "ru": "чтобы",
+   "pl": [
+    "żeby"
+   ],
+   "pronunciation": "sztoby"
+  },
+  {
+   "id": "ru1000-069",
+   "rank": 69,
+   "ru": "ну",
+   "pl": [
+    "więc"
+   ],
+   "pronunciation": "nu"
+  },
+  {
+   "id": "ru1000-070",
+   "rank": 70,
+   "ru": "сам",
+   "pl": [
+    "sam"
+   ],
+   "pronunciation": "sam"
+  },
+  {
+   "id": "ru1000-071",
+   "rank": 71,
+   "ru": "есть",
+   "pl": [
+    "jest",
+    "jeść"
+   ],
+   "pronunciation": "jest'"
+  },
+  {
+   "id": "ru1000-072",
+   "rank": 72,
+   "ru": "раз",
+   "pl": [
+    "raz"
+   ],
+   "pronunciation": "raz"
+  },
+  {
+   "id": "ru1000-073",
+   "rank": 73,
+   "ru": "два",
+   "pl": [
+    "dwa"
+   ],
+   "pronunciation": "dwa"
+  },
+  {
+   "id": "ru1000-074",
+   "rank": 74,
+   "ru": "чем",
+   "pl": [
+    "niż"
+   ],
+   "pronunciation": "ciem"
+  },
+  {
+   "id": "ru1000-075",
+   "rank": 75,
+   "ru": "там",
+   "pl": [
+    "tam"
+   ],
+   "pronunciation": "tam"
+  },
+  {
+   "id": "ru1000-076",
+   "rank": 76,
+   "ru": "глаз",
+   "pl": [
+    "oko"
+   ],
+   "pronunciation": "głas"
+  },
+  {
+   "id": "ru1000-077",
+   "rank": 77,
+   "ru": "первый",
+   "pl": [
+    "pierwszy"
+   ],
+   "pronunciation": "pierwyj"
+  },
+  {
+   "id": "ru1000-078",
+   "rank": 78,
+   "ru": "день",
+   "pl": [
+    "dzień"
+   ],
+   "pronunciation": "dień"
+  },
+  {
+   "id": "ru1000-079",
+   "rank": 79,
+   "ru": "жизнь",
+   "pl": [
+    "życie"
+   ],
+   "pronunciation": "żyzń"
+  },
+  {
+   "id": "ru1000-080",
+   "rank": 80,
+   "ru": "во",
+   "pl": [
+    "w"
+   ],
+   "pronunciation": "wa"
+  },
+  {
+   "id": "ru1000-081",
+   "rank": 81,
+   "ru": "тут",
+   "pl": [
+    "tu",
+    "tutaj"
+   ],
+   "pronunciation": "tut"
+  },
+  {
+   "id": "ru1000-082",
+   "rank": 82,
+   "ru": "ничто",
+   "pl": [
+    "nic"
+   ],
+   "pronunciation": "niszto"
+  },
+  {
+   "id": "ru1000-083",
+   "rank": 83,
+   "ru": "потом",
+   "pl": [
+    "potem"
+   ],
+   "pronunciation": "patom"
+  },
+  {
+   "id": "ru1000-084",
+   "rank": 84,
+   "ru": "со",
+   "pl": [
+    "z"
+   ],
+   "pronunciation": "so"
+  },
+  {
+   "id": "ru1000-085",
+   "rank": 85,
+   "ru": "очень",
+   "pl": [
+    "bardzo"
+   ],
+   "pronunciation": "ocień"
+  },
+  {
+   "id": "ru1000-086",
+   "rank": 86,
+   "ru": "ли",
+   "pl": [
+    "czy"
+   ],
+   "pronunciation": "li"
+  },
+  {
+   "id": "ru1000-087",
+   "rank": 87,
+   "ru": "при",
+   "pl": [
+    "przy"
+   ],
+   "pronunciation": "pri"
+  },
+  {
+   "id": "ru1000-088",
+   "rank": 88,
+   "ru": "хотеть",
+   "pl": [
+    "chcieć"
+   ],
+   "pronunciation": "hatjet'"
+  },
+  {
+   "id": "ru1000-089",
+   "rank": 89,
+   "ru": "надо",
+   "pl": [
+    "należy"
+   ],
+   "pronunciation": "nada"
+  },
+  {
+   "id": "ru1000-090",
+   "rank": 90,
+   "ru": "голова",
+   "pl": [
+    "głowa"
+   ],
+   "pronunciation": "gaława"
+  },
+  {
+   "id": "ru1000-091",
+   "rank": 91,
+   "ru": "без",
+   "pl": [
+    "bez"
+   ],
+   "pronunciation": "bjez"
+  },
+  {
+   "id": "ru1000-092",
+   "rank": 92,
+   "ru": "видеть",
+   "pl": [
+    "widzieć"
+   ],
+   "pronunciation": "widjet'"
+  },
+  {
+   "id": "ru1000-093",
+   "rank": 93,
+   "ru": "теперь",
+   "pl": [
+    "teraz",
+    "obecnie"
+   ],
+   "pronunciation": "tjepier'"
+  },
+  {
+   "id": "ru1000-094",
+   "rank": 94,
+   "ru": "идти",
+   "pl": [
+    "iść"
+   ],
+   "pronunciation": "idti"
+  },
+  {
+   "id": "ru1000-095",
+   "rank": 95,
+   "ru": "друг",
+   "pl": [
+    "przyjaciel"
+   ],
+   "pronunciation": "drug"
+  },
+  {
+   "id": "ru1000-096",
+   "rank": 96,
+   "ru": "сейчас",
+   "pl": [
+    "teraz",
+    "dopieroco"
+   ],
+   "pronunciation": "sjejcias"
+  },
+  {
+   "id": "ru1000-097",
+   "rank": 97,
+   "ru": "стоять",
+   "pl": [
+    "stać"
+   ],
+   "pronunciation": "stajat'"
+  },
+  {
+   "id": "ru1000-098",
+   "rank": 98,
+   "ru": "дом",
+   "pl": [
+    "dom"
+   ],
+   "pronunciation": "dom"
+  },
+  {
+   "id": "ru1000-099",
+   "rank": 99,
+   "ru": "тоже",
+   "pl": [
+    "też"
+   ],
+   "pronunciation": "toże"
+  },
+  {
+   "id": "ru1000-100",
+   "rank": 100,
+   "ru": "после",
+   "pl": [
+    "po"
+   ],
+   "pronunciation": "poslje"
+  },
+  {
+   "id": "ru1000-101",
+   "rank": 101,
+   "ru": "можно",
+   "pl": [
+    "możliwe"
+   ],
+   "pronunciation": "możno"
+  },
+  {
+   "id": "ru1000-102",
+   "rank": 102,
+   "ru": "слово",
+   "pl": [
+    "słowo"
+   ],
+   "pronunciation": "slowo"
+  },
+  {
+   "id": "ru1000-103",
+   "rank": 103,
+   "ru": "через",
+   "pl": [
+    "przez",
+    "poprzez"
+   ],
+   "pronunciation": "cieriez"
+  },
+  {
+   "id": "ru1000-104",
+   "rank": 104,
+   "ru": "место",
+   "pl": [
+    "miejsce"
+   ],
+   "pronunciation": "miesto"
+  },
+  {
+   "id": "ru1000-105",
+   "rank": 105,
+   "ru": "думать",
+   "pl": [
+    "myśleć"
+   ],
+   "pronunciation": "dumać"
+  },
+  {
+   "id": "ru1000-106",
+   "rank": 106,
+   "ru": "здесь",
+   "pl": [
+    "tutaj"
+   ],
+   "pronunciation": "zdes'"
+  },
+  {
+   "id": "ru1000-107",
+   "rank": 107,
+   "ru": "спросить",
+   "pl": [
+    "zapytać"
+   ],
+   "pronunciation": "sprasic"
+  },
+  {
+   "id": "ru1000-108",
+   "rank": 108,
+   "ru": "лицо",
+   "pl": [
+    "twarz"
+   ],
+   "pronunciation": "lico"
+  },
+  {
+   "id": "ru1000-109",
+   "rank": 109,
+   "ru": "тогда",
+   "pl": [
+    "wtedy"
+   ],
+   "pronunciation": "tagda"
+  },
+  {
+   "id": "ru1000-110",
+   "rank": 110,
+   "ru": "должный",
+   "pl": [
+    "właściwy"
+   ],
+   "pronunciation": "dalżnyj"
+  },
+  {
+   "id": "ru1000-111",
+   "rank": 111,
+   "ru": "ведь",
+   "pl": [
+    "przecież"
+   ],
+   "pronunciation": "viedź"
+  },
+  {
+   "id": "ru1000-112",
+   "rank": 112,
+   "ru": "новый",
+   "pl": [
+    "nowy"
+   ],
+   "pronunciation": "nowyj"
+  },
+  {
+   "id": "ru1000-113",
+   "rank": 113,
+   "ru": "каждый",
+   "pl": [
+    "każdy"
+   ],
+   "pronunciation": "każdyj"
+  },
+  {
+   "id": "ru1000-114",
+   "rank": 114,
+   "ru": "хороший",
+   "pl": [
+    "dobry"
+   ],
+   "pronunciation": "charoszyj"
+  },
+  {
+   "id": "ru1000-115",
+   "rank": 115,
+   "ru": "жить",
+   "pl": [
+    "żyć"
+   ],
+   "pronunciation": "żyć"
+  },
+  {
+   "id": "ru1000-116",
+   "rank": 116,
+   "ru": "почему",
+   "pl": [
+    "dlaczego"
+   ],
+   "pronunciation": "paciemu"
+  },
+  {
+   "id": "ru1000-117",
+   "rank": 117,
+   "ru": "потому",
+   "pl": [
+    "dlatego"
+   ],
+   "pronunciation": "patamu"
+  },
+  {
+   "id": "ru1000-118",
+   "rank": 118,
+   "ru": "сторона",
+   "pl": [
+    "strona"
+   ],
+   "pronunciation": "storona"
+  },
+  {
+   "id": "ru1000-119",
+   "rank": 119,
+   "ru": "смотреть",
+   "pl": [
+    "patrzeć"
+   ],
+   "pronunciation": "smatriec"
+  },
+  {
+   "id": "ru1000-120",
+   "rank": 120,
+   "ru": "иметь",
+   "pl": [
+    "mieć",
+    "posiadać"
+   ],
+   "pronunciation": "imieć"
+  },
+  {
+   "id": "ru1000-121",
+   "rank": 121,
+   "ru": "просто",
+   "pl": [
+    "poprostu"
+   ],
+   "pronunciation": "prosto"
+  },
+  {
+   "id": "ru1000-122",
+   "rank": 122,
+   "ru": "понять",
+   "pl": [
+    "zrozumieć"
+   ],
+   "pronunciation": "paniać"
+  },
+  {
+   "id": "ru1000-123",
+   "rank": 123,
+   "ru": "сидеть",
+   "pl": [
+    "siedzieć"
+   ],
+   "pronunciation": "sidieć"
+  },
+  {
+   "id": "ru1000-124",
+   "rank": 124,
+   "ru": "об",
+   "pl": [
+    "o"
+   ],
+   "pronunciation": "ab"
+  },
+  {
+   "id": "ru1000-125",
+   "rank": 125,
+   "ru": "нога",
+   "pl": [
+    "noga"
+   ],
+   "pronunciation": "naga"
+  },
+  {
+   "id": "ru1000-126",
+   "rank": 126,
+   "ru": "делать",
+   "pl": [
+    "robić"
+   ],
+   "pronunciation": "delać"
+  },
+  {
+   "id": "ru1000-127",
+   "rank": 127,
+   "ru": "сделать",
+   "pl": [
+    "zrobić"
+   ],
+   "pronunciation": "sdelać"
+  },
+  {
+   "id": "ru1000-128",
+   "rank": 128,
+   "ru": "вдруг",
+   "pl": [
+    "nagle"
+   ],
+   "pronunciation": "wdrug"
+  },
+  {
+   "id": "ru1000-129",
+   "rank": 129,
+   "ru": "никто",
+   "pl": [
+    "nikt"
+   ],
+   "pronunciation": "nikto"
+  },
+  {
+   "id": "ru1000-130",
+   "rank": 130,
+   "ru": "работа",
+   "pl": [
+    "praca"
+   ],
+   "pronunciation": "rabota"
+  },
+  {
+   "id": "ru1000-131",
+   "rank": 131,
+   "ru": "перед",
+   "pl": [
+    "przed"
+   ],
+   "pronunciation": "pieried"
+  },
+  {
+   "id": "ru1000-132",
+   "rank": 132,
+   "ru": "ваш",
+   "pl": [
+    "wasz"
+   ],
+   "pronunciation": "wasz"
+  },
+  {
+   "id": "ru1000-133",
+   "rank": 133,
+   "ru": "нужный",
+   "pl": [
+    "potrzebny"
+   ],
+   "pronunciation": "nużnyj"
+  },
+  {
+   "id": "ru1000-134",
+   "rank": 134,
+   "ru": "над",
+   "pl": [
+    "nad",
+    "ponad"
+   ],
+   "pronunciation": "nad"
+  },
+  {
+   "id": "ru1000-135",
+   "rank": 135,
+   "ru": "взять",
+   "pl": [
+    "wziąć"
+   ],
+   "pronunciation": "wzjać"
+  },
+  {
+   "id": "ru1000-136",
+   "rank": 136,
+   "ru": "конечно",
+   "pl": [
+    "oczywiście"
+   ],
+   "pronunciation": "kanieszno"
+  },
+  {
+   "id": "ru1000-137",
+   "rank": 137,
+   "ru": "понимать",
+   "pl": [
+    "rozumieć"
+   ],
+   "pronunciation": "panimać"
+  },
+  {
+   "id": "ru1000-138",
+   "rank": 138,
+   "ru": "дверь",
+   "pl": [
+    "drzwi"
+   ],
+   "pronunciation": "dwieri"
+  },
+  {
+   "id": "ru1000-139",
+   "rank": 139,
+   "ru": "казаться",
+   "pl": [
+    "wydawać się"
+   ],
+   "pronunciation": "kazatsa"
+  },
+  {
+   "id": "ru1000-140",
+   "rank": 140,
+   "ru": "три",
+   "pl": [
+    "trzy"
+   ],
+   "pronunciation": "tri"
+  },
+  {
+   "id": "ru1000-141",
+   "rank": 141,
+   "ru": "конец",
+   "pl": [
+    "koniec"
+   ],
+   "pronunciation": "kaniec"
+  },
+  {
+   "id": "ru1000-142",
+   "rank": 142,
+   "ru": "город",
+   "pl": [
+    "miasto"
+   ],
+   "pronunciation": "gorod"
+  },
+  {
+   "id": "ru1000-143",
+   "rank": 143,
+   "ru": "несколько",
+   "pl": [
+    "kilka"
+   ],
+   "pronunciation": "nieskol'ko"
+  },
+  {
+   "id": "ru1000-144",
+   "rank": 144,
+   "ru": "начать",
+   "pl": [
+    "zacząć",
+    "rozpocząć"
+   ],
+   "pronunciation": "naciać"
+  },
+  {
+   "id": "ru1000-145",
+   "rank": 145,
+   "ru": "голос",
+   "pl": [
+    "głos"
+   ],
+   "pronunciation": "golos"
+  },
+  {
+   "id": "ru1000-146",
+   "rank": 146,
+   "ru": "час",
+   "pl": [
+    "godzina"
+   ],
+   "pronunciation": "cias"
+  },
+  {
+   "id": "ru1000-147",
+   "rank": 147,
+   "ru": "пока",
+   "pl": [
+    "narazie"
+   ],
+   "pronunciation": "paka"
+  },
+  {
+   "id": "ru1000-148",
+   "rank": 148,
+   "ru": "уж",
+   "pl": [
+    "już"
+   ],
+   "pronunciation": "uż"
+  },
+  {
+   "id": "ru1000-149",
+   "rank": 149,
+   "ru": "последний",
+   "pl": [
+    "ostatni"
+   ],
+   "pronunciation": "pasliednij"
+  },
+  {
+   "id": "ru1000-150",
+   "rank": 150,
+   "ru": "более",
+   "pl": [
+    "bardziej"
+   ],
+   "pronunciation": "boljeje"
+  },
+  {
+   "id": "ru1000-151",
+   "rank": 151,
+   "ru": "земля",
+   "pl": [
+    "ziemia"
+   ],
+   "pronunciation": "zjemlia"
+  },
+  {
+   "id": "ru1000-152",
+   "rank": 152,
+   "ru": "хорошо",
+   "pl": [
+    "dobrze"
+   ],
+   "pronunciation": "haraszo"
+  },
+  {
+   "id": "ru1000-153",
+   "rank": 153,
+   "ru": "хотя",
+   "pl": [
+    "choć",
+    "chociaż"
+   ],
+   "pronunciation": "hacka"
+  },
+  {
+   "id": "ru1000-154",
+   "rank": 154,
+   "ru": "сила",
+   "pl": [
+    "siła"
+   ],
+   "pronunciation": "s_iła"
+  },
+  {
+   "id": "ru1000-155",
+   "rank": 155,
+   "ru": "вода",
+   "pl": [
+    "woda"
+   ],
+   "pronunciation": "woda"
+  },
+  {
+   "id": "ru1000-156",
+   "rank": 156,
+   "ru": "второй",
+   "pl": [
+    "drugi"
+   ],
+   "pronunciation": "wtaroj"
+  },
+  {
+   "id": "ru1000-157",
+   "rank": 157,
+   "ru": "увидеть",
+   "pl": [
+    "zobaczyć"
+   ],
+   "pronunciation": "uwidzjec"
+  },
+  {
+   "id": "ru1000-158",
+   "rank": 158,
+   "ru": "всегда",
+   "pl": [
+    "zawsze"
+   ],
+   "pronunciation": "wsjegda"
+  },
+  {
+   "id": "ru1000-159",
+   "rank": 159,
+   "ru": "давать",
+   "pl": [
+    "dawać"
+   ],
+   "pronunciation": "dawac"
+  },
+  {
+   "id": "ru1000-160",
+   "rank": 160,
+   "ru": "случай",
+   "pl": [
+    "zdarzenie",
+    "wypadek"
+   ],
+   "pronunciation": "słuciaj"
+  },
+  {
+   "id": "ru1000-161",
+   "rank": 161,
+   "ru": "куда",
+   "pl": [
+    "dokąd"
+   ],
+   "pronunciation": "kuda"
+  },
+  {
+   "id": "ru1000-162",
+   "rank": 162,
+   "ru": "пойти",
+   "pl": [
+    "pójść"
+   ],
+   "pronunciation": "pajti"
+  },
+  {
+   "id": "ru1000-163",
+   "rank": 163,
+   "ru": "стол",
+   "pl": [
+    "stół"
+   ],
+   "pronunciation": "stoł"
+  },
+  {
+   "id": "ru1000-164",
+   "rank": 164,
+   "ru": "машина",
+   "pl": [
+    "samochód"
+   ],
+   "pronunciation": "maszina"
+  },
+  {
+   "id": "ru1000-165",
+   "rank": 165,
+   "ru": "мир",
+   "pl": [
+    "świat"
+   ],
+   "pronunciation": "mir"
+  },
+  {
+   "id": "ru1000-166",
+   "rank": 166,
+   "ru": "ночь",
+   "pl": [
+    "noc"
+   ],
+   "pronunciation": "noć"
+  },
+  {
+   "id": "ru1000-167",
+   "rank": 167,
+   "ru": "женщина",
+   "pl": [
+    "kobieta"
+   ],
+   "pronunciation": "żenścina"
+  },
+  {
+   "id": "ru1000-168",
+   "rank": 168,
+   "ru": "остаться",
+   "pl": [
+    "zostać"
+   ],
+   "pronunciation": "ostacsje"
+  },
+  {
+   "id": "ru1000-169",
+   "rank": 169,
+   "ru": "сразу",
+   "pl": [
+    "odrazu"
+   ],
+   "pronunciation": "srazu"
+  },
+  {
+   "id": "ru1000-170",
+   "rank": 170,
+   "ru": "совсем",
+   "pl": [
+    "zupełnie"
+   ],
+   "pronunciation": "sowsjem"
+  },
+  {
+   "id": "ru1000-171",
+   "rank": 171,
+   "ru": "ребенок",
+   "pl": [
+    "dziecko"
+   ],
+   "pronunciation": "riebjonak"
+  },
+  {
+   "id": "ru1000-172",
+   "rank": 172,
+   "ru": "выйти",
+   "pl": [
+    "wyjść"
+   ],
+   "pronunciation": "wyjti"
+  },
+  {
+   "id": "ru1000-173",
+   "rank": 173,
+   "ru": "вид",
+   "pl": [
+    "rodzaj",
+    "typ"
+   ],
+   "pronunciation": "wid"
+  },
+  {
+   "id": "ru1000-174",
+   "rank": 174,
+   "ru": "отец",
+   "pl": [
+    "ojciec"
+   ],
+   "pronunciation": "atjec"
+  },
+  {
+   "id": "ru1000-175",
+   "rank": 175,
+   "ru": "вопрос",
+   "pl": [
+    "pytanie"
+   ],
+   "pronunciation": "wapros"
+  },
+  {
+   "id": "ru1000-176",
+   "rank": 176,
+   "ru": "дать",
+   "pl": [
+    "dać"
+   ],
+   "pronunciation": "dac"
+  },
+  {
+   "id": "ru1000-177",
+   "rank": 177,
+   "ru": "работать",
+   "pl": [
+    "pracować"
+   ],
+   "pronunciation": "rabotac"
+  },
+  {
+   "id": "ru1000-178",
+   "rank": 178,
+   "ru": "оказаться",
+   "pl": [
+    "okazać się"
+   ],
+   "pronunciation": "okazacsja"
+  },
+  {
+   "id": "ru1000-179",
+   "rank": 179,
+   "ru": "ряд",
+   "pl": [
+    "rząd",
+    "szereg"
+   ],
+   "pronunciation": "rjad"
+  },
+  {
+   "id": "ru1000-180",
+   "rank": 180,
+   "ru": "почти",
+   "pl": [
+    "prawie"
+   ],
+   "pronunciation": "paczti"
+  },
+  {
+   "id": "ru1000-181",
+   "rank": 181,
+   "ru": "снова",
+   "pl": [
+    "znowu",
+    "odnowa"
+   ],
+   "pronunciation": "snowa"
+  },
+  {
+   "id": "ru1000-182",
+   "rank": 182,
+   "ru": "старый",
+   "pl": [
+    "stary"
+   ],
+   "pronunciation": "staryj"
+  },
+  {
+   "id": "ru1000-183",
+   "rank": 183,
+   "ru": "страна",
+   "pl": [
+    "kraj"
+   ],
+   "pronunciation": "strana"
+  },
+  {
+   "id": "ru1000-184",
+   "rank": 184,
+   "ru": "твой",
+   "pl": [
+    "twój"
+   ],
+   "pronunciation": "twoj"
+  },
+  {
+   "id": "ru1000-185",
+   "rank": 185,
+   "ru": "между",
+   "pl": [
+    "między"
+   ],
+   "pronunciation": "mieżdu"
+  },
+  {
+   "id": "ru1000-186",
+   "rank": 186,
+   "ru": "ответить",
+   "pl": [
+    "odpowiedzieć"
+   ],
+   "pronunciation": "atwjetic"
+  },
+  {
+   "id": "ru1000-187",
+   "rank": 187,
+   "ru": "много",
+   "pl": [
+    "dużo",
+    "wiele"
+   ],
+   "pronunciation": "mnogo"
+  },
+  {
+   "id": "ru1000-188",
+   "rank": 188,
+   "ru": "война",
+   "pl": [
+    "wojna"
+   ],
+   "pronunciation": "wojna"
+  },
+  {
+   "id": "ru1000-189",
+   "rank": 189,
+   "ru": "подумать",
+   "pl": [
+    "pomyśleć"
+   ],
+   "pronunciation": "padumac"
+  },
+  {
+   "id": "ru1000-190",
+   "rank": 190,
+   "ru": "деньги",
+   "pl": [
+    "pieniądze"
+   ],
+   "pronunciation": "dzjengi"
+  },
+  {
+   "id": "ru1000-191",
+   "rank": 191,
+   "ru": "любить",
+   "pl": [
+    "kochać"
+   ],
+   "pronunciation": "ljubaić"
+  },
+  {
+   "id": "ru1000-192",
+   "rank": 192,
+   "ru": "значить",
+   "pl": [
+    "znaczyć"
+   ],
+   "pronunciation": "znacic"
+  },
+  {
+   "id": "ru1000-193",
+   "rank": 193,
+   "ru": "белый",
+   "pl": [
+    "biały"
+   ],
+   "pronunciation": "bjełyj"
+  },
+  {
+   "id": "ru1000-194",
+   "rank": 194,
+   "ru": "главный",
+   "pl": [
+    "główny"
+   ],
+   "pronunciation": "gławnyj"
+  },
+  {
+   "id": "ru1000-195",
+   "rank": 195,
+   "ru": "минута",
+   "pl": [
+    "minuta"
+   ],
+   "pronunciation": "minuta"
+  },
+  {
+   "id": "ru1000-196",
+   "rank": 196,
+   "ru": "лишь",
+   "pl": [
+    "tylko"
+   ],
+   "pronunciation": "lisz"
+  },
+  {
+   "id": "ru1000-197",
+   "rank": 197,
+   "ru": "товарищ",
+   "pl": [
+    "towarzysz",
+    "kompan"
+   ],
+   "pronunciation": "towariść"
+  },
+  {
+   "id": "ru1000-198",
+   "rank": 198,
+   "ru": "опять",
+   "pl": [
+    "znowu"
+   ],
+   "pronunciation": "apjac"
+  },
+  {
+   "id": "ru1000-199",
+   "rank": 199,
+   "ru": "ждать",
+   "pl": [
+    "czekać"
+   ],
+   "pronunciation": "żdać"
+  },
+  {
+   "id": "ru1000-200",
+   "rank": 200,
+   "ru": "однако",
+   "pl": [
+    "jednak"
+   ],
+   "pronunciation": "adnako"
+  },
+  {
+   "id": "ru1000-201",
+   "rank": 201,
+   "ru": "правда",
+   "pl": [
+    "PRAWDA"
+   ],
+   "pronunciation": "PRAWDA"
+  },
+  {
+   "id": "ru1000-202",
+   "rank": 202,
+   "ru": "посмотреть",
+   "pl": [
+    "popatrzeć"
+   ],
+   "pronunciation": "pasmatrjec"
+  },
+  {
+   "id": "ru1000-203",
+   "rank": 203,
+   "ru": "про",
+   "pl": [
+    "przyimek okimoczym"
+   ],
+   "pronunciation": "pro"
+  },
+  {
+   "id": "ru1000-204",
+   "rank": 204,
+   "ru": "никогда",
+   "pl": [
+    "nigdy"
+   ],
+   "pronunciation": "nikagda"
+  },
+  {
+   "id": "ru1000-205",
+   "rank": 205,
+   "ru": "будто",
+   "pl": [
+    "niby",
+    "jakby"
+   ],
+   "pronunciation": "budto"
+  },
+  {
+   "id": "ru1000-206",
+   "rank": 206,
+   "ru": "часть",
+   "pl": [
+    "część"
+   ],
+   "pronunciation": "ciasc"
+  },
+  {
+   "id": "ru1000-207",
+   "rank": 207,
+   "ru": "именно",
+   "pl": [
+    "mianowicie"
+   ],
+   "pronunciation": "imienno"
+  },
+  {
+   "id": "ru1000-208",
+   "rank": 208,
+   "ru": "найти",
+   "pl": [
+    "znaleźć"
+   ],
+   "pronunciation": "najci"
+  },
+  {
+   "id": "ru1000-209",
+   "rank": 209,
+   "ru": "дорога",
+   "pl": [
+    "droga"
+   ],
+   "pronunciation": "daraga"
+  },
+  {
+   "id": "ru1000-210",
+   "rank": 210,
+   "ru": "свет",
+   "pl": [
+    "światło"
+   ],
+   "pronunciation": "swjet"
+  },
+  {
+   "id": "ru1000-211",
+   "rank": 211,
+   "ru": "жена",
+   "pl": [
+    "żona"
+   ],
+   "pronunciation": "żjena"
+  },
+  {
+   "id": "ru1000-212",
+   "rank": 212,
+   "ru": "никакой",
+   "pl": [
+    "nijaki",
+    "żaden"
+   ],
+   "pronunciation": "nikakoj"
+  },
+  {
+   "id": "ru1000-213",
+   "rank": 213,
+   "ru": "лежать",
+   "pl": [
+    "leżeć"
+   ],
+   "pronunciation": "ljeżac"
+  },
+  {
+   "id": "ru1000-214",
+   "rank": 214,
+   "ru": "окно",
+   "pl": [
+    "okno"
+   ],
+   "pronunciation": "akno"
+  },
+  {
+   "id": "ru1000-215",
+   "rank": 215,
+   "ru": "россия",
+   "pl": [
+    "rosja"
+   ],
+   "pronunciation": "rassija"
+  },
+  {
+   "id": "ru1000-216",
+   "rank": 216,
+   "ru": "мать",
+   "pl": [
+    "matka"
+   ],
+   "pronunciation": "mac"
+  },
+  {
+   "id": "ru1000-217",
+   "rank": 217,
+   "ru": "решить",
+   "pl": [
+    "zdecydować",
+    "postanowić"
+   ],
+   "pronunciation": "rjeszic"
+  },
+  {
+   "id": "ru1000-218",
+   "rank": 218,
+   "ru": "получить",
+   "pl": [
+    "dostać",
+    "otrzymać"
+   ],
+   "pronunciation": "pałucic"
+  },
+  {
+   "id": "ru1000-219",
+   "rank": 219,
+   "ru": "москва",
+   "pl": [
+    "moskwa"
+   ],
+   "pronunciation": "moskwa"
+  },
+  {
+   "id": "ru1000-220",
+   "rank": 220,
+   "ru": "писать",
+   "pl": [
+    "pisać"
+   ],
+   "pronunciation": "pisac"
+  },
+  {
+   "id": "ru1000-221",
+   "rank": 221,
+   "ru": "улица",
+   "pl": [
+    "ulica"
+   ],
+   "pronunciation": "ulica"
+  },
+  {
+   "id": "ru1000-222",
+   "rank": 222,
+   "ru": "вернуться",
+   "pl": [
+    "wrócić"
+   ],
+   "pronunciation": "wjernucsja"
+  },
+  {
+   "id": "ru1000-223",
+   "rank": 223,
+   "ru": "вообще",
+   "pl": [
+    "wogóle"
+   ],
+   "pronunciation": "woobście"
+  },
+  {
+   "id": "ru1000-224",
+   "rank": 224,
+   "ru": "некоторый",
+   "pl": [
+    "niektóry"
+   ],
+   "pronunciation": "niekatoryj"
+  },
+  {
+   "id": "ru1000-225",
+   "rank": 225,
+   "ru": "далекий",
+   "pl": [
+    "daleki"
+   ],
+   "pronunciation": "daljekij"
+  },
+  {
+   "id": "ru1000-226",
+   "rank": 226,
+   "ru": "маленький",
+   "pl": [
+    "maleńki"
+   ],
+   "pronunciation": "maljeńkij"
+  },
+  {
+   "id": "ru1000-227",
+   "rank": 227,
+   "ru": "считать",
+   "pl": [
+    "liczyć",
+    "odczytywać"
+   ],
+   "pronunciation": "scitac"
+  },
+  {
+   "id": "ru1000-228",
+   "rank": 228,
+   "ru": "комната",
+   "pl": [
+    "pokój"
+   ],
+   "pronunciation": "komnata"
+  },
+  {
+   "id": "ru1000-229",
+   "rank": 229,
+   "ru": "утро",
+   "pl": [
+    "rano"
+   ],
+   "pronunciation": "utro"
+  },
+  {
+   "id": "ru1000-230",
+   "rank": 230,
+   "ru": "советский",
+   "pl": [
+    "radziecki"
+   ],
+   "pronunciation": "sowjetskij"
+  },
+  {
+   "id": "ru1000-231",
+   "rank": 231,
+   "ru": "вечер",
+   "pl": [
+    "wieczór"
+   ],
+   "pronunciation": "wjecier"
+  },
+  {
+   "id": "ru1000-232",
+   "rank": 232,
+   "ru": "сегодня",
+   "pl": [
+    "dzisiaj"
+   ],
+   "pronunciation": "sjewodnja"
+  },
+  {
+   "id": "ru1000-233",
+   "rank": 233,
+   "ru": "душа",
+   "pl": [
+    "dusza"
+   ],
+   "pronunciation": "dusza"
+  },
+  {
+   "id": "ru1000-234",
+   "rank": 234,
+   "ru": "книга",
+   "pl": [
+    "książka"
+   ],
+   "pronunciation": "kniga"
+  },
+  {
+   "id": "ru1000-235",
+   "rank": 235,
+   "ru": "плечо",
+   "pl": [
+    "ramie",
+    "brak"
+   ],
+   "pronunciation": "pljecio"
+  },
+  {
+   "id": "ru1000-236",
+   "rank": 236,
+   "ru": "вместе",
+   "pl": [
+    "razem"
+   ],
+   "pronunciation": "wmjestie"
+  },
+  {
+   "id": "ru1000-237",
+   "rank": 237,
+   "ru": "таки",
+   "pl": [
+    "bądźcobądź",
+    "ajednak"
+   ],
+   "pronunciation": "taki"
+  },
+  {
+   "id": "ru1000-238",
+   "rank": 238,
+   "ru": "чуть",
+   "pl": [
+    "trochę"
+   ],
+   "pronunciation": "ciuc"
+  },
+  {
+   "id": "ru1000-239",
+   "rank": 239,
+   "ru": "пол",
+   "pl": [
+    "podłoga",
+    "płeć"
+   ],
+   "pronunciation": "poł"
+  },
+  {
+   "id": "ru1000-240",
+   "rank": 240,
+   "ru": "помнить",
+   "pl": [
+    "zapamiętać",
+    "przypomnieć"
+   ],
+   "pronunciation": "pomnic"
+  },
+  {
+   "id": "ru1000-241",
+   "rank": 241,
+   "ru": "сколько",
+   "pl": [
+    "ile"
+   ],
+   "pronunciation": "skolko"
+  },
+  {
+   "id": "ru1000-242",
+   "rank": 242,
+   "ru": "народ",
+   "pl": [
+    "naród"
+   ],
+   "pronunciation": "narod"
+  },
+  {
+   "id": "ru1000-243",
+   "rank": 243,
+   "ru": "хоть",
+   "pl": [
+    "choćby",
+    "chociaż"
+   ],
+   "pronunciation": "hoc"
+  },
+  {
+   "id": "ru1000-244",
+   "rank": 244,
+   "ru": "взгляд",
+   "pl": [
+    "spojrzenie",
+    "wzrok"
+   ],
+   "pronunciation": "wzgljad"
+  },
+  {
+   "id": "ru1000-245",
+   "rank": 245,
+   "ru": "русский",
+   "pl": [
+    "rosyjski"
+   ],
+   "pronunciation": "russkij"
+  },
+  {
+   "id": "ru1000-246",
+   "rank": 246,
+   "ru": "зачем",
+   "pl": [
+    "poco"
+   ],
+   "pronunciation": "zaciem"
+  },
+  {
+   "id": "ru1000-247",
+   "rank": 247,
+   "ru": "история",
+   "pl": [
+    "historia"
+   ],
+   "pronunciation": "istorja"
+  },
+  {
+   "id": "ru1000-248",
+   "rank": 248,
+   "ru": "полный",
+   "pl": [
+    "pełny"
+   ],
+   "pronunciation": "połnyj"
+  },
+  {
+   "id": "ru1000-249",
+   "rank": 249,
+   "ru": "узнать",
+   "pl": [
+    "poznać",
+    "dowiedzieć się"
+   ],
+   "pronunciation": "uznac"
+  },
+  {
+   "id": "ru1000-250",
+   "rank": 250,
+   "ru": "любой",
+   "pl": [
+    "każdy",
+    "dowolny"
+   ],
+   "pronunciation": "ljuboj"
+  },
+  {
+   "id": "ru1000-251",
+   "rank": 251,
+   "ru": "бог",
+   "pl": [
+    "bóg"
+   ],
+   "pronunciation": "bog"
+  },
+  {
+   "id": "ru1000-252",
+   "rank": 252,
+   "ru": "прийти",
+   "pl": [
+    "przyjdź"
+   ],
+   "pronunciation": "prijti"
+  },
+  {
+   "id": "ru1000-253",
+   "rank": 253,
+   "ru": "ходить",
+   "pl": [
+    "chodzić"
+   ],
+   "pronunciation": "chadic"
+  },
+  {
+   "id": "ru1000-254",
+   "rank": 254,
+   "ru": "заметить",
+   "pl": [
+    "zanotować",
+    "zapamiętać"
+   ],
+   "pronunciation": "zamjetic"
+  },
+  {
+   "id": "ru1000-255",
+   "rank": 255,
+   "ru": "известный",
+   "pl": [
+    "znany"
+   ],
+   "pronunciation": "izwjestnyj"
+  },
+  {
+   "id": "ru1000-256",
+   "rank": 256,
+   "ru": "палец",
+   "pl": [
+    "palec"
+   ],
+   "pronunciation": "paljec"
+  },
+  {
+   "id": "ru1000-257",
+   "rank": 257,
+   "ru": "словно",
+   "pl": [
+    "niby",
+    "jak gdyby"
+   ],
+   "pronunciation": "słowno"
+  },
+  {
+   "id": "ru1000-258",
+   "rank": 258,
+   "ru": "наконец",
+   "pl": [
+    "wkońcu"
+   ],
+   "pronunciation": "nakaniec"
+  },
+  {
+   "id": "ru1000-259",
+   "rank": 259,
+   "ru": "общий",
+   "pl": [
+    "ogólny"
+   ],
+   "pronunciation": "obścij"
+  },
+  {
+   "id": "ru1000-260",
+   "rank": 260,
+   "ru": "имя",
+   "pl": [
+    "imię"
+   ],
+   "pronunciation": "imja"
+  },
+  {
+   "id": "ru1000-261",
+   "rank": 261,
+   "ru": "назад",
+   "pl": [
+    "dotyłu",
+    "wstecz"
+   ],
+   "pronunciation": "nazad"
+  },
+  {
+   "id": "ru1000-262",
+   "rank": 262,
+   "ru": "бывать",
+   "pl": [
+    "bywać"
+   ],
+   "pronunciation": "bywac"
+  },
+  {
+   "id": "ru1000-263",
+   "rank": 263,
+   "ru": "мысль",
+   "pl": [
+    "myśl"
+   ],
+   "pronunciation": "mysl"
+  },
+  {
+   "id": "ru1000-264",
+   "rank": 264,
+   "ru": "слышать",
+   "pl": [
+    "słyszeć"
+   ],
+   "pronunciation": "słyszac"
+  },
+  {
+   "id": "ru1000-265",
+   "rank": 265,
+   "ru": "уйти",
+   "pl": [
+    "odejść",
+    "wychodzić"
+   ],
+   "pronunciation": "ujti"
+  },
+  {
+   "id": "ru1000-266",
+   "rank": 266,
+   "ru": "прошлый",
+   "pl": [
+    "zeszły",
+    "ubiegły"
+   ],
+   "pronunciation": "proszłyj"
+  },
+  {
+   "id": "ru1000-267",
+   "rank": 267,
+   "ru": "бояться",
+   "pl": [
+    "bać się"
+   ],
+   "pronunciation": "bojatsja"
+  },
+  {
+   "id": "ru1000-268",
+   "rank": 268,
+   "ru": "быстро",
+   "pl": [
+    "szybko"
+   ],
+   "pronunciation": "bystra"
+  },
+  {
+   "id": "ru1000-269",
+   "rank": 269,
+   "ru": "давно",
+   "pl": [
+    "dawno"
+   ],
+   "pronunciation": "dawno"
+  },
+  {
+   "id": "ru1000-270",
+   "rank": 270,
+   "ru": "слушать",
+   "pl": [
+    "słuchać"
+   ],
+   "pronunciation": "słuszac"
+  },
+  {
+   "id": "ru1000-271",
+   "rank": 271,
+   "ru": "прямо",
+   "pl": [
+    "prosto"
+   ],
+   "pronunciation": "prjamo"
+  },
+  {
+   "id": "ru1000-272",
+   "rank": 272,
+   "ru": "разговор",
+   "pl": [
+    "rozmowa"
+   ],
+   "pronunciation": "razgawor"
+  },
+  {
+   "id": "ru1000-273",
+   "rank": 273,
+   "ru": "долго",
+   "pl": [
+    "długo"
+   ],
+   "pronunciation": "dołgo"
+  },
+  {
+   "id": "ru1000-274",
+   "rank": 274,
+   "ru": "нельзя",
+   "pl": [
+    "niemożna"
+   ],
+   "pronunciation": "nielzja"
+  },
+  {
+   "id": "ru1000-275",
+   "rank": 275,
+   "ru": "похожий",
+   "pl": [
+    "podobny"
+   ],
+   "pronunciation": "pachożij"
+  },
+  {
+   "id": "ru1000-276",
+   "rank": 276,
+   "ru": "право",
+   "pl": [
+    "prawo"
+   ],
+   "pronunciation": "prawo"
+  },
+  {
+   "id": "ru1000-277",
+   "rank": 277,
+   "ru": "лес",
+   "pl": [
+    "las"
+   ],
+   "pronunciation": "ljes"
+  },
+  {
+   "id": "ru1000-278",
+   "rank": 278,
+   "ru": "пять",
+   "pl": [
+    "pięć"
+   ],
+   "pronunciation": "pjac"
+  },
+  {
+   "id": "ru1000-279",
+   "rank": 279,
+   "ru": "глядеть",
+   "pl": [
+    "patrzeć"
+   ],
+   "pronunciation": "gljadzjec"
+  },
+  {
+   "id": "ru1000-280",
+   "rank": 280,
+   "ru": "сын",
+   "pl": [
+    "syn"
+   ],
+   "pronunciation": "syn"
+  },
+  {
+   "id": "ru1000-281",
+   "rank": 281,
+   "ru": "путь",
+   "pl": [
+    "droga"
+   ],
+   "pronunciation": "puc"
+  },
+  {
+   "id": "ru1000-282",
+   "rank": 282,
+   "ru": "тысяча",
+   "pl": [
+    "tysiąca"
+   ],
+   "pronunciation": "tysjacia"
+  },
+  {
+   "id": "ru1000-283",
+   "rank": 283,
+   "ru": "пора",
+   "pl": [
+    "pora",
+    "okres"
+   ],
+   "pronunciation": "pora"
+  },
+  {
+   "id": "ru1000-284",
+   "rank": 284,
+   "ru": "красный",
+   "pl": [
+    "czerwony"
+   ],
+   "pronunciation": "krasnyj"
+  },
+  {
+   "id": "ru1000-285",
+   "rank": 285,
+   "ru": "сесть",
+   "pl": [
+    "usiąść"
+   ],
+   "pronunciation": "sjesc"
+  },
+  {
+   "id": "ru1000-286",
+   "rank": 286,
+   "ru": "оно",
+   "pl": [
+    "ono"
+   ],
+   "pronunciation": "ono"
+  },
+  {
+   "id": "ru1000-287",
+   "rank": 287,
+   "ru": "кроме",
+   "pl": [
+    "oprócz"
+   ],
+   "pronunciation": "kromje"
+  },
+  {
+   "id": "ru1000-288",
+   "rank": 288,
+   "ru": "стена",
+   "pl": [
+    "ściana"
+   ],
+   "pronunciation": "stjena"
+  },
+  {
+   "id": "ru1000-289",
+   "rank": 289,
+   "ru": "оставаться",
+   "pl": [
+    "zostawać"
+   ],
+   "pronunciation": "ostawacsja"
+  },
+  {
+   "id": "ru1000-290",
+   "rank": 290,
+   "ru": "высокий",
+   "pl": [
+    "wysoki"
+   ],
+   "pronunciation": "wysokij"
+  },
+  {
+   "id": "ru1000-291",
+   "rank": 291,
+   "ru": "хотеться",
+   "pl": [
+    "chcieć się"
+   ],
+   "pronunciation": "chatjetsja"
+  },
+  {
+   "id": "ru1000-292",
+   "rank": 292,
+   "ru": "совершенно",
+   "pl": [
+    "całkiem",
+    "absolutnie"
+   ],
+   "pronunciation": "sawjerszenno"
+  },
+  {
+   "id": "ru1000-293",
+   "rank": 293,
+   "ru": "поэтому",
+   "pl": [
+    "dlatego",
+    "wobectego"
+   ],
+   "pronunciation": "paetamu"
+  },
+  {
+   "id": "ru1000-294",
+   "rank": 294,
+   "ru": "написать",
+   "pl": [
+    "napisać"
+   ],
+   "pronunciation": "napisac"
+  },
+  {
+   "id": "ru1000-295",
+   "rank": 295,
+   "ru": "пусть",
+   "pl": [
+    "niech"
+   ],
+   "pronunciation": "pusc"
+  },
+  {
+   "id": "ru1000-296",
+   "rank": 296,
+   "ru": "ранний",
+   "pl": [
+    "ranny"
+   ],
+   "pronunciation": "rannyj"
+  },
+  {
+   "id": "ru1000-297",
+   "rank": 297,
+   "ru": "читать",
+   "pl": [
+    "czytać"
+   ],
+   "pronunciation": "citac"
+  },
+  {
+   "id": "ru1000-298",
+   "rank": 298,
+   "ru": "чувствовать",
+   "pl": [
+    "czuć"
+   ],
+   "pronunciation": "ciuwstwować"
+  },
+  {
+   "id": "ru1000-299",
+   "rank": 299,
+   "ru": "спина",
+   "pl": [
+    "plecy",
+    "tył"
+   ],
+   "pronunciation": "spina"
+  },
+  {
+   "id": "ru1000-300",
+   "rank": 300,
+   "ru": "спать",
+   "pl": [
+    "spać"
+   ],
+   "pronunciation": "spat'"
+  },
+  {
+   "id": "ru1000-301",
+   "rank": 301,
+   "ru": "готовый",
+   "pl": [
+    "gotowy"
+   ],
+   "pronunciation": "gatovyi"
+  },
+  {
+   "id": "ru1000-302",
+   "rank": 302,
+   "ru": "являться",
+   "pl": [
+    "zjawiać się",
+    "być"
+   ],
+   "pronunciation": "yavliat'sa"
+  },
+  {
+   "id": "ru1000-303",
+   "rank": 303,
+   "ru": "двадцать",
+   "pl": [
+    "dwadzieścia"
+   ],
+   "pronunciation": "dvadcat'"
+  },
+  {
+   "id": "ru1000-304",
+   "rank": 304,
+   "ru": "берег",
+   "pl": [
+    "brzeg"
+   ],
+   "pronunciation": "biereg"
+  },
+  {
+   "id": "ru1000-305",
+   "rank": 305,
+   "ru": "помощь",
+   "pl": [
+    "pomoc"
+   ],
+   "pronunciation": "pomosh'"
+  },
+  {
+   "id": "ru1000-306",
+   "rank": 306,
+   "ru": "мужчина",
+   "pl": [
+    "mężczyzna"
+   ],
+   "pronunciation": "muszsina"
+  },
+  {
+   "id": "ru1000-307",
+   "rank": 307,
+   "ru": "момент",
+   "pl": [
+    "moment"
+   ],
+   "pronunciation": "mamient"
+  },
+  {
+   "id": "ru1000-308",
+   "rank": 308,
+   "ru": "искать",
+   "pl": [
+    "szukać"
+   ],
+   "pronunciation": "iskat'"
+  },
+  {
+   "id": "ru1000-309",
+   "rank": 309,
+   "ru": "остановиться",
+   "pl": [
+    "zatrzymać się"
+   ],
+   "pronunciation": "astanavit'sa"
+  },
+  {
+   "id": "ru1000-310",
+   "rank": 310,
+   "ru": "личный",
+   "pl": [
+    "osobisty"
+   ],
+   "pronunciation": "licz'nyi"
+  },
+  {
+   "id": "ru1000-311",
+   "rank": 311,
+   "ru": "газета",
+   "pl": [
+    "gazeta"
+   ],
+   "pronunciation": "gazieta"
+  },
+  {
+   "id": "ru1000-312",
+   "rank": 312,
+   "ru": "длинный",
+   "pl": [
+    "długi"
+   ],
+   "pronunciation": "dlinnyi"
+  },
+  {
+   "id": "ru1000-313",
+   "rank": 313,
+   "ru": "видно",
+   "pl": [
+    "widać",
+    "widocznie",
+    "prawdopodobnie"
+   ],
+   "pronunciation": "vidno"
+  },
+  {
+   "id": "ru1000-314",
+   "rank": 314,
+   "ru": "против",
+   "pl": [
+    "przeciw"
+   ],
+   "pronunciation": "protiv"
+  },
+  {
+   "id": "ru1000-315",
+   "rank": 315,
+   "ru": "верить",
+   "pl": [
+    "wierzyć"
+   ],
+   "pronunciation": "vierit'"
+  },
+  {
+   "id": "ru1000-316",
+   "rank": 316,
+   "ru": "чувство",
+   "pl": [
+    "uczucie"
+   ],
+   "pronunciation": "cziustvo"
+  },
+  {
+   "id": "ru1000-317",
+   "rank": 317,
+   "ru": "порядок",
+   "pl": [
+    "porządek"
+   ],
+   "pronunciation": "parjadok"
+  },
+  {
+   "id": "ru1000-318",
+   "rank": 318,
+   "ru": "семья",
+   "pl": [
+    "rodzina"
+   ],
+   "pronunciation": "siemja"
+  },
+  {
+   "id": "ru1000-319",
+   "rank": 319,
+   "ru": "армия",
+   "pl": [
+    "armia"
+   ],
+   "pronunciation": "armija"
+  },
+  {
+   "id": "ru1000-320",
+   "rank": 320,
+   "ru": "немного",
+   "pl": [
+    "niewiele"
+   ],
+   "pronunciation": "niemnogo"
+  },
+  {
+   "id": "ru1000-321",
+   "rank": 321,
+   "ru": "играть",
+   "pl": [
+    "grać"
+   ],
+   "pronunciation": "igrat'"
+  },
+  {
+   "id": "ru1000-322",
+   "rank": 322,
+   "ru": "возможность",
+   "pl": [
+    "możliwość"
+   ],
+   "pronunciation": "vazmożnost'"
+  },
+  {
+   "id": "ru1000-323",
+   "rank": 323,
+   "ru": "сильный",
+   "pl": [
+    "silny"
+   ],
+   "pronunciation": "sil'nyi"
+  },
+  {
+   "id": "ru1000-324",
+   "rank": 324,
+   "ru": "разве",
+   "pl": [
+    "czyżby"
+   ],
+   "pronunciation": "razvie"
+  },
+  {
+   "id": "ru1000-325",
+   "rank": 325,
+   "ru": "впрочем",
+   "pl": [
+    "zresztą",
+    "jednakże"
+   ],
+   "pronunciation": "vprociem"
+  },
+  {
+   "id": "ru1000-326",
+   "rank": 326,
+   "ru": "становиться",
+   "pl": [
+    "stać się"
+   ],
+   "pronunciation": "stanovit'sa"
+  },
+  {
+   "id": "ru1000-327",
+   "rank": 327,
+   "ru": "движение",
+   "pl": [
+    "ruch"
+   ],
+   "pronunciation": "dviżenie"
+  },
+  {
+   "id": "ru1000-328",
+   "rank": 328,
+   "ru": "муж",
+   "pl": [
+    "mąż"
+   ],
+   "pronunciation": "muż"
+  },
+  {
+   "id": "ru1000-329",
+   "rank": 329,
+   "ru": "нос",
+   "pl": [
+    "nos"
+   ],
+   "pronunciation": "nos"
+  },
+  {
+   "id": "ru1000-330",
+   "rank": 330,
+   "ru": "тихо",
+   "pl": [
+    "cicho"
+   ],
+   "pronunciation": "tiho"
+  },
+  {
+   "id": "ru1000-331",
+   "rank": 331,
+   "ru": "знакомый",
+   "pl": [
+    "znajomy"
+   ],
+   "pronunciation": "znakomyi"
+  },
+  {
+   "id": "ru1000-332",
+   "rank": 332,
+   "ru": "огонь",
+   "pl": [
+    "ogień",
+    "świato"
+   ],
+   "pronunciation": "agon'"
+  },
+  {
+   "id": "ru1000-333",
+   "rank": 333,
+   "ru": "двор",
+   "pl": [
+    "podwórze",
+    "dwór"
+   ],
+   "pronunciation": "dvor"
+  },
+  {
+   "id": "ru1000-334",
+   "rank": 334,
+   "ru": "смочь",
+   "pl": [
+    "móc"
+   ],
+   "pronunciation": "smoc'"
+  },
+  {
+   "id": "ru1000-335",
+   "rank": 335,
+   "ru": "иной",
+   "pl": [
+    "inny"
+   ],
+   "pronunciation": "inoi"
+  },
+  {
+   "id": "ru1000-336",
+   "rank": 336,
+   "ru": "бежать",
+   "pl": [
+    "biec"
+   ],
+   "pronunciation": "biezhat'"
+  },
+  {
+   "id": "ru1000-337",
+   "rank": 337,
+   "ru": "черный",
+   "pl": [
+    "czarny"
+   ],
+   "pronunciation": "ciornyi"
+  },
+  {
+   "id": "ru1000-338",
+   "rank": 338,
+   "ru": "скорый",
+   "pl": [
+    "szybki"
+   ],
+   "pronunciation": "skoryi"
+  },
+  {
+   "id": "ru1000-339",
+   "rank": 339,
+   "ru": "наверное",
+   "pl": [
+    "prawdopodobnie"
+   ],
+   "pronunciation": "naviernoje"
+  },
+  {
+   "id": "ru1000-340",
+   "rank": 340,
+   "ru": "приехать",
+   "pl": [
+    "przyjechać"
+   ],
+   "pronunciation": "priehat'"
+  },
+  {
+   "id": "ru1000-341",
+   "rank": 341,
+   "ru": "простой",
+   "pl": [
+    "prosty",
+    "łatwy"
+   ],
+   "pronunciation": "prastoi"
+  },
+  {
+   "id": "ru1000-342",
+   "rank": 342,
+   "ru": "принять",
+   "pl": [
+    "przyjąć"
+   ],
+   "pronunciation": "priniat'"
+  },
+  {
+   "id": "ru1000-343",
+   "rank": 343,
+   "ru": "угол",
+   "pl": [
+    "kąt"
+   ],
+   "pronunciation": "ugol"
+  },
+  {
+   "id": "ru1000-344",
+   "rank": 344,
+   "ru": "смысл",
+   "pl": [
+    "sens"
+   ],
+   "pronunciation": "smysl"
+  },
+  {
+   "id": "ru1000-345",
+   "rank": 345,
+   "ru": "открыть",
+   "pl": [
+    "otworzyć"
+   ],
+   "pronunciation": "atkryt'"
+  },
+  {
+   "id": "ru1000-346",
+   "rank": 346,
+   "ru": "общество",
+   "pl": [
+    "społeczeństwo"
+   ],
+   "pronunciation": "obsiestvo"
+  },
+  {
+   "id": "ru1000-347",
+   "rank": 347,
+   "ru": "грудь",
+   "pl": [
+    "pierś"
+   ],
+   "pronunciation": "grud'"
+  },
+  {
+   "id": "ru1000-348",
+   "rank": 348,
+   "ru": "военный",
+   "pl": [
+    "wojskowy"
+   ],
+   "pronunciation": "vaiennyi"
+  },
+  {
+   "id": "ru1000-349",
+   "rank": 349,
+   "ru": "происходить",
+   "pl": [
+    "dziać się",
+    "wywodzićsię od"
+   ],
+   "pronunciation": "praishadit'"
+  },
+  {
+   "id": "ru1000-350",
+   "rank": 350,
+   "ru": "дерево",
+   "pl": [
+    "drzewo"
+   ],
+   "pronunciation": "dierievo"
+  },
+  {
+   "id": "ru1000-351",
+   "rank": 351,
+   "ru": "немец",
+   "pl": [
+    "niemiec"
+   ],
+   "pronunciation": "niemiec"
+  },
+  {
+   "id": "ru1000-352",
+   "rank": 352,
+   "ru": "губа",
+   "pl": [
+    "usta"
+   ],
+   "pronunciation": "guba"
+  },
+  {
+   "id": "ru1000-353",
+   "rank": 353,
+   "ru": "снег",
+   "pl": [
+    "śnieg"
+   ],
+   "pronunciation": "snieg"
+  },
+  {
+   "id": "ru1000-354",
+   "rank": 354,
+   "ru": "либо",
+   "pl": [
+    "lub"
+   ],
+   "pronunciation": "libo"
+  },
+  {
+   "id": "ru1000-355",
+   "rank": 355,
+   "ru": "дядя",
+   "pl": [
+    "wujek"
+   ],
+   "pronunciation": "diadia"
+  },
+  {
+   "id": "ru1000-356",
+   "rank": 356,
+   "ru": "ехать",
+   "pl": [
+    "jechać"
+   ],
+   "pronunciation": "jehat'"
+  },
+  {
+   "id": "ru1000-357",
+   "rank": 357,
+   "ru": "очередь",
+   "pl": [
+    "kolejność",
+    "kolejka"
+   ],
+   "pronunciation": "ocieried'"
+  },
+  {
+   "id": "ru1000-358",
+   "rank": 358,
+   "ru": "кой",
+   "pl": [
+    "jakiś"
+   ],
+   "pronunciation": "koi"
+  },
+  {
+   "id": "ru1000-359",
+   "rank": 359,
+   "ru": "форма",
+   "pl": [
+    "forma"
+   ],
+   "pronunciation": "forma"
+  },
+  {
+   "id": "ru1000-360",
+   "rank": 360,
+   "ru": "закон",
+   "pl": [
+    "prawo",
+    "przepis",
+    "ustawa"
+   ],
+   "pronunciation": "zakon"
+  },
+  {
+   "id": "ru1000-361",
+   "rank": 361,
+   "ru": "собираться",
+   "pl": [
+    "zbierać się"
+   ],
+   "pronunciation": "sabirat'sa"
+  },
+  {
+   "id": "ru1000-362",
+   "rank": 362,
+   "ru": "показаться",
+   "pl": [
+    "wydawać się"
+   ],
+   "pronunciation": "pakazat'sa"
+  },
+  {
+   "id": "ru1000-363",
+   "rank": 363,
+   "ru": "собака",
+   "pl": [
+    "pies"
+   ],
+   "pronunciation": "sabaka"
+  },
+  {
+   "id": "ru1000-364",
+   "rank": 364,
+   "ru": "домой",
+   "pl": [
+    "dodomu"
+   ],
+   "pronunciation": "damoi"
+  },
+  {
+   "id": "ru1000-365",
+   "rank": 365,
+   "ru": "попасть",
+   "pl": [
+    "popaść",
+    "dostać się"
+   ],
+   "pronunciation": "papast'"
+  },
+  {
+   "id": "ru1000-366",
+   "rank": 366,
+   "ru": "услышать",
+   "pl": [
+    "usłyszeć"
+   ],
+   "pronunciation": "uslyszat'"
+  },
+  {
+   "id": "ru1000-367",
+   "rank": 367,
+   "ru": "приходить",
+   "pl": [
+    "przychodzić"
+   ],
+   "pronunciation": "prihadit'"
+  },
+  {
+   "id": "ru1000-368",
+   "rank": 368,
+   "ru": "кричать",
+   "pl": [
+    "krzyczeć"
+   ],
+   "pronunciation": "kricziat'"
+  },
+  {
+   "id": "ru1000-369",
+   "rank": 369,
+   "ru": "состояние",
+   "pl": [
+    "majątek",
+    "stan"
+   ],
+   "pronunciation": "sastajanije"
+  },
+  {
+   "id": "ru1000-370",
+   "rank": 370,
+   "ru": "произойти",
+   "pl": [
+    "zdarzyć się"
+   ],
+   "pronunciation": "praizajti"
+  },
+  {
+   "id": "ru1000-371",
+   "rank": 371,
+   "ru": "сон",
+   "pl": [
+    "sen"
+   ],
+   "pronunciation": "son"
+  },
+  {
+   "id": "ru1000-372",
+   "rank": 372,
+   "ru": "подняться",
+   "pl": [
+    "podnieść się"
+   ],
+   "pronunciation": "padniat'sa"
+  },
+  {
+   "id": "ru1000-373",
+   "rank": 373,
+   "ru": "ладно",
+   "pl": [
+    "ok",
+    "dobrze",
+    "zgoda"
+   ],
+   "pronunciation": "ladno"
+  },
+  {
+   "id": "ru1000-374",
+   "rank": 374,
+   "ru": "карман",
+   "pl": [
+    "kieszeń"
+   ],
+   "pronunciation": "karman"
+  },
+  {
+   "id": "ru1000-375",
+   "rank": 375,
+   "ru": "часто",
+   "pl": [
+    "często"
+   ],
+   "pronunciation": "czasto"
+  },
+  {
+   "id": "ru1000-376",
+   "rank": 376,
+   "ru": "случиться",
+   "pl": [
+    "zdarzać się"
+   ],
+   "pronunciation": "sluczit'sa"
+  },
+  {
+   "id": "ru1000-377",
+   "rank": 377,
+   "ru": "зеленый",
+   "pl": [
+    "zielony"
+   ],
+   "pronunciation": "zielionyi"
+  },
+  {
+   "id": "ru1000-378",
+   "rank": 378,
+   "ru": "девочка",
+   "pl": [
+    "dziewczyna"
+   ],
+   "pronunciation": "dievochka"
+  },
+  {
+   "id": "ru1000-379",
+   "rank": 379,
+   "ru": "камень",
+   "pl": [
+    "kamień"
+   ],
+   "pronunciation": "kamen'"
+  },
+  {
+   "id": "ru1000-380",
+   "rank": 380,
+   "ru": "сначала",
+   "pl": [
+    "odnowa",
+    "najpierw"
+   ],
+   "pronunciation": "snachala"
+  },
+  {
+   "id": "ru1000-381",
+   "rank": 381,
+   "ru": "ветер",
+   "pl": [
+    "wiatr"
+   ],
+   "pronunciation": "vietier"
+  },
+  {
+   "id": "ru1000-382",
+   "rank": 382,
+   "ru": "проблема",
+   "pl": [
+    "problem"
+   ],
+   "pronunciation": "prabliema"
+  },
+  {
+   "id": "ru1000-383",
+   "rank": 383,
+   "ru": "связь",
+   "pl": [
+    "związek",
+    "lączność",
+    "stosunek"
+   ],
+   "pronunciation": "sviaz'"
+  },
+  {
+   "id": "ru1000-384",
+   "rank": 384,
+   "ru": "стараться",
+   "pl": [
+    "starać się"
+   ],
+   "pronunciation": "starat'sa"
+  },
+  {
+   "id": "ru1000-385",
+   "rank": 385,
+   "ru": "гость",
+   "pl": [
+    "gość"
+   ],
+   "pronunciation": "gost'"
+  },
+  {
+   "id": "ru1000-386",
+   "rank": 386,
+   "ru": "лучший",
+   "pl": [
+    "lepszy"
+   ],
+   "pronunciation": "luczszyi"
+  },
+  {
+   "id": "ru1000-387",
+   "rank": 387,
+   "ru": "зуб",
+   "pl": [
+    "ząb"
+   ],
+   "pronunciation": "zub"
+  },
+  {
+   "id": "ru1000-388",
+   "rank": 388,
+   "ru": "мера",
+   "pl": [
+    "miara"
+   ],
+   "pronunciation": "miera"
+  },
+  {
+   "id": "ru1000-389",
+   "rank": 389,
+   "ru": "век",
+   "pl": [
+    "wiek"
+   ],
+   "pronunciation": "viek"
+  },
+  {
+   "id": "ru1000-390",
+   "rank": 390,
+   "ru": "поехать",
+   "pl": [
+    "pojechać"
+   ],
+   "pronunciation": "pajehat'"
+  },
+  {
+   "id": "ru1000-391",
+   "rank": 391,
+   "ru": "номер",
+   "pl": [
+    "numer"
+   ],
+   "pronunciation": "nomier"
+  },
+  {
+   "id": "ru1000-392",
+   "rank": 392,
+   "ru": "странный",
+   "pl": [
+    "dziwny"
+   ],
+   "pronunciation": "strannyi"
+  },
+  {
+   "id": "ru1000-393",
+   "rank": 393,
+   "ru": "страшный",
+   "pl": [
+    "straszny"
+   ],
+   "pronunciation": "strasznyi"
+  },
+  {
+   "id": "ru1000-394",
+   "rank": 394,
+   "ru": "средство",
+   "pl": [
+    "środek"
+   ],
+   "pronunciation": "sriedstvo"
+  },
+  {
+   "id": "ru1000-395",
+   "rank": 395,
+   "ru": "единственный",
+   "pl": [
+    "jedyny"
+   ],
+   "pronunciation": "jedinstviennyi"
+  },
+  {
+   "id": "ru1000-396",
+   "rank": 396,
+   "ru": "действие",
+   "pl": [
+    "wydarzenie"
+   ],
+   "pronunciation": "diejstvie"
+  },
+  {
+   "id": "ru1000-397",
+   "rank": 397,
+   "ru": "ход",
+   "pl": [
+    "chód",
+    "ruch",
+    "przebieg",
+    "posunięcie"
+   ],
+   "pronunciation": "hod"
+  },
+  {
+   "id": "ru1000-398",
+   "rank": 398,
+   "ru": "государство",
+   "pl": [
+    "państwo"
+   ],
+   "pronunciation": "gasudarstvo"
+  },
+  {
+   "id": "ru1000-399",
+   "rank": 399,
+   "ru": "российский",
+   "pl": [
+    "rosyjski"
+   ],
+   "pronunciation": "rassijskij"
+  },
+  {
+   "id": "ru1000-400",
+   "rank": 400,
+   "ru": "короткий",
+   "pl": [
+    "krótki"
+   ],
+   "pronunciation": "karotkij"
+  },
+  {
+   "id": "ru1000-401",
+   "rank": 401,
+   "ru": "уметь",
+   "pl": [
+    "umieć",
+    "potrafić"
+   ],
+   "pronunciation": "umiet"
+  },
+  {
+   "id": "ru1000-402",
+   "rank": 402,
+   "ru": "данный",
+   "pl": [
+    "dany"
+   ],
+   "pronunciation": "dannyj"
+  },
+  {
+   "id": "ru1000-403",
+   "rank": 403,
+   "ru": "необходимый",
+   "pl": [
+    "niezbędny",
+    "konieczny"
+   ],
+   "pronunciation": "nieabhadimyj"
+  },
+  {
+   "id": "ru1000-404",
+   "rank": 404,
+   "ru": "глава",
+   "pl": [
+    "rozdział"
+   ],
+   "pronunciation": "glawa"
+  },
+  {
+   "id": "ru1000-405",
+   "rank": 405,
+   "ru": "партия",
+   "pl": [
+    "partia"
+   ],
+   "pronunciation": "partija"
+  },
+  {
+   "id": "ru1000-406",
+   "rank": 406,
+   "ru": "край",
+   "pl": [
+    "kraj",
+    "krawędź",
+    "brzeg"
+   ],
+   "pronunciation": "kraj"
+  },
+  {
+   "id": "ru1000-407",
+   "rank": 407,
+   "ru": "вперед",
+   "pl": [
+    "naprzód",
+    "przedsiebie"
+   ],
+   "pronunciation": "wpierjod"
+  },
+  {
+   "id": "ru1000-408",
+   "rank": 408,
+   "ru": "река",
+   "pl": [
+    "rzeka"
+   ],
+   "pronunciation": "rieka"
+  },
+  {
+   "id": "ru1000-409",
+   "rank": 409,
+   "ru": "судьба",
+   "pl": [
+    "los"
+   ],
+   "pronunciation": "sud'ba"
+  },
+  {
+   "id": "ru1000-410",
+   "rank": 410,
+   "ru": "рота",
+   "pl": [
+    "kompania"
+   ],
+   "pronunciation": "rata"
+  },
+  {
+   "id": "ru1000-411",
+   "rank": 411,
+   "ru": "добрый",
+   "pl": [
+    "dobry"
+   ],
+   "pronunciation": "dobryj"
+  },
+  {
+   "id": "ru1000-412",
+   "rank": 412,
+   "ru": "речь",
+   "pl": [
+    "mowa"
+   ],
+   "pronunciation": "rieć"
+  },
+  {
+   "id": "ru1000-413",
+   "rank": 413,
+   "ru": "заниматься",
+   "pl": [
+    "zajmować się"
+   ],
+   "pronunciation": "zanimatsa"
+  },
+  {
+   "id": "ru1000-414",
+   "rank": 414,
+   "ru": "вполне",
+   "pl": [
+    "całkowicie",
+    "całkiem"
+   ],
+   "pronunciation": "wpolnie"
+  },
+  {
+   "id": "ru1000-415",
+   "rank": 415,
+   "ru": "положить",
+   "pl": [
+    "położyć"
+   ],
+   "pronunciation": "palażyt"
+  },
+  {
+   "id": "ru1000-416",
+   "rank": 416,
+   "ru": "причина",
+   "pl": [
+    "przyczyna"
+   ],
+   "pronunciation": "pricina"
+  },
+  {
+   "id": "ru1000-417",
+   "rank": 417,
+   "ru": "гора",
+   "pl": [
+    "góra"
+   ],
+   "pronunciation": "gara"
+  },
+  {
+   "id": "ru1000-418",
+   "rank": 418,
+   "ru": "никак",
+   "pl": [
+    "nijak",
+    "wżadensposób"
+   ],
+   "pronunciation": "nikak"
+  },
+  {
+   "id": "ru1000-419",
+   "rank": 419,
+   "ru": "страх",
+   "pl": [
+    "strach"
+   ],
+   "pronunciation": "strah"
+  },
+  {
+   "id": "ru1000-420",
+   "rank": 420,
+   "ru": "темный",
+   "pl": [
+    "ciemny"
+   ],
+   "pronunciation": "tjomnyj"
+  },
+  {
+   "id": "ru1000-421",
+   "rank": 421,
+   "ru": "едва",
+   "pl": [
+    "ledwo"
+   ],
+   "pronunciation": "jedwa"
+  },
+  {
+   "id": "ru1000-422",
+   "rank": 422,
+   "ru": "море",
+   "pl": [
+    "morze"
+   ],
+   "pronunciation": "morie"
+  },
+  {
+   "id": "ru1000-423",
+   "rank": 423,
+   "ru": "зал",
+   "pl": [
+    "sala"
+   ],
+   "pronunciation": "zał"
+  },
+  {
+   "id": "ru1000-424",
+   "rank": 424,
+   "ru": "серый",
+   "pl": [
+    "szary"
+   ],
+   "pronunciation": "sieryj"
+  },
+  {
+   "id": "ru1000-425",
+   "rank": 425,
+   "ru": "врач",
+   "pl": [
+    "lekarz"
+   ],
+   "pronunciation": "wrać"
+  },
+  {
+   "id": "ru1000-426",
+   "rank": 426,
+   "ru": "возле",
+   "pl": [
+    "obok"
+   ],
+   "pronunciation": "wozlie"
+  },
+  {
+   "id": "ru1000-427",
+   "rank": 427,
+   "ru": "довольно",
+   "pl": [
+    "dość",
+    "dosyć"
+   ],
+   "pronunciation": "dawolna"
+  },
+  {
+   "id": "ru1000-428",
+   "rank": 428,
+   "ru": "командир",
+   "pl": [
+    "dowódca",
+    "komendant"
+   ],
+   "pronunciation": "kamandir"
+  },
+  {
+   "id": "ru1000-429",
+   "rank": 429,
+   "ru": "основной",
+   "pl": [
+    "podstawowy"
+   ],
+   "pronunciation": "asnawnoj"
+  },
+  {
+   "id": "ru1000-430",
+   "rank": 430,
+   "ru": "медленно",
+   "pl": [
+    "powoli"
+   ],
+   "pronunciation": "miedlienna"
+  },
+  {
+   "id": "ru1000-431",
+   "rank": 431,
+   "ru": "ясно",
+   "pl": [
+    "jasno",
+    "wyraźnie"
+   ],
+   "pronunciation": "jasna"
+  },
+  {
+   "id": "ru1000-432",
+   "rank": 432,
+   "ru": "боль",
+   "pl": [
+    "ból"
+   ],
+   "pronunciation": "bol'"
+  },
+  {
+   "id": "ru1000-433",
+   "rank": 433,
+   "ru": "господин",
+   "pl": [
+    "pan"
+   ],
+   "pronunciation": "gaspadin"
+  },
+  {
+   "id": "ru1000-434",
+   "rank": 434,
+   "ru": "вчера",
+   "pl": [
+    "wczoraj"
+   ],
+   "pronunciation": "wciera"
+  },
+  {
+   "id": "ru1000-435",
+   "rank": 435,
+   "ru": "вещь",
+   "pl": [
+    "rzecz"
+   ],
+   "pronunciation": "wieść"
+  },
+  {
+   "id": "ru1000-436",
+   "rank": 436,
+   "ru": "результат",
+   "pl": [
+    "rezultat"
+   ],
+   "pronunciation": "rezul'tat"
+  },
+  {
+   "id": "ru1000-437",
+   "rank": 437,
+   "ru": "число",
+   "pl": [
+    "liczba"
+   ],
+   "pronunciation": "cisło"
+  },
+  {
+   "id": "ru1000-438",
+   "rank": 438,
+   "ru": "цель",
+   "pl": [
+    "cel"
+   ],
+   "pronunciation": "cel'"
+  },
+  {
+   "id": "ru1000-439",
+   "rank": 439,
+   "ru": "начаться",
+   "pl": [
+    "zacząć się"
+   ],
+   "pronunciation": "naciatsa"
+  },
+  {
+   "id": "ru1000-440",
+   "rank": 440,
+   "ru": "легкий",
+   "pl": [
+    "lekki"
+   ],
+   "pronunciation": "ljohkij"
+  },
+  {
+   "id": "ru1000-441",
+   "rank": 441,
+   "ru": "звать",
+   "pl": [
+    "wołać"
+   ],
+   "pronunciation": "zwat"
+  },
+  {
+   "id": "ru1000-442",
+   "rank": 442,
+   "ru": "положение",
+   "pl": [
+    "położenie"
+   ],
+   "pronunciation": "pałażenie"
+  },
+  {
+   "id": "ru1000-443",
+   "rank": 443,
+   "ru": "бывший",
+   "pl": [
+    "dawny",
+    "były",
+    "miniony"
+   ],
+   "pronunciation": "bywszyj"
+  },
+  {
+   "id": "ru1000-444",
+   "rank": 444,
+   "ru": "писатель",
+   "pl": [
+    "pisarz"
+   ],
+   "pronunciation": "pisatiel'"
+  },
+  {
+   "id": "ru1000-445",
+   "rank": 445,
+   "ru": "далеко",
+   "pl": [
+    "daleko"
+   ],
+   "pronunciation": "dalieko"
+  },
+  {
+   "id": "ru1000-446",
+   "rank": 446,
+   "ru": "бумага",
+   "pl": [
+    "papier"
+   ],
+   "pronunciation": "bumaga"
+  },
+  {
+   "id": "ru1000-447",
+   "rank": 447,
+   "ru": "проходить",
+   "pl": [
+    "przechodzić"
+   ],
+   "pronunciation": "prahodit"
+  },
+  {
+   "id": "ru1000-448",
+   "rank": 448,
+   "ru": "удаться",
+   "pl": [
+    "udać się"
+   ],
+   "pronunciation": "udatsa"
+  },
+  {
+   "id": "ru1000-449",
+   "rank": 449,
+   "ru": "план",
+   "pl": [
+    "plan"
+   ],
+   "pronunciation": "plan"
+  },
+  {
+   "id": "ru1000-450",
+   "rank": 450,
+   "ru": "черта",
+   "pl": [
+    "cecha"
+   ],
+   "pronunciation": "cierta"
+  },
+  {
+   "id": "ru1000-451",
+   "rank": 451,
+   "ru": "около",
+   "pl": [
+    "około"
+   ],
+   "pronunciation": "okala"
+  },
+  {
+   "id": "ru1000-452",
+   "rank": 452,
+   "ru": "подобный",
+   "pl": [
+    "podobny"
+   ],
+   "pronunciation": "padobnyj"
+  },
+  {
+   "id": "ru1000-453",
+   "rank": 453,
+   "ru": "широкий",
+   "pl": [
+    "szeroki"
+   ],
+   "pronunciation": "szyrokij"
+  },
+  {
+   "id": "ru1000-454",
+   "rank": 454,
+   "ru": "завтра",
+   "pl": [
+    "jutro"
+   ],
+   "pronunciation": "zaftra"
+  },
+  {
+   "id": "ru1000-455",
+   "rank": 455,
+   "ru": "прийтись",
+   "pl": [
+    "przypaść",
+    "okazać się odpowiednim"
+   ],
+   "pronunciation": "prijtis'"
+  },
+  {
+   "id": "ru1000-456",
+   "rank": 456,
+   "ru": "документ",
+   "pl": [
+    "dokument"
+   ],
+   "pronunciation": "dakumient"
+  },
+  {
+   "id": "ru1000-457",
+   "rank": 457,
+   "ru": "снять",
+   "pl": [
+    "usunąć",
+    "wycofać"
+   ],
+   "pronunciation": "cnjat"
+  },
+  {
+   "id": "ru1000-458",
+   "rank": 458,
+   "ru": "плохо",
+   "pl": [
+    "źle"
+   ],
+   "pronunciation": "płoha"
+  },
+  {
+   "id": "ru1000-459",
+   "rank": 459,
+   "ru": "представить",
+   "pl": [
+    "przedstawić"
+   ],
+   "pronunciation": "priedstawit"
+  },
+  {
+   "id": "ru1000-460",
+   "rank": 460,
+   "ru": "прежний",
+   "pl": [
+    "dawny",
+    "były"
+   ],
+   "pronunciation": "prjeżnij"
+  },
+  {
+   "id": "ru1000-461",
+   "rank": 461,
+   "ru": "произнести",
+   "pl": [
+    "wygłosić"
+   ],
+   "pronunciation": "praizniesti"
+  },
+  {
+   "id": "ru1000-462",
+   "rank": 462,
+   "ru": "небольшой",
+   "pl": [
+    "nieduży",
+    "mały"
+   ],
+   "pronunciation": "niebalszoj"
+  },
+  {
+   "id": "ru1000-463",
+   "rank": 463,
+   "ru": "пустой",
+   "pl": [
+    "pusty"
+   ],
+   "pronunciation": "pustoj"
+  },
+  {
+   "id": "ru1000-464",
+   "rank": 464,
+   "ru": "обычно",
+   "pl": [
+    "zwykle"
+   ],
+   "pronunciation": "abyćna"
+  },
+  {
+   "id": "ru1000-465",
+   "rank": 465,
+   "ru": "волос",
+   "pl": [
+    "włos"
+   ],
+   "pronunciation": "wolas"
+  },
+  {
+   "id": "ru1000-466",
+   "rank": 466,
+   "ru": "объяснить",
+   "pl": [
+    "wyjaśnić"
+   ],
+   "pronunciation": "abjasnit"
+  },
+  {
+   "id": "ru1000-467",
+   "rank": 467,
+   "ru": "пара",
+   "pl": [
+    "para"
+   ],
+   "pronunciation": "para"
+  },
+  {
+   "id": "ru1000-468",
+   "rank": 468,
+   "ru": "след",
+   "pl": [
+    "ślad"
+   ],
+   "pronunciation": "sljed"
+  },
+  {
+   "id": "ru1000-469",
+   "rank": 469,
+   "ru": "представлять",
+   "pl": [
+    "przedstawiać"
+   ],
+   "pronunciation": "priedstawljat"
+  },
+  {
+   "id": "ru1000-470",
+   "rank": 470,
+   "ru": "решение",
+   "pl": [
+    "decyzja"
+   ],
+   "pronunciation": "rieszenije"
+  },
+  {
+   "id": "ru1000-471",
+   "rank": 471,
+   "ru": "купить",
+   "pl": [
+    "kupić"
+   ],
+   "pronunciation": "kupit"
+  },
+  {
+   "id": "ru1000-472",
+   "rank": 472,
+   "ru": "существовать",
+   "pl": [
+    "istnieć"
+   ],
+   "pronunciation": "suśsiestwawat"
+  },
+  {
+   "id": "ru1000-473",
+   "rank": 473,
+   "ru": "особый",
+   "pl": [
+    "szczególny"
+   ],
+   "pronunciation": "asobyj"
+  },
+  {
+   "id": "ru1000-474",
+   "rank": 474,
+   "ru": "иначе",
+   "pl": [
+    "inaczej"
+   ],
+   "pronunciation": "inacie"
+  },
+  {
+   "id": "ru1000-475",
+   "rank": 475,
+   "ru": "умереть",
+   "pl": [
+    "umrzeć"
+   ],
+   "pronunciation": "umieriet"
+  },
+  {
+   "id": "ru1000-476",
+   "rank": 476,
+   "ru": "класс",
+   "pl": [
+    "klasa"
+   ],
+   "pronunciation": "kłass"
+  },
+  {
+   "id": "ru1000-477",
+   "rank": 477,
+   "ru": "условие",
+   "pl": [
+    "warunek"
+   ],
+   "pronunciation": "uslowije"
+  },
+  {
+   "id": "ru1000-478",
+   "rank": 478,
+   "ru": "центр",
+   "pl": [
+    "centrum"
+   ],
+   "pronunciation": "centr"
+  },
+  {
+   "id": "ru1000-479",
+   "rank": 479,
+   "ru": "красивый",
+   "pl": [
+    "piękny"
+   ],
+   "pronunciation": "krasiwyj"
+  },
+  {
+   "id": "ru1000-480",
+   "rank": 480,
+   "ru": "скоро",
+   "pl": [
+    "szybko"
+   ],
+   "pronunciation": "skora"
+  },
+  {
+   "id": "ru1000-481",
+   "rank": 481,
+   "ru": "прежде",
+   "pl": [
+    "wpierw",
+    "przed"
+   ],
+   "pronunciation": "prieżde"
+  },
+  {
+   "id": "ru1000-482",
+   "rank": 482,
+   "ru": "пить",
+   "pl": [
+    "pić"
+   ],
+   "pronunciation": "pit"
+  },
+  {
+   "id": "ru1000-483",
+   "rank": 483,
+   "ru": "встреча",
+   "pl": [
+    "spotkanie"
+   ],
+   "pronunciation": "wstriecia"
+  },
+  {
+   "id": "ru1000-484",
+   "rank": 484,
+   "ru": "директор",
+   "pl": [
+    "dyrektor"
+   ],
+   "pronunciation": "dirjektat"
+  },
+  {
+   "id": "ru1000-485",
+   "rank": 485,
+   "ru": "рубль",
+   "pl": [
+    "rubel"
+   ],
+   "pronunciation": "rubl'"
+  },
+  {
+   "id": "ru1000-486",
+   "rank": 486,
+   "ru": "однажды",
+   "pl": [
+    "pewnegorazu",
+    "raz"
+   ],
+   "pronunciation": "adnażdy"
+  },
+  {
+   "id": "ru1000-487",
+   "rank": 487,
+   "ru": "служба",
+   "pl": [
+    "służba"
+   ],
+   "pronunciation": "slużba"
+  },
+  {
+   "id": "ru1000-488",
+   "rank": 488,
+   "ru": "процесс",
+   "pl": [
+    "proces"
+   ],
+   "pronunciation": "pracess"
+  },
+  {
+   "id": "ru1000-489",
+   "rank": 489,
+   "ru": "близкий",
+   "pl": [
+    "bliski"
+   ],
+   "pronunciation": "bliskij"
+  },
+  {
+   "id": "ru1000-490",
+   "rank": 490,
+   "ru": "чистый",
+   "pl": [
+    "czysty"
+   ],
+   "pronunciation": "cistyj"
+  },
+  {
+   "id": "ru1000-491",
+   "rank": 491,
+   "ru": "президент",
+   "pl": [
+    "prezydent",
+    "prezes"
+   ],
+   "pronunciation": "priezident"
+  },
+  {
+   "id": "ru1000-492",
+   "rank": 492,
+   "ru": "память",
+   "pl": [
+    "pamięć"
+   ],
+   "pronunciation": "pamjat"
+  },
+  {
+   "id": "ru1000-493",
+   "rank": 493,
+   "ru": "сквозь",
+   "pl": [
+    "przez",
+    "poprzez"
+   ],
+   "pronunciation": "skwoz"
+  },
+  {
+   "id": "ru1000-494",
+   "rank": 494,
+   "ru": "сообщить",
+   "pl": [
+    "poinformować"
+   ],
+   "pronunciation": "saabśsit"
+  },
+  {
+   "id": "ru1000-495",
+   "rank": 495,
+   "ru": "человеческий",
+   "pl": [
+    "ludzki"
+   ],
+   "pronunciation": "cielawiecieskij"
+  },
+  {
+   "id": "ru1000-496",
+   "rank": 496,
+   "ru": "назвать",
+   "pl": [
+    "nazwać",
+    "wymienić"
+   ],
+   "pronunciation": "nazwat"
+  },
+  {
+   "id": "ru1000-497",
+   "rank": 497,
+   "ru": "сей",
+   "pl": [
+    "ten"
+   ],
+   "pronunciation": "siej"
+  },
+  {
+   "id": "ru1000-498",
+   "rank": 498,
+   "ru": "герой",
+   "pl": [
+    "bohater"
+   ],
+   "pronunciation": "gieroj"
+  },
+  {
+   "id": "ru1000-499",
+   "rank": 499,
+   "ru": "дух",
+   "pl": [
+    "dusza"
+   ],
+   "pronunciation": "duch"
+  },
+  {
+   "id": "ru1000-500",
+   "rank": 500,
+   "ru": "худой",
+   "pl": [
+    "chudy"
+   ],
+   "pronunciation": "hudoj"
+  },
+  {
+   "id": "ru1000-501",
+   "rank": 501,
+   "ru": "мимо",
+   "pl": [
+    "mimoże"
+   ],
+   "pronunciation": "mimo"
+  },
+  {
+   "id": "ru1000-502",
+   "rank": 502,
+   "ru": "возможно",
+   "pl": [
+    "możliwie"
+   ],
+   "pronunciation": "wozmożno"
+  },
+  {
+   "id": "ru1000-503",
+   "rank": 503,
+   "ru": "враг",
+   "pl": [
+    "wróg"
+   ],
+   "pronunciation": "wrag"
+  },
+  {
+   "id": "ru1000-504",
+   "rank": 504,
+   "ru": "убить",
+   "pl": [
+    "zabić"
+   ],
+   "pronunciation": "ubic"
+  },
+  {
+   "id": "ru1000-505",
+   "rank": 505,
+   "ru": "кстати",
+   "pl": [
+    "przy okazji"
+   ],
+   "pronunciation": "kstati"
+  },
+  {
+   "id": "ru1000-506",
+   "rank": 506,
+   "ru": "чужой",
+   "pl": [
+    "obcy"
+   ],
+   "pronunciation": "ciużoj"
+  },
+  {
+   "id": "ru1000-507",
+   "rank": 507,
+   "ru": "согласиться",
+   "pl": [
+    "zgodzić się"
+   ],
+   "pronunciation": "sogłasitsja"
+  },
+  {
+   "id": "ru1000-508",
+   "rank": 508,
+   "ru": "счастье",
+   "pl": [
+    "szczęście"
+   ],
+   "pronunciation": "sciastje"
+  },
+  {
+   "id": "ru1000-509",
+   "rank": 509,
+   "ru": "удар",
+   "pl": [
+    "cios"
+   ],
+   "pronunciation": "udar"
+  },
+  {
+   "id": "ru1000-510",
+   "rank": 510,
+   "ru": "старший",
+   "pl": [
+    "starszy"
+   ],
+   "pronunciation": "starszij"
+  },
+  {
+   "id": "ru1000-511",
+   "rank": 511,
+   "ru": "вместо",
+   "pl": [
+    "zamiast"
+   ],
+   "pronunciation": "wmjesto"
+  },
+  {
+   "id": "ru1000-512",
+   "rank": 512,
+   "ru": "самолет",
+   "pl": [
+    "samolot"
+   ],
+   "pronunciation": "samoljot"
+  },
+  {
+   "id": "ru1000-513",
+   "rank": 513,
+   "ru": "трудно",
+   "pl": [
+    "skomplikowanie"
+   ],
+   "pronunciation": "trudno"
+  },
+  {
+   "id": "ru1000-514",
+   "rank": 514,
+   "ru": "улыбнуться",
+   "pl": [
+    "uśmiechać się"
+   ],
+   "pronunciation": "ułybnutsja"
+  },
+  {
+   "id": "ru1000-515",
+   "rank": 515,
+   "ru": "деревня",
+   "pl": [
+    "wioska"
+   ],
+   "pronunciation": "djerjewnja"
+  },
+  {
+   "id": "ru1000-516",
+   "rank": 516,
+   "ru": "картина",
+   "pl": [
+    "obraz"
+   ],
+   "pronunciation": "kartina"
+  },
+  {
+   "id": "ru1000-517",
+   "rank": 517,
+   "ru": "улыбаться",
+   "pl": [
+    "uśmiechać się"
+   ],
+   "pronunciation": "ułybacsja"
+  },
+  {
+   "id": "ru1000-518",
+   "rank": 518,
+   "ru": "почувствовать",
+   "pl": [
+    "poczuć"
+   ],
+   "pronunciation": "pociuwstwowac"
+  },
+  {
+   "id": "ru1000-519",
+   "rank": 519,
+   "ru": "будущее",
+   "pl": [
+    "przyszłość"
+   ],
+   "pronunciation": "buduścieje"
+  },
+  {
+   "id": "ru1000-520",
+   "rank": 520,
+   "ru": "коридор",
+   "pl": [
+    "korytarz"
+   ],
+   "pronunciation": "koridor"
+  },
+  {
+   "id": "ru1000-521",
+   "rank": 521,
+   "ru": "толстый",
+   "pl": [
+    "gruby"
+   ],
+   "pronunciation": "tołstyj"
+  },
+  {
+   "id": "ru1000-522",
+   "rank": 522,
+   "ru": "нравиться",
+   "pl": [
+    "podobać się"
+   ],
+   "pronunciation": "nrawicsja"
+  },
+  {
+   "id": "ru1000-523",
+   "rank": 523,
+   "ru": "правый",
+   "pl": [
+    "prawy"
+   ],
+   "pronunciation": "prawyj"
+  },
+  {
+   "id": "ru1000-524",
+   "rank": 524,
+   "ru": "больной",
+   "pl": [
+    "chory"
+   ],
+   "pronunciation": "bolnoj"
+  },
+  {
+   "id": "ru1000-525",
+   "rank": 525,
+   "ru": "ум",
+   "pl": [
+    "rozum"
+   ],
+   "pronunciation": "um"
+  },
+  {
+   "id": "ru1000-526",
+   "rank": 526,
+   "ru": "менее",
+   "pl": [
+    "mniej"
+   ],
+   "pronunciation": "mjenjeje"
+  },
+  {
+   "id": "ru1000-527",
+   "rank": 527,
+   "ru": "привести",
+   "pl": [
+    "przywieść"
+   ],
+   "pronunciation": "priwjesti"
+  },
+  {
+   "id": "ru1000-528",
+   "rank": 528,
+   "ru": "предложить",
+   "pl": [
+    "zaoferować"
+   ],
+   "pronunciation": "prjedłożic"
+  },
+  {
+   "id": "ru1000-529",
+   "rank": 529,
+   "ru": "вызвать",
+   "pl": [
+    "wezwać"
+   ],
+   "pronunciation": "wyzwac"
+  },
+  {
+   "id": "ru1000-530",
+   "rank": 530,
+   "ru": "мало",
+   "pl": [
+    "mało"
+   ],
+   "pronunciation": "mało"
+  },
+  {
+   "id": "ru1000-531",
+   "rank": 531,
+   "ru": "кабинет",
+   "pl": [
+    "gabinet"
+   ],
+   "pronunciation": "kabiniet"
+  },
+  {
+   "id": "ru1000-532",
+   "rank": 532,
+   "ru": "многие",
+   "pl": [
+    "wielu",
+    "wiele"
+   ],
+   "pronunciation": "mnogije"
+  },
+  {
+   "id": "ru1000-533",
+   "rank": 533,
+   "ru": "легко",
+   "pl": [
+    "lekko"
+   ],
+   "pronunciation": "legko"
+  },
+  {
+   "id": "ru1000-534",
+   "rank": 534,
+   "ru": "колено",
+   "pl": [
+    "kolano"
+   ],
+   "pronunciation": "koljeno"
+  },
+  {
+   "id": "ru1000-535",
+   "rank": 535,
+   "ru": "хватать",
+   "pl": [
+    "chwytać"
+   ],
+   "pronunciation": "chwatac"
+  },
+  {
+   "id": "ru1000-536",
+   "rank": 536,
+   "ru": "принести",
+   "pl": [
+    "przynieść"
+   ],
+   "pronunciation": "priniesti"
+  },
+  {
+   "id": "ru1000-537",
+   "rank": 537,
+   "ru": "всякое",
+   "pl": [
+    "wszelakie"
+   ],
+   "pronunciation": "wsjakoje"
+  },
+  {
+   "id": "ru1000-538",
+   "rank": 538,
+   "ru": "бутылка",
+   "pl": [
+    "butelka"
+   ],
+   "pronunciation": "butyłka"
+  },
+  {
+   "id": "ru1000-539",
+   "rank": 539,
+   "ru": "государственный",
+   "pl": [
+    "rządowy",
+    "państwowy"
+   ],
+   "pronunciation": "gosudarstwjennyj"
+  },
+  {
+   "id": "ru1000-540",
+   "rank": 540,
+   "ru": "рабочий",
+   "pl": [
+    "pracownik",
+    "robotnik"
+   ],
+   "pronunciation": "rabocij"
+  },
+  {
+   "id": "ru1000-541",
+   "rank": 541,
+   "ru": "сто",
+   "pl": [
+    "sto"
+   ],
+   "pronunciation": "sto"
+  },
+  {
+   "id": "ru1000-542",
+   "rank": 542,
+   "ru": "телефон",
+   "pl": [
+    "telefon"
+   ],
+   "pronunciation": "tjeljefon"
+  },
+  {
+   "id": "ru1000-543",
+   "rank": 543,
+   "ru": "компания",
+   "pl": [
+    "firma"
+   ],
+   "pronunciation": "kompanija"
+  },
+  {
+   "id": "ru1000-544",
+   "rank": 544,
+   "ru": "крупный",
+   "pl": [
+    "duży"
+   ],
+   "pronunciation": "krupnyj"
+  },
+  {
+   "id": "ru1000-545",
+   "rank": 545,
+   "ru": "открытый",
+   "pl": [
+    "otwarty"
+   ],
+   "pronunciation": "otkrytyj"
+  },
+  {
+   "id": "ru1000-546",
+   "rank": 546,
+   "ru": "доктор",
+   "pl": [
+    "lekarz"
+   ],
+   "pronunciation": "doktor"
+  },
+  {
+   "id": "ru1000-547",
+   "rank": 547,
+   "ru": "принимать",
+   "pl": [
+    "akceptować"
+   ],
+   "pronunciation": "prinimac"
+  },
+  {
+   "id": "ru1000-548",
+   "rank": 548,
+   "ru": "вниз",
+   "pl": [
+    "na"
+   ],
+   "pronunciation": "wniz"
+  },
+  {
+   "id": "ru1000-549",
+   "rank": 549,
+   "ru": "автор",
+   "pl": [
+    "autor"
+   ],
+   "pronunciation": "awtor"
+  },
+  {
+   "id": "ru1000-550",
+   "rank": 550,
+   "ru": "мужик",
+   "pl": [
+    "chłop"
+   ],
+   "pronunciation": "murzik"
+  },
+  {
+   "id": "ru1000-551",
+   "rank": 551,
+   "ru": "вовсе",
+   "pl": [
+    "wewszystkim"
+   ],
+   "pronunciation": "wowsje"
+  },
+  {
+   "id": "ru1000-552",
+   "rank": 552,
+   "ru": "интерес",
+   "pl": [
+    "interes",
+    "ciekawość"
+   ],
+   "pronunciation": "intjerjes"
+  },
+  {
+   "id": "ru1000-553",
+   "rank": 553,
+   "ru": "провести",
+   "pl": [
+    "spędzić",
+    "przeprowadzić"
+   ],
+   "pronunciation": "prowjesti"
+  },
+  {
+   "id": "ru1000-554",
+   "rank": 554,
+   "ru": "хватить",
+   "pl": [
+    "wystarczyć"
+   ],
+   "pronunciation": "chwatic"
+  },
+  {
+   "id": "ru1000-555",
+   "rank": 555,
+   "ru": "двое",
+   "pl": [
+    "dwoje"
+   ],
+   "pronunciation": "dwoje"
+  },
+  {
+   "id": "ru1000-556",
+   "rank": 556,
+   "ru": "холодный",
+   "pl": [
+    "zimny"
+   ],
+   "pronunciation": "chołodnyj"
+  },
+  {
+   "id": "ru1000-557",
+   "rank": 557,
+   "ru": "счет",
+   "pl": [
+    "konto"
+   ],
+   "pronunciation": "sciet"
+  },
+  {
+   "id": "ru1000-558",
+   "rank": 558,
+   "ru": "спокойно",
+   "pl": [
+    "spokojnie"
+   ],
+   "pronunciation": "spakojna"
+  },
+  {
+   "id": "ru1000-559",
+   "rank": 559,
+   "ru": "местный",
+   "pl": [
+    "tutejszy",
+    "miejscowy",
+    "lokalny"
+   ],
+   "pronunciation": "mjestnyj"
+  },
+  {
+   "id": "ru1000-560",
+   "rank": 560,
+   "ru": "лейтенант",
+   "pl": [
+    "porucznik",
+    "zastępca"
+   ],
+   "pronunciation": "ljejtjenant"
+  },
+  {
+   "id": "ru1000-561",
+   "rank": 561,
+   "ru": "оружие",
+   "pl": [
+    "broń"
+   ],
+   "pronunciation": "orużje"
+  },
+  {
+   "id": "ru1000-562",
+   "rank": 562,
+   "ru": "игра",
+   "pl": [
+    "gra"
+   ],
+   "pronunciation": "igra"
+  },
+  {
+   "id": "ru1000-563",
+   "rank": 563,
+   "ru": "приходиться",
+   "pl": [
+    "to"
+   ],
+   "pronunciation": "prichoditsja"
+  },
+  {
+   "id": "ru1000-564",
+   "rank": 564,
+   "ru": "крикнуть",
+   "pl": [
+    "krzyknąć"
+   ],
+   "pronunciation": "kriknuc"
+  },
+  {
+   "id": "ru1000-565",
+   "rank": 565,
+   "ru": "попросить",
+   "pl": [
+    "spytać"
+   ],
+   "pronunciation": "poprosic"
+  },
+  {
+   "id": "ru1000-566",
+   "rank": 566,
+   "ru": "требовать",
+   "pl": [
+    "rządać"
+   ],
+   "pronunciation": "trjebowac"
+  },
+  {
+   "id": "ru1000-567",
+   "rank": 567,
+   "ru": "бой",
+   "pl": [
+    "walka"
+   ],
+   "pronunciation": "boj"
+  },
+  {
+   "id": "ru1000-568",
+   "rank": 568,
+   "ru": "качество",
+   "pl": [
+    "jakość"
+   ],
+   "pronunciation": "kaciestwo"
+  },
+  {
+   "id": "ru1000-569",
+   "rank": 569,
+   "ru": "смеяться",
+   "pl": [
+    "śmiać się"
+   ],
+   "pronunciation": "cmjejatsja"
+  },
+  {
+   "id": "ru1000-570",
+   "rank": 570,
+   "ru": "родной",
+   "pl": [
+    "ojczysty"
+   ],
+   "pronunciation": "rodnoj"
+  },
+  {
+   "id": "ru1000-571",
+   "rank": 571,
+   "ru": "желтый",
+   "pl": [
+    "żółty"
+   ],
+   "pronunciation": "żjołtyj"
+  },
+  {
+   "id": "ru1000-572",
+   "rank": 572,
+   "ru": "член",
+   "pl": [
+    "członek"
+   ],
+   "pronunciation": "ćljen"
+  },
+  {
+   "id": "ru1000-573",
+   "rank": 573,
+   "ru": "достаточно",
+   "pl": [
+    "wystarczająco"
+   ],
+   "pronunciation": "dostatoćna"
+  },
+  {
+   "id": "ru1000-574",
+   "rank": 574,
+   "ru": "хлеб",
+   "pl": [
+    "chleb"
+   ],
+   "pronunciation": "chljeb"
+  },
+  {
+   "id": "ru1000-575",
+   "rank": 575,
+   "ru": "прислать",
+   "pl": [
+    "przysłać"
+   ],
+   "pronunciation": "prisłac"
+  },
+  {
+   "id": "ru1000-576",
+   "rank": 576,
+   "ru": "золотой",
+   "pl": [
+    "złoty"
+   ],
+   "pronunciation": "załatoj"
+  },
+  {
+   "id": "ru1000-577",
+   "rank": 577,
+   "ru": "политический",
+   "pl": [
+    "polityczny"
+   ],
+   "pronunciation": "politicieskij"
+  },
+  {
+   "id": "ru1000-578",
+   "rank": 578,
+   "ru": "обычный",
+   "pl": [
+    "zwykły"
+   ],
+   "pronunciation": "obyćnyj"
+  },
+  {
+   "id": "ru1000-579",
+   "rank": 579,
+   "ru": "развитие",
+   "pl": [
+    "rozwój"
+   ],
+   "pronunciation": "razwitje"
+  },
+  {
+   "id": "ru1000-580",
+   "rank": 580,
+   "ru": "важный",
+   "pl": [
+    "ważny"
+   ],
+   "pronunciation": "ważnyj"
+  },
+  {
+   "id": "ru1000-581",
+   "rank": 581,
+   "ru": "банк",
+   "pl": [
+    "bank"
+   ],
+   "pronunciation": "bank"
+  },
+  {
+   "id": "ru1000-582",
+   "rank": 582,
+   "ru": "совет",
+   "pl": [
+    "rada"
+   ],
+   "pronunciation": "cowjet"
+  },
+  {
+   "id": "ru1000-583",
+   "rank": 583,
+   "ru": "столько",
+   "pl": [
+    "tyle"
+   ],
+   "pronunciation": "ctolka"
+  },
+  {
+   "id": "ru1000-584",
+   "rank": 584,
+   "ru": "возвращаться",
+   "pl": [
+    "wracać się"
+   ],
+   "pronunciation": "wozwraściatsja"
+  },
+  {
+   "id": "ru1000-585",
+   "rank": 585,
+   "ru": "трубка",
+   "pl": [
+    "rurka"
+   ],
+   "pronunciation": "trubka"
+  },
+  {
+   "id": "ru1000-586",
+   "rank": 586,
+   "ru": "ладонь",
+   "pl": [
+    "dłoń"
+   ],
+   "pronunciation": "ładoń"
+  },
+  {
+   "id": "ru1000-587",
+   "rank": 587,
+   "ru": "железный",
+   "pl": [
+    "metalowy"
+   ],
+   "pronunciation": "żjeljeznyj"
+  },
+  {
+   "id": "ru1000-588",
+   "rank": 588,
+   "ru": "оказываться",
+   "pl": [
+    "okazywać się"
+   ],
+   "pronunciation": "okazywacsja"
+  },
+  {
+   "id": "ru1000-589",
+   "rank": 589,
+   "ru": "институт",
+   "pl": [
+    "uczelnia"
+   ],
+   "pronunciation": "institut"
+  },
+  {
+   "id": "ru1000-590",
+   "rank": 590,
+   "ru": "потерять",
+   "pl": [
+    "zgubić"
+   ],
+   "pronunciation": "potjerjac"
+  },
+  {
+   "id": "ru1000-591",
+   "rank": 591,
+   "ru": "молодая",
+   "pl": [
+    "pani młoda",
+    "niewiasta"
+   ],
+   "pronunciation": "maładaja"
+  },
+  {
+   "id": "ru1000-592",
+   "rank": 592,
+   "ru": "правительство",
+   "pl": [
+    "rząd"
+   ],
+   "pronunciation": "prawitjelstwo"
+  },
+  {
+   "id": "ru1000-593",
+   "rank": 593,
+   "ru": "остальной",
+   "pl": [
+    "inni"
+   ],
+   "pronunciation": "ostalnoj"
+  },
+  {
+   "id": "ru1000-594",
+   "rank": 594,
+   "ru": "выпить",
+   "pl": [
+    "pić",
+    "wypić"
+   ],
+   "pronunciation": "wypic"
+  },
+  {
+   "id": "ru1000-595",
+   "rank": 595,
+   "ru": "показывать",
+   "pl": [
+    "pokazywać"
+   ],
+   "pronunciation": "pokazywac"
+  },
+  {
+   "id": "ru1000-596",
+   "rank": 596,
+   "ru": "идея",
+   "pl": [
+    "pomysł"
+   ],
+   "pronunciation": "idjea"
+  },
+  {
+   "id": "ru1000-597",
+   "rank": 597,
+   "ru": "точка",
+   "pl": [
+    "punkt"
+   ],
+   "pronunciation": "toćka"
+  },
+  {
+   "id": "ru1000-598",
+   "rank": 598,
+   "ru": "уровень",
+   "pl": [
+    "poziom"
+   ],
+   "pronunciation": "urowjeń"
+  },
+  {
+   "id": "ru1000-599",
+   "rank": 599,
+   "ru": "профессор",
+   "pl": [
+    "profesor"
+   ],
+   "pronunciation": "profiessor"
+  },
+  {
+   "id": "ru1000-600",
+   "rank": 600,
+   "ru": "наука",
+   "pl": [
+    "nauka"
+   ],
+   "pronunciation": "nauka"
+  },
+  {
+   "id": "ru1000-601",
+   "rank": 601,
+   "ru": "событие",
+   "pl": [
+    "wydarzenie"
+   ],
+   "pronunciation": "sobytje"
+  },
+  {
+   "id": "ru1000-602",
+   "rank": 602,
+   "ru": "союз",
+   "pl": [
+    "związek"
+   ],
+   "pronunciation": "sajuz"
+  },
+  {
+   "id": "ru1000-603",
+   "rank": 603,
+   "ru": "король",
+   "pl": [
+    "król"
+   ],
+   "pronunciation": "karol'"
+  },
+  {
+   "id": "ru1000-604",
+   "rank": 604,
+   "ru": "половина",
+   "pl": [
+    "połowa"
+   ],
+   "pronunciation": "pałavina"
+  },
+  {
+   "id": "ru1000-605",
+   "rank": 605,
+   "ru": "метр",
+   "pl": [
+    "metr"
+   ],
+   "pronunciation": "mietr"
+  },
+  {
+   "id": "ru1000-606",
+   "rank": 606,
+   "ru": "отдать",
+   "pl": [
+    "oddać"
+   ],
+   "pronunciation": "atdat'"
+  },
+  {
+   "id": "ru1000-607",
+   "rank": 607,
+   "ru": "вера",
+   "pl": [
+    "wiara"
+   ],
+   "pronunciation": "viera"
+  },
+  {
+   "id": "ru1000-608",
+   "rank": 608,
+   "ru": "кивнуть",
+   "pl": [
+    "kiwnąć",
+    "skinąć"
+   ],
+   "pronunciation": "kivnut'"
+  },
+  {
+   "id": "ru1000-609",
+   "rank": 609,
+   "ru": "область",
+   "pl": [
+    "dziedzina",
+    "strefa",
+    "obwód"
+   ],
+   "pronunciation": "obłas'c'"
+  },
+  {
+   "id": "ru1000-610",
+   "rank": 610,
+   "ru": "исчезнуть",
+   "pl": [
+    "zniknąć"
+   ],
+   "pronunciation": "isicieznut'"
+  },
+  {
+   "id": "ru1000-611",
+   "rank": 611,
+   "ru": "ситуация",
+   "pl": [
+    "sytuacja"
+   ],
+   "pronunciation": "situacyia"
+  },
+  {
+   "id": "ru1000-612",
+   "rank": 612,
+   "ru": "кухня",
+   "pl": [
+    "kuchnia"
+   ],
+   "pronunciation": "kuhnia"
+  },
+  {
+   "id": "ru1000-613",
+   "rank": 613,
+   "ru": "надежда",
+   "pl": [
+    "nadzieja"
+   ],
+   "pronunciation": "nadieżda"
+  },
+  {
+   "id": "ru1000-614",
+   "rank": 614,
+   "ru": "род",
+   "pl": [
+    "ród",
+    "rodzaj",
+    "gatunek"
+   ],
+   "pronunciation": "rod"
+  },
+  {
+   "id": "ru1000-615",
+   "rank": 615,
+   "ru": "офицер",
+   "pl": [
+    "oficer"
+   ],
+   "pronunciation": "aficer"
+  },
+  {
+   "id": "ru1000-616",
+   "rank": 616,
+   "ru": "синий",
+   "pl": [
+    "niebieski"
+   ],
+   "pronunciation": "sinij"
+  },
+  {
+   "id": "ru1000-617",
+   "rank": 617,
+   "ru": "течение",
+   "pl": [
+    "bieg",
+    "przebieg",
+    "nurt"
+   ],
+   "pronunciation": "tieczienie"
+  },
+  {
+   "id": "ru1000-618",
+   "rank": 618,
+   "ru": "информация",
+   "pl": [
+    "informacja"
+   ],
+   "pronunciation": "informacyja"
+  },
+  {
+   "id": "ru1000-619",
+   "rank": 619,
+   "ru": "получиться",
+   "pl": [
+    "wyjść",
+    "wypaść",
+    "wyniknąć"
+   ],
+   "pronunciation": "połuczitsa"
+  },
+  {
+   "id": "ru1000-620",
+   "rank": 620,
+   "ru": "теплый",
+   "pl": [
+    "ciepły"
+   ],
+   "pronunciation": "tiopłyj"
+  },
+  {
+   "id": "ru1000-621",
+   "rank": 621,
+   "ru": "молча",
+   "pl": [
+    "milcząc"
+   ],
+   "pronunciation": "mołczia"
+  },
+  {
+   "id": "ru1000-622",
+   "rank": 622,
+   "ru": "немецкий",
+   "pl": [
+    "niemiecki"
+   ],
+   "pronunciation": "niemieckij"
+  },
+  {
+   "id": "ru1000-623",
+   "rank": 623,
+   "ru": "видимо",
+   "pl": [
+    "widocznie"
+   ],
+   "pronunciation": "vidima"
+  },
+  {
+   "id": "ru1000-624",
+   "rank": 624,
+   "ru": "бить",
+   "pl": [
+    "bić"
+   ],
+   "pronunciation": "bit'"
+  },
+  {
+   "id": "ru1000-625",
+   "rank": 625,
+   "ru": "частый",
+   "pl": [
+    "częsty"
+   ],
+   "pronunciation": "cziastyj"
+  },
+  {
+   "id": "ru1000-626",
+   "rank": 626,
+   "ru": "поздний",
+   "pl": [
+    "późny"
+   ],
+   "pronunciation": "poznij"
+  },
+  {
+   "id": "ru1000-627",
+   "rank": 627,
+   "ru": "создать",
+   "pl": [
+    "stworzyć"
+   ],
+   "pronunciation": "sazdat'"
+  },
+  {
+   "id": "ru1000-628",
+   "rank": 628,
+   "ru": "сорок",
+   "pl": [
+    "czterdzieści"
+   ],
+   "pronunciation": "sorak"
+  },
+  {
+   "id": "ru1000-629",
+   "rank": 629,
+   "ru": "граница",
+   "pl": [
+    "granica"
+   ],
+   "pronunciation": "granica"
+  },
+  {
+   "id": "ru1000-630",
+   "rank": 630,
+   "ru": "слеза",
+   "pl": [
+    "łza"
+   ],
+   "pronunciation": "slioza"
+  },
+  {
+   "id": "ru1000-631",
+   "rank": 631,
+   "ru": "поскольку",
+   "pl": [
+    "ponieważ",
+    "dlategoże"
+   ],
+   "pronunciation": "paskol'ku"
+  },
+  {
+   "id": "ru1000-632",
+   "rank": 632,
+   "ru": "рассказ",
+   "pl": [
+    "opowiadanie"
+   ],
+   "pronunciation": "rasskas"
+  },
+  {
+   "id": "ru1000-633",
+   "rank": 633,
+   "ru": "вспоминать",
+   "pl": [
+    "wspominać",
+    "przypominać"
+   ],
+   "pronunciation": "vspaminat'"
+  },
+  {
+   "id": "ru1000-634",
+   "rank": 634,
+   "ru": "получать",
+   "pl": [
+    "dostawać",
+    "otrzymywać"
+   ],
+   "pronunciation": "pałucziat'"
+  },
+  {
+   "id": "ru1000-635",
+   "rank": 635,
+   "ru": "трава",
+   "pl": [
+    "trawa"
+   ],
+   "pronunciation": "trava"
+  },
+  {
+   "id": "ru1000-636",
+   "rank": 636,
+   "ru": "шесть",
+   "pl": [
+    "sześć"
+   ],
+   "pronunciation": "szes't'"
+  },
+  {
+   "id": "ru1000-637",
+   "rank": 637,
+   "ru": "упасть",
+   "pl": [
+    "upaść"
+   ],
+   "pronunciation": "upas't'"
+  },
+  {
+   "id": "ru1000-638",
+   "rank": 638,
+   "ru": "тридцать",
+   "pl": [
+    "trzydzieści"
+   ],
+   "pronunciation": "tridcat'"
+  },
+  {
+   "id": "ru1000-639",
+   "rank": 639,
+   "ru": "борьба",
+   "pl": [
+    "walka"
+   ],
+   "pronunciation": "bar'ba"
+  },
+  {
+   "id": "ru1000-640",
+   "rank": 640,
+   "ru": "достать",
+   "pl": [
+    "dostać",
+    "dosięgnąć"
+   ],
+   "pronunciation": "dastat'"
+  },
+  {
+   "id": "ru1000-641",
+   "rank": 641,
+   "ru": "шея",
+   "pl": [
+    "szyja"
+   ],
+   "pronunciation": "szeja"
+  },
+  {
+   "id": "ru1000-642",
+   "rank": 642,
+   "ru": "десяток",
+   "pl": [
+    "dziesiątek"
+   ],
+   "pronunciation": "dziesjatak"
+  },
+  {
+   "id": "ru1000-643",
+   "rank": 643,
+   "ru": "надеяться",
+   "pl": [
+    "miećnadzieję"
+   ],
+   "pronunciation": "nadjejat'sa"
+  },
+  {
+   "id": "ru1000-644",
+   "rank": 644,
+   "ru": "толпа",
+   "pl": [
+    "tłum"
+   ],
+   "pronunciation": "tołpa"
+  },
+  {
+   "id": "ru1000-645",
+   "rank": 645,
+   "ru": "московский",
+   "pl": [
+    "moskiewski"
+   ],
+   "pronunciation": "maskovskij"
+  },
+  {
+   "id": "ru1000-646",
+   "rank": 646,
+   "ru": "родитель",
+   "pl": [
+    "rodzic"
+   ],
+   "pronunciation": "radzitiel'"
+  },
+  {
+   "id": "ru1000-647",
+   "rank": 647,
+   "ru": "правило",
+   "pl": [
+    "reguła",
+    "zasada"
+   ],
+   "pronunciation": "praviła"
+  },
+  {
+   "id": "ru1000-648",
+   "rank": 648,
+   "ru": "слать",
+   "pl": [
+    "posyłać",
+    "przesyłać"
+   ],
+   "pronunciation": "słat'"
+  },
+  {
+   "id": "ru1000-649",
+   "rank": 649,
+   "ru": "секунда",
+   "pl": [
+    "sekunda"
+   ],
+   "pronunciation": "siekunda"
+  },
+  {
+   "id": "ru1000-650",
+   "rank": 650,
+   "ru": "вздохнуть",
+   "pl": [
+    "westchnąć"
+   ],
+   "pronunciation": "vzdohnut'"
+  },
+  {
+   "id": "ru1000-651",
+   "rank": 651,
+   "ru": "уверенный",
+   "pl": [
+    "stanowczy",
+    "pewny"
+   ],
+   "pronunciation": "uvieriennyj"
+  },
+  {
+   "id": "ru1000-652",
+   "rank": 652,
+   "ru": "неизвестный",
+   "pl": [
+    "nieznany",
+    "niewiadomy"
+   ],
+   "pronunciation": "nieizviesnyj"
+  },
+  {
+   "id": "ru1000-653",
+   "rank": 653,
+   "ru": "программа",
+   "pl": [
+    "program"
+   ],
+   "pronunciation": "pragramma"
+  },
+  {
+   "id": "ru1000-654",
+   "rank": 654,
+   "ru": "фамилия",
+   "pl": [
+    "nazwisko"
+   ],
+   "pronunciation": "familia"
+  },
+  {
+   "id": "ru1000-655",
+   "rank": 655,
+   "ru": "звук",
+   "pl": [
+    "dźwięk"
+   ],
+   "pronunciation": "zvuk"
+  },
+  {
+   "id": "ru1000-656",
+   "rank": 656,
+   "ru": "роман",
+   "pl": [
+    "powieść"
+   ],
+   "pronunciation": "raman"
+  },
+  {
+   "id": "ru1000-657",
+   "rank": 657,
+   "ru": "неожиданно",
+   "pl": [
+    "nieoczekiwanie"
+   ],
+   "pronunciation": "nieażydanna"
+  },
+  {
+   "id": "ru1000-658",
+   "rank": 658,
+   "ru": "вон",
+   "pl": [
+    "precz",
+    "oto"
+   ],
+   "pronunciation": "von"
+  },
+  {
+   "id": "ru1000-659",
+   "rank": 659,
+   "ru": "тонкий",
+   "pl": [
+    "cienki"
+   ],
+   "pronunciation": "tonkij"
+  },
+  {
+   "id": "ru1000-660",
+   "rank": 660,
+   "ru": "чай",
+   "pl": [
+    "herbata"
+   ],
+   "pronunciation": "cziaj"
+  },
+  {
+   "id": "ru1000-661",
+   "rank": 661,
+   "ru": "внутренний",
+   "pl": [
+    "wewnętrzny"
+   ],
+   "pronunciation": "vnutriennij"
+  },
+  {
+   "id": "ru1000-662",
+   "rank": 662,
+   "ru": "роль",
+   "pl": [
+    "rola"
+   ],
+   "pronunciation": "rol'"
+  },
+  {
+   "id": "ru1000-663",
+   "rank": 663,
+   "ru": "сознание",
+   "pl": [
+    "świadomość",
+    "przytomność"
+   ],
+   "pronunciation": "soznanie"
+  },
+  {
+   "id": "ru1000-664",
+   "rank": 664,
+   "ru": "верный",
+   "pl": [
+    "słuszny",
+    "wierny"
+   ],
+   "pronunciation": "viernyj"
+  },
+  {
+   "id": "ru1000-665",
+   "rank": 665,
+   "ru": "команда",
+   "pl": [
+    "zespół",
+    "załoga",
+    "rozkaz"
+   ],
+   "pronunciation": "kamanda"
+  },
+  {
+   "id": "ru1000-666",
+   "rank": 666,
+   "ru": "спасибо",
+   "pl": [
+    "dziękuję"
+   ],
+   "pronunciation": "spasiba"
+  },
+  {
+   "id": "ru1000-667",
+   "rank": 667,
+   "ru": "прекрасный",
+   "pl": [
+    "śliczny",
+    "wspaniały"
+   ],
+   "pronunciation": "priekrasnyj"
+  },
+  {
+   "id": "ru1000-668",
+   "rank": 668,
+   "ru": "петь",
+   "pl": [
+    "śpiewać"
+   ],
+   "pronunciation": "piet'"
+  },
+  {
+   "id": "ru1000-669",
+   "rank": 669,
+   "ru": "магазин",
+   "pl": [
+    "sklep"
+   ],
+   "pronunciation": "magazin"
+  },
+  {
+   "id": "ru1000-670",
+   "rank": 670,
+   "ru": "впервые",
+   "pl": [
+    "porazpierwszy"
+   ],
+   "pronunciation": "vpiervyje"
+  },
+  {
+   "id": "ru1000-671",
+   "rank": 671,
+   "ru": "американский",
+   "pl": [
+    "amerykański"
+   ],
+   "pronunciation": "amierikanskij"
+  },
+  {
+   "id": "ru1000-672",
+   "rank": 672,
+   "ru": "ворота",
+   "pl": [
+    "wrota"
+   ],
+   "pronunciation": "varota"
+  },
+  {
+   "id": "ru1000-673",
+   "rank": 673,
+   "ru": "простить",
+   "pl": [
+    "wybaczyć"
+   ],
+   "pronunciation": "prastit'"
+  },
+  {
+   "id": "ru1000-674",
+   "rank": 674,
+   "ru": "полковник",
+   "pl": [
+    "półkownik"
+   ],
+   "pronunciation": "pałkovnik"
+  },
+  {
+   "id": "ru1000-675",
+   "rank": 675,
+   "ru": "природа",
+   "pl": [
+    "przyroda",
+    "natura"
+   ],
+   "pronunciation": "priroda"
+  },
+  {
+   "id": "ru1000-676",
+   "rank": 676,
+   "ru": "сильно",
+   "pl": [
+    "silnie"
+   ],
+   "pronunciation": "silna"
+  },
+  {
+   "id": "ru1000-677",
+   "rank": 677,
+   "ru": "запах",
+   "pl": [
+    "zapach",
+    "woń"
+   ],
+   "pronunciation": "zapah"
+  },
+  {
+   "id": "ru1000-678",
+   "rank": 678,
+   "ru": "поэт",
+   "pl": [
+    "poeta"
+   ],
+   "pronunciation": "paet"
+  },
+  {
+   "id": "ru1000-679",
+   "rank": 679,
+   "ru": "район",
+   "pl": [
+    "dzielnica",
+    "rejon"
+   ],
+   "pronunciation": "rajon"
+  },
+  {
+   "id": "ru1000-680",
+   "rank": 680,
+   "ru": "лист",
+   "pl": [
+    "liść",
+    "arkusz"
+   ],
+   "pronunciation": "list"
+  },
+  {
+   "id": "ru1000-681",
+   "rank": 681,
+   "ru": "перестать",
+   "pl": [
+    "przestać"
+   ],
+   "pronunciation": "pieriestat'"
+  },
+  {
+   "id": "ru1000-682",
+   "rank": 682,
+   "ru": "стекло",
+   "pl": [
+    "szkło"
+   ],
+   "pronunciation": "stiekło"
+  },
+  {
+   "id": "ru1000-683",
+   "rank": 683,
+   "ru": "выше",
+   "pl": [
+    "wyżej"
+   ],
+   "pronunciation": "vysze"
+  },
+  {
+   "id": "ru1000-684",
+   "rank": 684,
+   "ru": "количество",
+   "pl": [
+    "ilość"
+   ],
+   "pronunciation": "kalicziestva"
+  },
+  {
+   "id": "ru1000-685",
+   "rank": 685,
+   "ru": "этаж",
+   "pl": [
+    "piętro"
+   ],
+   "pronunciation": "etaż"
+  },
+  {
+   "id": "ru1000-686",
+   "rank": 686,
+   "ru": "тип",
+   "pl": [
+    "tyn",
+    "rodzaj"
+   ],
+   "pronunciation": "tip"
+  },
+  {
+   "id": "ru1000-687",
+   "rank": 687,
+   "ru": "пожаловать",
+   "pl": [
+    "obdarzyć",
+    "odwiedzić",
+    "zawitać"
+   ],
+   "pronunciation": "pażaławat'"
+  },
+  {
+   "id": "ru1000-688",
+   "rank": 688,
+   "ru": "свобода",
+   "pl": [
+    "wolność"
+   ],
+   "pronunciation": "svaboda"
+  },
+  {
+   "id": "ru1000-689",
+   "rank": 689,
+   "ru": "сапог",
+   "pl": [
+    "butzcholewami"
+   ],
+   "pronunciation": "sapog"
+  },
+  {
+   "id": "ru1000-690",
+   "rank": 690,
+   "ru": "суд",
+   "pl": [
+    "sąd"
+   ],
+   "pronunciation": "sud"
+  },
+  {
+   "id": "ru1000-691",
+   "rank": 691,
+   "ru": "чей",
+   "pl": [
+    "czyj"
+   ],
+   "pronunciation": "cziej"
+  },
+  {
+   "id": "ru1000-692",
+   "rank": 692,
+   "ru": "выход",
+   "pl": [
+    "wyjście"
+   ],
+   "pronunciation": "vyhad"
+  },
+  {
+   "id": "ru1000-693",
+   "rank": 693,
+   "ru": "дед",
+   "pl": [
+    "dziadek"
+   ],
+   "pronunciation": "died"
+  },
+  {
+   "id": "ru1000-694",
+   "rank": 694,
+   "ru": "лоб",
+   "pl": [
+    "czoło"
+   ],
+   "pronunciation": "łob"
+  },
+  {
+   "id": "ru1000-695",
+   "rank": 695,
+   "ru": "кресло",
+   "pl": [
+    "fotel"
+   ],
+   "pronunciation": "kriesła"
+  },
+  {
+   "id": "ru1000-696",
+   "rank": 696,
+   "ru": "дочь",
+   "pl": [
+    "córka"
+   ],
+   "pronunciation": "docz'"
+  },
+  {
+   "id": "ru1000-697",
+   "rank": 697,
+   "ru": "серьезный",
+   "pl": [
+    "poważny"
+   ],
+   "pronunciation": "sierioznyj"
+  },
+  {
+   "id": "ru1000-698",
+   "rank": 698,
+   "ru": "ожидать",
+   "pl": [
+    "oczekiwać"
+   ],
+   "pronunciation": "ażidać"
+  },
+  {
+   "id": "ru1000-699",
+   "rank": 699,
+   "ru": "характер",
+   "pl": [
+    "charakter"
+   ],
+   "pronunciation": "charaktier"
+  },
+  {
+   "id": "ru1000-700",
+   "rank": 700,
+   "ru": "опыт",
+   "pl": [
+    "doświadczenie"
+   ],
+   "pronunciation": "opyt"
+  },
+  {
+   "id": "ru1000-701",
+   "rank": 701,
+   "ru": "площадь",
+   "pl": [
+    "plac"
+   ],
+   "pronunciation": "plosiadź"
+  },
+  {
+   "id": "ru1000-702",
+   "rank": 702,
+   "ru": "вновь",
+   "pl": [
+    "znowu"
+   ],
+   "pronunciation": "wnow'"
+  },
+  {
+   "id": "ru1000-703",
+   "rank": 703,
+   "ru": "быстрый",
+   "pl": [
+    "szybki"
+   ],
+   "pronunciation": "bystryj"
+  },
+  {
+   "id": "ru1000-704",
+   "rank": 704,
+   "ru": "появляться",
+   "pl": [
+    "pojawiać się"
+   ],
+   "pronunciation": "pojawliatsja"
+  },
+  {
+   "id": "ru1000-705",
+   "rank": 705,
+   "ru": "управление",
+   "pl": [
+    "kierowanie"
+   ],
+   "pronunciation": "uprawlenie"
+  },
+  {
+   "id": "ru1000-706",
+   "rank": 706,
+   "ru": "связанный",
+   "pl": [
+    "związany"
+   ],
+   "pronunciation": "swiazannyj"
+  },
+  {
+   "id": "ru1000-707",
+   "rank": 707,
+   "ru": "мнение",
+   "pl": [
+    "zdanie"
+   ],
+   "pronunciation": "mnienie"
+  },
+  {
+   "id": "ru1000-708",
+   "rank": 708,
+   "ru": "впереди",
+   "pl": [
+    "zprzodu",
+    "naczele"
+   ],
+   "pronunciation": "wpieriedi"
+  },
+  {
+   "id": "ru1000-709",
+   "rank": 709,
+   "ru": "использовать",
+   "pl": [
+    "wykorzystywać"
+   ],
+   "pronunciation": "ispol'zować"
+  },
+  {
+   "id": "ru1000-710",
+   "rank": 710,
+   "ru": "взглянуть",
+   "pl": [
+    "spojrzeć"
+   ],
+   "pronunciation": "wzglianuć"
+  },
+  {
+   "id": "ru1000-711",
+   "rank": 711,
+   "ru": "революция",
+   "pl": [
+    "rewolucja"
+   ],
+   "pronunciation": "riewalucija"
+  },
+  {
+   "id": "ru1000-712",
+   "rank": 712,
+   "ru": "долгий",
+   "pl": [
+    "długi"
+   ],
+   "pronunciation": "dolgij"
+  },
+  {
+   "id": "ru1000-713",
+   "rank": 713,
+   "ru": "улыбка",
+   "pl": [
+    "uśmiech"
+   ],
+   "pronunciation": "ulybka"
+  },
+  {
+   "id": "ru1000-714",
+   "rank": 714,
+   "ru": "рост",
+   "pl": [
+    "wzrost"
+   ],
+   "pronunciation": "rost"
+  },
+  {
+   "id": "ru1000-715",
+   "rank": 715,
+   "ru": "лошадь",
+   "pl": [
+    "koń"
+   ],
+   "pronunciation": "loszadź"
+  },
+  {
+   "id": "ru1000-716",
+   "rank": 716,
+   "ru": "тихий",
+   "pl": [
+    "cichy"
+   ],
+   "pronunciation": "tichij"
+  },
+  {
+   "id": "ru1000-717",
+   "rank": 717,
+   "ru": "глубокий",
+   "pl": [
+    "głęboki"
+   ],
+   "pronunciation": "glubokij"
+  },
+  {
+   "id": "ru1000-718",
+   "rank": 718,
+   "ru": "левый",
+   "pl": [
+    "lewy"
+   ],
+   "pronunciation": "liewyj"
+  },
+  {
+   "id": "ru1000-719",
+   "rank": 719,
+   "ru": "кожа",
+   "pl": [
+    "skóra"
+   ],
+   "pronunciation": "koża"
+  },
+  {
+   "id": "ru1000-720",
+   "rank": 720,
+   "ru": "пришлый",
+   "pl": [
+    "przybysz"
+   ],
+   "pronunciation": "priszlyj"
+  },
+  {
+   "id": "ru1000-721",
+   "rank": 721,
+   "ru": "звезда",
+   "pl": [
+    "gwiazda"
+   ],
+   "pronunciation": "zwiezda"
+  },
+  {
+   "id": "ru1000-722",
+   "rank": 722,
+   "ru": "поезд",
+   "pl": [
+    "pociąg"
+   ],
+   "pronunciation": "pojezd"
+  },
+  {
+   "id": "ru1000-723",
+   "rank": 723,
+   "ru": "протянуть",
+   "pl": [
+    "przeciągnąć"
+   ],
+   "pronunciation": "pratianuć"
+  },
+  {
+   "id": "ru1000-724",
+   "rank": 724,
+   "ru": "служить",
+   "pl": [
+    "służyć",
+    "pracować"
+   ],
+   "pronunciation": "clużić"
+  },
+  {
+   "id": "ru1000-725",
+   "rank": 725,
+   "ru": "сестра",
+   "pl": [
+    "siostra"
+   ],
+   "pronunciation": "siestra"
+  },
+  {
+   "id": "ru1000-726",
+   "rank": 726,
+   "ru": "пожалуйста",
+   "pl": [
+    "proszę"
+   ],
+   "pronunciation": "pażalsta"
+  },
+  {
+   "id": "ru1000-727",
+   "rank": 727,
+   "ru": "уехать",
+   "pl": [
+    "wyjechać"
+   ],
+   "pronunciation": "ujechać"
+  },
+  {
+   "id": "ru1000-728",
+   "rank": 728,
+   "ru": "поверить",
+   "pl": [
+    "uwierzyć"
+   ],
+   "pronunciation": "pawierić"
+  },
+  {
+   "id": "ru1000-729",
+   "rank": 729,
+   "ru": "баба",
+   "pl": [
+    "baba",
+    "kobieta"
+   ],
+   "pronunciation": "baba"
+  },
+  {
+   "id": "ru1000-730",
+   "rank": 730,
+   "ru": "нечего",
+   "pl": [
+    "niemaczego",
+    "niemaco"
+   ],
+   "pronunciation": "nieciewo"
+  },
+  {
+   "id": "ru1000-731",
+   "rank": 731,
+   "ru": "цветок",
+   "pl": [
+    "kwiatek"
+   ],
+   "pronunciation": "cwietok"
+  },
+  {
+   "id": "ru1000-732",
+   "rank": 732,
+   "ru": "дождь",
+   "pl": [
+    "deszcz"
+   ],
+   "pronunciation": "dożdź"
+  },
+  {
+   "id": "ru1000-733",
+   "rank": 733,
+   "ru": "желание",
+   "pl": [
+    "życzenie"
+   ],
+   "pronunciation": "żelanije"
+  },
+  {
+   "id": "ru1000-734",
+   "rank": 734,
+   "ru": "болезнь",
+   "pl": [
+    "horoba"
+   ],
+   "pronunciation": "baliezń"
+  },
+  {
+   "id": "ru1000-735",
+   "rank": 735,
+   "ru": "вызывать",
+   "pl": [
+    "wzywać",
+    "wywoływać"
+   ],
+   "pronunciation": "wyzwać"
+  },
+  {
+   "id": "ru1000-736",
+   "rank": 736,
+   "ru": "называться",
+   "pl": [
+    "nazywać się"
+   ],
+   "pronunciation": "nazywaćsa"
+  },
+  {
+   "id": "ru1000-737",
+   "rank": 737,
+   "ru": "встретить",
+   "pl": [
+    "spotkać"
+   ],
+   "pronunciation": "wstrietić"
+  },
+  {
+   "id": "ru1000-738",
+   "rank": 738,
+   "ru": "сосед",
+   "pl": [
+    "sąsiad"
+   ],
+   "pronunciation": "sased"
+  },
+  {
+   "id": "ru1000-739",
+   "rank": 739,
+   "ru": "пример",
+   "pl": [
+    "przykład"
+   ],
+   "pronunciation": "primier"
+  },
+  {
+   "id": "ru1000-740",
+   "rank": 740,
+   "ru": "разговаривать",
+   "pl": [
+    "rozmawiać"
+   ],
+   "pronunciation": "razgawatywać"
+  },
+  {
+   "id": "ru1000-741",
+   "rank": 741,
+   "ru": "позволить",
+   "pl": [
+    "pozwolić"
+   ],
+   "pronunciation": "pazwolić"
+  },
+  {
+   "id": "ru1000-742",
+   "rank": 742,
+   "ru": "обнаружить",
+   "pl": [
+    "wykryć",
+    "ujawnić"
+   ],
+   "pronunciation": "abnarużyć"
+  },
+  {
+   "id": "ru1000-743",
+   "rank": 743,
+   "ru": "дама",
+   "pl": [
+    "dama"
+   ],
+   "pronunciation": "dama"
+  },
+  {
+   "id": "ru1000-744",
+   "rank": 744,
+   "ru": "повернуться",
+   "pl": [
+    "obracać się",
+    "przekręcać się"
+   ],
+   "pronunciation": "pawiernutsa"
+  },
+  {
+   "id": "ru1000-745",
+   "rank": 745,
+   "ru": "орган",
+   "pl": [
+    "organ"
+   ],
+   "pronunciation": "organ"
+  },
+  {
+   "id": "ru1000-746",
+   "rank": 746,
+   "ru": "поле",
+   "pl": [
+    "pole"
+   ],
+   "pronunciation": "pole"
+  },
+  {
+   "id": "ru1000-747",
+   "rank": 747,
+   "ru": "ящик",
+   "pl": [
+    "skrzynka"
+   ],
+   "pronunciation": "jasik"
+  },
+  {
+   "id": "ru1000-748",
+   "rank": 748,
+   "ru": "цена",
+   "pl": [
+    "cena"
+   ],
+   "pronunciation": "cena"
+  },
+  {
+   "id": "ru1000-749",
+   "rank": 749,
+   "ru": "подходить",
+   "pl": [
+    "podchodzić"
+   ],
+   "pronunciation": "padchadić"
+  },
+  {
+   "id": "ru1000-750",
+   "rank": 750,
+   "ru": "горячий",
+   "pl": [
+    "gorący"
+   ],
+   "pronunciation": "gariacij"
+  },
+  {
+   "id": "ru1000-751",
+   "rank": 751,
+   "ru": "милый",
+   "pl": [
+    "miły"
+   ],
+   "pronunciation": "milyj"
+  },
+  {
+   "id": "ru1000-752",
+   "rank": 752,
+   "ru": "слабый",
+   "pl": [
+    "słaby"
+   ],
+   "pronunciation": "slabyj"
+  },
+  {
+   "id": "ru1000-753",
+   "rank": 753,
+   "ru": "ах",
+   "pl": [
+    "ach"
+   ],
+   "pronunciation": "ach"
+  },
+  {
+   "id": "ru1000-754",
+   "rank": 754,
+   "ru": "карта",
+   "pl": [
+    "karta"
+   ],
+   "pronunciation": "karta"
+  },
+  {
+   "id": "ru1000-755",
+   "rank": 755,
+   "ru": "слава",
+   "pl": [
+    "sława"
+   ],
+   "pronunciation": "slawa"
+  },
+  {
+   "id": "ru1000-756",
+   "rank": 756,
+   "ru": "радость",
+   "pl": [
+    "radość"
+   ],
+   "pronunciation": "rados't'"
+  },
+  {
+   "id": "ru1000-757",
+   "rank": 757,
+   "ru": "зато",
+   "pl": [
+    "zato",
+    "natomiast",
+    "lecz"
+   ],
+   "pronunciation": "zato"
+  },
+  {
+   "id": "ru1000-758",
+   "rank": 758,
+   "ru": "тень",
+   "pl": [
+    "cień"
+   ],
+   "pronunciation": "tień"
+  },
+  {
+   "id": "ru1000-759",
+   "rank": 759,
+   "ru": "висеть",
+   "pl": [
+    "wisieć"
+   ],
+   "pronunciation": "wisieć"
+  },
+  {
+   "id": "ru1000-760",
+   "rank": 760,
+   "ru": "операция",
+   "pl": [
+    "operacja"
+   ],
+   "pronunciation": "apieracyja"
+  },
+  {
+   "id": "ru1000-761",
+   "rank": 761,
+   "ru": "выглядеть",
+   "pl": [
+    "wyglądać"
+   ],
+   "pronunciation": "wygliadieć"
+  },
+  {
+   "id": "ru1000-762",
+   "rank": 762,
+   "ru": "действовать",
+   "pl": [
+    "działać",
+    "postępować"
+   ],
+   "pronunciation": "diejstwować"
+  },
+  {
+   "id": "ru1000-763",
+   "rank": 763,
+   "ru": "нести",
+   "pl": [
+    "nieść"
+   ],
+   "pronunciation": "niesti"
+  },
+  {
+   "id": "ru1000-764",
+   "rank": 764,
+   "ru": "музыка",
+   "pl": [
+    "muzyka"
+   ],
+   "pronunciation": "muzyka"
+  },
+  {
+   "id": "ru1000-765",
+   "rank": 765,
+   "ru": "голубой",
+   "pl": [
+    "niebiski"
+   ],
+   "pronunciation": "galuboj"
+  },
+  {
+   "id": "ru1000-766",
+   "rank": 766,
+   "ru": "гореть",
+   "pl": [
+    "palić się"
+   ],
+   "pronunciation": "garieć"
+  },
+  {
+   "id": "ru1000-767",
+   "rank": 767,
+   "ru": "завод",
+   "pl": [
+    "fabryka"
+   ],
+   "pronunciation": "zawod"
+  },
+  {
+   "id": "ru1000-768",
+   "rank": 768,
+   "ru": "добавить",
+   "pl": [
+    "dodać"
+   ],
+   "pronunciation": "dobawić"
+  },
+  {
+   "id": "ru1000-769",
+   "rank": 769,
+   "ru": "лето",
+   "pl": [
+    "lato"
+   ],
+   "pronunciation": "leto"
+  },
+  {
+   "id": "ru1000-770",
+   "rank": 770,
+   "ru": "весьма",
+   "pl": [
+    "bardzo",
+    "wielce"
+   ],
+   "pronunciation": "wies'ma"
+  },
+  {
+   "id": "ru1000-771",
+   "rank": 771,
+   "ru": "садиться",
+   "pl": [
+    "usiąść"
+   ],
+   "pronunciation": "saditsa"
+  },
+  {
+   "id": "ru1000-772",
+   "rank": 772,
+   "ru": "ибо",
+   "pl": [
+    "ponieważ",
+    "gdyż"
+   ],
+   "pronunciation": "ibo"
+  },
+  {
+   "id": "ru1000-773",
+   "rank": 773,
+   "ru": "мелкий",
+   "pl": [
+    "drobny"
+   ],
+   "pronunciation": "mielkij"
+  },
+  {
+   "id": "ru1000-774",
+   "rank": 774,
+   "ru": "помогать",
+   "pl": [
+    "pomagać"
+   ],
+   "pronunciation": "pamagać"
+  },
+  {
+   "id": "ru1000-775",
+   "rank": 775,
+   "ru": "любимый",
+   "pl": [
+    "kochany",
+    "ulubiony"
+   ],
+   "pronunciation": "ljubimyj"
+  },
+  {
+   "id": "ru1000-776",
+   "rank": 776,
+   "ru": "станция",
+   "pl": [
+    "stacja"
+   ],
+   "pronunciation": "stancyja"
+  },
+  {
+   "id": "ru1000-777",
+   "rank": 777,
+   "ru": "повод",
+   "pl": [
+    "powód"
+   ],
+   "pronunciation": "pawod"
+  },
+  {
+   "id": "ru1000-778",
+   "rank": 778,
+   "ru": "воля",
+   "pl": [
+    "wola"
+   ],
+   "pronunciation": "wolja"
+  },
+  {
+   "id": "ru1000-779",
+   "rank": 779,
+   "ru": "литература",
+   "pl": [
+    "literatura"
+   ],
+   "pronunciation": "litieratura"
+  },
+  {
+   "id": "ru1000-780",
+   "rank": 780,
+   "ru": "детский",
+   "pl": [
+    "dziecinny"
+   ],
+   "pronunciation": "dietskij"
+  },
+  {
+   "id": "ru1000-781",
+   "rank": 781,
+   "ru": "правильно",
+   "pl": [
+    "prawidłowo"
+   ],
+   "pronunciation": "prawil'no"
+  },
+  {
+   "id": "ru1000-782",
+   "rank": 782,
+   "ru": "дурак",
+   "pl": [
+    "głupiec"
+   ],
+   "pronunciation": "durak"
+  },
+  {
+   "id": "ru1000-783",
+   "rank": 783,
+   "ru": "приказ",
+   "pl": [
+    "rozkaz"
+   ],
+   "pronunciation": "prikaz"
+  },
+  {
+   "id": "ru1000-784",
+   "rank": 784,
+   "ru": "гражданин",
+   "pl": [
+    "obywatel"
+   ],
+   "pronunciation": "grażdanin"
+  },
+  {
+   "id": "ru1000-785",
+   "rank": 785,
+   "ru": "интересно",
+   "pl": [
+    "interesująco"
+   ],
+   "pronunciation": "intieriesno"
+  },
+  {
+   "id": "ru1000-786",
+   "rank": 786,
+   "ru": "счастливый",
+   "pl": [
+    "szczęśliwy"
+   ],
+   "pronunciation": "ściasliwyj"
+  },
+  {
+   "id": "ru1000-787",
+   "rank": 787,
+   "ru": "крыша",
+   "pl": [
+    "dach"
+   ],
+   "pronunciation": "krysza"
+  },
+  {
+   "id": "ru1000-788",
+   "rank": 788,
+   "ru": "цвет",
+   "pl": [
+    "kolor"
+   ],
+   "pronunciation": "cwiet"
+  },
+  {
+   "id": "ru1000-789",
+   "rank": 789,
+   "ru": "веселый",
+   "pl": [
+    "wesoły"
+   ],
+   "pronunciation": "wiesiolyj"
+  },
+  {
+   "id": "ru1000-790",
+   "rank": 790,
+   "ru": "повторить",
+   "pl": [
+    "powtórzyć"
+   ],
+   "pronunciation": "pawtarić"
+  },
+  {
+   "id": "ru1000-791",
+   "rank": 791,
+   "ru": "невозможно",
+   "pl": [
+    "niemożliwie"
+   ],
+   "pronunciation": "niewazmożno"
+  },
+  {
+   "id": "ru1000-792",
+   "rank": 792,
+   "ru": "статья",
+   "pl": [
+    "artykuł"
+   ],
+   "pronunciation": "statja"
+  },
+  {
+   "id": "ru1000-793",
+   "rank": 793,
+   "ru": "круг",
+   "pl": [
+    "kręg",
+    "koło"
+   ],
+   "pronunciation": "krug"
+  },
+  {
+   "id": "ru1000-794",
+   "rank": 794,
+   "ru": "столь",
+   "pl": [
+    "tak",
+    "tak bardzo"
+   ],
+   "pronunciation": "stol'"
+  },
+  {
+   "id": "ru1000-795",
+   "rank": 795,
+   "ru": "факт",
+   "pl": [
+    "fakt"
+   ],
+   "pronunciation": "fakt"
+  },
+  {
+   "id": "ru1000-796",
+   "rank": 796,
+   "ru": "бок",
+   "pl": [
+    "bok",
+    "strona"
+   ],
+   "pronunciation": "bok"
+  },
+  {
+   "id": "ru1000-797",
+   "rank": 797,
+   "ru": "относиться",
+   "pl": [
+    "odnosić się",
+    "ustosunkować się"
+   ],
+   "pronunciation": "atnositsa"
+  },
+  {
+   "id": "ru1000-798",
+   "rank": 798,
+   "ru": "причем",
+   "pl": [
+    "przy czym"
+   ],
+   "pronunciation": "priciom"
+  },
+  {
+   "id": "ru1000-799",
+   "rank": 799,
+   "ru": "учиться",
+   "pl": [
+    "uczyć się"
+   ],
+   "pronunciation": "ucitsa"
+  },
+  {
+   "id": "ru1000-800",
+   "rank": 800,
+   "ru": "стул",
+   "pl": [
+    "krzesło"
+   ],
+   "pronunciation": "stul"
+  },
+  {
+   "id": "ru1000-801",
+   "rank": 801,
+   "ru": "удивиться",
+   "pl": [
+    "zdziwić się"
+   ],
+   "pronunciation": "udiwitsa"
+  },
+  {
+   "id": "ru1000-802",
+   "rank": 802,
+   "ru": "средний",
+   "pl": [
+    "średni"
+   ],
+   "pronunciation": "sriednij"
+  },
+  {
+   "id": "ru1000-803",
+   "rank": 803,
+   "ru": "современный",
+   "pl": [
+    "współczesny"
+   ],
+   "pronunciation": "sawriemiennyj"
+  },
+  {
+   "id": "ru1000-804",
+   "rank": 804,
+   "ru": "лагерь",
+   "pl": [
+    "obóz"
+   ],
+   "pronunciation": "lagier'"
+  },
+  {
+   "id": "ru1000-805",
+   "rank": 805,
+   "ru": "войско",
+   "pl": [
+    "wojsko"
+   ],
+   "pronunciation": "wojsko"
+  },
+  {
+   "id": "ru1000-806",
+   "rank": 806,
+   "ru": "недавно",
+   "pl": [
+    "niedawno"
+   ],
+   "pronunciation": "niedawno"
+  },
+  {
+   "id": "ru1000-807",
+   "rank": 807,
+   "ru": "удовольствие",
+   "pl": [
+    "przyjemność"
+   ],
+   "pronunciation": "udawol'stwije"
+  },
+  {
+   "id": "ru1000-808",
+   "rank": 808,
+   "ru": "вино",
+   "pl": [
+    "wino"
+   ],
+   "pronunciation": "wino"
+  },
+  {
+   "id": "ru1000-809",
+   "rank": 809,
+   "ru": "возраст",
+   "pl": [
+    "wiek"
+   ],
+   "pronunciation": "wozrast"
+  },
+  {
+   "id": "ru1000-810",
+   "rank": 810,
+   "ru": "погибнуть",
+   "pl": [
+    "zginąć"
+   ],
+   "pronunciation": "pagibnuć"
+  },
+  {
+   "id": "ru1000-811",
+   "rank": 811,
+   "ru": "способный",
+   "pl": [
+    "zdolny",
+    "utalentowany"
+   ],
+   "pronunciation": "spasobnyj"
+  },
+  {
+   "id": "ru1000-812",
+   "rank": 812,
+   "ru": "лестница",
+   "pl": [
+    "schody"
+   ],
+   "pronunciation": "lesnica"
+  },
+  {
+   "id": "ru1000-813",
+   "rank": 813,
+   "ru": "держаться",
+   "pl": [
+    "trzymać się"
+   ],
+   "pronunciation": "dierżatsa"
+  },
+  {
+   "id": "ru1000-814",
+   "rank": 814,
+   "ru": "министр",
+   "pl": [
+    "minister"
+   ],
+   "pronunciation": "ministr"
+  },
+  {
+   "id": "ru1000-815",
+   "rank": 815,
+   "ru": "фронт",
+   "pl": [
+    "front"
+   ],
+   "pronunciation": "front"
+  },
+  {
+   "id": "ru1000-816",
+   "rank": 816,
+   "ru": "передать",
+   "pl": [
+    "przetłumaczyć",
+    "przełożyć"
+   ],
+   "pronunciation": "pieriedać"
+  },
+  {
+   "id": "ru1000-817",
+   "rank": 817,
+   "ru": "обратно",
+   "pl": [
+    "zpowrotem"
+   ],
+   "pronunciation": "obratno"
+  },
+  {
+   "id": "ru1000-818",
+   "rank": 818,
+   "ru": "стрелять",
+   "pl": [
+    "strzelać"
+   ],
+   "pronunciation": "strieliać"
+  },
+  {
+   "id": "ru1000-819",
+   "rank": 819,
+   "ru": "петербург",
+   "pl": [
+    "petersburg"
+   ],
+   "pronunciation": "pietierburg"
+  },
+  {
+   "id": "ru1000-820",
+   "rank": 820,
+   "ru": "неужели",
+   "pl": [
+    "czyżby"
+   ],
+   "pronunciation": "nieużeli"
+  },
+  {
+   "id": "ru1000-821",
+   "rank": 821,
+   "ru": "сад",
+   "pl": [
+    "ogród"
+   ],
+   "pronunciation": "sad"
+  },
+  {
+   "id": "ru1000-822",
+   "rank": 822,
+   "ru": "проводить",
+   "pl": [
+    "spędzać"
+   ],
+   "pronunciation": "prawadić"
+  },
+  {
+   "id": "ru1000-823",
+   "rank": 823,
+   "ru": "задача",
+   "pl": [
+    "zadanie"
+   ],
+   "pronunciation": "zadacia"
+  },
+  {
+   "id": "ru1000-824",
+   "rank": 824,
+   "ru": "острый",
+   "pl": [
+    "ostry"
+   ],
+   "pronunciation": "ostryj"
+  },
+  {
+   "id": "ru1000-825",
+   "rank": 825,
+   "ru": "мол",
+   "pl": [
+    "molo"
+   ],
+   "pronunciation": "mol"
+  },
+  {
+   "id": "ru1000-826",
+   "rank": 826,
+   "ru": "осторожно",
+   "pl": [
+    "ostrożnie"
+   ],
+   "pronunciation": "astarożno"
+  },
+  {
+   "id": "ru1000-827",
+   "rank": 827,
+   "ru": "свободный",
+   "pl": [
+    "wolny"
+   ],
+   "pronunciation": "swabodnyj"
+  },
+  {
+   "id": "ru1000-828",
+   "rank": 828,
+   "ru": "входить",
+   "pl": [
+    "wchodzić"
+   ],
+   "pronunciation": "wchadić"
+  },
+  {
+   "id": "ru1000-829",
+   "rank": 829,
+   "ru": "темнота",
+   "pl": [
+    "ciemność"
+   ],
+   "pronunciation": "tiemnota"
+  },
+  {
+   "id": "ru1000-830",
+   "rank": 830,
+   "ru": "название",
+   "pl": [
+    "nazwa"
+   ],
+   "pronunciation": "nazwanije"
+  },
+  {
+   "id": "ru1000-831",
+   "rank": 831,
+   "ru": "двигаться",
+   "pl": [
+    "poruszać się"
+   ],
+   "pronunciation": "dwigatsa"
+  },
+  {
+   "id": "ru1000-832",
+   "rank": 832,
+   "ru": "возникнуть",
+   "pl": [
+    "pojawić się"
+   ],
+   "pronunciation": "wazniknuć"
+  },
+  {
+   "id": "ru1000-833",
+   "rank": 833,
+   "ru": "большинство",
+   "pl": [
+    "większość"
+   ],
+   "pronunciation": "bal'szynstwo"
+  },
+  {
+   "id": "ru1000-834",
+   "rank": 834,
+   "ru": "организация",
+   "pl": [
+    "organizacja"
+   ],
+   "pronunciation": "arganizacyja"
+  },
+  {
+   "id": "ru1000-835",
+   "rank": 835,
+   "ru": "дым",
+   "pl": [
+    "dym"
+   ],
+   "pronunciation": "dym"
+  },
+  {
+   "id": "ru1000-836",
+   "rank": 836,
+   "ru": "высший",
+   "pl": [
+    "wyższy"
+   ],
+   "pronunciation": "wysszyj"
+  },
+  {
+   "id": "ru1000-837",
+   "rank": 837,
+   "ru": "километр",
+   "pl": [
+    "kilometr"
+   ],
+   "pronunciation": "kilomietr"
+  },
+  {
+   "id": "ru1000-838",
+   "rank": 838,
+   "ru": "позвонить",
+   "pl": [
+    "zadzwonić"
+   ],
+   "pronunciation": "pozwonić"
+  },
+  {
+   "id": "ru1000-839",
+   "rank": 839,
+   "ru": "закричать",
+   "pl": [
+    "zakrzyczeć"
+   ],
+   "pronunciation": "zakriciać"
+  },
+  {
+   "id": "ru1000-840",
+   "rank": 840,
+   "ru": "ради",
+   "pl": [
+    "zewzględuna"
+   ],
+   "pronunciation": "radi"
+  },
+  {
+   "id": "ru1000-841",
+   "rank": 841,
+   "ru": "председатель",
+   "pl": [
+    "przewodniczący"
+   ],
+   "pronunciation": "priedsiedatiel'"
+  },
+  {
+   "id": "ru1000-842",
+   "rank": 842,
+   "ru": "приказать",
+   "pl": [
+    "rozkazać",
+    "polecić"
+   ],
+   "pronunciation": "pikazać"
+  },
+  {
+   "id": "ru1000-843",
+   "rank": 843,
+   "ru": "прямой",
+   "pl": [
+    "prosty"
+   ],
+   "pronunciation": "priamoj"
+  },
+  {
+   "id": "ru1000-844",
+   "rank": 844,
+   "ru": "прочее",
+   "pl": [
+    "i tak dalej"
+   ],
+   "pronunciation": "procieje"
+  },
+  {
+   "id": "ru1000-845",
+   "rank": 845,
+   "ru": "слегка",
+   "pl": [
+    "legko"
+   ],
+   "pronunciation": "sliehka"
+  },
+  {
+   "id": "ru1000-846",
+   "rank": 846,
+   "ru": "попробовать",
+   "pl": [
+    "spróbować"
+   ],
+   "pronunciation": "paprobować"
+  },
+  {
+   "id": "ru1000-847",
+   "rank": 847,
+   "ru": "вскоре",
+   "pl": [
+    "wkrótce"
+   ],
+   "pronunciation": "wskorie"
+  },
+  {
+   "id": "ru1000-848",
+   "rank": 848,
+   "ru": "вверх",
+   "pl": [
+    "wgórę",
+    "dogóry"
+   ],
+   "pronunciation": "wwierch"
+  },
+  {
+   "id": "ru1000-849",
+   "rank": 849,
+   "ru": "ночной",
+   "pl": [
+    "nocny"
+   ],
+   "pronunciation": "naćnoj"
+  },
+  {
+   "id": "ru1000-850",
+   "rank": 850,
+   "ru": "доллар",
+   "pl": [
+    "dolar"
+   ],
+   "pronunciation": "dollar"
+  },
+  {
+   "id": "ru1000-851",
+   "rank": 851,
+   "ru": "носить",
+   "pl": [
+    "nosić"
+   ],
+   "pronunciation": "nasić"
+  },
+  {
+   "id": "ru1000-852",
+   "rank": 852,
+   "ru": "выражение",
+   "pl": [
+    "wyrażenie"
+   ],
+   "pronunciation": "wyrażenije"
+  },
+  {
+   "id": "ru1000-853",
+   "rank": 853,
+   "ru": "кончиться",
+   "pl": [
+    "kończyć się"
+   ],
+   "pronunciation": "koncitsa"
+  },
+  {
+   "id": "ru1000-854",
+   "rank": 854,
+   "ru": "плакать",
+   "pl": [
+    "płakać"
+   ],
+   "pronunciation": "plakać"
+  },
+  {
+   "id": "ru1000-855",
+   "rank": 855,
+   "ru": "танк",
+   "pl": [
+    "czołg"
+   ],
+   "pronunciation": "tank"
+  },
+  {
+   "id": "ru1000-856",
+   "rank": 856,
+   "ru": "мешать",
+   "pl": [
+    "przeszkadzać"
+   ],
+   "pronunciation": "mieszać"
+  },
+  {
+   "id": "ru1000-857",
+   "rank": 857,
+   "ru": "сухой",
+   "pl": [
+    "suchy"
+   ],
+   "pronunciation": "suchoj"
+  },
+  {
+   "id": "ru1000-858",
+   "rank": 858,
+   "ru": "зима",
+   "pl": [
+    "zima"
+   ],
+   "pronunciation": "zima"
+  },
+  {
+   "id": "ru1000-859",
+   "rank": 859,
+   "ru": "знак",
+   "pl": [
+    "znak"
+   ],
+   "pronunciation": "znak"
+  },
+  {
+   "id": "ru1000-860",
+   "rank": 860,
+   "ru": "семь",
+   "pl": [
+    "siedem"
+   ],
+   "pronunciation": "siem'"
+  },
+  {
+   "id": "ru1000-861",
+   "rank": 861,
+   "ru": "получаться",
+   "pl": [
+    "nosić"
+   ],
+   "pronunciation": "paluciatsa"
+  },
+  {
+   "id": "ru1000-862",
+   "rank": 862,
+   "ru": "мозг",
+   "pl": [
+    "mózg"
+   ],
+   "pronunciation": "mozg"
+  },
+  {
+   "id": "ru1000-863",
+   "rank": 863,
+   "ru": "учитель",
+   "pl": [
+    "nauczyciel"
+   ],
+   "pronunciation": "ucitiel'"
+  },
+  {
+   "id": "ru1000-864",
+   "rank": 864,
+   "ru": "желать",
+   "pl": [
+    "chcieć"
+   ],
+   "pronunciation": "żelać"
+  },
+  {
+   "id": "ru1000-865",
+   "rank": 865,
+   "ru": "обязательно",
+   "pl": [
+    "koniecznie"
+   ],
+   "pronunciation": "abjzatiel'no"
+  },
+  {
+   "id": "ru1000-866",
+   "rank": 866,
+   "ru": "майор",
+   "pl": [
+    "major"
+   ],
+   "pronunciation": "major"
+  },
+  {
+   "id": "ru1000-867",
+   "rank": 867,
+   "ru": "привыкнуть",
+   "pl": [
+    "przyzwyczaić się"
+   ],
+   "pronunciation": "priwyknuć"
+  },
+  {
+   "id": "ru1000-868",
+   "rank": 868,
+   "ru": "понятно",
+   "pl": [
+    "zrozumiale"
+   ],
+   "pronunciation": "paniatno"
+  },
+  {
+   "id": "ru1000-869",
+   "rank": 869,
+   "ru": "судить",
+   "pl": [
+    "sądzić"
+   ],
+   "pronunciation": "sudić"
+  },
+  {
+   "id": "ru1000-870",
+   "rank": 870,
+   "ru": "тишина",
+   "pl": [
+    "cisza"
+   ],
+   "pronunciation": "tiszyna"
+  },
+  {
+   "id": "ru1000-871",
+   "rank": 871,
+   "ru": "кровать",
+   "pl": [
+    "łóżko"
+   ],
+   "pronunciation": "krować"
+  },
+  {
+   "id": "ru1000-872",
+   "rank": 872,
+   "ru": "очередной",
+   "pl": [
+    "kolejny"
+   ],
+   "pronunciation": "acieriednoj"
+  },
+  {
+   "id": "ru1000-873",
+   "rank": 873,
+   "ru": "деятельность",
+   "pl": [
+    "działalność"
+   ],
+   "pronunciation": "diejatiel'nosć"
+  },
+  {
+   "id": "ru1000-874",
+   "rank": 874,
+   "ru": "США",
+   "pl": [
+    "USA"
+   ],
+   "pronunciation": "esesza"
+  },
+  {
+   "id": "ru1000-875",
+   "rank": 875,
+   "ru": "рыба",
+   "pl": [
+    "ryba"
+   ],
+   "pronunciation": "ryba"
+  },
+  {
+   "id": "ru1000-876",
+   "rank": 876,
+   "ru": "щека",
+   "pl": [
+    "policzek"
+   ],
+   "pronunciation": "śioka"
+  },
+  {
+   "id": "ru1000-877",
+   "rank": 877,
+   "ru": "птица",
+   "pl": [
+    "ptak"
+   ],
+   "pronunciation": "ptica"
+  },
+  {
+   "id": "ru1000-878",
+   "rank": 878,
+   "ru": "обещать",
+   "pl": [
+    "obiecać"
+   ],
+   "pronunciation": "abiesiać"
+  },
+  {
+   "id": "ru1000-879",
+   "rank": 879,
+   "ru": "страшно",
+   "pl": [
+    "strasznie"
+   ],
+   "pronunciation": "straszno"
+  },
+  {
+   "id": "ru1000-880",
+   "rank": 880,
+   "ru": "ставить",
+   "pl": [
+    "stawiać"
+   ],
+   "pronunciation": "stawić"
+  },
+  {
+   "id": "ru1000-881",
+   "rank": 881,
+   "ru": "странно",
+   "pl": [
+    "dziwnie"
+   ],
+   "pronunciation": "stranno"
+  },
+  {
+   "id": "ru1000-882",
+   "rank": 882,
+   "ru": "папа",
+   "pl": [
+    "tatuś"
+   ],
+   "pronunciation": "papa"
+  },
+  {
+   "id": "ru1000-883",
+   "rank": 883,
+   "ru": "касаться",
+   "pl": [
+    "dotykać",
+    "poruszać"
+   ],
+   "pronunciation": "kasatsa"
+  },
+  {
+   "id": "ru1000-884",
+   "rank": 884,
+   "ru": "водка",
+   "pl": [
+    "wódka"
+   ],
+   "pronunciation": "wodka"
+  },
+  {
+   "id": "ru1000-885",
+   "rank": 885,
+   "ru": "здание",
+   "pl": [
+    "budynek"
+   ],
+   "pronunciation": "zdanije"
+  },
+  {
+   "id": "ru1000-886",
+   "rank": 886,
+   "ru": "колоть",
+   "pl": [
+    "rąbać",
+    "ukłuć"
+   ],
+   "pronunciation": "koloć"
+  },
+  {
+   "id": "ru1000-887",
+   "rank": 887,
+   "ru": "зеркало",
+   "pl": [
+    "lustro"
+   ],
+   "pronunciation": "zierkalo"
+  },
+  {
+   "id": "ru1000-888",
+   "rank": 888,
+   "ru": "собраться",
+   "pl": [
+    "zebrać się"
+   ],
+   "pronunciation": "sabratsa"
+  },
+  {
+   "id": "ru1000-889",
+   "rank": 889,
+   "ru": "искусство",
+   "pl": [
+    "sztuka"
+   ],
+   "pronunciation": "iskustwo"
+  },
+  {
+   "id": "ru1000-890",
+   "rank": 890,
+   "ru": "начало",
+   "pl": [
+    "początek"
+   ],
+   "pronunciation": "nacialo"
+  },
+  {
+   "id": "ru1000-891",
+   "rank": 891,
+   "ru": "пахнуть",
+   "pl": [
+    "pachnieć"
+   ],
+   "pronunciation": "pachnuć"
+  },
+  {
+   "id": "ru1000-892",
+   "rank": 892,
+   "ru": "возникать",
+   "pl": [
+    "powstawać"
+   ],
+   "pronunciation": "waznikać"
+  },
+  {
+   "id": "ru1000-893",
+   "rank": 893,
+   "ru": "несмотря",
+   "pl": [
+    "mimoczego"
+   ],
+   "pronunciation": "niesmatria"
+  },
+  {
+   "id": "ru1000-894",
+   "rank": 894,
+   "ru": "вагон",
+   "pl": [
+    "wagon"
+   ],
+   "pronunciation": "wagon"
+  },
+  {
+   "id": "ru1000-895",
+   "rank": 895,
+   "ru": "отсюда",
+   "pl": [
+    "stąd"
+   ],
+   "pronunciation": "atsjuda"
+  },
+  {
+   "id": "ru1000-896",
+   "rank": 896,
+   "ru": "автомат",
+   "pl": [
+    "automat"
+   ],
+   "pronunciation": "awtomat"
+  }
+ ]
+}
