@@ -67,9 +67,19 @@ class SpeakerButton extends ConsumerWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(size >= 44 ? 10 : 8),
-          onTap: () {
+          onTap: () async {
             final settings = ref.read(settingsProvider);
-            ref.read(audioServiceProvider).speakRussian(text, slow: settings.slowSpeech);
+            final spoken =
+                await ref.read(audioServiceProvider).speakRussian(text, slow: settings.slowSpeech);
+            if (!spoken && context.mounted) {
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(const SnackBar(
+                  content: Text(
+                      'Brak rosyjskiego głosu w Windows. Zainstaluj: Ustawienia → Czas i język → Mowa → Dodaj głosy → rosyjski.'),
+                  duration: Duration(seconds: 4),
+                ));
+            }
           },
           child: Icon(Icons.volume_up_outlined, size: size * 0.45, color: context.c.foreground),
         ),
