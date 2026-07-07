@@ -151,9 +151,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             );
           }
           final task = tasks[_index];
+          final modeLabel = switch (widget.mode) {
+            SessionMode.practice => 'Utrwalanie',
+            SessionMode.test => 'Test',
+            SessionMode.retry => 'Poprawka',
+            _ => null,
+          };
           return Column(
             children: [
-              _SessionTopBar(index: _index, total: tasks.length),
+              _SessionTopBar(index: _index, total: tasks.length, modeLabel: modeLabel),
               Expanded(
                 child: KeyedSubtree(
                   key: ValueKey(_index),
@@ -177,10 +183,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 }
 
 class _SessionTopBar extends StatelessWidget {
-  const _SessionTopBar({required this.index, required this.total});
+  const _SessionTopBar({required this.index, required this.total, this.modeLabel});
 
   final int index;
   final int total;
+  final String? modeLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -195,6 +202,10 @@ class _SessionTopBar extends StatelessWidget {
             icon: Icon(Icons.close, size: 18, color: context.c.mutedForeground),
             tooltip: 'Przerwij sesję',
           ),
+          if (modeLabel != null) ...[
+            const SizedBox(width: 16),
+            AppBadge(label: modeLabel!),
+          ],
           const SizedBox(width: 16),
           Expanded(
             child: ClipRRect(
