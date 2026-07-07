@@ -64,6 +64,16 @@ class StatsScreen extends ConsumerWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 720,
+                child: Text(
+                  'Jak działa nauka: każde słówko przechodzi przez 5 poziomów powtórek — kolejne po 1, 2, 4, 7 i 15 dniach. '
+                  'Poprawna odpowiedź w terminie podnosi poziom, błąd cofa słówko na początek. '
+                  'Od poziomu 4 słówko liczy się jako opanowane. Utrwalanie i testy nie przyspieszają poziomów przed terminem, ale błąd zawsze cofa.',
+                  style: TextStyle(fontSize: 13, height: 1.5, color: context.c.mutedForeground),
+                ),
+              ),
             ],
           ),
         );

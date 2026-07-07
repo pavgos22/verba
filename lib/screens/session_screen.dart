@@ -15,7 +15,7 @@ import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
 import '../widgets/onscreen_keyboard.dart';
 
-enum SessionMode { full, reviewsOnly, retry }
+enum SessionMode { full, reviewsOnly, practice, test, retry }
 
 enum TaskKind { presentation, typingPlToRu, typingRuToPl }
 
@@ -78,6 +78,18 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           for (final word in due)
             SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
         ];
+      case SessionMode.practice:
+        final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
+        return [
+          for (final word in started.take(15))
+            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+        ];
+      case SessionMode.test:
+        final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
+        return [
+          for (final word in started.take(10))
+            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+        ];
       case SessionMode.retry:
         return [for (final word in widget.retryWords) SessionTask(word: word, kind: TaskKind.typingPlToRu)];
     }
@@ -89,6 +101,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _answered++;
       if (correct) {
         _correct++;
+      } else if (widget.mode == SessionMode.retry) {
+        _tasks!.add(SessionTask(word: task.word, kind: task.kind));
       } else {
         _mistakes.add(SessionMistake(word: task.word, kind: task.kind, given: given));
       }
@@ -123,6 +137,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               correct: _correct,
               total: _answered,
               mistakes: _mistakes,
+              allowRetry: widget.mode != SessionMode.test,
+              cleared: widget.mode == SessionMode.retry,
               onRetry: () {
                 final retryWords = {for (final m in _mistakes) m.word.id: m.word}.values.toList();
                 Navigator.of(context).pushReplacement(
@@ -146,6 +162,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                       : _TypingView(
                           word: task.word,
                           kind: task.kind,
+                          showCorrections: widget.mode != SessionMode.test,
                           onResult: (correct, given) => _onTypingResult(task, correct, given),
                           onNext: _next,
                         ),
@@ -285,12 +302,14 @@ class _TypingView extends ConsumerStatefulWidget {
   const _TypingView({
     required this.word,
     required this.kind,
+    required this.showCorrections,
     required this.onResult,
     required this.onNext,
   });
 
   final Word word;
   final TaskKind kind;
+  final bool showCorrections;
   final void Function(bool correct, String given) onResult;
   final VoidCallback onNext;
 
@@ -358,6 +377,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     if (_grade == null) {
       final grade = _isPlToRu ? gradeRuAnswer(widget.word, given) : gradePlAnswer(widget.word, given);
       widget.onResult(grade != AnswerGrade.wrong, given);
+      if (!widget.showCorrections) {
+        widget.onNext();
+        return;
+      }
       setState(() => _grade = grade);
       if (grade == AnswerGrade.correct) {
         _finish();
@@ -379,6 +402,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
   void _giveUp() {
     if (_grade != null || _done) return;
     widget.onResult(false, _controller.text.trim());
+    if (!widget.showCorrections) {
+      widget.onNext();
+      return;
+    }
     setState(() => _grade = AnswerGrade.wrong);
     _startShake(slow: false);
     _fieldFocus.requestFocus();
@@ -555,6 +582,8 @@ class _SummaryView extends StatelessWidget {
     required this.correct,
     required this.total,
     required this.mistakes,
+    required this.allowRetry,
+    required this.cleared,
     required this.onRetry,
     required this.onFinish,
   });
@@ -562,6 +591,8 @@ class _SummaryView extends StatelessWidget {
   final int correct;
   final int total;
   final List<SessionMistake> mistakes;
+  final bool allowRetry;
+  final bool cleared;
   final VoidCallback onRetry;
   final VoidCallback onFinish;
 
@@ -581,10 +612,13 @@ class _SummaryView extends StatelessWidget {
               child: Icon(Icons.check, size: 32, color: context.c.success),
             ),
             const SizedBox(height: 24),
-            Text('Sesja ukończona!',
+            Text(cleared ? 'Wszystko poprawione!' : 'Sesja ukończona!',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: context.c.foreground)),
             const SizedBox(height: 8),
-            Text('$correct z $total poprawnie · $percent%',
+            Text(
+                cleared
+                    ? 'Każde błędne słówko zostało w końcu wpisane poprawnie'
+                    : '$correct z $total poprawnie · $percent%',
                 style: TextStyle(fontSize: 16, color: context.c.mutedForeground)),
             if (mistakes.isNotEmpty) ...[
               const SizedBox(height: 24),
@@ -650,7 +684,7 @@ class _SummaryView extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (mistakes.isNotEmpty) ...[
+                if (mistakes.isNotEmpty && allowRetry) ...[
                   OutlinedButton(onPressed: onRetry, child: Text('Powtórz błędne (${mistakes.length})')),
                   const SizedBox(width: 12),
                 ],

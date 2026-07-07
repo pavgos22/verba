@@ -40,6 +40,7 @@ class _Dashboard extends ConsumerWidget {
     final fresh = words.where((w) => progress.statusOf(w.id) == WordStatus.fresh).toList();
     final due = words.where((w) => notifier.isDue(w.id, now)).toList();
     final mastered = words.where((w) => progress.statusOf(w.id) == WordStatus.mastered).length;
+    final started = words.length - fresh.length;
     final newToday = min(settings.dailyGoal, fresh.length);
     final dayOfYear = now.difference(DateTime(now.year)).inDays;
     final wordOfDay = words[dayOfYear % words.length];
@@ -167,6 +168,42 @@ class _Dashboard extends ConsumerWidget {
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: _ModeCard(
+                    title: 'Utrwalanie',
+                    description:
+                        'Tłumaczysz rozpoczęte słówka w obie strony, bez podpowiedzi i bez presji terminów. Błędy poprawiasz na bieżąco.',
+                    buttonLabel: 'Ćwicz',
+                    onPressed: started > 0
+                        ? () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => const SessionScreen(mode: SessionMode.practice)),
+                            )
+                        : null,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: _ModeCard(
+                    title: 'Test',
+                    description:
+                        'Sprawdzian z poznanych słówek — bez poprawiania błędów po drodze, wynik zobaczysz dopiero na końcu.',
+                    buttonLabel: 'Rozpocznij test',
+                    onPressed: started > 0
+                        ? () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => const SessionScreen(mode: SessionMode.test)),
+                            )
+                        : null,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -175,6 +212,38 @@ class _Dashboard extends ConsumerWidget {
   String _dayLabel(int days) {
     if (days == 1) return '1 dzień';
     return '$days dni';
+  }
+}
+
+class _ModeCard extends StatelessWidget {
+  const _ModeCard({
+    required this.title,
+    required this.description,
+    required this.buttonLabel,
+    required this.onPressed,
+  });
+
+  final String title;
+  final String description;
+  final String buttonLabel;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: context.c.foreground)),
+          const SizedBox(height: 4),
+          Text(description, style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+          const SizedBox(height: 16),
+          const Spacer(),
+          OutlinedButton(onPressed: onPressed, child: Text(buttonLabel)),
+        ],
+      ),
+    );
   }
 }
 

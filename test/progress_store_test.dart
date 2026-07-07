@@ -11,32 +11,45 @@ Future<ProviderContainer> createContainer() async {
 }
 
 void main() {
-  test('new word starts fresh and advances through boxes', () async {
+  test('new word advances through boxes on due reviews', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);
 
     expect(container.read(progressProvider).statusOf('hello'), WordStatus.fresh);
 
-    notifier.recordAnswer('hello', true);
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 1));
     expect(container.read(progressProvider).statusOf('hello'), WordStatus.learning);
     expect(container.read(progressProvider).words['hello']!.box, 1);
 
-    notifier.recordAnswer('hello', true);
-    notifier.recordAnswer('hello', true);
-    notifier.recordAnswer('hello', true);
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 2));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 4));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 8));
+    expect(container.read(progressProvider).words['hello']!.box, 4);
     expect(container.read(progressProvider).statusOf('hello'), WordStatus.mastered);
+  });
+
+  test('correct answer before due date does not advance the box', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 1));
+    expect(container.read(progressProvider).words['hello']!.box, 1);
+    expect(container.read(progressProvider).words['hello']!.correct, 3);
   });
 
   test('wrong answer resets box to one', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);
 
-    for (var i = 0; i < 4; i++) {
-      notifier.recordAnswer('hello', true);
-    }
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 2));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 4));
+    notifier.recordAnswer('hello', true, now: DateTime(2026, 1, 8));
     expect(container.read(progressProvider).words['hello']!.box, 4);
 
-    notifier.recordAnswer('hello', false);
+    notifier.recordAnswer('hello', false, now: DateTime(2026, 1, 9));
     expect(container.read(progressProvider).words['hello']!.box, 1);
     expect(container.read(progressProvider).statusOf('hello'), WordStatus.learning);
   });

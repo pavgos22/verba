@@ -78,15 +78,26 @@ class ProgressNotifier extends Notifier<ProgressState> {
     return today.difference(lastDay).inDays >= interval;
   }
 
-  void recordAnswer(String wordId, bool correct) {
+  void recordAnswer(String wordId, bool correct, {DateTime? now}) {
+    final at = now ?? DateTime.now();
     final previous = state.words[wordId];
-    final box = correct ? ((previous?.box ?? 0) + 1).clamp(1, 5) : 1;
-    final updated = WordProgress(
-      box: box,
-      lastReviewMs: DateTime.now().millisecondsSinceEpoch,
-      correct: (previous?.correct ?? 0) + (correct ? 1 : 0),
-      wrong: (previous?.wrong ?? 0) + (correct ? 0 : 1),
-    );
+    final WordProgress updated;
+    if (correct) {
+      final advance = previous == null || isDue(wordId, at);
+      updated = WordProgress(
+        box: advance ? ((previous?.box ?? 0) + 1).clamp(1, 5) : previous.box,
+        lastReviewMs: advance ? at.millisecondsSinceEpoch : previous.lastReviewMs,
+        correct: (previous?.correct ?? 0) + 1,
+        wrong: previous?.wrong ?? 0,
+      );
+    } else {
+      updated = WordProgress(
+        box: 1,
+        lastReviewMs: at.millisecondsSinceEpoch,
+        correct: previous?.correct ?? 0,
+        wrong: (previous?.wrong ?? 0) + 1,
+      );
+    }
     state = ProgressState(
       words: {...state.words, wordId: updated},
       streak: state.streak,
