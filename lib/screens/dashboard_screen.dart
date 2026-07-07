@@ -90,9 +90,10 @@ class _Dashboard extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
               Expanded(
                 child: AppCard(
                   padding: const EdgeInsets.all(24),
@@ -163,7 +164,8 @@ class _Dashboard extends ConsumerWidget {
                   ),
                 ),
               ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
