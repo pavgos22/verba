@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../data/progress_store.dart';
 import '../data/settings_store.dart';
@@ -123,6 +124,18 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 20),
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (context, snapshot) {
+              final info = snapshot.data;
+              if (info == null) return const SizedBox.shrink();
+              return Text(
+                'Verba ${info.version} (build ${info.buildNumber})',
+                style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
+              );
+            },
           ),
         ],
       ),
