@@ -5,6 +5,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../data/progress_store.dart';
 import '../data/settings_store.dart';
 import '../theme/app_colors.dart';
+import '../theme/theme_fade.dart';
 import '../widgets/common.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -35,7 +36,7 @@ class SettingsScreen extends ConsumerWidget {
                     ButtonSegment(value: ThemeMode.system, label: Text('Systemowy')),
                   ],
                   selected: {settings.themeMode},
-                  onSelectionChanged: (selection) => notifier.setThemeMode(selection.first),
+                  onSelectionChanged: (selection) => switchThemeAnimated(ref, selection.first),
                   showSelectedIcon: false,
                 ),
               ),
@@ -51,8 +52,8 @@ class SettingsScreen extends ConsumerWidget {
             title: 'Audio',
             rows: [
               _SettingRow(
-                title: 'Autoodtwarzanie wymowy',
-                description: 'Odtwarzaj słowo przy każdej karcie',
+                title: 'Auto-czytanie słówek',
+                description: 'Czytaj na głos nowe słówka i pytania po rosyjsku',
                 control: Switch(value: settings.autoplay, onChanged: notifier.setAutoplay),
               ),
               _SettingRow(

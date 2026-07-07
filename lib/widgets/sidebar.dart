@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/settings_store.dart';
 import '../theme/app_colors.dart';
+import '../theme/theme_fade.dart';
 
 class SidebarItem {
   const SidebarItem({required this.icon, required this.label});
@@ -65,9 +65,7 @@ class Sidebar extends ConsumerWidget {
               label: isDark ? 'Jasny motyw' : 'Ciemny motyw',
             ),
             active: false,
-            onTap: () {
-              ref.read(settingsProvider.notifier).setThemeMode(isDark ? ThemeMode.light : ThemeMode.dark);
-            },
+            onTap: () => switchThemeAnimated(ref, isDark ? ThemeMode.light : ThemeMode.dark),
           ),
         ],
       ),

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'data/settings_store.dart';
 import 'screens/shell_screen.dart';
 import 'theme/app_theme.dart';
+import 'theme/theme_fade.dart';
 
 class VerbaApp extends ConsumerWidget {
   const VerbaApp({super.key});
@@ -18,6 +19,7 @@ class VerbaApp extends ConsumerWidget {
       darkTheme: buildTheme(Brightness.dark),
       themeMode: themeMode,
       themeAnimationDuration: Duration.zero,
+      builder: (context, child) => ThemeFade(key: themeFadeKey, child: child ?? const SizedBox.shrink()),
       home: const ShellScreen(),
     );
   }
