@@ -5,23 +5,22 @@ import '../core/answer_check.dart';
 
 class SfxService {
   SfxService() {
-    _player.setReleaseMode(ReleaseMode.stop);
-  }
-
-  final AudioPlayer _player = AudioPlayer();
-
-  Future<void> playGrade(AnswerGrade grade) {
-    return _play(switch (grade) {
-      AnswerGrade.correct => 'correct.wav',
-      AnswerGrade.almost => 'almost.wav',
-      AnswerGrade.wrong => 'wrong.wav',
+    _players.forEach((grade, player) {
+      player.setReleaseMode(ReleaseMode.stop);
+      player.setSource(AssetSource('sounds/${grade.name}.wav'));
     });
   }
 
-  Future<void> _play(String file) async {
+  final Map<AnswerGrade, AudioPlayer> _players = {
+    for (final grade in AnswerGrade.values) grade: AudioPlayer(),
+  };
+
+  Future<void> playGrade(AnswerGrade grade) async {
+    final player = _players[grade]!;
     try {
-      await _player.stop();
-      await _player.play(AssetSource('sounds/$file'));
+      await player.stop();
+      await player.seek(Duration.zero);
+      await player.resume();
     } catch (_) {}
   }
 }
