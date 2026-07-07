@@ -38,10 +38,10 @@ class SessionMistake {
 }
 
 class SessionScreen extends ConsumerStatefulWidget {
-  const SessionScreen({super.key, required this.mode, this.retryWords = const []});
+  const SessionScreen({super.key, required this.mode, this.retryTasks = const []});
 
   final SessionMode mode;
-  final List<Word> retryWords;
+  final List<SessionTask> retryTasks;
 
   @override
   ConsumerState<SessionScreen> createState() => _SessionScreenState();
@@ -94,7 +94,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             SessionTask(word: pool[i], kind: _kindFor(settings.testDirection, i, rng)),
         ];
       case SessionMode.retry:
-        return [for (final word in widget.retryWords) SessionTask(word: word, kind: TaskKind.typingPlToRu)];
+        return List.of(widget.retryTasks);
     }
   }
 
@@ -152,10 +152,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               allowRetry: widget.mode != SessionMode.test,
               cleared: widget.mode == SessionMode.retry,
               onRetry: () {
-                final retryWords = {for (final m in _mistakes) m.word.id: m.word}.values.toList();
+                final retryTasks = {
+                  for (final m in _mistakes) m.word.id: SessionTask(word: m.word, kind: m.kind),
+                }.values.toList();
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (_) => SessionScreen(mode: SessionMode.retry, retryWords: retryWords),
+                    builder: (_) => SessionScreen(mode: SessionMode.retry, retryTasks: retryTasks),
                   ),
                 );
               },
@@ -392,6 +394,52 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     ref.read(sfxProvider).playGrade(grade);
   }
 
+  Widget _buildFeedback(BuildContext context, Settings settings, String correctAnswer) {
+    if (_done) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ScaleTransition(
+            scale: CurvedAnimation(parent: _pop, curve: Curves.elasticOut),
+            child: Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(color: context.c.success, shape: BoxShape.circle),
+              child: Icon(Icons.check, size: 14, color: context.c.background),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text('Świetnie!',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
+        ],
+      );
+    }
+    if (_retype) {
+      final almost = _grade == AnswerGrade.almost;
+      final color = almost ? context.c.warning : context.c.destructive;
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(almost ? 'Prawie dobrze! Wpisz poprawnie:' : 'Poprawna odpowiedź:',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: color)),
+          const SizedBox(width: 6),
+          AccentedText(correctAnswer,
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: color)),
+          if (!almost) ...[
+            const SizedBox(width: 6),
+            Text('— przepisz ją',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: color)),
+          ],
+        ],
+      );
+    }
+    if (_isPlToRu && settings.showHints) {
+      return Text('pisz „spasibo” — litery łacińskie zamienią się w cyrylicę',
+          style: TextStyle(fontSize: 13, color: context.c.mutedForeground));
+    }
+    return const SizedBox.shrink();
+  }
+
   void _finish() {
     _playFeedback(AnswerGrade.correct);
     setState(() => _done = true);
@@ -521,57 +569,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                     ),
                   ),
                   const SizedBox(height: 12),
-                  if (_grade == null && !_done && _isPlToRu && settings.showHints)
-                    Text('pisz „spasibo” — litery łacińskie zamienią się w cyrylicę',
-                        style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
-                  if (_done)
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        ScaleTransition(
-                          scale: CurvedAnimation(parent: _pop, curve: Curves.elasticOut),
-                          child: Container(
-                            width: 22,
-                            height: 22,
-                            decoration: BoxDecoration(color: context.c.success, shape: BoxShape.circle),
-                            child: Icon(Icons.check, size: 14, color: context.c.background),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text('Świetnie!',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
-                      ],
-                    ),
-                  if (_retype && _grade == AnswerGrade.almost)
-                    Wrap(
-                      spacing: 6,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text('Prawie dobrze! Wpisz poprawnie:',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.warning)),
-                        AccentedText(correctAnswer,
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w600, color: context.c.warning)),
-                      ],
-                    ),
-                  if (_retype && _grade == AnswerGrade.wrong)
-                    Wrap(
-                      spacing: 6,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text('Poprawna odpowiedź:',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
-                        AccentedText(correctAnswer,
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w600, color: context.c.destructive)),
-                        Text('— przepisz ją, aby przejść dalej',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
-                      ],
-                    ),
+                  SizedBox(
+                    height: 24,
+                    child: Center(child: _buildFeedback(context, settings, correctAnswer)),
+                  ),
                   if (settings.showKeyboard) ...[
                     const SizedBox(height: 24),
                     OnScreenKeyboard(
