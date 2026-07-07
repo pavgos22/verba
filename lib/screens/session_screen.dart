@@ -297,12 +297,22 @@ class _TypingView extends ConsumerStatefulWidget {
   ConsumerState<_TypingView> createState() => _TypingViewState();
 }
 
-class _TypingViewState extends ConsumerState<_TypingView> {
+class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderStateMixin {
   final _controller = TextEditingController();
+  final _fieldFocus = FocusNode();
   final _nextFocus = FocusNode();
-  bool? _feedback;
+  late final AnimationController _shake =
+      AnimationController(vsync: this, duration: const Duration(milliseconds: 450));
+  late final AnimationController _pop =
+      AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
+  double _shakeAmplitude = 10;
+  int _shakeCycles = 6;
+  AnswerGrade? _grade;
+  bool _done = false;
 
   bool get _isPlToRu => widget.kind == TaskKind.typingPlToRu;
+
+  bool get _retype => _grade != null && !_done;
 
   @override
   void initState() {
@@ -318,36 +328,74 @@ class _TypingViewState extends ConsumerState<_TypingView> {
   @override
   void dispose() {
     _controller.dispose();
+    _fieldFocus.dispose();
     _nextFocus.dispose();
+    _shake.dispose();
+    _pop.dispose();
     super.dispose();
   }
 
-  void _check() {
-    if (_feedback != null) return;
-    final given = _controller.text.trim();
-    if (given.isEmpty) return;
-    final correct = _isPlToRu ? checkRuAnswer(widget.word, given) : checkPlAnswer(widget.word, given);
-    setState(() => _feedback = correct);
-    widget.onResult(correct, given);
+  void _startShake({required bool slow}) {
+    setState(() {
+      _shakeAmplitude = slow ? 6 : 10;
+      _shakeCycles = slow ? 3 : 6;
+    });
+    _shake.duration = Duration(milliseconds: slow ? 650 : 450);
+    _shake.forward(from: 0);
+  }
+
+  void _finish() {
+    setState(() => _done = true);
+    _pop.forward(from: 0);
     _nextFocus.requestFocus();
   }
 
+  void _check() {
+    if (_done) return;
+    final given = _controller.text.trim();
+    if (given.isEmpty) return;
+    if (_grade == null) {
+      final grade = _isPlToRu ? gradeRuAnswer(widget.word, given) : gradePlAnswer(widget.word, given);
+      widget.onResult(grade != AnswerGrade.wrong, given);
+      setState(() => _grade = grade);
+      if (grade == AnswerGrade.correct) {
+        _finish();
+      } else {
+        _startShake(slow: grade == AnswerGrade.almost);
+        _controller.clear();
+        _fieldFocus.requestFocus();
+      }
+    } else {
+      final exact = _isPlToRu ? checkRuAnswer(widget.word, given) : checkPlAnswer(widget.word, given);
+      if (exact) {
+        _finish();
+      } else {
+        _startShake(slow: false);
+        _fieldFocus.requestFocus();
+      }
+    }
+  }
+
   void _giveUp() {
-    if (_feedback != null) return;
-    setState(() => _feedback = false);
+    if (_grade != null || _done) return;
     widget.onResult(false, _controller.text.trim());
-    _nextFocus.requestFocus();
+    setState(() => _grade = AnswerGrade.wrong);
+    _startShake(slow: false);
+    _controller.clear();
+    _fieldFocus.requestFocus();
   }
 
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
     final correctAnswer = _isPlToRu ? widget.word.ruAccented : widget.word.pl.join(', ');
-    final borderColor = switch (_feedback) {
-      null => context.c.inputBorder,
-      true => context.c.success,
-      false => context.c.destructive,
-    };
+    final borderColor = _done
+        ? context.c.success
+        : switch (_grade) {
+            null => context.c.inputBorder,
+            AnswerGrade.almost => context.c.warning,
+            _ => context.c.destructive,
+          };
 
     return Column(
       children: [
@@ -373,53 +421,82 @@ class _TypingViewState extends ConsumerState<_TypingView> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    width: 480,
-                    child: TextField(
-                      controller: _controller,
-                      autofocus: true,
-                      enabled: _feedback == null,
-                      inputFormatters: _isPlToRu ? [TransliterationFormatter()] : null,
-                      onSubmitted: (_) => _check(),
-                      style: TextStyle(fontSize: 22, color: context.c.foreground),
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: borderColor, width: _feedback == null ? 1 : 2),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: _feedback == null ? context.c.ring : borderColor, width: 2),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: borderColor, width: 2),
+                  AnimatedBuilder(
+                    animation: _shake,
+                    builder: (context, child) {
+                      final t = _shake.value;
+                      final dx = sin(t * pi * 2 * _shakeCycles) * _shakeAmplitude * (1 - t);
+                      return Transform.translate(offset: Offset(dx, 0), child: child);
+                    },
+                    child: SizedBox(
+                      width: 480,
+                      child: TextField(
+                        controller: _controller,
+                        focusNode: _fieldFocus,
+                        autofocus: true,
+                        enabled: !_done,
+                        inputFormatters: _isPlToRu ? [TransliterationFormatter()] : null,
+                        onSubmitted: (_) => _check(),
+                        style: TextStyle(fontSize: 22, color: context.c.foreground),
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: borderColor, width: _grade == null ? 1 : 2),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                                color: _grade == null && !_done ? context.c.ring : borderColor, width: 2),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: borderColor, width: 2),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 12),
-                  if (_feedback == null && _isPlToRu && settings.showHints)
+                  if (_grade == null && !_done && _isPlToRu && settings.showHints)
                     Text('pisz „spasibo” — litery łacińskie zamienią się w cyrylicę',
                         style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
-                  if (_feedback == true)
-                    Text('Świetnie!',
-                        style:
-                            TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
-                  if (_feedback == false)
-                    Text('Poprawna odpowiedź: $correctAnswer',
-                        style:
-                            TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
+                  if (_done)
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ScaleTransition(
+                          scale: CurvedAnimation(parent: _pop, curve: Curves.elasticOut),
+                          child: Container(
+                            width: 22,
+                            height: 22,
+                            decoration: BoxDecoration(color: context.c.success, shape: BoxShape.circle),
+                            child: Icon(Icons.check, size: 14, color: context.c.background),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text('Świetnie!',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
+                      ],
+                    ),
+                  if (_retype && _grade == AnswerGrade.almost)
+                    Text('Prawie dobrze! Wpisz poprawnie: $correctAnswer',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500, color: context.c.warning)),
+                  if (_retype && _grade == AnswerGrade.wrong)
+                    Text('Poprawna odpowiedź: $correctAnswer — przepisz ją, aby przejść dalej',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
                   if (settings.showKeyboard) ...[
                     const SizedBox(height: 24),
                     OnScreenKeyboard(
                       layout: _isPlToRu ? KeyboardLayoutType.russian : KeyboardLayoutType.polish,
                       onText: (text) {
-                        if (_feedback == null) insertIntoController(_controller, text);
+                        if (!_done) insertIntoController(_controller, text);
                       },
                       onBackspace: () {
-                        if (_feedback == null) backspaceInController(_controller);
+                        if (!_done) backspaceInController(_controller);
                       },
                     ),
                   ],
@@ -429,15 +506,19 @@ class _TypingViewState extends ConsumerState<_TypingView> {
           ),
         ),
         _SessionFooter(
-          children: _feedback == null
+          children: _done
               ? [
-                  TextButton(onPressed: _giveUp, child: const Text('Nie wiem')),
-                  const SizedBox(width: 12),
-                  FilledButton(onPressed: _check, child: const Text('Sprawdź')),
-                ]
-              : [
                   FilledButton(focusNode: _nextFocus, onPressed: widget.onNext, child: const Text('Dalej')),
-                ],
+                ]
+              : _grade == null
+                  ? [
+                      TextButton(onPressed: _giveUp, child: const Text('Nie wiem')),
+                      const SizedBox(width: 12),
+                      FilledButton(onPressed: _check, child: const Text('Sprawdź')),
+                    ]
+                  : [
+                      FilledButton(onPressed: _check, child: const Text('Sprawdź')),
+                    ],
         ),
       ],
     );
@@ -504,14 +585,16 @@ class _SummaryView extends StatelessWidget {
                                   mistake.kind == TaskKind.typingRuToPl
                                       ? mistake.word.ruAccented
                                       : mistake.word.plPrimary,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       fontSize: 15, fontWeight: FontWeight.w500, color: context.c.foreground),
                                 ),
                               ),
                               SizedBox(
-                                width: 160,
+                                width: 150,
                                 child: Text(
                                   mistake.given.isEmpty ? '—' : mistake.given,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: context.c.destructive,
@@ -525,6 +608,7 @@ class _SummaryView extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   mistake.correctAnswer,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success),
                                 ),

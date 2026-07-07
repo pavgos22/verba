@@ -44,7 +44,10 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
               Text('${words.length} słów w kursie · $mastered opanowanych',
                   style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
               const SizedBox(height: 20),
-              Row(
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   SizedBox(
                     width: 280,
@@ -68,20 +71,17 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
                   _FilterChip(
                     label: 'Wszystkie (${words.length})',
                     active: _category == null,
                     onTap: () => setState(() => _category = null),
                   ),
-                  for (final category in wordCategories) ...[
-                    const SizedBox(width: 8),
+                  for (final category in wordCategories)
                     _FilterChip(
                       label: category,
                       active: _category == category,
                       onTap: () => setState(() => _category = category),
                     ),
-                  ],
                 ],
               ),
               const SizedBox(height: 20),
@@ -180,15 +180,15 @@ class _TableRow extends StatelessWidget {
       decoration: withBorder ? BoxDecoration(border: Border(top: BorderSide(color: context.c.border))) : null,
       child: Row(
         children: [
-          SizedBox(width: 220, child: cells[0]),
+          Expanded(flex: 4, child: cells[0]),
           const SizedBox(width: 16),
-          SizedBox(width: 220, child: cells[1]),
+          Expanded(flex: 4, child: cells[1]),
           const SizedBox(width: 16),
-          SizedBox(width: 170, child: cells[2]),
+          Expanded(flex: 3, child: cells[2]),
           const SizedBox(width: 16),
-          SizedBox(width: 150, child: cells[3]),
+          Expanded(flex: 2, child: cells[3]),
           const SizedBox(width: 16),
-          Expanded(child: cells[4]),
+          SizedBox(width: 56, child: cells[4]),
         ],
       ),
     );
@@ -229,16 +229,20 @@ class _WordRow extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(word.ruAccented,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: context.c.foreground)),
         ),
         Align(
           alignment: Alignment.centerLeft,
-          child: Text(word.pl.join(', '), style: TextStyle(fontSize: 14, color: context.c.foreground)),
+          child: Text(word.pl.join(', '),
+              overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, color: context.c.foreground)),
         ),
-        Align(alignment: Alignment.centerLeft, child: Row(children: [AppBadge(label: word.category)])),
+        Align(alignment: Alignment.centerLeft, child: AppBadge(label: word.category)),
         Align(
           alignment: Alignment.centerLeft,
-          child: Text(statusLabel, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: statusColor)),
+          child: Text(statusLabel,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: statusColor)),
         ),
         Align(alignment: Alignment.centerLeft, child: SpeakerButton(text: word.ru, size: 32)),
       ],

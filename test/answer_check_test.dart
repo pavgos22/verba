@@ -36,4 +36,51 @@ void main() {
     expect(checkPlAnswer(word, 'Znać '), isTrue);
     expect(checkPlAnswer(word, 'umieć'), isFalse);
   });
+
+  test('levenshtein distance', () {
+    expect(levenshtein('kot', 'kot'), 0);
+    expect(levenshtein('kot', 'kos'), 1);
+    expect(levenshtein('kot', 'sok'), 2);
+    expect(levenshtein('', 'abc'), 3);
+    expect(levenshtein('хорошо', 'харашо'), 2);
+  });
+
+  const good = Word(
+    id: 'good',
+    ru: 'хорошо',
+    ruAccented: 'хорошо́',
+    pl: ['dobrze'],
+    category: 'zwroty',
+  );
+
+  const thanks = Word(
+    id: 'thanks',
+    ru: 'спасибо',
+    ruAccented: 'спаси́бо',
+    pl: ['dziękuję'],
+    category: 'zwroty',
+  );
+
+  const yes = Word(id: 'yes', ru: 'да', ruAccented: 'да', pl: ['tak'], category: 'zwroty');
+
+  test('grades russian answers with typo tolerance', () {
+    expect(gradeRuAnswer(good, 'хорошо'), AnswerGrade.correct);
+    expect(gradeRuAnswer(good, 'хорошо́'), AnswerGrade.correct);
+    expect(gradeRuAnswer(good, 'харашо'), AnswerGrade.almost);
+    expect(gradeRuAnswer(good, 'хорша'), AnswerGrade.almost);
+    expect(gradeRuAnswer(good, 'плохо'), AnswerGrade.wrong);
+    expect(gradeRuAnswer(thanks, 'спасибa'), AnswerGrade.almost);
+  });
+
+  test('short words have no typo tolerance', () {
+    expect(gradeRuAnswer(yes, 'да'), AnswerGrade.correct);
+    expect(gradeRuAnswer(yes, 'до'), AnswerGrade.wrong);
+  });
+
+  test('grades polish answers including diacritic slips', () {
+    expect(gradePlAnswer(thanks, 'dziękuję'), AnswerGrade.correct);
+    expect(gradePlAnswer(thanks, 'dziekuje'), AnswerGrade.almost);
+    expect(gradePlAnswer(thanks, 'prosze'), AnswerGrade.wrong);
+    expect(gradePlAnswer(word, 'znac'), AnswerGrade.almost);
+  });
 }

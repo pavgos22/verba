@@ -157,7 +157,7 @@ class _Dashboard extends ConsumerWidget {
                       const SizedBox(height: 12),
                       Text(wordOfDay.pl.join(', '), style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
                       const SizedBox(height: 12),
-                      Row(children: [AppBadge(label: wordOfDay.category)]),
+                      AppBadge(label: wordOfDay.category),
                     ],
                   ),
                 ),

@@ -4,11 +4,16 @@ import 'app_colors.dart';
 
 ThemeData buildTheme(Brightness brightness) {
   final colors = brightness == Brightness.light ? VerbaColors.light : VerbaColors.dark;
+  final light = brightness == Brightness.light;
   final base = ThemeData(
     useMaterial3: true,
     brightness: brightness,
     fontFamily: 'Inter',
     scaffoldBackgroundColor: colors.background,
+    splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
+    hoverColor: light ? const Color(0x14000000) : const Color(0x1FFFFFFF),
+    highlightColor: light ? const Color(0x1F000000) : const Color(0x29FFFFFF),
     colorScheme: ColorScheme(
       brightness: brightness,
       primary: colors.primary,
@@ -29,6 +34,10 @@ ThemeData buildTheme(Brightness brightness) {
       style: FilledButton.styleFrom(
         backgroundColor: colors.primary,
         foregroundColor: colors.primaryForeground,
+        overlayColor: colors.primaryForeground,
+        enabledMouseCursor: SystemMouseCursors.click,
+        disabledMouseCursor: SystemMouseCursors.basic,
+        splashFactory: NoSplash.splashFactory,
         minimumSize: const Size(0, 40),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -38,6 +47,10 @@ ThemeData buildTheme(Brightness brightness) {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: colors.foreground,
+        overlayColor: colors.foreground,
+        enabledMouseCursor: SystemMouseCursors.click,
+        disabledMouseCursor: SystemMouseCursors.basic,
+        splashFactory: NoSplash.splashFactory,
         side: BorderSide(color: colors.border),
         minimumSize: const Size(0, 40),
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -48,10 +61,20 @@ ThemeData buildTheme(Brightness brightness) {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: colors.mutedForeground,
+        overlayColor: colors.foreground,
+        enabledMouseCursor: SystemMouseCursors.click,
+        disabledMouseCursor: SystemMouseCursors.basic,
+        splashFactory: NoSplash.splashFactory,
         minimumSize: const Size(0, 40),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         textStyle: const TextStyle(fontFamily: 'Inter', fontSize: 14, fontWeight: FontWeight.w500),
+      ),
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: SegmentedButton.styleFrom(
+        splashFactory: NoSplash.splashFactory,
+        enabledMouseCursor: SystemMouseCursors.click,
       ),
     ),
     tooltipTheme: TooltipThemeData(

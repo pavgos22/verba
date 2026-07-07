@@ -15,6 +15,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
     required this.sidebar,
     required this.destructive,
     required this.success,
+    required this.warning,
     required this.ring,
   });
 
@@ -31,6 +32,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
   final Color sidebar;
   final Color destructive;
   final Color success;
+  final Color warning;
   final Color ring;
 
   static const light = VerbaColors(
@@ -47,6 +49,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
     sidebar: Color(0xFFFAFAFA),
     destructive: Color(0xFFDC2626),
     success: Color(0xFF16A34A),
+    warning: Color(0xFFD97706),
     ring: Color(0xFFA3A3A3),
   );
 
@@ -64,6 +67,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
     sidebar: Color(0xFF111111),
     destructive: Color(0xFFEF4444),
     success: Color(0xFF4ADE80),
+    warning: Color(0xFFFBBF24),
     ring: Color(0xFF525252),
   );
 
@@ -82,6 +86,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
     Color? sidebar,
     Color? destructive,
     Color? success,
+    Color? warning,
     Color? ring,
   }) {
     return VerbaColors(
@@ -98,6 +103,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
       sidebar: sidebar ?? this.sidebar,
       destructive: destructive ?? this.destructive,
       success: success ?? this.success,
+      warning: warning ?? this.warning,
       ring: ring ?? this.ring,
     );
   }
@@ -119,6 +125,7 @@ class VerbaColors extends ThemeExtension<VerbaColors> {
       sidebar: Color.lerp(sidebar, other.sidebar, t)!,
       destructive: Color.lerp(destructive, other.destructive, t)!,
       success: Color.lerp(success, other.success, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
       ring: Color.lerp(ring, other.ring, t)!,
     );
   }
