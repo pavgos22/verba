@@ -1471,6 +1471,125 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "xUZp0",
+              "name": "ModeRow",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wd35S",
+                  "name": "ModeCard-Utrwalanie",
+                  "width": 472,
+                  "fill": "$card",
+                  "cornerRadius": 12,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jlZia",
+                      "name": "ModeTitle",
+                      "fill": "$foreground",
+                      "content": "Utrwalanie",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KjWtt",
+                      "name": "ModeDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Tłumaczysz rozpoczęte słówka w obie strony, bez podpowiedzi i bez presji terminów.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kNnkY",
+                      "name": "ModeGap",
+                      "width": 8,
+                      "height": 12
+                    },
+                    {
+                      "id": "C1CAp",
+                      "type": "ref",
+                      "ref": "R4JZx6",
+                      "name": "ModeButton",
+                      "descendants": {
+                        "fxOxJ": {
+                          "content": "Ćwicz"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rNBpe",
+                  "name": "ModeCard-Test",
+                  "width": 472,
+                  "fill": "$card",
+                  "cornerRadius": 12,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pyF1M",
+                      "name": "ModeTitle",
+                      "fill": "$foreground",
+                      "content": "Test",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MfYvg",
+                      "name": "ModeDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Sprawdzian z poznanych słówek — bez poprawiania błędów po drodze, wynik na końcu.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RSDux",
+                      "name": "ModeGap",
+                      "width": 8,
+                      "height": 12
+                    },
+                    {
+                      "id": "GEotA",
+                      "type": "ref",
+                      "ref": "R4JZx6",
+                      "name": "ModeButton",
+                      "descendants": {
+                        "fxOxJ": {
+                          "content": "Rozpocznij test"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -1838,7 +1957,7 @@
               "height": 60,
               "fill": "$background",
               "cornerRadius": 10,
-              "stroke": "#000000",
+              "stroke": "$ring",
               "strokeWidth": 2,
               "gap": 2,
               "padding": [
@@ -5179,6 +5298,125 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "L7sb5b",
+              "name": "ModeRow",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OJAKl",
+                  "name": "ModeCard-Utrwalanie",
+                  "width": 472,
+                  "fill": "$card",
+                  "cornerRadius": 12,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ir8mO",
+                      "name": "ModeTitle",
+                      "fill": "$foreground",
+                      "content": "Utrwalanie",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wXRkV",
+                      "name": "ModeDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Tłumaczysz rozpoczęte słówka w obie strony, bez podpowiedzi i bez presji terminów.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CgnVY",
+                      "name": "ModeGap",
+                      "width": 8,
+                      "height": 12
+                    },
+                    {
+                      "id": "MziAy",
+                      "type": "ref",
+                      "ref": "R4JZx6",
+                      "name": "ModeButton",
+                      "descendants": {
+                        "fxOxJ": {
+                          "content": "Ćwicz"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "W3aklN",
+                  "name": "ModeCard-Test",
+                  "width": 472,
+                  "fill": "$card",
+                  "cornerRadius": 12,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "begbF",
+                      "name": "ModeTitle",
+                      "fill": "$foreground",
+                      "content": "Test",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FO3Oj",
+                      "name": "ModeDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Sprawdzian z poznanych słówek — bez poprawiania błędów po drodze, wynik na końcu.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QwmbO",
+                      "name": "ModeGap",
+                      "width": 8,
+                      "height": 12
+                    },
+                    {
+                      "id": "V8DFM",
+                      "type": "ref",
+                      "ref": "R4JZx6",
+                      "name": "ModeButton",
+                      "descendants": {
+                        "fxOxJ": {
+                          "content": "Rozpocznij test"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -6254,6 +6492,817 @@
               "descendants": {
                 "B1YWK": {
                   "content": "Sprawdź"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "N9Kax",
+      "x": 2760,
+      "y": 2700,
+      "name": "Sesja — test",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "UNa6O",
+          "name": "TopBar",
+          "width": "fill_container",
+          "height": 64,
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "gap": 16,
+          "padding": [
+            0,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ov9sj",
+              "name": "CloseButton",
+              "width": 36,
+              "height": 36,
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "DJBOj",
+                  "name": "CloseIcon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "x",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                }
+              ]
+            },
+            {
+              "id": "Gr519",
+              "type": "ref",
+              "ref": "Dt4bI",
+              "name": "ModeBadge",
+              "descendants": {
+                "zVpXg": {
+                  "content": "Test"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "rgmz0",
+              "name": "ProgressTrack",
+              "width": 1020,
+              "height": 8,
+              "fill": "$muted",
+              "cornerRadius": 4,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "D3kqHJ",
+                  "x": 0,
+                  "y": 0,
+                  "name": "ProgressFill",
+                  "fill": "$primary",
+                  "width": 408,
+                  "height": 8
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "iabmR",
+              "name": "ProgressCount",
+              "fill": "$muted-foreground",
+              "content": "4 / 10",
+              "fontFamily": "$font-body",
+              "fontSize": 13,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "CTs9x",
+          "name": "Body",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "H7yYX",
+              "name": "Prompt",
+              "fill": "$muted-foreground",
+              "content": "Przetłumacz na rosyjski",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "TBfBa",
+              "name": "SourceWord",
+              "fill": "$foreground",
+              "content": "dziękuję",
+              "fontFamily": "$font-body",
+              "fontSize": 36,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "hlZ3o",
+              "name": "AnswerInput",
+              "width": 480,
+              "height": 60,
+              "fill": "$background",
+              "cornerRadius": 10,
+              "stroke": "$ring",
+              "strokeWidth": 2,
+              "gap": 2,
+              "padding": [
+                0,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "H3xTs",
+                  "name": "AnswerText",
+                  "fill": "$foreground",
+                  "content": "спаси",
+                  "fontFamily": "$font-body",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "mSIEU",
+                  "name": "Caret",
+                  "fill": "$foreground",
+                  "width": 2,
+                  "height": 28
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "xhW1E",
+              "name": "InputHint",
+              "fill": "$muted-foreground",
+              "content": "pisz „spasibo” — litery łacińskie zamienią się w cyrylicę",
+              "fontFamily": "$font-body",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "GmL85",
+              "name": "KbGap",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "id": "Zl2A5",
+              "type": "ref",
+              "ref": "K6Ln1i",
+              "name": "SessionKeyboard"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uQinv",
+          "name": "Footer",
+          "width": "fill_container",
+          "height": 88,
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1
+          },
+          "gap": 12,
+          "padding": [
+            0,
+            40
+          ],
+          "justifyContent": "end",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "MFWzw",
+              "type": "ref",
+              "ref": "GvKKs",
+              "name": "DontKnow",
+              "descendants": {
+                "ytcec": {
+                  "content": "Nie wiem"
+                }
+              }
+            },
+            {
+              "id": "MKhrs",
+              "type": "ref",
+              "ref": "JTgw1",
+              "name": "CheckButton",
+              "descendants": {
+                "B1YWK": {
+                  "content": "Sprawdź"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "bMfOD",
+      "x": 4140,
+      "y": 2700,
+      "name": "Podsumowanie testu",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 24,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ahPlP",
+          "name": "ResultCircle",
+          "width": 72,
+          "height": 72,
+          "fill": "$muted",
+          "cornerRadius": 36,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "hKXVv",
+              "name": "CheckIcon",
+              "width": 32,
+              "height": 32,
+              "icon": "check",
+              "library": "lucide",
+              "fill": "$success"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "vbmu4",
+          "name": "ResultTitle",
+          "fill": "$foreground",
+          "content": "Test ukończony!",
+          "fontFamily": "$font-body",
+          "fontSize": 28,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "kiwGz",
+          "name": "ResultSub",
+          "fill": "$muted-foreground",
+          "content": "7 z 10 poprawnie · 70%",
+          "fontFamily": "$font-body",
+          "fontSize": 16,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "BUAIk",
+          "name": "MistakesCard",
+          "width": 560,
+          "fill": "$card",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "OmPiU",
+              "name": "MistakesTitle",
+              "fill": "$foreground",
+              "content": "Do poprawki (2)",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "C9QS8t",
+              "name": "MistakeRow",
+              "width": "fill_container",
+              "height": 44,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1
+              },
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "L9rok",
+                  "name": "CellWord",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xYbCQ",
+                      "name": "MWord",
+                      "fill": "$foreground",
+                      "content": "хорошо́",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A1gE9T",
+                  "name": "CellWrong",
+                  "width": 160,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YoYfI",
+                      "name": "MWrong",
+                      "fill": "$destructive",
+                      "content": "харашо",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "Y8UMDf",
+                  "name": "ArrowIcon",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                },
+                {
+                  "type": "frame",
+                  "id": "UXNIS",
+                  "name": "CellCorrect",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OJzrb",
+                      "name": "MCorrect",
+                      "fill": "$success",
+                      "content": "хорошо",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Z5O2W",
+              "name": "MistakeRow",
+              "width": "fill_container",
+              "height": 44,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1
+              },
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SmPlG",
+                  "name": "CellWord",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oStQt",
+                      "name": "MWord",
+                      "fill": "$foreground",
+                      "content": "вре́мя",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "itxNG",
+                  "name": "CellWrong",
+                  "width": 160,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F6gBS",
+                      "name": "MWrong",
+                      "fill": "$destructive",
+                      "content": "врема",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "Ndhru",
+                  "name": "ArrowIcon",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                },
+                {
+                  "type": "frame",
+                  "id": "F2fus",
+                  "name": "CellCorrect",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DE1Ny",
+                      "name": "MCorrect",
+                      "fill": "$success",
+                      "content": "время",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RCzhr",
+          "name": "ResultButtons",
+          "height": 40,
+          "gap": 12,
+          "children": [
+            {
+              "id": "rHem6",
+              "type": "ref",
+              "ref": "R4JZx6",
+              "enabled": false,
+              "name": "RetryButton",
+              "descendants": {
+                "fxOxJ": {
+                  "content": "Powtórz błędne (2)"
+                }
+              }
+            },
+            {
+              "id": "f4nNby",
+              "type": "ref",
+              "ref": "JTgw1",
+              "name": "FinishButton",
+              "descendants": {
+                "B1YWK": {
+                  "content": "Zakończ"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "vmXMS",
+      "x": 5520,
+      "y": 2700,
+      "name": "Podsumowanie poprawki",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 24,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Zu0Lb",
+          "name": "ResultCircle",
+          "width": 72,
+          "height": 72,
+          "fill": "$muted",
+          "cornerRadius": 36,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "g1G4c0",
+              "name": "CheckIcon",
+              "width": 32,
+              "height": 32,
+              "icon": "check",
+              "library": "lucide",
+              "fill": "$success"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "UZ0qP",
+          "name": "ResultTitle",
+          "fill": "$foreground",
+          "content": "Wszystko poprawione!",
+          "fontFamily": "$font-body",
+          "fontSize": 28,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "jxNnE",
+          "name": "ResultSub",
+          "fill": "$muted-foreground",
+          "content": "Każde błędne słówko zostało w końcu wpisane poprawnie",
+          "fontFamily": "$font-body",
+          "fontSize": 16,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "D5Adg",
+          "x": 360,
+          "y": 386,
+          "name": "MistakesCard",
+          "enabled": false,
+          "width": 560,
+          "fill": "$card",
+          "cornerRadius": 12,
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "C1hXwA",
+              "name": "MistakesTitle",
+              "fill": "$foreground",
+              "content": "Do poprawki (2)",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "f5QFc",
+              "name": "MistakeRow",
+              "width": "fill_container",
+              "height": 44,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1
+              },
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "O0OkPW",
+                  "name": "CellWord",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qGlIX",
+                      "name": "MWord",
+                      "fill": "$foreground",
+                      "content": "хорошо́",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "f9FCF",
+                  "name": "CellWrong",
+                  "width": 160,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OSgV6",
+                      "name": "MWrong",
+                      "fill": "$destructive",
+                      "content": "харашо",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "IgOaX",
+                  "name": "ArrowIcon",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                },
+                {
+                  "type": "frame",
+                  "id": "z1IOi",
+                  "name": "CellCorrect",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a2jmTD",
+                      "name": "MCorrect",
+                      "fill": "$success",
+                      "content": "хорошо",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WRmBG",
+              "name": "MistakeRow",
+              "width": "fill_container",
+              "height": 44,
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1
+              },
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YZk42",
+                  "name": "CellWord",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rGZB8",
+                      "name": "MWord",
+                      "fill": "$foreground",
+                      "content": "вре́мя",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HXBrB",
+                  "name": "CellWrong",
+                  "width": 160,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ft01b",
+                      "name": "MWrong",
+                      "fill": "$destructive",
+                      "content": "врема",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "yxE1b",
+                  "name": "ArrowIcon",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                },
+                {
+                  "type": "frame",
+                  "id": "by0Ab",
+                  "name": "CellCorrect",
+                  "width": 150,
+                  "height": 44,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KFWTe",
+                      "name": "MCorrect",
+                      "fill": "$success",
+                      "content": "время",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DdVyi",
+          "name": "ResultButtons",
+          "height": 40,
+          "gap": 12,
+          "children": [
+            {
+              "id": "MZV1s",
+              "type": "ref",
+              "ref": "R4JZx6",
+              "enabled": false,
+              "name": "RetryButton",
+              "descendants": {
+                "fxOxJ": {
+                  "content": "Powtórz błędne (2)"
+                }
+              }
+            },
+            {
+              "id": "r2bF5",
+              "type": "ref",
+              "ref": "JTgw1",
+              "name": "FinishButton",
+              "descendants": {
+                "B1YWK": {
+                  "content": "Zakończ"
                 }
               }
             }
