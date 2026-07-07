@@ -10,6 +10,7 @@ import '../data/settings_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../services/audio_service.dart';
+import '../services/sfx_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
@@ -386,7 +387,13 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     _shake.forward(from: 0);
   }
 
+  void _playFeedback(AnswerGrade grade) {
+    if (!ref.read(settingsProvider).answerSounds) return;
+    ref.read(sfxProvider).playGrade(grade);
+  }
+
   void _finish() {
+    _playFeedback(AnswerGrade.correct);
     setState(() => _done = true);
     _pop.forward(from: 0);
     _nextFocus.requestFocus();
@@ -407,6 +414,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
       if (grade == AnswerGrade.correct) {
         _finish();
       } else {
+        _playFeedback(grade);
         _startShake(slow: grade == AnswerGrade.almost);
         _fieldFocus.requestFocus();
       }
@@ -415,6 +423,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
       if (exact) {
         _finish();
       } else {
+        _playFeedback(AnswerGrade.wrong);
         _startShake(slow: false);
         _fieldFocus.requestFocus();
       }
@@ -429,6 +438,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
       return;
     }
     setState(() => _grade = AnswerGrade.wrong);
+    _playFeedback(AnswerGrade.wrong);
     _startShake(slow: false);
     _fieldFocus.requestFocus();
   }

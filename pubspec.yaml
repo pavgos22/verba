@@ -7,6 +7,7 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
+  audioplayers: ^6.8.1
   flutter:
     sdk: flutter
   flutter_riverpod: ^3.3.2
@@ -24,6 +25,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/data/
+    - assets/sounds/
   fonts:
     - family: Inter
       fonts:

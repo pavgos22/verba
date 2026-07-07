@@ -56,6 +56,11 @@ class SettingsScreen extends ConsumerWidget {
                 control: Switch(value: settings.autoplay, onChanged: notifier.setAutoplay),
               ),
               _SettingRow(
+                title: 'Dźwięki odpowiedzi',
+                description: 'Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi',
+                control: Switch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),
+              ),
+              _SettingRow(
                 title: 'Tempo mowy',
                 description: 'Szybkość czytania słówek',
                 control: SegmentedButton<bool>(

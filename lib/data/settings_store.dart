@@ -16,6 +16,7 @@ class Settings {
     required this.showKeyboard,
     required this.showHints,
     required this.showAccents,
+    required this.answerSounds,
     required this.dailyGoal,
     required this.practiceDirection,
     required this.testDirection,
@@ -27,6 +28,7 @@ class Settings {
   final bool showKeyboard;
   final bool showHints;
   final bool showAccents;
+  final bool answerSounds;
   final int dailyGoal;
   final SessionDirection practiceDirection;
   final SessionDirection testDirection;
@@ -38,6 +40,7 @@ class Settings {
     bool? showKeyboard,
     bool? showHints,
     bool? showAccents,
+    bool? answerSounds,
     int? dailyGoal,
     SessionDirection? practiceDirection,
     SessionDirection? testDirection,
@@ -49,6 +52,7 @@ class Settings {
       showKeyboard: showKeyboard ?? this.showKeyboard,
       showHints: showHints ?? this.showHints,
       showAccents: showAccents ?? this.showAccents,
+      answerSounds: answerSounds ?? this.answerSounds,
       dailyGoal: dailyGoal ?? this.dailyGoal,
       practiceDirection: practiceDirection ?? this.practiceDirection,
       testDirection: testDirection ?? this.testDirection,
@@ -67,6 +71,7 @@ class SettingsNotifier extends Notifier<Settings> {
       showKeyboard: prefs.getBool('settings.showKeyboard') ?? true,
       showHints: prefs.getBool('settings.showHints') ?? true,
       showAccents: prefs.getBool('settings.showAccents') ?? true,
+      answerSounds: prefs.getBool('settings.answerSounds') ?? true,
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
       practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
           SessionDirection.random,
@@ -103,6 +108,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setShowAccents(bool value) {
     state = state.copyWith(showAccents: value);
     ref.read(prefsProvider).setBool('settings.showAccents', value);
+  }
+
+  void setAnswerSounds(bool value) {
+    state = state.copyWith(answerSounds: value);
+    ref.read(prefsProvider).setBool('settings.answerSounds', value);
   }
 
   void setPracticeDirection(SessionDirection value) {
