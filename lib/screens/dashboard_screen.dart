@@ -177,7 +177,7 @@ class _Dashboard extends ConsumerWidget {
                   child: _ModeCard(
                     title: 'Utrwalanie',
                     description:
-                        'Tłumaczysz rozpoczęte słówka w obie strony, bez podpowiedzi i bez presji terminów. Błędy poprawiasz na bieżąco.',
+                        'Tłumaczysz rozpoczęte słówka bez podpowiedzi i bez presji terminów. Błędy poprawiasz na bieżąco.',
                     buttonLabel: 'Ćwicz',
                     onPressed: started > 0
                         ? () => Navigator.of(context).push(
@@ -185,6 +185,10 @@ class _Dashboard extends ConsumerWidget {
                                   builder: (_) => const SessionScreen(mode: SessionMode.practice)),
                             )
                         : null,
+                    onSettings: () => showDialog<void>(
+                      context: context,
+                      builder: (_) => const _SessionSettingsDialog(forTest: false),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -199,6 +203,10 @@ class _Dashboard extends ConsumerWidget {
                               MaterialPageRoute(builder: (_) => const SessionScreen(mode: SessionMode.test)),
                             )
                         : null,
+                    onSettings: () => showDialog<void>(
+                      context: context,
+                      builder: (_) => const _SessionSettingsDialog(forTest: true),
+                    ),
                   ),
                 ),
               ],
@@ -221,12 +229,14 @@ class _ModeCard extends StatelessWidget {
     required this.description,
     required this.buttonLabel,
     required this.onPressed,
+    required this.onSettings,
   });
 
   final String title;
   final String description;
   final String buttonLabel;
   final VoidCallback? onPressed;
+  final VoidCallback onSettings;
 
   @override
   Widget build(BuildContext context) {
@@ -240,8 +250,114 @@ class _ModeCard extends StatelessWidget {
           Text(description, style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
           const SizedBox(height: 16),
           const Spacer(),
-          OutlinedButton(onPressed: onPressed, child: Text(buttonLabel)),
+          Row(
+            children: [
+              OutlinedButton(onPressed: onPressed, child: Text(buttonLabel)),
+              const Spacer(),
+              SizedBox(
+                width: 32,
+                height: 32,
+                child: Material(
+                  color: Colors.transparent,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(8),
+                    mouseCursor: SystemMouseCursors.click,
+                    onTap: onSettings,
+                    child: Tooltip(
+                      message: 'Ustawienia sesji',
+                      child: Icon(Icons.settings_outlined, size: 18, color: context.c.mutedForeground),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _SessionSettingsDialog extends ConsumerWidget {
+  const _SessionSettingsDialog({required this.forTest});
+
+  final bool forTest;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final settings = ref.watch(settingsProvider);
+    final notifier = ref.read(settingsProvider.notifier);
+    final current = forTest ? settings.testDirection : settings.practiceDirection;
+    return AlertDialog(
+      title: Text(forTest ? 'Ustawienia testu' : 'Ustawienia utrwalania'),
+      content: SizedBox(
+        width: 380,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Kierunek tłumaczenia',
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+            const SizedBox(height: 8),
+            for (final (direction, label) in const [
+              (SessionDirection.alternate, 'Na przemian (domyślnie)'),
+              (SessionDirection.ruToPl, 'Rosyjski → polski'),
+              (SessionDirection.plToRu, 'Polski → rosyjski'),
+              (SessionDirection.random, 'Losowo'),
+            ])
+              _DirectionOption(
+                label: label,
+                selected: current == direction,
+                onTap: () {
+                  if (forTest) {
+                    notifier.setTestDirection(direction);
+                  } else {
+                    notifier.setPracticeDirection(direction);
+                  }
+                  Navigator.of(context).pop();
+                },
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DirectionOption extends StatelessWidget {
+  const _DirectionOption({required this.label, required this.selected, required this.onTap});
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      mouseCursor: SystemMouseCursors.click,
+      onTap: onTap,
+      child: Container(
+        height: 40,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Row(
+          children: [
+            Container(
+              width: 16,
+              height: 16,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: selected ? context.c.primary : context.c.border,
+                  width: selected ? 5 : 1.5,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Text(label, style: TextStyle(fontSize: 14, color: context.c.foreground)),
+          ],
+        ),
       ),
     );
   }

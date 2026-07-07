@@ -77,6 +77,17 @@ ThemeData buildTheme(Brightness brightness) {
         enabledMouseCursor: SystemMouseCursors.click,
       ),
     ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: colors.card,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: colors.border),
+      ),
+      titleTextStyle: TextStyle(
+          fontFamily: 'Inter', fontSize: 16, fontWeight: FontWeight.w600, color: colors.foreground),
+      contentTextStyle: TextStyle(fontFamily: 'Inter', fontSize: 14, color: colors.foreground),
+    ),
     tooltipTheme: TooltipThemeData(
       decoration: BoxDecoration(
         color: colors.foreground,

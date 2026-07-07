@@ -6,6 +6,8 @@ final prefsProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('prefsProvider requires an override');
 });
 
+enum SessionDirection { alternate, ruToPl, plToRu, random }
+
 class Settings {
   const Settings({
     required this.themeMode,
@@ -15,6 +17,8 @@ class Settings {
     required this.showHints,
     required this.showAccents,
     required this.dailyGoal,
+    required this.practiceDirection,
+    required this.testDirection,
   });
 
   final ThemeMode themeMode;
@@ -24,6 +28,8 @@ class Settings {
   final bool showHints;
   final bool showAccents;
   final int dailyGoal;
+  final SessionDirection practiceDirection;
+  final SessionDirection testDirection;
 
   Settings copyWith({
     ThemeMode? themeMode,
@@ -33,6 +39,8 @@ class Settings {
     bool? showHints,
     bool? showAccents,
     int? dailyGoal,
+    SessionDirection? practiceDirection,
+    SessionDirection? testDirection,
   }) {
     return Settings(
       themeMode: themeMode ?? this.themeMode,
@@ -42,6 +50,8 @@ class Settings {
       showHints: showHints ?? this.showHints,
       showAccents: showAccents ?? this.showAccents,
       dailyGoal: dailyGoal ?? this.dailyGoal,
+      practiceDirection: practiceDirection ?? this.practiceDirection,
+      testDirection: testDirection ?? this.testDirection,
     );
   }
 }
@@ -58,6 +68,10 @@ class SettingsNotifier extends Notifier<Settings> {
       showHints: prefs.getBool('settings.showHints') ?? true,
       showAccents: prefs.getBool('settings.showAccents') ?? true,
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
+      practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
+          SessionDirection.alternate,
+      testDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.testDirection')] ??
+          SessionDirection.alternate,
     );
   }
 
@@ -89,6 +103,16 @@ class SettingsNotifier extends Notifier<Settings> {
   void setShowAccents(bool value) {
     state = state.copyWith(showAccents: value);
     ref.read(prefsProvider).setBool('settings.showAccents', value);
+  }
+
+  void setPracticeDirection(SessionDirection value) {
+    state = state.copyWith(practiceDirection: value);
+    ref.read(prefsProvider).setString('settings.practiceDirection', value.name);
+  }
+
+  void setTestDirection(SessionDirection value) {
+    state = state.copyWith(testDirection: value);
+    ref.read(prefsProvider).setString('settings.testDirection', value.name);
   }
 
   void setDailyGoal(int value) {

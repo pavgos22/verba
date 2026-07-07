@@ -80,19 +80,30 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ];
       case SessionMode.practice:
         final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
+        final pool = started.take(15).toList();
         return [
-          for (final word in started.take(15))
-            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+          for (var i = 0; i < pool.length; i++)
+            SessionTask(word: pool[i], kind: _kindFor(settings.practiceDirection, i, rng)),
         ];
       case SessionMode.test:
         final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
+        final pool = started.take(10).toList();
         return [
-          for (final word in started.take(10))
-            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+          for (var i = 0; i < pool.length; i++)
+            SessionTask(word: pool[i], kind: _kindFor(settings.testDirection, i, rng)),
         ];
       case SessionMode.retry:
         return [for (final word in widget.retryWords) SessionTask(word: word, kind: TaskKind.typingPlToRu)];
     }
+  }
+
+  TaskKind _kindFor(SessionDirection direction, int index, Random rng) {
+    return switch (direction) {
+      SessionDirection.alternate => index.isEven ? TaskKind.typingRuToPl : TaskKind.typingPlToRu,
+      SessionDirection.ruToPl => TaskKind.typingRuToPl,
+      SessionDirection.plToRu => TaskKind.typingPlToRu,
+      SessionDirection.random => rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl,
+    };
   }
 
   void _onTypingResult(SessionTask task, bool correct, String given) {
