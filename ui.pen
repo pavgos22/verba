@@ -309,6 +309,21 @@
           }
         },
         {
+          "id": "EWXS4",
+          "type": "ref",
+          "ref": "g7hDt5",
+          "name": "NavKursy",
+          "width": "fill_container",
+          "descendants": {
+            "B67QQ": {
+              "icon": "graduation-cap"
+            },
+            "we3DY": {
+              "content": "Kursy"
+            }
+          }
+        },
+        {
           "id": "dyzLt",
           "type": "ref",
           "ref": "g7hDt5",
@@ -1781,9 +1796,9 @@
               "id": "R1xSd",
               "name": "Transliteration",
               "fill": "$muted-foreground",
-              "content": "privet",
+              "content": "priwiet",
               "fontFamily": "$font-body",
-              "fontSize": 16,
+              "fontSize": 15,
               "fontWeight": "normal"
             },
             {
@@ -1840,7 +1855,7 @@
               "id": "QwNOE",
               "name": "EnterHint",
               "fill": "$muted-foreground",
-              "content": "Enter ↵ — dalej",
+              "content": "Tab — wymowa · Enter ↵ — dalej",
               "fontFamily": "$font-body",
               "fontSize": 13,
               "fontWeight": "normal"
@@ -6450,6 +6465,16 @@
               ]
             },
             {
+              "type": "text",
+              "id": "KZs7q",
+              "name": "Pronunciation",
+              "fill": "$muted-foreground",
+              "content": "spasiba",
+              "fontFamily": "$font-body",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
               "type": "frame",
               "id": "ZRVZN",
               "name": "AnswerInput",
@@ -6529,6 +6554,16 @@
           "justifyContent": "end",
           "alignItems": "center",
           "children": [
+            {
+              "type": "text",
+              "id": "rJBKW",
+              "name": "TabHint",
+              "fill": "$muted-foreground",
+              "content": "Tab — wymowa",
+              "fontFamily": "$font-body",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
             {
               "id": "jKZFf",
               "type": "ref",
@@ -7420,8 +7455,8 @@
         },
         {
           "type": "frame",
-          "id": "TfdgC",
-          "name": "Option-Na przemian (domyślnie)",
+          "id": "dSovi",
+          "name": "Option-Losowo",
           "width": "fill_container",
           "height": 40,
           "cornerRadius": 8,
@@ -7434,7 +7469,7 @@
           "children": [
             {
               "type": "ellipse",
-              "id": "rAYZl",
+              "id": "iKCv1",
               "name": "Radio",
               "fill": "#00000000",
               "width": 16,
@@ -7444,10 +7479,10 @@
             },
             {
               "type": "text",
-              "id": "N1dW6",
+              "id": "euI6z",
               "name": "OptionLabel",
               "fill": "$foreground",
-              "content": "Na przemian (domyślnie)",
+              "content": "Losowo (domyślnie)",
               "fontFamily": "$font-body",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -7528,8 +7563,8 @@
         },
         {
           "type": "frame",
-          "id": "dSovi",
-          "name": "Option-Losowo",
+          "id": "TfdgC",
+          "name": "Option-Na przemian (domyślnie)",
           "width": "fill_container",
           "height": 40,
           "cornerRadius": 8,
@@ -7542,7 +7577,7 @@
           "children": [
             {
               "type": "ellipse",
-              "id": "iKCv1",
+              "id": "rAYZl",
               "name": "Radio",
               "fill": "#00000000",
               "width": 16,
@@ -7552,13 +7587,367 @@
             },
             {
               "type": "text",
-              "id": "euI6z",
+              "id": "N1dW6",
               "name": "OptionLabel",
               "fill": "$foreground",
-              "content": "Losowo",
+              "content": "Na przemian",
               "fontFamily": "$font-body",
               "fontSize": 14,
               "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DINTU",
+          "name": "DialogActionsGap",
+          "width": 8,
+          "height": 12
+        },
+        {
+          "type": "frame",
+          "id": "RJDui",
+          "name": "DialogActions",
+          "width": "fill_container",
+          "height": 40,
+          "gap": 8,
+          "justifyContent": "end",
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "CdQSm",
+              "type": "ref",
+              "ref": "GvKKs",
+              "name": "CancelButton",
+              "descendants": {
+                "ytcec": {
+                  "content": "Anuluj"
+                }
+              }
+            },
+            {
+              "id": "kdZis",
+              "type": "ref",
+              "ref": "JTgw1",
+              "name": "SaveButton",
+              "descendants": {
+                "B1YWK": {
+                  "content": "Zapisz"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZFcIS",
+      "x": 5520,
+      "y": 1800,
+      "name": "Kursy",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "$background",
+      "children": [
+        {
+          "id": "f7lVo",
+          "type": "ref",
+          "ref": "yJyQd",
+          "name": "SidebarKursy",
+          "height": "fill_container",
+          "descendants": {
+            "E9RUO": {
+              "fill": "#00000000"
+            },
+            "E9RUO/B67QQ": {
+              "fill": "$muted-foreground"
+            },
+            "E9RUO/we3DY": {
+              "fill": "$muted-foreground"
+            },
+            "EWXS4": {
+              "fill": "$accent"
+            },
+            "EWXS4/B67QQ": {
+              "fill": "$foreground"
+            },
+            "EWXS4/we3DY": {
+              "fill": "$foreground"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "eIhVS",
+          "name": "Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 40,
+          "children": [
+            {
+              "type": "frame",
+              "id": "EEXDD",
+              "name": "Header",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "A4COZV",
+                  "name": "Title",
+                  "fill": "$foreground",
+                  "content": "Kursy",
+                  "fontFamily": "$font-body",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "QX5d5",
+                  "name": "Subtitle",
+                  "fill": "$muted-foreground",
+                  "content": "Wybierz kurs, z którego chcesz się uczyć",
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vO61P",
+              "name": "HeaderGap",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "frame",
+              "id": "yPH8Q",
+              "name": "CourseCard-Pierwsze kroki",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 24,
+              "padding": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "afvSK",
+                  "name": "CourseInfo",
+                  "width": 760,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uQCXO",
+                      "name": "CourseName",
+                      "fill": "$foreground",
+                      "content": "Pierwsze kroki",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LkWv6",
+                      "name": "CourseDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "50 podstawowych słów i zwrotów na dobry początek",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DD99L",
+                      "name": "MetaGap",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "yfIAU",
+                      "name": "CourseMeta",
+                      "fill": "$muted-foreground",
+                      "content": "50 słówek · 38 w nauce · 12 opanowanych (24%)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uSckM",
+                      "name": "BarGap",
+                      "width": 8,
+                      "height": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kKhV0",
+                      "name": "ProgressTrack",
+                      "width": "fill_container",
+                      "height": 6,
+                      "fill": "$muted",
+                      "cornerRadius": 3,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "WEIUL",
+                          "x": 0,
+                          "y": 0,
+                          "name": "ProgressFill",
+                          "fill": "$primary",
+                          "width": 182,
+                          "height": 6
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Xj5wN",
+                  "name": "ActivePill",
+                  "height": 28,
+                  "fill": "$primary",
+                  "cornerRadius": 14,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IghdR",
+                      "name": "ActiveLabel",
+                      "fill": "$primary-foreground",
+                      "content": "Aktywny",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "k2I7ND",
+              "name": "CourseCard-1000 rosyjskich słówek na start",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 24,
+              "padding": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "E2Vv1q",
+                  "name": "CourseInfo",
+                  "width": 760,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TWiXD",
+                      "name": "CourseName",
+                      "fill": "$foreground",
+                      "content": "1000 rosyjskich słówek na start",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s2ZWu",
+                      "name": "CourseDesc",
+                      "fill": "$muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Najczęściej używane rosyjskie słowa",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FC9CA",
+                      "name": "MetaGap",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "UotX9",
+                      "name": "CourseMeta",
+                      "fill": "$muted-foreground",
+                      "content": "1000 słówek · 0 w nauce · 0 opanowanych (0%)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CiObz",
+                      "name": "BarGap",
+                      "width": 8,
+                      "height": 4
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ohAw0",
+                      "name": "ProgressTrack",
+                      "width": "fill_container",
+                      "height": 6,
+                      "fill": "$muted",
+                      "cornerRadius": 3,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "JYkmY",
+                          "x": 0,
+                          "y": 0,
+                          "name": "ProgressFill",
+                          "fill": "$primary",
+                          "width": 4,
+                          "height": 6
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "oaLho",
+                  "type": "ref",
+                  "ref": "R4JZx6",
+                  "name": "ChooseButton",
+                  "descendants": {
+                    "fxOxJ": {
+                      "content": "Wybierz"
+                    }
+                  }
+                }
+              ]
             }
           ]
         }
