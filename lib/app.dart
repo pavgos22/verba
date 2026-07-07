@@ -17,6 +17,7 @@ class VerbaApp extends ConsumerWidget {
       theme: buildTheme(Brightness.light),
       darkTheme: buildTheme(Brightness.dark),
       themeMode: themeMode,
+      themeAnimationDuration: Duration.zero,
       home: const ShellScreen(),
     );
   }
