@@ -107,11 +107,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     };
   }
 
-  void _onTypingResult(SessionTask task, bool correct, String given) {
-    ref.read(progressProvider.notifier).recordAnswer(task.word.id, correct);
+  void _onTypingResult(SessionTask task, AnswerGrade grade, String given) {
+    ref.read(progressProvider.notifier).recordAnswer(task.word.id, grade != AnswerGrade.wrong);
     setState(() {
       _answered++;
-      if (correct) {
+      if (grade == AnswerGrade.correct) {
         _correct++;
       } else if (widget.mode == SessionMode.retry) {
         _tasks!.add(SessionTask(word: task.word, kind: task.kind));
@@ -183,7 +183,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                           word: task.word,
                           kind: task.kind,
                           showCorrections: widget.mode != SessionMode.test,
-                          onResult: (correct, given) => _onTypingResult(task, correct, given),
+                          onResult: (grade, given) => _onTypingResult(task, grade, given),
                           onNext: _next,
                         ),
                 ),
@@ -335,7 +335,7 @@ class _TypingView extends ConsumerStatefulWidget {
   final Word word;
   final TaskKind kind;
   final bool showCorrections;
-  final void Function(bool correct, String given) onResult;
+  final void Function(AnswerGrade grade, String given) onResult;
   final VoidCallback onNext;
 
   @override
@@ -453,7 +453,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     if (given.isEmpty) return;
     if (_grade == null) {
       final grade = _isPlToRu ? gradeRuAnswer(widget.word, given) : gradePlAnswer(widget.word, given);
-      widget.onResult(grade != AnswerGrade.wrong, given);
+      widget.onResult(grade, given);
       if (!widget.showCorrections) {
         widget.onNext();
         return;
@@ -480,7 +480,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
 
   void _giveUp() {
     if (_grade != null || _done) return;
-    widget.onResult(false, _controller.text.trim());
+    widget.onResult(AnswerGrade.wrong, _controller.text.trim());
     if (!widget.showCorrections) {
       widget.onNext();
       return;
@@ -718,10 +718,16 @@ class _SummaryView extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (mistakes.isNotEmpty && allowRetry) ...[
-                  OutlinedButton(onPressed: onRetry, child: Text('Powtórz błędne (${mistakes.length})')),
+                  OutlinedButton(
+                      autofocus: true,
+                      onPressed: onRetry,
+                      child: Text('Powtórz błędne (${mistakes.length})')),
                   const SizedBox(width: 12),
                 ],
-                FilledButton(autofocus: true, onPressed: onFinish, child: const Text('Zakończ')),
+                FilledButton(
+                    autofocus: mistakes.isEmpty || !allowRetry,
+                    onPressed: onFinish,
+                    child: const Text('Zakończ')),
               ],
             ),
           ],
