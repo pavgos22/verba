@@ -21,11 +21,12 @@ def fnv1a(text):
         h = (h * 1099511628211) % (2**64)
     return format(h, "016x")
 
+accents = json.load(open(rf"{SCRATCH}\accents.json", encoding="utf-8"))
 texts = {}
 for path in glob.glob(rf"{PROJECT}\assets\data\course_*.json"):
     course = json.load(open(path, encoding="utf-8"))
     for w in course["words"]:
-        texts[fnv1a(w["ru"])] = w["ru"]
+        texts[fnv1a(w["ru"])] = accents.get(w["ru"], w["ru"])
 print(f"unique words: {len(texts)}")
 
 for voice, model in VOICES.items():
@@ -47,7 +48,7 @@ for voice, model in VOICES.items():
     for key in texts:
         r = subprocess.run([
             "ffmpeg", "-y", "-loglevel", "error", "-i", rf"{wav_dir}\{key}.wav",
-            "-af", "adelay=60:all=1", "-ac", "1", "-b:a", "64k", rf"{out_dir}\{key}.mp3",
+            "-af", "adelay=60:all=1,apad=pad_dur=0.25", "-ac", "1", "-b:a", "64k", rf"{out_dir}\{key}.mp3",
         ], capture_output=True)
         if r.returncode != 0:
             print(f"ffmpeg failed {voice}/{key}: {r.stderr.decode('utf-8', 'replace')[:200]}")
