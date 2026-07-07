@@ -69,9 +69,9 @@ class SettingsNotifier extends Notifier<Settings> {
       showAccents: prefs.getBool('settings.showAccents') ?? true,
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
       practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
-          SessionDirection.alternate,
+          SessionDirection.random,
       testDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.testDirection')] ??
-          SessionDirection.alternate,
+          SessionDirection.random,
     );
   }
 

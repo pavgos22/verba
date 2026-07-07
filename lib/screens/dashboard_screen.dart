@@ -301,10 +301,10 @@ class _SessionSettingsDialog extends ConsumerWidget {
                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
             const SizedBox(height: 8),
             for (final (direction, label) in const [
-              (SessionDirection.alternate, 'Na przemian (domyślnie)'),
+              (SessionDirection.random, 'Losowo (domyślnie)'),
               (SessionDirection.ruToPl, 'Rosyjski → polski'),
               (SessionDirection.plToRu, 'Polski → rosyjski'),
-              (SessionDirection.random, 'Losowo'),
+              (SessionDirection.alternate, 'Na przemian'),
             ])
               _DirectionOption(
                 label: label,

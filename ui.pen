@@ -1484,6 +1484,7 @@
                   "id": "wd35S",
                   "name": "ModeCard-Utrwalanie",
                   "width": 472,
+                  "height": 160,
                   "fill": "$card",
                   "cornerRadius": 12,
                   "stroke": "$border",
@@ -1531,6 +1532,19 @@
                           "content": "Ćwicz"
                         }
                       }
+                    },
+                    {
+                      "type": "icon",
+                      "id": "Tmdc8",
+                      "layoutPosition": "absolute",
+                      "x": 428,
+                      "y": 116,
+                      "name": "ModeSettingsIcon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "settings",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
                     }
                   ]
                 },
@@ -1539,6 +1553,7 @@
                   "id": "rNBpe",
                   "name": "ModeCard-Test",
                   "width": 472,
+                  "height": 160,
                   "fill": "$card",
                   "cornerRadius": 12,
                   "stroke": "$border",
@@ -1586,6 +1601,19 @@
                           "content": "Rozpocznij test"
                         }
                       }
+                    },
+                    {
+                      "type": "icon",
+                      "id": "B4da9",
+                      "layoutPosition": "absolute",
+                      "x": 428,
+                      "y": 116,
+                      "name": "ModeSettingsIcon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "settings",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
                     }
                   ]
                 }
@@ -5301,16 +5329,17 @@
             },
             {
               "type": "frame",
-              "id": "L7sb5b",
+              "id": "NhwPY",
               "name": "ModeRow",
               "width": "fill_container",
               "gap": 16,
               "children": [
                 {
                   "type": "frame",
-                  "id": "OJAKl",
+                  "id": "m4oeGg",
                   "name": "ModeCard-Utrwalanie",
                   "width": 472,
+                  "height": 160,
                   "fill": "$card",
                   "cornerRadius": 12,
                   "stroke": "$border",
@@ -5321,7 +5350,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "Ir8mO",
+                      "id": "rIiHJ",
                       "name": "ModeTitle",
                       "fill": "$foreground",
                       "content": "Utrwalanie",
@@ -5331,7 +5360,7 @@
                     },
                     {
                       "type": "text",
-                      "id": "wXRkV",
+                      "id": "Uzfzt",
                       "name": "ModeDesc",
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
@@ -5343,13 +5372,13 @@
                     },
                     {
                       "type": "frame",
-                      "id": "CgnVY",
+                      "id": "QuvXR",
                       "name": "ModeGap",
                       "width": 8,
                       "height": 12
                     },
                     {
-                      "id": "MziAy",
+                      "id": "ox5RI",
                       "type": "ref",
                       "ref": "R4JZx6",
                       "name": "ModeButton",
@@ -5358,14 +5387,28 @@
                           "content": "Ćwicz"
                         }
                       }
+                    },
+                    {
+                      "type": "icon",
+                      "id": "Y4Qqh",
+                      "layoutPosition": "absolute",
+                      "x": 428,
+                      "y": 116,
+                      "name": "ModeSettingsIcon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "settings",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
                     }
                   ]
                 },
                 {
                   "type": "frame",
-                  "id": "W3aklN",
+                  "id": "OKatm",
                   "name": "ModeCard-Test",
                   "width": 472,
+                  "height": 160,
                   "fill": "$card",
                   "cornerRadius": 12,
                   "stroke": "$border",
@@ -5376,7 +5419,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "begbF",
+                      "id": "Au70L",
                       "name": "ModeTitle",
                       "fill": "$foreground",
                       "content": "Test",
@@ -5386,7 +5429,7 @@
                     },
                     {
                       "type": "text",
-                      "id": "FO3Oj",
+                      "id": "Ft11M",
                       "name": "ModeDesc",
                       "fill": "$muted-foreground",
                       "textGrowth": "fixed-width",
@@ -5398,13 +5441,13 @@
                     },
                     {
                       "type": "frame",
-                      "id": "QwmbO",
+                      "id": "D64x9z",
                       "name": "ModeGap",
                       "width": 8,
                       "height": 12
                     },
                     {
-                      "id": "V8DFM",
+                      "id": "zOb2a",
                       "type": "ref",
                       "ref": "R4JZx6",
                       "name": "ModeButton",
@@ -5413,6 +5456,19 @@
                           "content": "Rozpocznij test"
                         }
                       }
+                    },
+                    {
+                      "type": "icon",
+                      "id": "igNRy",
+                      "layoutPosition": "absolute",
+                      "x": 428,
+                      "y": 116,
+                      "name": "ModeSettingsIcon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "settings",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
                     }
                   ]
                 }
@@ -7305,6 +7361,204 @@
                   "content": "Zakończ"
                 }
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "picmr",
+      "x": 6900,
+      "y": 2700,
+      "name": "Dialog — ustawienia sesji",
+      "width": 420,
+      "fill": "$card",
+      "cornerRadius": 12,
+      "stroke": "$border",
+      "strokeWidth": 1,
+      "effect": {
+        "type": "shadow",
+        "shadowType": "outer",
+        "color": "#00000022",
+        "offset": {
+          "x": 0,
+          "y": 8
+        },
+        "blur": 24
+      },
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 24,
+      "children": [
+        {
+          "type": "text",
+          "id": "lyVh4",
+          "name": "DialogTitle",
+          "fill": "$foreground",
+          "content": "Ustawienia testu",
+          "fontFamily": "$font-body",
+          "fontSize": 16,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "YP9CM",
+          "name": "DialogGap",
+          "width": 8,
+          "height": 8
+        },
+        {
+          "type": "text",
+          "id": "ZDxKX",
+          "name": "SectionLabel",
+          "fill": "$muted-foreground",
+          "content": "Kierunek tłumaczenia",
+          "fontFamily": "$font-body",
+          "fontSize": 13,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "TfdgC",
+          "name": "Option-Na przemian (domyślnie)",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "rAYZl",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$primary",
+              "strokeWidth": 5
+            },
+            {
+              "type": "text",
+              "id": "N1dW6",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Na przemian (domyślnie)",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IuQzp",
+          "name": "Option-Rosyjski → polski",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "e8Lhup",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$border",
+              "strokeWidth": 1.5
+            },
+            {
+              "type": "text",
+              "id": "FpF2h",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Rosyjski → polski",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "t9jdYT",
+          "name": "Option-Polski → rosyjski",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "eobzG",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$border",
+              "strokeWidth": 1.5
+            },
+            {
+              "type": "text",
+              "id": "TdAeW",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Polski → rosyjski",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dSovi",
+          "name": "Option-Losowo",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "iKCv1",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$border",
+              "strokeWidth": 1.5
+            },
+            {
+              "type": "text",
+              "id": "euI6z",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Losowo",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
             }
           ]
         }
