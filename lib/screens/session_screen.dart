@@ -11,6 +11,7 @@ import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../services/audio_service.dart';
 import '../theme/app_colors.dart';
+import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
 import '../widgets/onscreen_keyboard.dart';
 
@@ -251,7 +252,7 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(widget.word.ruAccented,
+                    AccentedText(widget.word.ruAccented,
                         style: TextStyle(fontSize: 48, fontWeight: FontWeight.w600, color: context.c.foreground)),
                     const SizedBox(width: 16),
                     SpeakerButton(text: widget.word.ru, size: 44),
@@ -412,8 +413,13 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(_isPlToRu ? widget.word.plPrimary : widget.word.ruAccented,
-                          style: TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground)),
+                      _isPlToRu
+                          ? Text(widget.word.plPrimary,
+                              style:
+                                  TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground))
+                          : AccentedText(widget.word.ruAccented,
+                              style:
+                                  TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground)),
                       if (!_isPlToRu) ...[
                         const SizedBox(width: 14),
                         SpeakerButton(text: widget.word.ru, size: 40),
@@ -481,13 +487,34 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                       ],
                     ),
                   if (_retype && _grade == AnswerGrade.almost)
-                    Text('Prawie dobrze! Wpisz poprawnie: $correctAnswer',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w500, color: context.c.warning)),
+                    Wrap(
+                      spacing: 6,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text('Prawie dobrze! Wpisz poprawnie:',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.warning)),
+                        AccentedText(correctAnswer,
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600, color: context.c.warning)),
+                      ],
+                    ),
                   if (_retype && _grade == AnswerGrade.wrong)
-                    Text('Poprawna odpowiedź: $correctAnswer — przepisz ją, aby przejść dalej',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
+                    Wrap(
+                      spacing: 6,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text('Poprawna odpowiedź:',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
+                        AccentedText(correctAnswer,
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600, color: context.c.destructive)),
+                        Text('— przepisz ją, aby przejść dalej',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
+                      ],
+                    ),
                   if (settings.showKeyboard) ...[
                     const SizedBox(height: 24),
                     OnScreenKeyboard(
@@ -581,7 +608,7 @@ class _SummaryView extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 150,
-                                child: Text(
+                                child: AccentedText(
                                   mistake.kind == TaskKind.typingRuToPl
                                       ? mistake.word.ruAccented
                                       : mistake.word.plPrimary,
@@ -606,7 +633,7 @@ class _SummaryView extends StatelessWidget {
                               Icon(Icons.arrow_forward, size: 14, color: context.c.mutedForeground),
                               const SizedBox(width: 12),
                               Expanded(
-                                child: Text(
+                                child: AccentedText(
                                   mistake.correctAnswer,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(

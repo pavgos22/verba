@@ -38,6 +38,11 @@ class SettingsScreen extends ConsumerWidget {
                   showSelectedIcon: false,
                 ),
               ),
+              _SettingRow(
+                title: 'Znaki akcentu',
+                description: 'Pokazuj akcent nad rosyjskimi słowami',
+                control: Switch(value: settings.showAccents, onChanged: notifier.setShowAccents),
+              ),
             ],
           ),
           const SizedBox(height: 20),

@@ -8,6 +8,7 @@ import '../data/settings_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
+import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
 import 'session_screen.dart';
 
@@ -147,7 +148,7 @@ class _Dashboard extends ConsumerWidget {
                       const SizedBox(height: 12),
                       Row(
                         children: [
-                          Text(wordOfDay.ruAccented,
+                          AccentedText(wordOfDay.ruAccented,
                               style:
                                   TextStyle(fontSize: 32, fontWeight: FontWeight.w600, color: context.c.foreground)),
                           const SizedBox(width: 12),

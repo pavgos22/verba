@@ -5,6 +5,7 @@ import '../data/progress_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
+import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
 
 class WordsScreen extends ConsumerStatefulWidget {
@@ -228,7 +229,7 @@ class _WordRow extends StatelessWidget {
       cells: [
         Align(
           alignment: Alignment.centerLeft,
-          child: Text(word.ruAccented,
+          child: AccentedText(word.ruAccented,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: context.c.foreground)),
         ),

@@ -13,6 +13,7 @@ class Settings {
     required this.slowSpeech,
     required this.showKeyboard,
     required this.showHints,
+    required this.showAccents,
     required this.dailyGoal,
   });
 
@@ -21,6 +22,7 @@ class Settings {
   final bool slowSpeech;
   final bool showKeyboard;
   final bool showHints;
+  final bool showAccents;
   final int dailyGoal;
 
   Settings copyWith({
@@ -29,6 +31,7 @@ class Settings {
     bool? slowSpeech,
     bool? showKeyboard,
     bool? showHints,
+    bool? showAccents,
     int? dailyGoal,
   }) {
     return Settings(
@@ -37,6 +40,7 @@ class Settings {
       slowSpeech: slowSpeech ?? this.slowSpeech,
       showKeyboard: showKeyboard ?? this.showKeyboard,
       showHints: showHints ?? this.showHints,
+      showAccents: showAccents ?? this.showAccents,
       dailyGoal: dailyGoal ?? this.dailyGoal,
     );
   }
@@ -52,6 +56,7 @@ class SettingsNotifier extends Notifier<Settings> {
       slowSpeech: prefs.getBool('settings.slowSpeech') ?? false,
       showKeyboard: prefs.getBool('settings.showKeyboard') ?? true,
       showHints: prefs.getBool('settings.showHints') ?? true,
+      showAccents: prefs.getBool('settings.showAccents') ?? true,
       dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
     );
   }
@@ -79,6 +84,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setShowHints(bool value) {
     state = state.copyWith(showHints: value);
     ref.read(prefsProvider).setBool('settings.showHints', value);
+  }
+
+  void setShowAccents(bool value) {
+    state = state.copyWith(showAccents: value);
+    ref.read(prefsProvider).setBool('settings.showAccents', value);
   }
 
   void setDailyGoal(int value) {
