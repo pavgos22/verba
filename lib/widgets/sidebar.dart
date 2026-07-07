@@ -92,6 +92,7 @@ class _NavTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
+          mouseCursor: SystemMouseCursors.click,
           onTap: onTap,
           child: Container(
             height: 36,

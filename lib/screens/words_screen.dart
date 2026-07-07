@@ -147,6 +147,7 @@ class _FilterChip extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(8),
+        mouseCursor: SystemMouseCursors.click,
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),

@@ -363,7 +363,6 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
         _finish();
       } else {
         _startShake(slow: grade == AnswerGrade.almost);
-        _controller.clear();
         _fieldFocus.requestFocus();
       }
     } else {
@@ -382,7 +381,6 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     widget.onResult(false, _controller.text.trim());
     setState(() => _grade = AnswerGrade.wrong);
     _startShake(slow: false);
-    _controller.clear();
     _fieldFocus.requestFocus();
   }
 
@@ -496,7 +494,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                                 fontSize: 14, fontWeight: FontWeight.w500, color: context.c.warning)),
                         AccentedText(correctAnswer,
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600, color: context.c.warning)),
+                                fontSize: 14, fontWeight: FontWeight.w600, color: context.c.warning)),
                       ],
                     ),
                   if (_retype && _grade == AnswerGrade.wrong)
@@ -509,7 +507,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                                 fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),
                         AccentedText(correctAnswer,
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600, color: context.c.destructive)),
+                                fontSize: 14, fontWeight: FontWeight.w600, color: context.c.destructive)),
                         Text('— przepisz ją, aby przejść dalej',
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.w500, color: context.c.destructive)),

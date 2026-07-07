@@ -65,6 +65,7 @@ class SpeakerButton extends ConsumerWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(size >= 44 ? 10 : 8),
+          mouseCursor: SystemMouseCursors.click,
           onTap: () async {
             final settings = ref.read(settingsProvider);
             final spoken =

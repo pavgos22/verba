@@ -171,6 +171,7 @@ class _KeyCap extends StatelessWidget {
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(6),
+            mouseCursor: SystemMouseCursors.click,
             onTap: onTap,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

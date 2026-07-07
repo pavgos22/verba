@@ -235,6 +235,7 @@ class _StepButton extends StatelessWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
+          mouseCursor: SystemMouseCursors.click,
           onTap: onTap,
           child: Icon(icon, size: 14, color: context.c.foreground),
         ),
