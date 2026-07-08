@@ -9,6 +9,7 @@ import '../theme/app_colors.dart';
 import '../theme/theme_fade.dart';
 import '../widgets/common.dart';
 import '../widgets/lector_dropdown.dart';
+import '../widgets/verba_switch.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -45,7 +46,7 @@ class SettingsScreen extends ConsumerWidget {
               _SettingRow(
                 title: 'Znaki akcentu',
                 description: 'Pokazuj akcent nad rosyjskimi słowami',
-                control: Switch(value: settings.showAccents, onChanged: notifier.setShowAccents),
+                control: VerbaSwitch(value: settings.showAccents, onChanged: notifier.setShowAccents),
               ),
             ],
           ),
@@ -67,12 +68,12 @@ class SettingsScreen extends ConsumerWidget {
               _SettingRow(
                 title: 'Auto-czytanie słówek',
                 description: 'Czytaj na głos nowe słówka i pytania po rosyjsku',
-                control: Switch(value: settings.autoplay, onChanged: notifier.setAutoplay),
+                control: VerbaSwitch(value: settings.autoplay, onChanged: notifier.setAutoplay),
               ),
               _SettingRow(
                 title: 'Dźwięki odpowiedzi',
                 description: 'Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi',
-                control: Switch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),
+                control: VerbaSwitch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),
               ),
               _SettingRow(
                 title: 'Tempo mowy',
@@ -96,12 +97,12 @@ class SettingsScreen extends ConsumerWidget {
               _SettingRow(
                 title: 'Klawiatura ekranowa',
                 description: 'Pokazuj klawiaturę podczas ćwiczeń',
-                control: Switch(value: settings.showKeyboard, onChanged: notifier.setShowKeyboard),
+                control: VerbaSwitch(value: settings.showKeyboard, onChanged: notifier.setShowKeyboard),
               ),
               _SettingRow(
                 title: 'Podpowiedzi transliteracji',
                 description: 'Łacińskie podpowiedzi na klawiszach',
-                control: Switch(value: settings.showHints, onChanged: notifier.setShowHints),
+                control: VerbaSwitch(value: settings.showHints, onChanged: notifier.setShowHints),
               ),
             ],
           ),
