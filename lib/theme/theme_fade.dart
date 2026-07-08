@@ -56,6 +56,7 @@ class ThemeFadeState extends State<ThemeFade> with SingleTickerProviderStateMixi
     final boundary = _boundaryKey.currentContext?.findRenderObject();
     if (boundary is! RenderRepaintBoundary) return;
     _controller.stop();
+    _controller.value = 0;
     final image = await boundary.toImage(pixelRatio: MediaQuery.devicePixelRatioOf(context));
     if (!mounted) {
       image.dispose();
@@ -65,6 +66,7 @@ class ThemeFadeState extends State<ThemeFade> with SingleTickerProviderStateMixi
       _snapshot?.dispose();
       _snapshot = image;
     });
+    await WidgetsBinding.instance.endOfFrame;
   }
 
   void startFade() {
