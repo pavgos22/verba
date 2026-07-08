@@ -2,6 +2,43 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
+class _OutlineThumbShape extends SliderComponentShape {
+  const _OutlineThumbShape({required this.fill, required this.border});
+
+  final Color fill;
+  final Color border;
+
+  @override
+  Size getPreferredSize(bool isEnabled, bool isDiscrete) => const Size(16, 16);
+
+  @override
+  void paint(
+    PaintingContext context,
+    Offset center, {
+    required Animation<double> activationAnimation,
+    required Animation<double> enableAnimation,
+    required bool isDiscrete,
+    required TextPainter labelPainter,
+    required RenderBox parentBox,
+    required SliderThemeData sliderTheme,
+    required TextDirection textDirection,
+    required double value,
+    required double textScaleFactor,
+    required Size sizeWithOverflow,
+  }) {
+    final canvas = context.canvas;
+    canvas.drawCircle(center, 8, Paint()..color = fill);
+    canvas.drawCircle(
+      center,
+      8,
+      Paint()
+        ..color = border
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
+  }
+}
+
 ThemeData buildTheme(Brightness brightness) {
   final colors = brightness == Brightness.light ? VerbaColors.light : VerbaColors.dark;
   final light = brightness == Brightness.light;
@@ -76,6 +113,21 @@ ThemeData buildTheme(Brightness brightness) {
         splashFactory: NoSplash.splashFactory,
         enabledMouseCursor: SystemMouseCursors.click,
       ),
+    ),
+    sliderTheme: SliderThemeData(
+      trackHeight: 6,
+      activeTrackColor: colors.primary,
+      inactiveTrackColor: colors.muted,
+      thumbShape: _OutlineThumbShape(fill: colors.background, border: colors.primary),
+      overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
+      overlayColor: colors.primary.withValues(alpha: 0.12),
+      tickMarkShape: const RoundSliderTickMarkShape(tickMarkRadius: 1.5),
+      activeTickMarkColor: Colors.transparent,
+      inactiveTickMarkColor: colors.mutedForeground,
+      valueIndicatorColor: colors.foreground,
+      valueIndicatorTextStyle:
+          TextStyle(color: colors.background, fontFamily: 'Inter', fontSize: 12, fontWeight: FontWeight.w600),
+      mouseCursor: const WidgetStatePropertyAll(SystemMouseCursors.click),
     ),
     dialogTheme: DialogThemeData(
       backgroundColor: colors.card,

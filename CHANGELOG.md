@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.3 — restyled the words-per-session slider (thin track, outline thumb, tick marks only on the unfilled part), themed for light and dark
+
 ## 0.9.2 — pointer cursor on dropdown menu options
 
 ## 0.9.1 — refreshed Words screen with three count tiles (in course / learning / mastered) and progress bars

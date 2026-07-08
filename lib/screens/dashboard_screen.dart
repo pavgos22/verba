@@ -403,7 +403,6 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
               min: 5,
               max: 50,
               divisions: 9,
-              label: '$_count',
               onChanged: (value) => setState(() => _count = value.round()),
             ),
             const SizedBox(height: 12),
