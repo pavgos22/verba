@@ -9,6 +9,7 @@ import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
 import '../widgets/accented_text.dart';
+import '../widgets/app_dropdown.dart';
 import '../widgets/common.dart';
 import 'session_screen.dart';
 
@@ -460,36 +461,15 @@ class _CategoryDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: Container(
-        height: 40,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: context.c.background,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: context.c.inputBorder),
-        ),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton<String?>(
-            value: value,
-            isExpanded: true,
-            isDense: true,
-            borderRadius: BorderRadius.circular(8),
-            dropdownColor: context.c.card,
-            style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
-            icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
-            items: [
-              for (final (value, label) in [(null, 'Wszystkie kategorie'), for (final c in categories) (c, c)])
-                DropdownMenuItem(
-                  value: value,
-                  child: MouseRegion(cursor: SystemMouseCursors.click, child: Text(label)),
-                ),
-            ],
-            onChanged: onChanged,
-          ),
-        ),
-      ),
+    return AppDropdown<String?>(
+      value: value,
+      expand: true,
+      menuWidth: 320,
+      onChanged: onChanged,
+      items: [
+        const AppDropdownItem<String?>(value: null, label: 'Wszystkie kategorie'),
+        for (final c in categories) AppDropdownItem<String?>(value: c, label: c),
+      ],
     );
   }
 }

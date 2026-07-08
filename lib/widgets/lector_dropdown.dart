@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/audio_service.dart';
-import '../theme/app_colors.dart';
+import 'app_dropdown.dart';
 
 class LectorDropdown extends StatelessWidget {
   const LectorDropdown({super.key, required this.value, required this.onChanged});
@@ -11,51 +11,13 @@ class LectorDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: Container(
-        height: 36,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: context.c.background,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: context.c.inputBorder),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.record_voice_over_outlined, size: 16, color: context.c.mutedForeground),
-            const SizedBox(width: 8),
-            DropdownButtonHideUnderline(
-              child: DropdownButton<Lector>(
-                value: value,
-                isDense: true,
-                borderRadius: BorderRadius.circular(8),
-                dropdownColor: context.c.card,
-                style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
-                icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
-                selectedItemBuilder: (context) => [
-                  for (final lector in Lector.values)
-                    Center(
-                      child: Text('Lektor: ${lector.label}',
-                          style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground)),
-                    ),
-                ],
-                items: [
-                  for (final lector in Lector.values)
-                    DropdownMenuItem(
-                      value: lector,
-                      child: MouseRegion(cursor: SystemMouseCursors.click, child: Text(lector.label)),
-                    ),
-                ],
-                onChanged: (lector) {
-                  if (lector != null) onChanged(lector);
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+    return AppDropdown<Lector>(
+      value: value,
+      leadingIcon: Icons.record_voice_over_outlined,
+      triggerPrefix: 'Lektor: ',
+      menuWidth: 200,
+      items: [for (final l in Lector.values) AppDropdownItem(value: l, label: l.label)],
+      onChanged: onChanged,
     );
   }
 }
