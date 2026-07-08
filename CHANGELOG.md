@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.8.9 — removed the translation-direction option from "Today's session" settings (kept for Practice and Test)
+
 ## 0.8.8 — Ctrl+Space hotkey to replay pronunciation during a session (works while typing; silent in Polish→Russian so it doesn't reveal the answer)
 
 ## 0.8.7 — session settings per mode: words-per-session slider (5–50, step 5, default 20) and category filter, in all modes (Learning, Practice, Test); gear added to the "Today's session" card; loads as many words as available when short

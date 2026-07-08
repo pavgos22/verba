@@ -106,7 +106,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             tasks.add(SessionTask(word: word, kind: TaskKind.presentation));
             tasks.add(SessionTask(word: word, kind: TaskKind.typingPlToRu));
           } else {
-            tasks.add(SessionTask(word: word, kind: _kindFor(cfg.direction, i, rng)));
+            tasks.add(SessionTask(word: word, kind: _kindFor(SessionDirection.random, i, rng)));
           }
         }
         return tasks;

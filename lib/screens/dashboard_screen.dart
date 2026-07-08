@@ -376,21 +376,23 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
               categories: widget.categories,
               onChanged: (value) => setState(() => _category = value),
             ),
-            const SizedBox(height: 16),
-            Text('Kierunek tłumaczenia',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
-            const SizedBox(height: 8),
-            for (final (direction, label) in const [
-              (SessionDirection.random, 'Losowo (domyślnie)'),
-              (SessionDirection.ruToPl, 'Rosyjski → polski'),
-              (SessionDirection.plToRu, 'Polski → rosyjski'),
-              (SessionDirection.alternate, 'Na przemian'),
-            ])
-              _DirectionOption(
-                label: label,
-                selected: _direction == direction,
-                onTap: () => setState(() => _direction = direction),
-              ),
+            if (widget.mode != 'full') ...[
+              const SizedBox(height: 16),
+              Text('Kierunek tłumaczenia',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+              const SizedBox(height: 8),
+              for (final (direction, label) in const [
+                (SessionDirection.random, 'Losowo (domyślnie)'),
+                (SessionDirection.ruToPl, 'Rosyjski → polski'),
+                (SessionDirection.plToRu, 'Polski → rosyjski'),
+                (SessionDirection.alternate, 'Na przemian'),
+              ])
+                _DirectionOption(
+                  label: label,
+                  selected: _direction == direction,
+                  onTap: () => setState(() => _direction = direction),
+                ),
+            ],
           ],
         ),
       ),
