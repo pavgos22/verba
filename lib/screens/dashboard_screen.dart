@@ -481,8 +481,11 @@ class _CategoryDropdown extends StatelessWidget {
             style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
             icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
             items: [
-              const DropdownMenuItem(value: null, child: Text('Wszystkie kategorie')),
-              for (final category in categories) DropdownMenuItem(value: category, child: Text(category)),
+              for (final (value, label) in [(null, 'Wszystkie kategorie'), for (final c in categories) (c, c)])
+                DropdownMenuItem(
+                  value: value,
+                  child: MouseRegion(cursor: SystemMouseCursors.click, child: Text(label)),
+                ),
             ],
             onChanged: onChanged,
           ),

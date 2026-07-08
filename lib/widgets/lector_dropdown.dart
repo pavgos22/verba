@@ -33,7 +33,7 @@ class LectorDropdown extends StatelessWidget {
               for (final lector in Lector.values)
                 DropdownMenuItem(
                   value: lector,
-                  child: Text(lector.label),
+                  child: MouseRegion(cursor: SystemMouseCursors.click, child: Text(lector.label)),
                 ),
             ],
             onChanged: (lector) {
