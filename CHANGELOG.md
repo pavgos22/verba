@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.8.11 — "how learning works" info icon (i) on the dashboard header with a hover tooltip
+
 ## 0.8.10 — fixed Polish spelling errors in translations (choroba, niebieski, żądać, łączność and glued phrases) found by a dictionary scan of the whole course
 
 ## 0.8.9 — removed the translation-direction option from "Today's session" settings (kept for Practice and Test)

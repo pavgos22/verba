@@ -59,13 +59,28 @@ class _Dashboard extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Привет!', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
-          const SizedBox(height: 4),
-          Text(
-            progress.streak > 0
-                ? 'Tak trzymaj — Twoja seria to ${_dayLabel(progress.streak)}.'
-                : 'Zacznij dziś swoją serię nauki.',
-            style: TextStyle(fontSize: 14, color: context.c.mutedForeground),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Привет!',
+                        style:
+                            TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
+                    const SizedBox(height: 4),
+                    Text(
+                      progress.streak > 0
+                          ? 'Tak trzymaj — Twoja seria to ${_dayLabel(progress.streak)}.'
+                          : 'Zacznij dziś swoją serię nauki.',
+                      style: TextStyle(fontSize: 14, color: context.c.mutedForeground),
+                    ),
+                  ],
+                ),
+              ),
+              const LearningInfoBadge(),
+            ],
           ),
           const SizedBox(height: 24),
           Row(
@@ -278,6 +293,30 @@ class _ModeCard extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+const _learningInfoText = 'Jak działa nauka\n\n'
+    'Każde słówko przechodzi przez 5 poziomów powtórek —\n'
+    'kolejne wypadają po 1, 2, 4, 7 i 15 dniach.\n'
+    'Poprawna odpowiedź w terminie podnosi poziom,\n'
+    'a błąd cofa słówko na sam początek.\n'
+    'Od poziomu 4 słówko liczy się jako opanowane.';
+
+class LearningInfoBadge extends StatelessWidget {
+  const LearningInfoBadge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: _learningInfoText,
+      waitDuration: const Duration(milliseconds: 150),
+      showDuration: const Duration(seconds: 12),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.help,
+        child: Icon(Icons.info_outline, size: 22, color: context.c.mutedForeground),
       ),
     );
   }
