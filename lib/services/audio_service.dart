@@ -7,7 +7,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../data/settings_store.dart';
 
 enum Lector {
-  google('Wiera', true, true),
+  google('Nadia', true, true),
   system('Systemowy', false, false);
 
   const Lector(this.label, this.hasAssets, this.hasSlowAssets);
