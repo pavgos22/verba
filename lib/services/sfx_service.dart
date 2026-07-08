@@ -5,22 +5,15 @@ import '../core/answer_check.dart';
 
 class SfxService {
   SfxService() {
-    _players.forEach((grade, player) {
-      player.setReleaseMode(ReleaseMode.stop);
-      player.setSource(AssetSource('sounds/${grade.name}.wav'));
-    });
+    _player.setReleaseMode(ReleaseMode.stop);
   }
 
-  final Map<AnswerGrade, AudioPlayer> _players = {
-    for (final grade in AnswerGrade.values) grade: AudioPlayer(),
-  };
+  final AudioPlayer _player = AudioPlayer();
 
   Future<void> playGrade(AnswerGrade grade) async {
-    final player = _players[grade]!;
     try {
-      await player.stop();
-      await player.seek(Duration.zero);
-      await player.resume();
+      await _player.stop();
+      await _player.play(AssetSource('sounds/${grade.name}.wav'));
     } catch (_) {}
   }
 }

@@ -2093,6 +2093,47 @@
                   "content": "Sprawdź"
                 }
               }
+            },
+            {
+              "type": "frame",
+              "id": "INziW",
+              "layoutPosition": "absolute",
+              "x": 40,
+              "y": 26,
+              "name": "LectorSelect",
+              "height": 36,
+              "fill": "$background",
+              "cornerRadius": 8,
+              "stroke": "$input",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k5cAXZ",
+                  "name": "LectorValue",
+                  "fill": "$foreground",
+                  "content": "Dmitrij (neuronowy)",
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "icon",
+                  "id": "B6bAF",
+                  "name": "LectorChevron",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                }
+              ]
             }
           ]
         }
@@ -6555,16 +6596,6 @@
           "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "rJBKW",
-              "name": "TabHint",
-              "fill": "$muted-foreground",
-              "content": "Tab — wymowa",
-              "fontFamily": "$font-body",
-              "fontSize": 13,
-              "fontWeight": "normal"
-            },
-            {
               "id": "jKZFf",
               "type": "ref",
               "ref": "GvKKs",
@@ -6585,6 +6616,47 @@
                   "content": "Sprawdź"
                 }
               }
+            },
+            {
+              "type": "frame",
+              "id": "VadLZ",
+              "layoutPosition": "absolute",
+              "x": 40,
+              "y": 26,
+              "name": "LectorSelect",
+              "height": 36,
+              "fill": "$background",
+              "cornerRadius": 8,
+              "stroke": "$input",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EC9yU",
+                  "name": "LectorValue",
+                  "fill": "$foreground",
+                  "content": "Dmitrij (neuronowy)",
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "icon",
+                  "id": "Cz0XT",
+                  "name": "LectorChevron",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                }
+              ]
             }
           ]
         }
@@ -6819,6 +6891,47 @@
                   "content": "Sprawdź"
                 }
               }
+            },
+            {
+              "type": "frame",
+              "id": "f2cf8",
+              "layoutPosition": "absolute",
+              "x": 40,
+              "y": 26,
+              "name": "LectorSelect",
+              "height": 36,
+              "fill": "$background",
+              "cornerRadius": 8,
+              "stroke": "$input",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rxr6o",
+                  "name": "LectorValue",
+                  "fill": "$foreground",
+                  "content": "Dmitrij (neuronowy)",
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "icon",
+                  "id": "Amztp",
+                  "name": "LectorChevron",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                }
+              ]
             }
           ]
         }
