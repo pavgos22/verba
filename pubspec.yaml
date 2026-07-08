@@ -1,7 +1,7 @@
 name: verba
 description: Russian vocabulary learning app for Windows.
 publish_to: 'none'
-version: 0.8.1+71
+version: 0.8.2+73
 
 environment:
   sdk: ^3.12.2
