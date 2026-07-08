@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.1 — refreshed Words screen with three count tiles (in course / learning / mastered) and progress bars
+
 ## 0.9.0 — custom courses: create your own course, add Russian↔Polish words (with the transliteration keyboard), edit and delete; refreshed Courses screen with per-course progress; custom words read by the system voice
 
 ## 0.8.11 — "how learning works" info icon (i) on the dashboard header with a hover tooltip

@@ -37,7 +37,10 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
           if (query.isEmpty) return true;
           return w.ru.contains(query) || w.pl.any((p) => p.toLowerCase().contains(query));
         }).toList();
+        final total = words.length;
         final mastered = words.where((w) => progress.statusOf(w.id) == WordStatus.mastered).length;
+        final learning = words.where((w) => progress.statusOf(w.id) == WordStatus.learning).length;
+        String pct(int n) => total == 0 ? '0%' : '${(n * 100 / total).round()}% kursu';
 
         return Padding(
           padding: const EdgeInsets.all(40),
@@ -45,9 +48,41 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Słówka', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
-              const SizedBox(height: 4),
-              Text('${words.length} słów w kursie · $mastered opanowanych',
-                  style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: _CountTile(
+                      icon: Icons.menu_book_outlined,
+                      label: 'W kursie',
+                      value: '$total',
+                      sub: 'wszystkich słów',
+                      fraction: 1,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: _CountTile(
+                      icon: Icons.school_outlined,
+                      label: 'W nauce',
+                      value: '$learning',
+                      sub: pct(learning),
+                      fraction: total == 0 ? 0 : learning / total,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: _CountTile(
+                      icon: Icons.check_circle_outline,
+                      label: 'Opanowane',
+                      value: '$mastered',
+                      sub: pct(mastered),
+                      fraction: total == 0 ? 0 : mastered / total,
+                      accent: true,
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 20),
               Wrap(
                 spacing: 8,
@@ -132,6 +167,62 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
           ),
         );
       },
+    );
+  }
+}
+
+class _CountTile extends StatelessWidget {
+  const _CountTile({
+    required this.icon,
+    required this.label,
+    required this.value,
+    required this.sub,
+    required this.fraction,
+    this.accent = false,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+  final String sub;
+  final double fraction;
+  final bool accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final barColor = accent ? context.c.success : context.c.primary;
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 16, color: context.c.mutedForeground),
+              const SizedBox(width: 8),
+              Text(label,
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(value,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  color: accent ? context.c.success : context.c.foreground)),
+          const SizedBox(height: 4),
+          Text(sub, style: TextStyle(fontSize: 12, color: context.c.mutedForeground)),
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(3),
+            child: LinearProgressIndicator(
+              value: fraction.clamp(0.0, 1.0),
+              minHeight: 5,
+              backgroundColor: context.c.muted,
+              color: barColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
