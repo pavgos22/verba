@@ -11,32 +11,35 @@ class LectorDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 36,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: context.c.background,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: context.c.inputBorder),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<Lector>(
-          value: value,
-          isDense: true,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: Container(
+        height: 36,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        decoration: BoxDecoration(
+          color: context.c.background,
           borderRadius: BorderRadius.circular(8),
-          dropdownColor: context.c.card,
-          style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
-          icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
-          items: [
-            for (final lector in Lector.values)
-              DropdownMenuItem(
-                value: lector,
-                child: Text(lector.isPiper ? '${lector.label} (neuronowy)' : lector.label),
-              ),
-          ],
-          onChanged: (lector) {
-            if (lector != null) onChanged(lector);
-          },
+          border: Border.all(color: context.c.inputBorder),
+        ),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton<Lector>(
+            value: value,
+            isDense: true,
+            borderRadius: BorderRadius.circular(8),
+            dropdownColor: context.c.card,
+            style: TextStyle(fontSize: 14, fontFamily: 'Inter', color: context.c.foreground),
+            icon: Icon(Icons.expand_more, size: 18, color: context.c.mutedForeground),
+            items: [
+              for (final lector in Lector.values)
+                DropdownMenuItem(
+                  value: lector,
+                  child: Text(lector.isPiper ? '${lector.label} (neuronowy)' : lector.label),
+                ),
+            ],
+            onChanged: (lector) {
+              if (lector != null) onChanged(lector);
+            },
+          ),
         ),
       ),
     );

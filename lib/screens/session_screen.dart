@@ -304,6 +304,7 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
 
   @override
   Widget build(BuildContext context) {
+    final settings = ref.watch(settingsProvider);
     return Column(
       children: [
         Expanded(
@@ -340,6 +341,13 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
           ),
         ),
         _SessionFooter(
+          leading: LectorDropdown(
+            value: settings.lector,
+            onChanged: (lector) {
+              ref.read(settingsProvider.notifier).setLector(lector);
+              ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+            },
+          ),
           children: [
             Text(
                 widget.word.pronunciation != null
