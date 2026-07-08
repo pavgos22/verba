@@ -10,12 +10,12 @@ flutter run -d windows
 
 ## Lector audio
 
-The neural lectors (Dmitrij, Irina, Rusłan) play pre-generated speech from
-`assets/lector/<voice>/` — one `<fnv1a(ru)>.mp3` per unique Russian word across
-all courses. To regenerate after editing a course, download Piper + the Russian
-voice models and run `tool/generate_lector.py <scratch-dir>` (needs Piper and
-ffmpeg on PATH). The "Systemowy" lector falls back to the Windows TTS voice via
-flutter_tts.
+The "Google" lector plays pre-generated speech from `assets/lector/google/`
+(normal speed) and `assets/lector/google_slow/` — one `<fnv1a(ru)>.mp3` per
+unique Russian word across all courses, generated with gTTS. To regenerate
+after editing a course, run `tool/generate_google_lector.py` (needs gTTS and
+ffmpeg; resumable, only fetches missing files). The "Systemowy" lector falls
+back to the Windows TTS voice via flutter_tts.
 
 ## Versioning
 

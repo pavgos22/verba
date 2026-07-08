@@ -8,9 +8,6 @@ import '../data/settings_store.dart';
 
 enum Lector {
   google('Google', true, true),
-  dmitri('Dmitrij (neuronowy)', true, false),
-  irina('Irina (neuronowy)', true, false),
-  ruslan('Rusłan (neuronowy)', true, false),
   system('Systemowy', false, false);
 
   const Lector(this.label, this.hasAssets, this.hasSlowAssets);
