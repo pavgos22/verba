@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.8.7 — session settings per mode: words-per-session slider (5–50, step 5, default 20) and category filter, in all modes (Learning, Practice, Test); gear added to the "Today's session" card; loads as many words as available when short
+
 ## 0.8.6 — lector renamed to "Nadia"
 
 ## 0.8.5 — "Google" lector renamed to the neutral "Wiera"

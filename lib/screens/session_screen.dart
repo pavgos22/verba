@@ -68,6 +68,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     return KeyEventResult.handled;
   }
 
+  List<Word> _inCategory(List<Word> words, String? category) =>
+      category == null ? words : words.where((w) => w.category == category).toList();
+
   List<SessionTask> _buildTasks(List<Word> words) {
     final progress = ref.read(progressProvider);
     final notifier = ref.read(progressProvider.notifier);
@@ -76,35 +79,40 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final now = DateTime.now();
     switch (widget.mode) {
       case SessionMode.full:
-        final fresh = words.where((w) => progress.statusOf(w.id) == WordStatus.fresh).take(settings.dailyGoal);
-        final due = words.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
-        return [
-          for (final word in fresh) ...[
-            SessionTask(word: word, kind: TaskKind.presentation),
-            SessionTask(word: word, kind: TaskKind.typingPlToRu),
-          ],
-          for (final word in due)
-            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
-        ];
+        final cfg = settings.configFor('full');
+        final pool = _inCategory(words, cfg.category);
+        final fresh = pool.where((w) => progress.statusOf(w.id) == WordStatus.fresh).toList()..shuffle(rng);
+        final due = pool.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
+        final chosen = [...fresh, ...due].take(cfg.count).toList();
+        final tasks = <SessionTask>[];
+        for (var i = 0; i < chosen.length; i++) {
+          final word = chosen[i];
+          if (progress.statusOf(word.id) == WordStatus.fresh) {
+            tasks.add(SessionTask(word: word, kind: TaskKind.presentation));
+            tasks.add(SessionTask(word: word, kind: TaskKind.typingPlToRu));
+          } else {
+            tasks.add(SessionTask(word: word, kind: _kindFor(cfg.direction, i, rng)));
+          }
+        }
+        return tasks;
       case SessionMode.reviewsOnly:
         final due = words.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
         return [
-          for (final word in due)
-            SessionTask(word: word, kind: rng.nextBool() ? TaskKind.typingPlToRu : TaskKind.typingRuToPl),
+          for (var i = 0; i < due.length; i++)
+            SessionTask(word: due[i], kind: _kindFor(SessionDirection.random, i, rng)),
         ];
       case SessionMode.practice:
-        final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
-        final pool = started.take(15).toList();
-        return [
-          for (var i = 0; i < pool.length; i++)
-            SessionTask(word: pool[i], kind: _kindFor(settings.practiceDirection, i, rng)),
-        ];
       case SessionMode.test:
-        final started = words.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
-        final pool = started.take(10).toList();
+        final key = widget.mode == SessionMode.test ? 'test' : 'practice';
+        final cfg = settings.configFor(key);
+        final started = _inCategory(words, cfg.category)
+            .where((w) => progress.statusOf(w.id) != WordStatus.fresh)
+            .toList()
+          ..shuffle(rng);
+        final pool = started.take(cfg.count).toList();
         return [
           for (var i = 0; i < pool.length; i++)
-            SessionTask(word: pool[i], kind: _kindFor(settings.testDirection, i, rng)),
+            SessionTask(word: pool[i], kind: _kindFor(cfg.direction, i, rng)),
         ];
       case SessionMode.retry:
         return List.of(widget.retryTasks);

@@ -10,6 +10,16 @@ final prefsProvider = Provider<SharedPreferences>((ref) {
 
 enum SessionDirection { alternate, ruToPl, plToRu, random }
 
+const sessionModeKeys = ['full', 'practice', 'test'];
+
+class ModeConfig {
+  const ModeConfig({required this.count, required this.category, required this.direction});
+
+  final int count;
+  final String? category;
+  final SessionDirection direction;
+}
+
 class Settings {
   const Settings({
     required this.themeMode,
@@ -21,9 +31,7 @@ class Settings {
     required this.answerSounds,
     required this.lector,
     required this.activeCourseId,
-    required this.dailyGoal,
-    required this.practiceDirection,
-    required this.testDirection,
+    required this.modes,
   });
 
   final ThemeMode themeMode;
@@ -35,9 +43,10 @@ class Settings {
   final bool answerSounds;
   final Lector lector;
   final String activeCourseId;
-  final int dailyGoal;
-  final SessionDirection practiceDirection;
-  final SessionDirection testDirection;
+  final Map<String, ModeConfig> modes;
+
+  ModeConfig configFor(String mode) =>
+      modes[mode] ?? const ModeConfig(count: 20, category: null, direction: SessionDirection.random);
 
   Settings copyWith({
     ThemeMode? themeMode,
@@ -49,9 +58,7 @@ class Settings {
     bool? answerSounds,
     Lector? lector,
     String? activeCourseId,
-    int? dailyGoal,
-    SessionDirection? practiceDirection,
-    SessionDirection? testDirection,
+    Map<String, ModeConfig>? modes,
   }) {
     return Settings(
       themeMode: themeMode ?? this.themeMode,
@@ -63,9 +70,7 @@ class Settings {
       answerSounds: answerSounds ?? this.answerSounds,
       lector: lector ?? this.lector,
       activeCourseId: activeCourseId ?? this.activeCourseId,
-      dailyGoal: dailyGoal ?? this.dailyGoal,
-      practiceDirection: practiceDirection ?? this.practiceDirection,
-      testDirection: testDirection ?? this.testDirection,
+      modes: modes ?? this.modes,
     );
   }
 }
@@ -84,11 +89,15 @@ class SettingsNotifier extends Notifier<Settings> {
       answerSounds: prefs.getBool('settings.answerSounds') ?? true,
       lector: Lector.fromName(prefs.getString('settings.lector')),
       activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
-      dailyGoal: prefs.getInt('settings.dailyGoal') ?? 10,
-      practiceDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.practiceDirection')] ??
-          SessionDirection.random,
-      testDirection: SessionDirection.values.asNameMap()[prefs.getString('settings.testDirection')] ??
-          SessionDirection.random,
+      modes: {
+        for (final mode in sessionModeKeys)
+          mode: ModeConfig(
+            count: prefs.getInt('settings.mode.$mode.count') ?? 20,
+            category: prefs.getString('settings.mode.$mode.category'),
+            direction: SessionDirection.values.asNameMap()[prefs.getString('settings.mode.$mode.direction')] ??
+                SessionDirection.random,
+          ),
+      },
     );
   }
 
@@ -137,20 +146,21 @@ class SettingsNotifier extends Notifier<Settings> {
     ref.read(prefsProvider).setString('settings.lector', value.name);
   }
 
-  void setPracticeDirection(SessionDirection value) {
-    state = state.copyWith(practiceDirection: value);
-    ref.read(prefsProvider).setString('settings.practiceDirection', value.name);
-  }
-
-  void setTestDirection(SessionDirection value) {
-    state = state.copyWith(testDirection: value);
-    ref.read(prefsProvider).setString('settings.testDirection', value.name);
-  }
-
-  void setDailyGoal(int value) {
-    final clamped = value.clamp(5, 50);
-    state = state.copyWith(dailyGoal: clamped);
-    ref.read(prefsProvider).setInt('settings.dailyGoal', clamped);
+  void setModeConfig(String mode, ModeConfig config) {
+    final clamped = ModeConfig(
+      count: config.count.clamp(5, 50),
+      category: config.category,
+      direction: config.direction,
+    );
+    state = state.copyWith(modes: {...state.modes, mode: clamped});
+    final prefs = ref.read(prefsProvider);
+    prefs.setInt('settings.mode.$mode.count', clamped.count);
+    prefs.setString('settings.mode.$mode.direction', clamped.direction.name);
+    if (clamped.category == null) {
+      prefs.remove('settings.mode.$mode.category');
+    } else {
+      prefs.setString('settings.mode.$mode.category', clamped.category!);
+    }
   }
 }
 

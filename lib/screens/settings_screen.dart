@@ -110,25 +110,6 @@ class SettingsScreen extends ConsumerWidget {
             title: 'Nauka',
             rows: [
               _SettingRow(
-                title: 'Cel dzienny',
-                description: 'Liczba nowych słówek na dzień',
-                control: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _StepButton(icon: Icons.remove, onTap: () => notifier.setDailyGoal(settings.dailyGoal - 5)),
-                    SizedBox(
-                      width: 40,
-                      child: Center(
-                        child: Text('${settings.dailyGoal}',
-                            style:
-                                TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: context.c.foreground)),
-                      ),
-                    ),
-                    _StepButton(icon: Icons.add, onTap: () => notifier.setDailyGoal(settings.dailyGoal + 5)),
-                  ],
-                ),
-              ),
-              _SettingRow(
                 title: 'Zresetuj postępy',
                 description: 'Usuwa całą historię nauki — nieodwracalne',
                 control: OutlinedButton(
@@ -235,30 +216,3 @@ class _SettingRow extends StatelessWidget {
   }
 }
 
-class _StepButton extends StatelessWidget {
-  const _StepButton({required this.icon, required this.onTap});
-
-  final IconData icon;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 32,
-      height: 32,
-      child: Material(
-        color: context.c.background,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: context.c.border),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(8),
-          mouseCursor: SystemMouseCursors.click,
-          onTap: onTap,
-          child: Icon(icon, size: 14, color: context.c.foreground),
-        ),
-      ),
-    );
-  }
-}
