@@ -59,6 +59,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   bool _tabHeld = false;
 
   KeyEventResult _handleKey(FocusNode node, KeyEvent event) {
+    if (event is KeyDownEvent &&
+        event.logicalKey == LogicalKeyboardKey.space &&
+        HardwareKeyboard.instance.isControlPressed) {
+      _playCurrent();
+      return KeyEventResult.handled;
+    }
     if (event.logicalKey != LogicalKeyboardKey.tab) return KeyEventResult.ignored;
     if (event is KeyDownEvent && !_tabHeld) {
       setState(() => _tabHeld = true);
@@ -66,6 +72,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       setState(() => _tabHeld = false);
     }
     return KeyEventResult.handled;
+  }
+
+  void _playCurrent() {
+    final tasks = _tasks;
+    if (tasks == null || _finished || _index >= tasks.length) return;
+    final task = tasks[_index];
+    if (task.kind == TaskKind.typingPlToRu) return;
+    final settings = ref.read(settingsProvider);
+    ref.read(audioServiceProvider).speakRussian(task.word.ru, slow: settings.slowSpeech);
   }
 
   List<Word> _inCategory(List<Word> words, String? category) =>
@@ -359,8 +374,8 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
           children: [
             Text(
                 widget.word.pronunciation != null
-                    ? 'Tab — wymowa · Enter ↵ — dalej'
-                    : 'Enter ↵ — dalej',
+                    ? 'Ctrl+Spacja — odsłuchaj · Tab — transkrypcja · Enter ↵ — dalej'
+                    : 'Ctrl+Spacja — odsłuchaj · Enter ↵ — dalej',
                 style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
             const SizedBox(width: 16),
             FilledButton(autofocus: true, onPressed: widget.onNext, child: const Text('Dalej')),
@@ -577,7 +592,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                                   TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground)),
                       if (!_isPlToRu) ...[
                         const SizedBox(width: 14),
-                        SpeakerButton(text: widget.word.ru, size: 40),
+                        Tooltip(
+                          message: 'Ctrl+Spacja',
+                          child: SpeakerButton(text: widget.word.ru, size: 40),
+                        ),
                       ],
                     ],
                   ),
