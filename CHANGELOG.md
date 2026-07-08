@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.6 — lector dropdown now shows a voice icon and "Lektor:" label; JSON import also available inside the new-course dialog and for existing custom courses (asks whether to replace all words or append); clearer import error messages
+
 ## 0.9.5 — import a custom course from a JSON file (course object or bare word array; lenient pl as string or list)
 
 ## 0.9.4 — custom animated on/off toggles in Settings (sliding knob with trailing shadow and press-to-widen effect)

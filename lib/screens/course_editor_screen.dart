@@ -45,6 +45,57 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _ruFocus.requestFocus();
   }
 
+  Future<void> _import(bool hasWords) async {
+    final messenger = ScaffoldMessenger.of(context);
+    void fail(String msg) => messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text('Nie udało się zaimportować: $msg'), duration: const Duration(seconds: 4)));
+    List<Word> words;
+    try {
+      final file = await pickCourseJson();
+      if (file == null) return;
+      words = parseCourseJson(file.raw, 'import').words;
+    } on FormatException catch (e) {
+      fail(e.message);
+      return;
+    } catch (_) {
+      fail('nie udało się odczytać pliku');
+      return;
+    }
+    if (!mounted) return;
+    var mode = 'add';
+    if (hasWords) {
+      final choice = await showDialog<String>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Import słówek'),
+          content: Text('Plik zawiera ${words.length} słówek. Co zrobić z obecnymi słówkami w kursie?'),
+          actions: [
+            TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Anuluj')),
+            TextButton(onPressed: () => Navigator.of(context).pop('add'), child: const Text('Dodaj do kursu')),
+            FilledButton(onPressed: () => Navigator.of(context).pop('replace'), child: const Text('Zastąp wszystkie')),
+          ],
+        ),
+      );
+      if (choice == null) return;
+      mode = choice;
+    }
+    final notifier = ref.read(customCoursesProvider.notifier);
+    if (mode == 'replace') {
+      notifier.setWords(widget.courseId, words);
+    } else {
+      notifier.addWords(widget.courseId, words);
+    }
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(mode == 'replace'
+            ? 'Zastąpiono — ${words.length} słówek'
+            : 'Dodano ${words.length} słówek'),
+        duration: const Duration(seconds: 3),
+      ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final course = ref.watch(customCoursesProvider.select((list) {
@@ -92,11 +143,29 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            Text(course.name,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
-            const SizedBox(height: 4),
-            Text('${course.words.length} słówek · własny kurs',
-                style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(course.name,
+                          style:
+                              TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
+                      const SizedBox(height: 4),
+                      Text('${course.words.length} słówek · własny kurs',
+                          style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
+                    ],
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => _import(course.words.isNotEmpty),
+                  icon: const Icon(Icons.upload_file_outlined, size: 16),
+                  label: const Text('Importuj JSON'),
+                ),
+              ],
+            ),
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.all(16),

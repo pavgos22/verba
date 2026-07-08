@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,28 +20,28 @@ class CoursesScreen extends ConsumerWidget {
   }
 
   Future<void> _newCourse(BuildContext context, WidgetRef ref) async {
-    final result = await showDialog<(String, String)>(
+    final result = await showDialog<_DialogResult>(
       context: context,
       builder: (_) => const _CourseDialog(),
     );
-    if (result == null) return;
-    final course = ref.read(customCoursesProvider.notifier).createCourse(result.$1, result.$2);
+    if (result == null || !context.mounted) return;
+    if (result.import) {
+      await _importCourse(context, ref);
+      return;
+    }
+    final course = ref.read(customCoursesProvider.notifier).createCourse(result.name, result.description);
     if (context.mounted) _openEditor(context, course.id);
   }
 
   Future<void> _importCourse(BuildContext context, WidgetRef ref) async {
-    final picked = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['json'],
-      dialogTitle: 'Wybierz plik JSON z kursem',
-    );
-    final path = picked?.files.single.path;
-    if (path == null || !context.mounted) return;
     final messenger = ScaffoldMessenger.of(context);
+    void fail(String msg) => messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text('Nie udało się zaimportować: $msg'), duration: const Duration(seconds: 4)));
     try {
-      final raw = await File(path).readAsString();
-      final fallback = picked!.files.single.name.replaceAll(RegExp(r'\.json$', caseSensitive: false), '');
-      final course = ref.read(customCoursesProvider.notifier).importCourse(raw, fallback);
+      final file = await pickCourseJson();
+      if (file == null) return;
+      final course = ref.read(customCoursesProvider.notifier).importCourse(file.raw, file.name);
       messenger
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(
@@ -52,11 +49,10 @@ class CoursesScreen extends ConsumerWidget {
           duration: const Duration(seconds: 3),
         ));
       if (context.mounted) _openEditor(context, course.id);
-    } catch (e) {
-      final msg = e is FormatException ? e.message : 'nieprawidłowy plik';
-      messenger
-        ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text('Nie udało się zaimportować: $msg'), duration: const Duration(seconds: 4)));
+    } on FormatException catch (e) {
+      fail(e.message);
+    } catch (_) {
+      fail('nie udało się odczytać pliku');
     }
   }
 
@@ -293,6 +289,13 @@ class _AddCourseCard extends StatelessWidget {
   }
 }
 
+class _DialogResult {
+  const _DialogResult({this.name = '', this.description = '', this.import = false});
+  final String name;
+  final String description;
+  final bool import;
+}
+
 class _CourseDialog extends StatefulWidget {
   const _CourseDialog();
 
@@ -330,6 +333,25 @@ class _CourseDialogState extends State<_CourseDialog> {
                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
             const SizedBox(height: 6),
             _Box(controller: _desc, hint: 'Krótki opis kursu', minLines: 3, maxLines: 4),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(child: Divider(color: context.c.border)),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text('lub', style: TextStyle(fontSize: 12, color: context.c.mutedForeground)),
+                ),
+                Expanded(child: Divider(color: context.c.border)),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Center(
+              child: OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).pop(const _DialogResult(import: true)),
+                icon: const Icon(Icons.upload_file_outlined, size: 16),
+                label: const Text('Importuj z pliku JSON'),
+              ),
+            ),
           ],
         ),
       ),
@@ -339,7 +361,7 @@ class _CourseDialogState extends State<_CourseDialog> {
           onPressed: () {
             final name = _name.text.trim();
             if (name.isEmpty) return;
-            Navigator.of(context).pop((name, _desc.text.trim()));
+            Navigator.of(context).pop(_DialogResult(name: name, description: _desc.text.trim()));
           },
           child: const Text('Utwórz'),
         ),

@@ -12906,6 +12906,727 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "gkUXn",
+      "x": 14720,
+      "y": 0,
+      "name": "Togglery — ustawienia",
+      "clip": true,
+      "width": 1180,
+      "height": 560,
+      "fill": "$background",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 40,
+      "children": [
+        {
+          "type": "text",
+          "id": "JJC9E",
+          "name": "T",
+          "fill": "$foreground",
+          "content": "Togglery — ustawienia (on/off)",
+          "fontFamily": "$font-body",
+          "fontSize": 24,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "iHJPP",
+          "name": "Grid",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "N29KoU",
+              "name": "Card-A · klasyczny (obecny)",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 20,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "m2iYF",
+                  "name": "VLabel",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "A · klasyczny (obecny)",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "vWNpR",
+                  "name": "On",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ws1ub",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Dźwięki odpowiedzi",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bYmEZ",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "g6SpA",
+                      "name": "Sw",
+                      "width": 38,
+                      "height": 22,
+                      "fill": "$primary",
+                      "cornerRadius": 11,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "IIhvi",
+                          "x": 18,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 18,
+                          "height": 18
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WQsoL",
+                  "name": "Off",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "G2jnS7",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Dźwięki odpowiedzi",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "E6Gdt",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "piZHq",
+                      "name": "Sw",
+                      "width": 38,
+                      "height": 22,
+                      "fill": "$muted",
+                      "cornerRadius": 11,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "OLx7T",
+                          "x": 2,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 18,
+                          "height": 18
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TubaH",
+              "name": "Card-B · smukły",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 20,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vmZ8Q",
+                  "name": "VLabel",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "B · smukły",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "XJVSJ",
+                  "name": "On",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QqAZE",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Auto-czytanie słówek",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "VJkvX",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Qe9P0",
+                      "name": "Sw",
+                      "width": 40,
+                      "height": 14,
+                      "fill": "$primary",
+                      "cornerRadius": 7,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "lVdhw",
+                          "x": 20,
+                          "y": -3,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hkR9W",
+                  "name": "Off",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VX93k",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Auto-czytanie słówek",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "StGO0",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CzJAu",
+                      "name": "Sw",
+                      "width": 40,
+                      "height": 14,
+                      "fill": "$muted",
+                      "cornerRadius": 7,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "fwg1F",
+                          "x": 0,
+                          "y": -3,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zlGuv",
+              "name": "Card-C · z ptaszkiem",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 20,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "P9WOmh",
+                  "name": "VLabel",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "C · z ptaszkiem",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "ClfXx",
+                  "name": "On",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y5ivv5",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Klawiatura ekranowa",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "q4CEL",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jA9Ie",
+                      "name": "Sw",
+                      "width": 44,
+                      "height": 24,
+                      "fill": "$primary",
+                      "cornerRadius": 12,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "dbnYG",
+                          "layoutPosition": "absolute",
+                          "x": 6,
+                          "y": 6,
+                          "name": "Ck",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "check",
+                          "library": "lucide",
+                          "fill": "$primary-foreground"
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "IFdw2",
+                          "x": 22,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mwPTx",
+                  "name": "Off",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sWyiZ",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Klawiatura ekranowa",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "W7R8iE",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "R674o4",
+                      "name": "Sw",
+                      "width": 44,
+                      "height": 24,
+                      "fill": "$muted",
+                      "cornerRadius": 12,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "mV8OY",
+                          "x": 2,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 20,
+                          "height": 20
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qCuDn",
+              "name": "Card-D · obrys w stanie off",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 20,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ToeGR",
+                  "name": "VLabel",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "D · obrys w stanie off",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Z7merp",
+                  "name": "On",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AzCcy",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Podpowiedzi transliteracji",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F5cAun",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sf8O1",
+                      "name": "Sw",
+                      "width": 38,
+                      "height": 22,
+                      "fill": "$primary",
+                      "cornerRadius": 11,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "i2PYSd",
+                          "x": 18,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 18,
+                          "height": 18
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OJu0Y",
+                  "name": "Off",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U6yrmf",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Podpowiedzi transliteracji",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Y72KVz",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "N6z13G",
+                      "name": "Sw",
+                      "width": 38,
+                      "height": 22,
+                      "fill": "#00000000",
+                      "cornerRadius": 11,
+                      "stroke": "$border",
+                      "strokeWidth": 1.5,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "b8V7SC",
+                          "x": 2,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$muted-foreground",
+                          "width": 18,
+                          "height": 18
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jH8qd",
+              "name": "Card-E · mini z cieniem",
+              "width": "fill_container",
+              "fill": "$card",
+              "cornerRadius": 12,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "gap": 20,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zDPcK",
+                  "name": "VLabel",
+                  "fill": "$muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "E · mini z cieniem",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "h2n3Gy",
+                  "name": "On",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "et4pD",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Znaki akcentu",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eBu0s",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a9XzOv",
+                      "name": "Sw",
+                      "width": 30,
+                      "height": 18,
+                      "fill": "$primary",
+                      "cornerRadius": 9,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Kd7aF",
+                          "x": 14,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 14,
+                          "height": 14,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#00000033",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q4n7oM",
+                  "name": "Off",
+                  "width": "fill_container",
+                  "height": 32,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mZilo",
+                      "name": "L",
+                      "fill": "$foreground",
+                      "content": "Znaki akcentu",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Sp24U",
+                      "name": "Sp",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F1GS8",
+                      "name": "Sw",
+                      "width": 30,
+                      "height": 18,
+                      "fill": "$muted",
+                      "cornerRadius": 9,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "muZDB",
+                          "x": 2,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 14,
+                          "height": 14,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#00000033",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {

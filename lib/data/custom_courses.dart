@@ -1,10 +1,79 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'course.dart';
 import 'word.dart';
+
+typedef ParsedCourse = ({String name, String description, List<Word> words});
+
+ParsedCourse parseCourseJson(String rawJson, String fallbackName) {
+  final dynamic decoded;
+  try {
+    decoded = jsonDecode(rawJson);
+  } catch (_) {
+    throw const FormatException('Plik nie jest poprawnym JSON-em.');
+  }
+  var name = fallbackName;
+  var description = '';
+  final List<dynamic> rawWords;
+  if (decoded is Map<String, dynamic>) {
+    final n = (decoded['name'] as String?)?.trim();
+    if (n != null && n.isNotEmpty) name = n;
+    description = (decoded['description'] as String?)?.trim() ?? '';
+    final w = decoded['words'];
+    if (w is! List) throw const FormatException('Brak listy „words" w pliku.');
+    rawWords = w;
+  } else if (decoded is List) {
+    rawWords = decoded;
+  } else {
+    throw const FormatException('Nieoczekiwany format pliku.');
+  }
+
+  final words = <Word>[];
+  final base = DateTime.now().microsecondsSinceEpoch;
+  for (final e in rawWords) {
+    if (e is! Map) continue;
+    final ru = (e['ru'] as String?)?.trim();
+    if (ru == null || ru.isEmpty) continue;
+    final plRaw = e['pl'];
+    final pl = <String>[];
+    if (plRaw is String) {
+      pl.addAll(plRaw.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty));
+    } else if (plRaw is List) {
+      pl.addAll(plRaw.map((s) => s.toString().trim()).where((s) => s.isNotEmpty));
+    }
+    if (pl.isEmpty) continue;
+    final category = (e['category'] as String?)?.trim();
+    words.add(Word(
+      id: 'w-$base-${words.length}',
+      ru: ru,
+      ruAccented: e['ruAccented'] as String?,
+      pl: pl,
+      category: category == null || category.isEmpty ? null : category,
+      pronunciation: e['pronunciation'] as String?,
+    ));
+  }
+  if (words.isEmpty) {
+    throw const FormatException('Nie znaleziono żadnych słówek (potrzebne pola „ru" i „pl").');
+  }
+  return (name: name, description: description, words: words);
+}
+
+Future<({String raw, String name})?> pickCourseJson() async {
+  final picked = await FilePicker.platform.pickFiles(
+    type: FileType.custom,
+    allowedExtensions: ['json'],
+    dialogTitle: 'Wybierz plik JSON z kursem',
+  );
+  final path = picked?.files.single.path;
+  if (path == null) return null;
+  final raw = await File(path).readAsString();
+  final name = picked!.files.single.name.replaceAll(RegExp(r'\.json$', caseSensitive: false), '');
+  return (raw: raw, name: name);
+}
 
 final customCoursesPathProvider = Provider<String>((ref) {
   throw UnimplementedError('customCoursesPathProvider requires an override');
@@ -72,62 +141,32 @@ class CustomCoursesNotifier extends Notifier<List<Course>> {
   }
 
   Course importCourse(String rawJson, String fallbackName) {
-    final dynamic decoded;
-    try {
-      decoded = jsonDecode(rawJson);
-    } catch (_) {
-      throw const FormatException('Plik nie jest poprawnym JSON-em.');
-    }
-    var name = fallbackName;
-    var description = '';
-    final List<dynamic> rawWords;
-    if (decoded is Map<String, dynamic>) {
-      final n = (decoded['name'] as String?)?.trim();
-      if (n != null && n.isNotEmpty) name = n;
-      description = (decoded['description'] as String?)?.trim() ?? '';
-      final w = decoded['words'];
-      if (w is! List) throw const FormatException('Brak listy „words" w pliku.');
-      rawWords = w;
-    } else if (decoded is List) {
-      rawWords = decoded;
-    } else {
-      throw const FormatException('Nieoczekiwany format pliku.');
-    }
-
-    final words = <Word>[];
-    final base = DateTime.now().microsecondsSinceEpoch;
-    for (final e in rawWords) {
-      if (e is! Map) continue;
-      final ru = (e['ru'] as String?)?.trim();
-      if (ru == null || ru.isEmpty) continue;
-      final plRaw = e['pl'];
-      final pl = <String>[];
-      if (plRaw is String) {
-        pl.addAll(plRaw.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty));
-      } else if (plRaw is List) {
-        pl.addAll(plRaw.map((s) => s.toString().trim()).where((s) => s.isNotEmpty));
-      }
-      if (pl.isEmpty) continue;
-      words.add(Word(
-        id: 'w-$base-${words.length}',
-        ru: ru,
-        ruAccented: e['ruAccented'] as String?,
-        pl: pl,
-        category: (e['category'] as String?)?.trim().isEmpty ?? true ? null : e['category'] as String?,
-        pronunciation: e['pronunciation'] as String?,
-      ));
-    }
-    if (words.isEmpty) throw const FormatException('Nie znaleziono żadnych słówek (potrzebne pola „ru" i „pl").');
-
+    final parsed = parseCourseJson(rawJson, fallbackName);
     final course = Course(
       id: 'custom-${DateTime.now().millisecondsSinceEpoch}',
-      name: name,
-      description: description,
-      words: words,
+      name: parsed.name,
+      description: parsed.description,
+      words: parsed.words,
     );
     state = [...state, course];
     _persist();
     return course;
+  }
+
+  void setWords(String courseId, List<Word> words) {
+    state = [
+      for (final c in state)
+        if (c.id == courseId) c.copyWith(words: words) else c,
+    ];
+    _persist();
+  }
+
+  void addWords(String courseId, List<Word> words) {
+    state = [
+      for (final c in state)
+        if (c.id == courseId) c.copyWith(words: [...c.words, ...words]) else c,
+    ];
+    _persist();
   }
 
   Course? byId(String id) {
