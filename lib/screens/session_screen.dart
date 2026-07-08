@@ -40,10 +40,11 @@ class SessionMistake {
 }
 
 class SessionScreen extends ConsumerStatefulWidget {
-  const SessionScreen({super.key, required this.mode, this.retryTasks = const []});
+  const SessionScreen({super.key, required this.mode, this.retryTasks = const [], this.loop = true});
 
   final SessionMode mode;
   final List<SessionTask> retryTasks;
+  final bool loop;
 
   @override
   ConsumerState<SessionScreen> createState() => _SessionScreenState();
@@ -149,7 +150,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _answered++;
       if (grade == AnswerGrade.correct) {
         _correct++;
-      } else if (widget.mode == SessionMode.retry) {
+      } else if (widget.mode == SessionMode.retry && widget.loop) {
         _tasks!.add(SessionTask(word: task.word, kind: task.kind));
       } else {
         _mistakes.add(SessionMistake(word: task.word, kind: task.kind, given: given));
@@ -181,19 +182,21 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           final tasks = _tasks!;
           if (tasks.isEmpty) return _EmptySession(onBack: () => Navigator.of(context).pop());
           if (_finished) {
+            final loose = widget.mode == SessionMode.test || (widget.mode == SessionMode.retry && !widget.loop);
             return _SummaryView(
               correct: _correct,
               total: _answered,
               mistakes: _mistakes,
-              allowRetry: widget.mode != SessionMode.test,
-              cleared: widget.mode == SessionMode.retry,
+              allowRetry: _mistakes.isNotEmpty,
+              loose: loose,
+              cleared: widget.mode == SessionMode.retry && widget.loop,
               onRetry: () {
                 final retryTasks = {
                   for (final m in _mistakes) m.word.id: SessionTask(word: m.word, kind: m.kind),
                 }.values.toList();
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (_) => SessionScreen(mode: SessionMode.retry, retryTasks: retryTasks),
+                    builder: (_) => SessionScreen(mode: SessionMode.retry, retryTasks: retryTasks, loop: !loose),
                   ),
                 );
               },
@@ -700,6 +703,7 @@ class _SummaryView extends StatelessWidget {
     required this.mistakes,
     required this.allowRetry,
     required this.cleared,
+    required this.loose,
     required this.onRetry,
     required this.onFinish,
   });
@@ -709,6 +713,7 @@ class _SummaryView extends StatelessWidget {
   final List<SessionMistake> mistakes;
   final bool allowRetry;
   final bool cleared;
+  final bool loose;
   final VoidCallback onRetry;
   final VoidCallback onFinish;
 
@@ -800,17 +805,19 @@ class _SummaryView extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (mistakes.isNotEmpty && allowRetry) ...[
+                if (allowRetry) ...[
                   OutlinedButton(
                       autofocus: true,
                       onPressed: onRetry,
-                      child: Text('Powtórz błędne (${mistakes.length})')),
+                      child: Text(loose
+                          ? 'Popraw błędne (${mistakes.length})'
+                          : 'Powtórz błędne (${mistakes.length})')),
                   const SizedBox(width: 12),
                 ],
                 FilledButton(
-                    autofocus: mistakes.isEmpty || !allowRetry,
+                    autofocus: !allowRetry,
                     onPressed: onFinish,
-                    child: const Text('Zakończ')),
+                    child: Text(loose ? 'Powróć do ekranu głównego' : 'Zakończ')),
               ],
             ),
           ],

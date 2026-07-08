@@ -232,7 +232,7 @@ class _Dashboard extends ConsumerWidget {
                   child: _ModeCard(
                     title: 'Test',
                     description:
-                        'Sprawdzian z poznanych słówek — bez poprawiania błędów po drodze, wynik zobaczysz dopiero na końcu.',
+                        'Sprawdzian z poznanych słówek — brak konieczności poprawiania błędów, wynik zobaczysz dopiero na końcu.',
                     buttonLabel: 'Rozpocznij test',
                     onPressed: started > 0
                         ? () => Navigator.of(context).push(

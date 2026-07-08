@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.8 — synonymous Russian words are now interchangeable in answers (да/так, нет/не); Test summary offers a relaxed "fix mistakes" pass (practice-style, no forced looping) plus a "back to home" button
+
 ## 0.9.7 — dropdown menus restyled to match the design (compact rounded card, per-item accent highlight on hover, checkmark on the selected option)
 
 ## 0.9.6 — lector dropdown now shows a voice icon and "Lektor:" label; JSON import also available inside the new-course dialog and for existing custom courses (asks whether to replace all words or append); clearer import error messages

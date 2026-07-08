@@ -77,6 +77,16 @@ void main() {
     expect(gradeRuAnswer(yes, 'до'), AnswerGrade.wrong);
   });
 
+  test('hardcoded synonyms are interchangeable', () {
+    const yesWord = Word(id: 'y', ru: 'да', ruAccented: 'да', pl: ['tak'], category: 'zwroty');
+    const noWord = Word(id: 'n', ru: 'нет', ruAccented: 'нет', pl: ['nie'], category: 'zwroty');
+    expect(checkRuAnswer(yesWord, 'так'), isTrue);
+    expect(gradeRuAnswer(yesWord, 'так'), AnswerGrade.correct);
+    expect(checkRuAnswer(noWord, 'не'), isTrue);
+    expect(gradeRuAnswer(noWord, 'не'), AnswerGrade.correct);
+    expect(checkRuAnswer(noWord, 'да'), isFalse);
+  });
+
   test('grades polish answers including diacritic slips', () {
     expect(gradePlAnswer(thanks, 'dziękuję'), AnswerGrade.correct);
     expect(gradePlAnswer(thanks, 'dziekuje'), AnswerGrade.almost);

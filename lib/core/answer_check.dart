@@ -15,8 +15,21 @@ String normalizePl(String value) {
   return value.toLowerCase().trim().replaceAll(RegExp(r'\s+'), ' ');
 }
 
+const List<Set<String>> ruSynonymGroups = [
+  {'так', 'да'},
+  {'нет', 'не'},
+];
+
+List<String> acceptedRu(Word word) {
+  final n = normalizeRu(word.ru);
+  for (final group in ruSynonymGroups) {
+    if (group.contains(n)) return group.toList();
+  }
+  return [n];
+}
+
 bool checkRuAnswer(Word word, String answer) {
-  return normalizeRu(answer) == normalizeRu(word.ru);
+  return acceptedRu(word).contains(normalizeRu(answer));
 }
 
 bool checkPlAnswer(Word word, String answer) {
@@ -62,7 +75,7 @@ AnswerGrade _grade(String given, List<String> accepted) {
 }
 
 AnswerGrade gradeRuAnswer(Word word, String answer) {
-  return _grade(normalizeRu(answer), [normalizeRu(word.ru)]);
+  return _grade(normalizeRu(answer), acceptedRu(word));
 }
 
 AnswerGrade gradePlAnswer(Word word, String answer) {
