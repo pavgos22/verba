@@ -13,6 +13,15 @@ class Course {
   final String description;
   final List<Word> words;
 
+  bool get isCustom => id.startsWith('custom-');
+
+  Course copyWith({String? name, String? description, List<Word>? words}) => Course(
+        id: id,
+        name: name ?? this.name,
+        description: description ?? this.description,
+        words: words ?? this.words,
+      );
+
   factory Course.fromJson(Map<String, dynamic> json) {
     return Course(
       id: json['id'] as String,
@@ -23,4 +32,11 @@ class Course {
       ],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'description': description,
+        'words': [for (final w in words) w.toJson()],
+      };
 }

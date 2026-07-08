@@ -27,4 +27,13 @@ class Word {
       pronunciation: json['pronunciation'] as String?,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'ru': ru,
+        if (ruAccented != ru) 'ruAccented': ruAccented,
+        'pl': pl,
+        if (category != null) 'category': category,
+        if (pronunciation != null) 'pronunciation': pronunciation,
+      };
 }

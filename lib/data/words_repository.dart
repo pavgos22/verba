@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'course.dart';
+import 'custom_courses.dart';
 import 'settings_store.dart';
 import 'word.dart';
 
@@ -12,13 +13,19 @@ const _courseAssets = [
   'assets/data/course_ru1000.json',
 ];
 
-final coursesProvider = FutureProvider<List<Course>>((ref) async {
+final builtInCoursesProvider = FutureProvider<List<Course>>((ref) async {
   final courses = <Course>[];
   for (final asset in _courseAssets) {
     final raw = await rootBundle.loadString(asset);
     courses.add(Course.fromJson(jsonDecode(raw) as Map<String, dynamic>));
   }
   return courses;
+});
+
+final coursesProvider = FutureProvider<List<Course>>((ref) async {
+  final builtIn = await ref.watch(builtInCoursesProvider.future);
+  final custom = ref.watch(customCoursesProvider);
+  return [...builtIn, ...custom];
 });
 
 final activeCourseProvider = FutureProvider<Course>((ref) async {
