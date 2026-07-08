@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -29,6 +32,34 @@ class CoursesScreen extends ConsumerWidget {
     if (context.mounted) _openEditor(context, course.id);
   }
 
+  Future<void> _importCourse(BuildContext context, WidgetRef ref) async {
+    final picked = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['json'],
+      dialogTitle: 'Wybierz plik JSON z kursem',
+    );
+    final path = picked?.files.single.path;
+    if (path == null || !context.mounted) return;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final raw = await File(path).readAsString();
+      final fallback = picked!.files.single.name.replaceAll(RegExp(r'\.json$', caseSensitive: false), '');
+      final course = ref.read(customCoursesProvider.notifier).importCourse(raw, fallback);
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+          content: Text('Zaimportowano „${course.name}" — ${course.words.length} słówek'),
+          duration: const Duration(seconds: 3),
+        ));
+      if (context.mounted) _openEditor(context, course.id);
+    } catch (e) {
+      final msg = e is FormatException ? e.message : 'nieprawidłowy plik';
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text('Nie udało się zaimportować: $msg'), duration: const Duration(seconds: 4)));
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final coursesAsync = ref.watch(coursesProvider);
@@ -57,6 +88,14 @@ class CoursesScreen extends ConsumerWidget {
                 const SizedBox(height: 16),
               ],
               _AddCourseCard(onTap: () => _newCourse(context, ref)),
+              const SizedBox(height: 12),
+              Center(
+                child: TextButton.icon(
+                  onPressed: () => _importCourse(context, ref),
+                  icon: const Icon(Icons.upload_file_outlined, size: 16),
+                  label: const Text('Importuj kurs z pliku JSON'),
+                ),
+              ),
             ],
           ),
         );

@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.5 — import a custom course from a JSON file (course object or bare word array; lenient pl as string or list)
+
 ## 0.9.4 — custom animated on/off toggles in Settings (sliding knob with trailing shadow and press-to-widen effect)
 
 ## 0.9.3 — restyled the words-per-session slider (thin track, outline thumb, tick marks only on the unfilled part), themed for light and dark

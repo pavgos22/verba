@@ -32,6 +32,38 @@ void main() {
     expect(container.read(customCoursesProvider), isEmpty);
   });
 
+  test('imports a course object with lenient word formats', () {
+    final container = make();
+    final notifier = container.read(customCoursesProvider.notifier);
+    const raw = '{"name":"Zwierzęta","description":"test","words":['
+        '{"ru":"кот","pl":["kot"]},'
+        '{"ru":"собака","pl":"pies, piesek"},'
+        '{"ru":"","pl":["x"]},'
+        '{"pl":["brak ru"]}'
+        ']}';
+    final course = notifier.importCourse(raw, 'plik');
+    expect(course.name, 'Zwierzęta');
+    expect(course.words.length, 2);
+    expect(course.words[1].pl, ['pies', 'piesek']);
+    expect(course.isCustom, isTrue);
+  });
+
+  test('imports a bare word array using fallback name', () {
+    final container = make();
+    final notifier = container.read(customCoursesProvider.notifier);
+    const raw = '[{"ru":"дом","pl":["dom"]}]';
+    final course = notifier.importCourse(raw, 'moj-plik');
+    expect(course.name, 'moj-plik');
+    expect(course.words.single.ru, 'дом');
+  });
+
+  test('rejects invalid json and empty words', () {
+    final container = make();
+    final notifier = container.read(customCoursesProvider.notifier);
+    expect(() => notifier.importCourse('nonsense', 'x'), throwsFormatException);
+    expect(() => notifier.importCourse('{"words":[]}', 'x'), throwsFormatException);
+  });
+
   test('loads from raw json', () {
     const raw = '[{"id":"custom-1","name":"Moje","description":"d",'
         '"words":[{"id":"w","ru":"вода","pl":["woda"]}]}]';
