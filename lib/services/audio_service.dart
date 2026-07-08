@@ -7,18 +7,20 @@ import 'package:flutter_tts/flutter_tts.dart';
 import '../data/settings_store.dart';
 
 enum Lector {
-  dmitri('Dmitrij', true),
-  irina('Irina', true),
-  ruslan('Rusłan', true),
-  system('Systemowy', false);
+  google('Google', true, true),
+  dmitri('Dmitrij (neuronowy)', true, false),
+  irina('Irina (neuronowy)', true, false),
+  ruslan('Rusłan (neuronowy)', true, false),
+  system('Systemowy', false, false);
 
-  const Lector(this.label, this.isPiper);
+  const Lector(this.label, this.hasAssets, this.hasSlowAssets);
 
   final String label;
-  final bool isPiper;
+  final bool hasAssets;
+  final bool hasSlowAssets;
 
   static Lector fromName(String? name) =>
-      Lector.values.firstWhere((l) => l.name == name, orElse: () => Lector.dmitri);
+      Lector.values.firstWhere((l) => l.name == name, orElse: () => Lector.google);
 }
 
 String lectorKey(String text) {
@@ -47,17 +49,19 @@ class VerbaAudioService implements AudioService {
   @override
   Future<bool> speakRussian(String text, {bool slow = false}) async {
     final lector = _ref.read(settingsProvider).lector;
-    if (lector.isPiper) {
-      if (await _playPiper(lector, text, slow: slow)) return true;
+    if (lector.hasAssets) {
+      if (await _playAsset(lector, text, slow: slow)) return true;
     }
     return _speakSystem(text, slow: slow);
   }
 
-  Future<bool> _playPiper(Lector lector, String text, {required bool slow}) async {
+  Future<bool> _playAsset(Lector lector, String text, {required bool slow}) async {
+    final folder = slow && lector.hasSlowAssets ? '${lector.name}_slow' : lector.name;
+    final rate = slow && !lector.hasSlowAssets ? 0.75 : 1.0;
     try {
       await _player.stop();
-      await _player.setPlaybackRate(slow ? 0.75 : 1.0);
-      await _player.play(AssetSource('lector/${lector.name}/${lectorKey(text)}.mp3'));
+      await _player.setPlaybackRate(rate);
+      await _player.play(AssetSource('lector/$folder/${lectorKey(text)}.mp3'));
       return true;
     } catch (_) {
       return false;

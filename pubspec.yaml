@@ -27,6 +27,8 @@ flutter:
     - assets/data/
     - assets/sounds/
     - assets/lector/dmitri/
+    - assets/lector/google/
+    - assets/lector/google_slow/
     - assets/lector/irina/
     - assets/lector/ruslan/
   fonts:
