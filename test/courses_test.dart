@@ -41,4 +41,13 @@ void main() {
     final course = await load('assets/data/course_ru1000.json');
     expect(course.words.length, 1000);
   });
+
+  test('every word has a category', () async {
+    for (final asset in ['assets/data/course_starter.json', 'assets/data/course_ru1000.json']) {
+      final course = await load(asset);
+      for (final word in course.words) {
+        expect(word.category, isNotNull, reason: 'missing category for ${word.ru}');
+      }
+    }
+  });
 }
