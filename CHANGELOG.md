@@ -1,67 +1,67 @@
 # Changelog
 
-## 0.8.6 — zmiana nazwy lektorki na „Nadia"
+## 0.8.6 — lector renamed to "Nadia"
 
-## 0.8.5 — zmiana nazwy lektora „Google" na neutralną „Wiera"
+## 0.8.5 — "Google" lector renamed to the neutral "Wiera"
 
-## 0.8.4 — naprawa mignięcia pierwszej klatki przy przełączaniu motywu
+## 0.8.4 — fixed first-frame flash when switching theme
 
-## 0.8.3 — kategorie słówek w kursie 1000 (rzeczowniki, czasowniki, przymiotniki, przysłówki, liczebniki, pytania, zwroty, inne); naprawa 30 sklejonych/błędnych tłumaczeń; wymiana 13 pozostałych przyimków i partykuł na słowa treściwe
+## 0.8.3 — word categories in the 1000-word course (nouns, verbs, adjectives, adverbs, numerals, questions, phrases, other); fixed 30 glued or wrong translations; replaced 13 remaining prepositions and particles with content words
 
-## 0.8.2 — так akceptuje też odpowiedź „więc"
+## 0.8.2 — так also accepts the answer "więc"
 
-## 0.8.1 — usunięcie głosów Piper (Dmitrij, Irina, Rusłan); zostają Google i Systemowy; aplikacja lżejsza o ~21 MB
+## 0.8.1 — removed Piper voices (Dmitrij, Irina, Rusłan); Google and system voices remain; app ~21 MB lighter
 
-## 0.8.0 — lektor Google (głos z Tłumacza Google) z prawdziwymi dwiema prędkościami czytania; ustawienie „Tempo mowy" przełącza na wolne nagrania
+## 0.8.0 — Google lector (the Google Translate voice) with two real reading speeds; the "Speech tempo" setting switches to slow recordings
 
-## 0.7.9 — wybór lektora także na ekranie prezentacji słówka; kursor „łapka" na dropdownie lektora
+## 0.7.9 — lector picker also on the word presentation screen; pointer cursor on the lector dropdown
 
-## 0.7.8 — naprawa niesłyszalnego dźwięku „prawie dobrze" (normalizacja pliku + uproszczenie odtwarzania)
+## 0.7.8 — fixed the inaudible "almost correct" sound (file normalization + simplified playback)
 
-## 0.7.7 — wybór lektora w czasie rzeczywistym w stopce ćwiczenia; usunięcie podpowiedzi „Tab — wymowa" ze stopki
+## 0.7.7 — real-time lector picker in the exercise footer; removed the "Tab — pronunciation" hint from the footer
 
-## 0.7.6 — poprawna pisownia ё w całym kursie (ещё, чёрный, счёт…); wpisywanie przez „е" nadal akceptowane
+## 0.7.6 — proper ё spelling across the course (ещё, чёрный, счёт…); typing with "е" still accepted
 
-## 0.7.5 — lektorzy czytają z poprawnym akcentem (tekst z oznaczonym akcentem ze słownika openrussian); naprawa ucinanych końcówek nagrań; znaki akcentu widoczne w kursie 1000
+## 0.7.5 — lectors read with correct stress (input text stress-marked using the openrussian dictionary); fixed clipped recording endings; stress marks visible in the 1000-word course
 
-## 0.7.4 — trzy głosy lektorów Piper do wyboru (Dmitrij, Irina, Rusłan)
+## 0.7.4 — three selectable Piper lector voices (Dmitrij, Irina, Rusłan)
 
-## 0.7.3 — lektor neuronowy Piper z pregenerowanym audio dla wszystkich słówek (offline)
+## 0.7.3 — neural Piper lector with pre-generated audio for all words (offline)
 
-## 0.7.2 — cisza wiodąca w dźwiękach odpowiedzi (koniec ucinania pierwszej nutki)
+## 0.7.2 — lead-in silence in answer sounds (no more clipped first note)
 
-## 0.7.1 — wymiana zaimków, spójników i przyimków w kursie 1000 na słowa treściwe
+## 0.7.1 — replaced pronouns, conjunctions and prepositions in the 1000-word course with content words
 
-## 0.7.0 — zakładka Kursy: wiele kursów z przełączaniem aktywnego („Pierwsze kroki" + „1000 rosyjskich słówek na start"); wymowa pod przytrzymanym klawiszem Tab; dynamiczne kategorie w Słówkach
+## 0.7.0 — Courses tab: multiple courses with active-course switching ("Pierwsze kroki" + "1000 rosyjskich słówek na start"); pronunciation shown while holding Tab; dynamic categories in the Words screen
 
-## 0.6.3 — nowe dźwięki odpowiedzi (podmienione przez użytkownika)
+## 0.6.3 — new answer sounds (user-provided)
 
-## 0.6.2 — preładowane dźwięki i cisza wiodąca (naprawa ucinania)
+## 0.6.2 — preloaded sounds and lead-in silence (clipping fix)
 
-## 0.6.1 — „prawie dobrze" trafia do listy do poprawy; Enter na podsumowaniu uruchamia poprawę błędnych
+## 0.6.1 — "almost correct" counts toward the fix-up list; Enter on the summary starts the retry of mistakes
 
-## 0.6.0 — płynna animacja zmiany motywu (crossfade na zrzucie ekranu, niezależna od liczby FPS); jaśniejsza nazwa opcji auto-czytania
+## 0.6.0 — smooth theme-switch animation (screenshot crossfade, refresh-rate independent); clearer auto-read setting name
 
-## 0.5.1 — poprawka błędnych zachowuje kierunek tłumaczenia; stałe miejsce na komunikat wyniku (koniec skakania layoutu)
+## 0.5.1 — mistake retry keeps the translation direction; fixed slot for the result message (no layout jumps)
 
-## 0.5.0 — dźwięki odpowiedzi: dobrze / prawie dobrze / źle (z przełącznikiem w ustawieniach)
+## 0.5.0 — answer sounds: correct / almost / wrong (with a settings toggle)
 
-## 0.4.2 — przyciski Zapisz/Anuluj w ustawieniach sesji
+## 0.4.2 — Save/Cancel buttons in session settings
 
-## 0.4.1 — losowy kierunek tłumaczenia jako domyślny
+## 0.4.1 — random translation direction as the default
 
-## 0.4.0 — oznaczenie trybu w pasku sesji; zębatka z ustawieniami kierunku tłumaczenia dla Utrwalania i Testu (na przemian / RU→PL / PL→RU / losowo)
+## 0.4.0 — mode badge in the session bar; gear with translation-direction settings for Practice and Test (alternating / RU→PL / PL→RU / random)
 
-## 0.3.0 — tryby nauki: Utrwalanie i Test; zapętlona poprawka błędnych (aż wszystkie dobrze); poziomy SRS rosną tylko przy powtórce w terminie
+## 0.3.0 — learning modes: Practice and Test; looping retry of mistakes (until all correct); SRS levels advance only on on-time reviews
 
-## 0.2.5 — natychmiastowe przełączanie motywu (naprawa mulenia)
+## 0.2.5 — instant theme switching (lag fix)
 
-## 0.2.4 — wyrównana wysokość kart na ekranie startowym
+## 0.2.4 — equal card heights on the start screen
 
-## 0.2.3 — kursor „łapka" na elementach klikalnych; odpowiedź zostaje w polu do ręcznej poprawy
+## 0.2.3 — pointer cursor on clickable elements; the answer stays in the field for manual correction
 
-## 0.2.2 — znak akcentu rysowany glifem fontu, wycentrowany nad literą; przełącznik akcentów w ustawieniach
+## 0.2.2 — stress mark drawn with a font glyph, centered above the letter; accent toggle in settings
 
-## 0.2.1 — naprawa rozciągniętych chipów filtrów
+## 0.2.1 — fixed stretched filter chips
 
-## 0.2.0 — pierwsze grywalne MVP: kurs 50 słówek, sesje nauki z klawiaturą transliteracyjną (lexilogos), prosty SRS, lektor systemowy TTS, motyw jasny/ciemny, ekrany Start / Słówka / Klawiatura / Statystyki / Ustawienia
+## 0.2.0 — first playable MVP: 50-word course, learning sessions with the transliteration keyboard (lexilogos), simple SRS, system TTS lector, light/dark theme, Start / Words / Keyboard / Stats / Settings screens
