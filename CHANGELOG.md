@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.9 — session progress bar and counter now track words, not steps; a new word's presentation + typing no longer double the total, so a 10-word session reads as 10, not 20
+
 ## 0.9.8 — synonymous Russian words are now interchangeable in answers (да/так, нет/не); Test summary offers a relaxed "fix mistakes" pass (practice-style, no forced looping) plus a "back to home" button
 
 ## 0.9.7 — dropdown menus restyled to match the design (compact rounded card, per-item accent highlight on hover, checkmark on the selected option)
