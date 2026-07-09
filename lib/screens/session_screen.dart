@@ -122,11 +122,18 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       case SessionMode.test:
         final key = widget.mode == SessionMode.test ? 'test' : 'practice';
         final cfg = settings.configFor(key);
-        final started = _inCategory(words, cfg.category)
-            .where((w) => progress.statusOf(w.id) != WordStatus.fresh)
-            .toList()
-          ..shuffle(rng);
-        final pool = started.take(cfg.count).toList();
+        final inCat = _inCategory(words, cfg.category);
+        final byId = {for (final w in inCat) w.id: w};
+        final List<Word> pool;
+        switch (cfg.scope) {
+          case SessionScope.newest:
+            pool = progress.newestStarted(byId.keys).map((id) => byId[id]!).take(cfg.count).toList()..shuffle(rng);
+          case SessionScope.hardest:
+            pool = progress.hardestStarted(byId.keys).map((id) => byId[id]!).take(cfg.count).toList()..shuffle(rng);
+          case SessionScope.all:
+            final started = inCat.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
+            pool = started.take(cfg.count).toList();
+        }
         return [
           for (var i = 0; i < pool.length; i++)
             SessionTask(word: pool[i], kind: _kindFor(cfg.direction, i, rng)),
@@ -146,7 +153,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _onTypingResult(SessionTask task, AnswerGrade grade, String given) {
-    ref.read(progressProvider.notifier).recordAnswer(task.word.id, grade != AnswerGrade.wrong);
+    ref.read(progressProvider.notifier).recordAnswer(
+          task.word.id,
+          grade != AnswerGrade.wrong,
+          almost: grade == AnswerGrade.almost,
+        );
     setState(() {
       _answered++;
       if (grade == AnswerGrade.correct) {

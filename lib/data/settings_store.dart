@@ -12,14 +12,22 @@ enum SessionDirection { alternate, ruToPl, plToRu, random }
 
 enum NewWordOrder { inOrder, random }
 
+enum SessionScope { all, newest, hardest }
+
 const sessionModeKeys = ['full', 'practice', 'test'];
 
 class ModeConfig {
-  const ModeConfig({required this.count, required this.category, required this.direction});
+  const ModeConfig({
+    required this.count,
+    required this.category,
+    required this.direction,
+    this.scope = SessionScope.all,
+  });
 
   final int count;
   final String? category;
   final SessionDirection direction;
+  final SessionScope scope;
 }
 
 class Settings {
@@ -104,6 +112,8 @@ class SettingsNotifier extends Notifier<Settings> {
             category: prefs.getString('settings.mode.$mode.category'),
             direction: SessionDirection.values.asNameMap()[prefs.getString('settings.mode.$mode.direction')] ??
                 SessionDirection.random,
+            scope: SessionScope.values.asNameMap()[prefs.getString('settings.mode.$mode.scope')] ??
+                SessionScope.all,
           ),
       },
     );
@@ -164,11 +174,13 @@ class SettingsNotifier extends Notifier<Settings> {
       count: config.count.clamp(5, 50),
       category: config.category,
       direction: config.direction,
+      scope: config.scope,
     );
     state = state.copyWith(modes: {...state.modes, mode: clamped});
     final prefs = ref.read(prefsProvider);
     prefs.setInt('settings.mode.$mode.count', clamped.count);
     prefs.setString('settings.mode.$mode.direction', clamped.direction.name);
+    prefs.setString('settings.mode.$mode.scope', clamped.scope.name);
     if (clamped.category == null) {
       prefs.remove('settings.mode.$mode.category');
     } else {

@@ -7,20 +7,34 @@ import 'settings_store.dart';
 enum WordStatus { fresh, learning, mastered }
 
 class WordProgress {
-  const WordProgress({required this.box, required this.lastReviewMs, required this.correct, required this.wrong});
+  const WordProgress({
+    required this.box,
+    required this.lastReviewMs,
+    required this.firstLearnedMs,
+    required this.correct,
+    required this.wrong,
+    required this.almost,
+  });
 
   final int box;
   final int lastReviewMs;
+  final int firstLearnedMs;
   final int correct;
   final int wrong;
+  final int almost;
 
-  Map<String, dynamic> toJson() => {'b': box, 'l': lastReviewMs, 'c': correct, 'w': wrong};
+  double get struggle => wrong + 0.5 * almost;
+
+  Map<String, dynamic> toJson() =>
+      {'b': box, 'l': lastReviewMs, 'f': firstLearnedMs, 'c': correct, 'w': wrong, 'a': almost};
 
   factory WordProgress.fromJson(Map<String, dynamic> json) => WordProgress(
         box: json['b'] as int,
         lastReviewMs: json['l'] as int,
+        firstLearnedMs: json['f'] as int? ?? json['l'] as int,
         correct: json['c'] as int,
         wrong: json['w'] as int,
+        almost: json['a'] as int? ?? 0,
       );
 }
 
@@ -40,6 +54,20 @@ class ProgressState {
 
   int countByStatus(Iterable<String> wordIds, WordStatus status) {
     return wordIds.where((id) => statusOf(id) == status).length;
+  }
+
+  List<String> newestStarted(Iterable<String> wordIds) {
+    final ids = wordIds.where((id) => words.containsKey(id)).toList();
+    ids.sort((a, b) => words[b]!.firstLearnedMs.compareTo(words[a]!.firstLearnedMs));
+    return ids;
+  }
+
+  List<String> hardestStarted(Iterable<String> wordIds) {
+    final ids = wordIds
+        .where((id) => words.containsKey(id) && statusOf(id) != WordStatus.mastered && words[id]!.struggle > 0)
+        .toList();
+    ids.sort((a, b) => words[b]!.struggle.compareTo(words[a]!.struggle));
+    return ids;
   }
 }
 
@@ -78,24 +106,29 @@ class ProgressNotifier extends Notifier<ProgressState> {
     return today.difference(lastDay).inDays >= interval;
   }
 
-  void recordAnswer(String wordId, bool correct, {DateTime? now}) {
+  void recordAnswer(String wordId, bool correct, {bool almost = false, DateTime? now}) {
     final at = now ?? DateTime.now();
     final previous = state.words[wordId];
+    final firstLearned = previous?.firstLearnedMs ?? at.millisecondsSinceEpoch;
     final WordProgress updated;
     if (correct) {
       final advance = previous == null || isDue(wordId, at);
       updated = WordProgress(
         box: advance ? ((previous?.box ?? 0) + 1).clamp(1, 5) : previous.box,
         lastReviewMs: advance ? at.millisecondsSinceEpoch : previous.lastReviewMs,
+        firstLearnedMs: firstLearned,
         correct: (previous?.correct ?? 0) + 1,
         wrong: previous?.wrong ?? 0,
+        almost: (previous?.almost ?? 0) + (almost ? 1 : 0),
       );
     } else {
       updated = WordProgress(
         box: 1,
         lastReviewMs: at.millisecondsSinceEpoch,
+        firstLearnedMs: firstLearned,
         correct: previous?.correct ?? 0,
         wrong: (previous?.wrong ?? 0) + 1,
+        almost: previous?.almost ?? 0,
       );
     }
     state = ProgressState(

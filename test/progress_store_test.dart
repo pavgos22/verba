@@ -76,6 +76,64 @@ void main() {
     expect(container.read(progressProvider).sessions, 2);
   });
 
+  test('almost answers count at half weight and keep advancing the box', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    notifier.recordAnswer('x', true, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('x', true, almost: true, now: DateTime(2026, 1, 2));
+
+    final p = container.read(progressProvider).words['x']!;
+    expect(p.box, 2);
+    expect(p.almost, 1);
+    expect(p.wrong, 0);
+    expect(p.struggle, 0.5);
+  });
+
+  test('first learned timestamp is set once and stays stable', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    notifier.recordAnswer('x', true, now: DateTime(2026, 1, 1));
+    final first = container.read(progressProvider).words['x']!.firstLearnedMs;
+    notifier.recordAnswer('x', true, now: DateTime(2026, 1, 20));
+    expect(container.read(progressProvider).words['x']!.firstLearnedMs, first);
+  });
+
+  test('newestStarted orders by first learned, most recent first', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    notifier.recordAnswer('old', true, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('mid', true, now: DateTime(2026, 1, 5));
+    notifier.recordAnswer('new', true, now: DateTime(2026, 1, 10));
+    notifier.recordAnswer('old', true, now: DateTime(2026, 1, 20));
+
+    expect(container.read(progressProvider).newestStarted(['old', 'mid', 'new']), ['new', 'mid', 'old']);
+  });
+
+  test('hardestStarted ranks by struggle, skips mastered and unmissed', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    notifier.recordAnswer('a', false, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('a', false, now: DateTime(2026, 1, 2));
+
+    notifier.recordAnswer('b', false, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('b', true, almost: true, now: DateTime(2026, 1, 2));
+
+    notifier.recordAnswer('c', true, now: DateTime(2026, 1, 1));
+
+    notifier.recordAnswer('d', false, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('d', true, now: DateTime(2026, 1, 2));
+    notifier.recordAnswer('d', true, now: DateTime(2026, 1, 4));
+    notifier.recordAnswer('d', true, now: DateTime(2026, 1, 8));
+
+    final progress = container.read(progressProvider);
+    expect(progress.statusOf('d'), WordStatus.mastered);
+    expect(progress.hardestStarted(['a', 'b', 'c', 'd']), ['a', 'b']);
+  });
+
   test('reset clears everything', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);

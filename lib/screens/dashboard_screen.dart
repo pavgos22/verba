@@ -371,6 +371,7 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
   late String? _category;
   late SessionDirection _direction;
   late NewWordOrder _order;
+  late SessionScope _scope;
 
   @override
   void initState() {
@@ -381,6 +382,7 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
     _category = widget.categories.contains(cfg.category) ? cfg.category : null;
     _direction = cfg.direction;
     _order = settings.newWordOrder;
+    _scope = cfg.scope;
   }
 
   @override
@@ -435,6 +437,20 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
             ],
             if (widget.mode != 'full') ...[
               const SizedBox(height: 16),
+              Text('Zakres słówek',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+              const SizedBox(height: 8),
+              for (final (scope, label) in const [
+                (SessionScope.all, 'Wszystkie rozpoczęte'),
+                (SessionScope.newest, 'Najnowsze poznane'),
+                (SessionScope.hardest, 'Najtrudniejsze'),
+              ])
+                _DirectionOption(
+                  label: label,
+                  selected: _scope == scope,
+                  onTap: () => setState(() => _scope = scope),
+                ),
+              const SizedBox(height: 16),
               Text('Kierunek tłumaczenia',
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
               const SizedBox(height: 8),
@@ -461,7 +477,7 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
             if (widget.mode == 'full') notifier.setNewWordOrder(_order);
             notifier.setModeConfig(
               widget.mode,
-              ModeConfig(count: _count, category: _category, direction: _direction),
+              ModeConfig(count: _count, category: _category, direction: _direction, scope: _scope),
             );
             Navigator.of(context).pop();
           },
