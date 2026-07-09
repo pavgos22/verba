@@ -10,6 +10,8 @@ final prefsProvider = Provider<SharedPreferences>((ref) {
 
 enum SessionDirection { alternate, ruToPl, plToRu, random }
 
+enum NewWordOrder { inOrder, random }
+
 const sessionModeKeys = ['full', 'practice', 'test'];
 
 class ModeConfig {
@@ -31,6 +33,7 @@ class Settings {
     required this.answerSounds,
     required this.lector,
     required this.activeCourseId,
+    required this.newWordOrder,
     required this.modes,
   });
 
@@ -43,6 +46,7 @@ class Settings {
   final bool answerSounds;
   final Lector lector;
   final String activeCourseId;
+  final NewWordOrder newWordOrder;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -58,6 +62,7 @@ class Settings {
     bool? answerSounds,
     Lector? lector,
     String? activeCourseId,
+    NewWordOrder? newWordOrder,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -70,6 +75,7 @@ class Settings {
       answerSounds: answerSounds ?? this.answerSounds,
       lector: lector ?? this.lector,
       activeCourseId: activeCourseId ?? this.activeCourseId,
+      newWordOrder: newWordOrder ?? this.newWordOrder,
       modes: modes ?? this.modes,
     );
   }
@@ -89,6 +95,8 @@ class SettingsNotifier extends Notifier<Settings> {
       answerSounds: prefs.getBool('settings.answerSounds') ?? true,
       lector: Lector.fromName(prefs.getString('settings.lector')),
       activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
+      newWordOrder: NewWordOrder.values.asNameMap()[prefs.getString('settings.newWordOrder')] ??
+          NewWordOrder.random,
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -144,6 +152,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setLector(Lector value) {
     state = state.copyWith(lector: value);
     ref.read(prefsProvider).setString('settings.lector', value.name);
+  }
+
+  void setNewWordOrder(NewWordOrder value) {
+    state = state.copyWith(newWordOrder: value);
+    ref.read(prefsProvider).setString('settings.newWordOrder', value.name);
   }
 
   void setModeConfig(String mode, ModeConfig config) {

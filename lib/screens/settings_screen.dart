@@ -111,6 +111,19 @@ class SettingsScreen extends ConsumerWidget {
             title: 'Nauka',
             rows: [
               _SettingRow(
+                title: 'Kolejność nowych słówek',
+                description: 'Dobór nowych słówek w „Dzisiejszej sesji"',
+                control: SegmentedButton<NewWordOrder>(
+                  segments: const [
+                    ButtonSegment(value: NewWordOrder.inOrder, label: Text('Po kolei')),
+                    ButtonSegment(value: NewWordOrder.random, label: Text('Losowo')),
+                  ],
+                  selected: {settings.newWordOrder},
+                  onSelectionChanged: (selection) => notifier.setNewWordOrder(selection.first),
+                  showSelectedIcon: false,
+                ),
+              ),
+              _SettingRow(
                 title: 'Zresetuj postępy',
                 description: 'Usuwa całą historię nauki — nieodwracalne',
                 control: OutlinedButton(

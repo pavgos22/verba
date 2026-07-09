@@ -370,14 +370,17 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
   late int _count;
   late String? _category;
   late SessionDirection _direction;
+  late NewWordOrder _order;
 
   @override
   void initState() {
     super.initState();
-    final cfg = ref.read(settingsProvider).configFor(widget.mode);
+    final settings = ref.read(settingsProvider);
+    final cfg = settings.configFor(widget.mode);
     _count = cfg.count;
     _category = widget.categories.contains(cfg.category) ? cfg.category : null;
     _direction = cfg.direction;
+    _order = settings.newWordOrder;
   }
 
   @override
@@ -415,6 +418,21 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
               categories: widget.categories,
               onChanged: (value) => setState(() => _category = value),
             ),
+            if (widget.mode == 'full') ...[
+              const SizedBox(height: 16),
+              Text('Kolejność nowych słówek',
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+              const SizedBox(height: 8),
+              for (final (order, label) in const [
+                (NewWordOrder.inOrder, 'Po kolei'),
+                (NewWordOrder.random, 'Losowo'),
+              ])
+                _DirectionOption(
+                  label: label,
+                  selected: _order == order,
+                  onTap: () => setState(() => _order = order),
+                ),
+            ],
             if (widget.mode != 'full') ...[
               const SizedBox(height: 16),
               Text('Kierunek tłumaczenia',
@@ -439,10 +457,12 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
         TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Anuluj')),
         FilledButton(
           onPressed: () {
-            ref.read(settingsProvider.notifier).setModeConfig(
-                  widget.mode,
-                  ModeConfig(count: _count, category: _category, direction: _direction),
-                );
+            final notifier = ref.read(settingsProvider.notifier);
+            if (widget.mode == 'full') notifier.setNewWordOrder(_order);
+            notifier.setModeConfig(
+              widget.mode,
+              ModeConfig(count: _count, category: _category, direction: _direction),
+            );
             Navigator.of(context).pop();
           },
           child: const Text('Zapisz'),

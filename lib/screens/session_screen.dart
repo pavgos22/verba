@@ -97,7 +97,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       case SessionMode.full:
         final cfg = settings.configFor('full');
         final pool = _inCategory(words, cfg.category);
-        final fresh = pool.where((w) => progress.statusOf(w.id) == WordStatus.fresh).toList()..shuffle(rng);
+        final fresh = pool.where((w) => progress.statusOf(w.id) == WordStatus.fresh).toList();
+        if (settings.newWordOrder == NewWordOrder.random) fresh.shuffle(rng);
         final due = pool.where((w) => notifier.isDue(w.id, now)).toList()..shuffle(rng);
         final chosen = [...fresh, ...due].take(cfg.count).toList();
         final tasks = <SessionTask>[];
