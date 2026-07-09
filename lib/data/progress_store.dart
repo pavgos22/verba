@@ -14,6 +14,7 @@ class WordProgress {
     required this.correct,
     required this.wrong,
     required this.almost,
+    required this.streak,
   });
 
   final int box;
@@ -22,11 +23,12 @@ class WordProgress {
   final int correct;
   final int wrong;
   final int almost;
+  final int streak;
 
   double get struggle => wrong + 0.5 * almost;
 
   Map<String, dynamic> toJson() =>
-      {'b': box, 'l': lastReviewMs, 'f': firstLearnedMs, 'c': correct, 'w': wrong, 'a': almost};
+      {'b': box, 'l': lastReviewMs, 'f': firstLearnedMs, 'c': correct, 'w': wrong, 'a': almost, 's': streak};
 
   factory WordProgress.fromJson(Map<String, dynamic> json) => WordProgress(
         box: json['b'] as int,
@@ -35,6 +37,7 @@ class WordProgress {
         correct: json['c'] as int,
         wrong: json['w'] as int,
         almost: json['a'] as int? ?? 0,
+        streak: json['s'] as int? ?? 0,
       );
 }
 
@@ -62,9 +65,15 @@ class ProgressState {
     return ids;
   }
 
+  static const hardestHealStreak = 3;
+
   List<String> hardestStarted(Iterable<String> wordIds) {
     final ids = wordIds
-        .where((id) => words.containsKey(id) && statusOf(id) != WordStatus.mastered && words[id]!.struggle > 0)
+        .where((id) =>
+            words.containsKey(id) &&
+            statusOf(id) != WordStatus.mastered &&
+            words[id]!.struggle > 0 &&
+            words[id]!.streak < hardestHealStreak)
         .toList();
     ids.sort((a, b) => words[b]!.struggle.compareTo(words[a]!.struggle));
     return ids;
@@ -110,6 +119,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
     final at = now ?? DateTime.now();
     final previous = state.words[wordId];
     final firstLearned = previous?.firstLearnedMs ?? at.millisecondsSinceEpoch;
+    final cleanCorrect = correct && !almost;
     final WordProgress updated;
     if (correct) {
       final advance = previous == null || isDue(wordId, at);
@@ -120,6 +130,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
         correct: (previous?.correct ?? 0) + 1,
         wrong: previous?.wrong ?? 0,
         almost: (previous?.almost ?? 0) + (almost ? 1 : 0),
+        streak: cleanCorrect ? (previous?.streak ?? 0) + 1 : 0,
       );
     } else {
       updated = WordProgress(
@@ -129,6 +140,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
         correct: previous?.correct ?? 0,
         wrong: (previous?.wrong ?? 0) + 1,
         almost: previous?.almost ?? 0,
+        streak: 0,
       );
     }
     state = ProgressState(

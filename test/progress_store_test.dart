@@ -134,6 +134,39 @@ void main() {
     expect(progress.hardestStarted(['a', 'b', 'c', 'd']), ['a', 'b']);
   });
 
+  test('a hard word heals out after a streak of clean correct answers', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+    final day = DateTime(2026, 1, 1);
+
+    notifier.recordAnswer('h', false, now: day);
+    notifier.recordAnswer('h', false, now: day);
+    expect(container.read(progressProvider).hardestStarted(['h']), ['h']);
+
+    notifier.recordAnswer('h', true, now: day);
+    notifier.recordAnswer('h', true, now: day);
+    notifier.recordAnswer('h', true, now: day);
+    expect(container.read(progressProvider).hardestStarted(['h']), isEmpty);
+
+    notifier.recordAnswer('h', false, now: day);
+    expect(container.read(progressProvider).hardestStarted(['h']), ['h']);
+  });
+
+  test('an almost answer breaks the healing streak', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+    final day = DateTime(2026, 1, 1);
+
+    notifier.recordAnswer('h', false, now: day);
+    notifier.recordAnswer('h', true, now: day);
+    notifier.recordAnswer('h', true, now: day);
+    notifier.recordAnswer('h', true, almost: true, now: day);
+    notifier.recordAnswer('h', true, now: day);
+
+    expect(container.read(progressProvider).words['h']!.streak, 1);
+    expect(container.read(progressProvider).hardestStarted(['h']), ['h']);
+  });
+
   test('reset clears everything', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);
