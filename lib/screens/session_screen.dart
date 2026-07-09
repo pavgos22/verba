@@ -204,6 +204,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             );
           }
           final task = tasks[_index];
+          final wordIds = <String>{for (final t in tasks) t.word.id}.toList();
+          final wordIndex = wordIds.indexOf(task.word.id);
           final modeLabel = switch (widget.mode) {
             SessionMode.practice => 'Utrwalanie',
             SessionMode.test => 'Test',
@@ -214,7 +216,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             onKeyEvent: _handleKey,
             child: Column(
               children: [
-                _SessionTopBar(index: _index, total: tasks.length, modeLabel: modeLabel),
+                _SessionTopBar(index: wordIndex, total: wordIds.length, modeLabel: modeLabel),
                 Expanded(
                   child: KeyedSubtree(
                     key: ValueKey(_index),
