@@ -75,6 +75,28 @@ Future<({String raw, String name})?> pickCourseJson() async {
   return (raw: raw, name: name);
 }
 
+const exampleCourseJson = '''{
+  "name": "Przykładowy kurs",
+  "description": "Przykład formatu — zamień słówka na własne",
+  "words": [
+    {"ru": "кот", "pl": ["kot"]},
+    {"ru": "собака", "pl": "pies, piesek"},
+    {"ru": "дом", "pl": ["dom"], "category": "rzeczowniki"},
+    {"ru": "хорошо", "ruAccented": "хорошо́", "pl": ["dobrze"], "category": "przysłówki", "pronunciation": "charaszo"}
+  ]
+}''';
+
+Future<String?> saveExampleCourseJson() async {
+  final path = await FilePicker.platform.saveFile(
+    dialogTitle: 'Zapisz przykładowy plik JSON',
+    fileName: 'verba_przyklad.json',
+  );
+  if (path == null) return null;
+  final target = path.toLowerCase().endsWith('.json') ? path : '$path.json';
+  await File(target).writeAsString(exampleCourseJson);
+  return target;
+}
+
 final customCoursesPathProvider = Provider<String>((ref) {
   throw UnimplementedError('customCoursesPathProvider requires an override');
 });

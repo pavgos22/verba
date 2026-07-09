@@ -56,6 +56,21 @@ class CoursesScreen extends ConsumerWidget {
     }
   }
 
+  Future<void> _downloadExample(BuildContext context) async {
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final path = await saveExampleCourseJson();
+      if (path == null) return;
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text('Zapisano przykład: $path'), duration: const Duration(seconds: 4)));
+    } catch (_) {
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(const SnackBar(content: Text('Nie udało się zapisać pliku'), duration: Duration(seconds: 3)));
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final coursesAsync = ref.watch(coursesProvider);
@@ -86,10 +101,26 @@ class CoursesScreen extends ConsumerWidget {
               _AddCourseCard(onTap: () => _newCourse(context, ref)),
               const SizedBox(height: 12),
               Center(
-                child: TextButton.icon(
-                  onPressed: () => _importCourse(context, ref),
-                  icon: const Icon(Icons.upload_file_outlined, size: 16),
-                  label: const Text('Importuj kurs z pliku JSON'),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () => _importCourse(context, ref),
+                          icon: const Icon(Icons.upload_file_outlined, size: 16),
+                          label: const Text('Importuj kurs z pliku JSON'),
+                        ),
+                        const SizedBox(width: 4),
+                        const _ImportInfoBadge(),
+                      ],
+                    ),
+                    TextButton.icon(
+                      onPressed: () => _downloadExample(context),
+                      icon: const Icon(Icons.download_outlined, size: 16),
+                      label: const Text('Pobierz przykładowy plik JSON'),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -284,6 +315,31 @@ class _AddCourseCard extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+const _importInfoText = 'Format pliku JSON\n\n'
+    'Obiekt kursu z polami „name", „description" i listą „words",\n'
+    'albo sama lista słówek.\n'
+    'Każde słówko wymaga „ru" i „pl"\n'
+    '(„pl" jako tekst po przecinku lub lista).\n'
+    'Opcjonalnie: „ruAccented", „category", „pronunciation".\n\n'
+    'Pobierz przykładowy plik, aby zobaczyć strukturę.';
+
+class _ImportInfoBadge extends StatelessWidget {
+  const _ImportInfoBadge();
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: _importInfoText,
+      waitDuration: const Duration(milliseconds: 150),
+      showDuration: const Duration(seconds: 12),
+      child: MouseRegion(
+        cursor: SystemMouseCursors.help,
+        child: Icon(Icons.info_outline, size: 18, color: context.c.mutedForeground),
       ),
     );
   }

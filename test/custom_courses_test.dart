@@ -64,6 +64,18 @@ void main() {
     expect(() => notifier.importCourse('{"words":[]}', 'x'), throwsFormatException);
   });
 
+  test('ships a valid example course json', () {
+    final parsed = parseCourseJson(exampleCourseJson, 'fallback');
+    expect(parsed.name, 'Przykładowy kurs');
+    expect(parsed.words.length, 4);
+    final dog = parsed.words.firstWhere((w) => w.ru == 'собака');
+    expect(dog.pl, ['pies', 'piesek']);
+    expect(parsed.words.any((w) => w.category == 'rzeczowniki'), isTrue);
+    final good = parsed.words.firstWhere((w) => w.ru == 'хорошо');
+    expect(good.ruAccented, 'хорошо́');
+    expect(good.pronunciation, 'charaszo');
+  });
+
   test('loads from raw json', () {
     const raw = '[{"id":"custom-1","name":"Moje","description":"d",'
         '"words":[{"id":"w","ru":"вода","pl":["woda"]}]}]';
