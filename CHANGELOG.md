@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.11 — Courses screen: an (i) tooltip explaining the JSON import format, plus a "Pobierz przykładowy plik JSON" button that saves a ready-made sample course to disk
+
 ## 0.9.10 — Words screen: filter the list by status (New / Learning / Mastered) with live counts, so your active words are one click away
 
 ## 0.9.9 — session progress bar and counter now track words, not steps; a new word's presentation + typing no longer double the total, so a 10-word session reads as 10, not 20
