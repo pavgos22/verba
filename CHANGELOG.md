@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.10.2 — a word now leaves the "hardest" set once you answer it correctly (cleanly) three times in a row, so practising heals it out — even in the same session; a wrong or "almost" resets that streak and brings the word back
+
 ## 0.10.1 — the end-of-session "fix your mistakes" pass now scores only mistakes: missing a word there still counts against it (resets it and adds to its difficulty), but typing a correction right never gives credit or advances the word
 
 ## 0.10.0 — Practice and Test can now target a subset of words: the newest ones you've started, or your hardest (ranked by misses, with "almost" counting half; mastered words drop off the list). Choose the scope in the session gear. Progress now also tracks when each word was first learned and how often it was almost-right
