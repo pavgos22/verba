@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.12 — "Dzisiejsza sesja" can now feed new words in course order or shuffled; set it from the session gear or in Settings → Nauka (default stays shuffled)
+
 ## 0.9.11 — Courses screen: an (i) tooltip explaining the JSON import format, plus a "Pobierz przykładowy plik JSON" button that saves a ready-made sample course to disk
 
 ## 0.9.10 — Words screen: filter the list by status (New / Learning / Mastered) with live counts, so your active words are one click away
