@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.10.0 — Practice and Test can now target a subset of words: the newest ones you've started, or your hardest (ranked by misses, with "almost" counting half; mastered words drop off the list). Choose the scope in the session gear. Progress now also tracks when each word was first learned and how often it was almost-right
+
 ## 0.9.12 — "Dzisiejsza sesja" can now feed new words in course order or shuffled; set it from the session gear or in Settings → Nauka (default stays shuffled)
 
 ## 0.9.11 — Courses screen: an (i) tooltip explaining the JSON import format, plus a "Pobierz przykładowy plik JSON" button that saves a ready-made sample course to disk
