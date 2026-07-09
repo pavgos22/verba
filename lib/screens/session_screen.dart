@@ -56,6 +56,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   int _answered = 0;
   int _correct = 0;
   final List<SessionMistake> _mistakes = [];
+  final Set<String> _penalized = {};
   bool _finished = false;
   bool _tabHeld = false;
 
@@ -154,10 +155,10 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 
   void _onTypingResult(SessionTask task, AnswerGrade grade, String given) {
     final notifier = ref.read(progressProvider.notifier);
-    if (widget.mode == SessionMode.retry) {
-      if (grade == AnswerGrade.wrong) notifier.recordAnswer(task.word.id, false);
-    } else {
-      notifier.recordAnswer(task.word.id, grade != AnswerGrade.wrong, almost: grade == AnswerGrade.almost);
+    if (grade == AnswerGrade.wrong) {
+      if (_penalized.add(task.word.id)) notifier.recordAnswer(task.word.id, false);
+    } else if (widget.mode != SessionMode.retry) {
+      notifier.recordAnswer(task.word.id, true, almost: grade == AnswerGrade.almost);
     }
     setState(() {
       _answered++;
