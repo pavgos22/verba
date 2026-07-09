@@ -124,6 +124,11 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               _SettingRow(
+                title: 'Kolumna punktów (debug)',
+                description: 'Pokazuje wynik punktowy słówka w tabeli Słówka',
+                control: VerbaSwitch(value: settings.showWordPoints, onChanged: notifier.setShowWordPoints),
+              ),
+              _SettingRow(
                 title: 'Zresetuj postępy',
                 description: 'Usuwa całą historię nauki — nieodwracalne',
                 control: OutlinedButton(

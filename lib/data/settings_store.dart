@@ -42,6 +42,7 @@ class Settings {
     required this.lector,
     required this.activeCourseId,
     required this.newWordOrder,
+    required this.showWordPoints,
     required this.modes,
   });
 
@@ -55,6 +56,7 @@ class Settings {
   final Lector lector;
   final String activeCourseId;
   final NewWordOrder newWordOrder;
+  final bool showWordPoints;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -71,6 +73,7 @@ class Settings {
     Lector? lector,
     String? activeCourseId,
     NewWordOrder? newWordOrder,
+    bool? showWordPoints,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -84,6 +87,7 @@ class Settings {
       lector: lector ?? this.lector,
       activeCourseId: activeCourseId ?? this.activeCourseId,
       newWordOrder: newWordOrder ?? this.newWordOrder,
+      showWordPoints: showWordPoints ?? this.showWordPoints,
       modes: modes ?? this.modes,
     );
   }
@@ -105,6 +109,7 @@ class SettingsNotifier extends Notifier<Settings> {
       activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
       newWordOrder: NewWordOrder.values.asNameMap()[prefs.getString('settings.newWordOrder')] ??
           NewWordOrder.random,
+      showWordPoints: prefs.getBool('settings.showWordPoints') ?? false,
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -167,6 +172,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setNewWordOrder(NewWordOrder value) {
     state = state.copyWith(newWordOrder: value);
     ref.read(prefsProvider).setString('settings.newWordOrder', value.name);
+  }
+
+  void setShowWordPoints(bool value) {
+    state = state.copyWith(showWordPoints: value);
+    ref.read(prefsProvider).setBool('settings.showWordPoints', value);
   }
 
   void setModeConfig(String mode, ModeConfig config) {

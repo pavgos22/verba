@@ -27,6 +27,8 @@ class WordProgress {
 
   double get struggle => wrong + 0.5 * almost;
 
+  double get points => streak - struggle;
+
   Map<String, dynamic> toJson() =>
       {'b': box, 'l': lastReviewMs, 'f': firstLearnedMs, 'c': correct, 'w': wrong, 'a': almost, 's': streak};
 

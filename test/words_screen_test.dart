@@ -15,12 +15,12 @@ const _words = [
   Word(id: 'w3', ru: 'дом', pl: ['dom']),
 ];
 
-Future<ProviderContainer> _pump(WidgetTester tester) async {
+Future<ProviderContainer> _pump(WidgetTester tester, [Map<String, Object> initial = const {}]) async {
   tester.view.physicalSize = const Size(1400, 1400);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
 
-  SharedPreferences.setMockInitialValues({});
+  SharedPreferences.setMockInitialValues(initial);
   final prefs = await SharedPreferences.getInstance();
   final container = ProviderContainer(overrides: [
     prefsProvider.overrideWithValue(prefs),
@@ -65,5 +65,28 @@ void main() {
     expect(find.text('kot'), findsOneWidget);
     expect(find.text('pies'), findsNothing);
     expect(find.text('dom'), findsNothing);
+  });
+
+  testWidgets('difficulty filter shows only struggling words', (tester) async {
+    final container = await _pump(tester);
+    container.read(progressProvider.notifier).recordAnswer('w1', true);
+    container.read(progressProvider.notifier).recordAnswer('w2', false);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Sprawiające trudności (1)'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('pies'), findsOneWidget);
+    expect(find.text('kot'), findsNothing);
+    expect(find.text('dom'), findsNothing);
+  });
+
+  testWidgets('points column appears only when enabled', (tester) async {
+    final container = await _pump(tester, {'settings.showWordPoints': true});
+    container.read(progressProvider.notifier).recordAnswer('w1', false);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Punkty'), findsOneWidget);
+    expect(find.text('-1'), findsOneWidget);
   });
 }

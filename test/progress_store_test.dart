@@ -167,6 +167,20 @@ void main() {
     expect(container.read(progressProvider).hardestStarted(['h']), ['h']);
   });
 
+  test('points equal streak minus struggle', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+    final day = DateTime(2026, 1, 1);
+
+    notifier.recordAnswer('x', false, now: day);
+    notifier.recordAnswer('x', true, now: day);
+    notifier.recordAnswer('x', true, now: day);
+    expect(container.read(progressProvider).words['x']!.points, 1.0);
+
+    notifier.recordAnswer('y', true, almost: true, now: day);
+    expect(container.read(progressProvider).words['y']!.points, -0.5);
+  });
+
   test('reset clears everything', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);

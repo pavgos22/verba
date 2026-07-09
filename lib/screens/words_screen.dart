@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/progress_store.dart';
+import '../data/settings_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
 import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
+
+enum _WordFilter { all, fresh, learning, mastered, hard }
 
 class WordsScreen extends ConsumerStatefulWidget {
   const WordsScreen({super.key});
@@ -18,12 +21,13 @@ class WordsScreen extends ConsumerStatefulWidget {
 class _WordsScreenState extends ConsumerState<WordsScreen> {
   String _query = '';
   String? _category;
-  WordStatus? _status;
+  _WordFilter _filter = _WordFilter.all;
 
   @override
   Widget build(BuildContext context) {
     final wordsAsync = ref.watch(wordsProvider);
     final progress = ref.watch(progressProvider);
+    final showPoints = ref.watch(settingsProvider.select((s) => s.showWordPoints));
     return wordsAsync.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (error, _) => const Center(child: Text('Nie udało się wczytać kursu')),
@@ -33,8 +37,16 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
           for (final w in words)
             if (w.category != null) w.category!,
         }.toList();
+        final hardIds = progress.hardestStarted(words.map((w) => w.id)).toSet();
+        bool matchesFilter(Word w) => switch (_filter) {
+              _WordFilter.all => true,
+              _WordFilter.fresh => progress.statusOf(w.id) == WordStatus.fresh,
+              _WordFilter.learning => progress.statusOf(w.id) == WordStatus.learning,
+              _WordFilter.mastered => progress.statusOf(w.id) == WordStatus.mastered,
+              _WordFilter.hard => hardIds.contains(w.id),
+            };
         final filtered = words.where((w) {
-          if (_status != null && progress.statusOf(w.id) != _status) return false;
+          if (!matchesFilter(w)) return false;
           if (_category != null && w.category != _category) return false;
           if (query.isEmpty) return true;
           return w.ru.contains(query) || w.pl.any((p) => p.toLowerCase().contains(query));
@@ -93,23 +105,28 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                 children: [
                   _FilterChip(
                     label: 'Wszystkie',
-                    active: _status == null,
-                    onTap: () => setState(() => _status = null),
+                    active: _filter == _WordFilter.all,
+                    onTap: () => setState(() => _filter = _WordFilter.all),
                   ),
                   _FilterChip(
                     label: 'Nowe ($fresh)',
-                    active: _status == WordStatus.fresh,
-                    onTap: () => setState(() => _status = WordStatus.fresh),
+                    active: _filter == _WordFilter.fresh,
+                    onTap: () => setState(() => _filter = _WordFilter.fresh),
                   ),
                   _FilterChip(
                     label: 'W nauce ($learning)',
-                    active: _status == WordStatus.learning,
-                    onTap: () => setState(() => _status = WordStatus.learning),
+                    active: _filter == _WordFilter.learning,
+                    onTap: () => setState(() => _filter = _WordFilter.learning),
                   ),
                   _FilterChip(
                     label: 'Opanowane ($mastered)',
-                    active: _status == WordStatus.mastered,
-                    onTap: () => setState(() => _status = WordStatus.mastered),
+                    active: _filter == _WordFilter.mastered,
+                    onTap: () => setState(() => _filter = _WordFilter.mastered),
+                  ),
+                  _FilterChip(
+                    label: 'Sprawiające trudności (${hardIds.length})',
+                    active: _filter == _WordFilter.hard,
+                    onTap: () => setState(() => _filter = _WordFilter.hard),
                   ),
                 ],
               ),
@@ -169,6 +186,7 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                     children: [
                       _TableRow(
                         height: 44,
+                        points: showPoints ? const _HeaderCell('Punkty') : null,
                         cells: [
                           _HeaderCell('Słowo'),
                           _HeaderCell('Tłumaczenie'),
@@ -185,8 +203,11 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                               )
                             : ListView.builder(
                                 itemCount: filtered.length,
-                                itemBuilder: (context, index) =>
-                                    _WordRow(word: filtered[index], status: progress.statusOf(filtered[index].id)),
+                                itemBuilder: (context, index) => _WordRow(
+                                  word: filtered[index],
+                                  status: progress.statusOf(filtered[index].id),
+                                  points: showPoints ? (progress.words[filtered[index].id]?.points ?? 0) : null,
+                                ),
                               ),
                       ),
                     ],
@@ -293,9 +314,10 @@ class _FilterChip extends StatelessWidget {
 }
 
 class _TableRow extends StatelessWidget {
-  const _TableRow({required this.cells, required this.height, this.withBorder = false});
+  const _TableRow({required this.cells, required this.height, this.points, this.withBorder = false});
 
   final List<Widget> cells;
+  final Widget? points;
   final double height;
   final bool withBorder;
 
@@ -315,6 +337,10 @@ class _TableRow extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(flex: 2, child: cells[3]),
           const SizedBox(width: 16),
+          if (points != null) ...[
+            SizedBox(width: 56, child: points!),
+            const SizedBox(width: 16),
+          ],
           SizedBox(width: 56, child: cells[4]),
         ],
       ),
@@ -337,10 +363,11 @@ class _HeaderCell extends StatelessWidget {
 }
 
 class _WordRow extends StatelessWidget {
-  const _WordRow({required this.word, required this.status});
+  const _WordRow({required this.word, required this.status, this.points});
 
   final Word word;
   final WordStatus status;
+  final double? points;
 
   @override
   Widget build(BuildContext context) {
@@ -352,6 +379,7 @@ class _WordRow extends StatelessWidget {
     return _TableRow(
       height: 52,
       withBorder: true,
+      points: points == null ? null : _PointsCell(points!),
       cells: [
         Align(
           alignment: Alignment.centerLeft,
@@ -378,6 +406,29 @@ class _WordRow extends StatelessWidget {
         ),
         Align(alignment: Alignment.centerLeft, child: SpeakerButton(text: word.ru, size: 32)),
       ],
+    );
+  }
+}
+
+class _PointsCell extends StatelessWidget {
+  const _PointsCell(this.value);
+
+  final double value;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = value < 0
+        ? context.c.destructive
+        : value > 0
+            ? context.c.success
+            : context.c.foreground;
+    final text = value.toStringAsFixed(1);
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        text.endsWith('.0') ? text.substring(0, text.length - 2) : text,
+        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: color),
+      ),
     );
   }
 }

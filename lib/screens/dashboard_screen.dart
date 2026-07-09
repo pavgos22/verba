@@ -443,7 +443,7 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
               for (final (scope, label) in const [
                 (SessionScope.all, 'Wszystkie rozpoczęte'),
                 (SessionScope.newest, 'Najnowsze poznane'),
-                (SessionScope.hardest, 'Najtrudniejsze'),
+                (SessionScope.hardest, 'Sprawiające trudności'),
               ])
                 _DirectionOption(
                   label: label,
