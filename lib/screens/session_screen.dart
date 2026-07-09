@@ -153,11 +153,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _onTypingResult(SessionTask task, AnswerGrade grade, String given) {
-    ref.read(progressProvider.notifier).recordAnswer(
-          task.word.id,
-          grade != AnswerGrade.wrong,
-          almost: grade == AnswerGrade.almost,
-        );
+    final notifier = ref.read(progressProvider.notifier);
+    if (widget.mode == SessionMode.retry) {
+      if (grade == AnswerGrade.wrong) notifier.recordAnswer(task.word.id, false);
+    } else {
+      notifier.recordAnswer(task.word.id, grade != AnswerGrade.wrong, almost: grade == AnswerGrade.almost);
+    }
     setState(() {
       _answered++;
       if (grade == AnswerGrade.correct) {
