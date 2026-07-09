@@ -18,6 +18,7 @@ class WordsScreen extends ConsumerStatefulWidget {
 class _WordsScreenState extends ConsumerState<WordsScreen> {
   String _query = '';
   String? _category;
+  WordStatus? _status;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
             if (w.category != null) w.category!,
         }.toList();
         final filtered = words.where((w) {
+          if (_status != null && progress.statusOf(w.id) != _status) return false;
           if (_category != null && w.category != _category) return false;
           if (query.isEmpty) return true;
           return w.ru.contains(query) || w.pl.any((p) => p.toLowerCase().contains(query));
@@ -40,6 +42,7 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
         final total = words.length;
         final mastered = words.where((w) => progress.statusOf(w.id) == WordStatus.mastered).length;
         final learning = words.where((w) => progress.statusOf(w.id) == WordStatus.learning).length;
+        final fresh = total - learning - mastered;
         String pct(int n) => total == 0 ? '0%' : '${(n * 100 / total).round()}% kursu';
 
         return Padding(
@@ -84,6 +87,33 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                 ],
               ),
               const SizedBox(height: 20),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _FilterChip(
+                    label: 'Wszystkie',
+                    active: _status == null,
+                    onTap: () => setState(() => _status = null),
+                  ),
+                  _FilterChip(
+                    label: 'Nowe ($fresh)',
+                    active: _status == WordStatus.fresh,
+                    onTap: () => setState(() => _status = WordStatus.fresh),
+                  ),
+                  _FilterChip(
+                    label: 'W nauce ($learning)',
+                    active: _status == WordStatus.learning,
+                    onTap: () => setState(() => _status = WordStatus.learning),
+                  ),
+                  _FilterChip(
+                    label: 'Opanowane ($mastered)',
+                    active: _status == WordStatus.mastered,
+                    onTap: () => setState(() => _status = WordStatus.mastered),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
