@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.10.3 — renamed the session scope "Najtrudniejsze" to "Sprawiające trudności" and added it as a filter on the Words screen; a new debug setting (off by default) adds a per-word "Punkty" column (streak − difficulty) coloured red for negative, green for positive, neutral for zero
+
 ## 0.10.2 — a word now leaves the "hardest" set once you answer it correctly (cleanly) three times in a row, so practising heals it out — even in the same session; a wrong or "almost" resets that streak and brings the word back
 
 ## 0.10.1 — the end-of-session "fix your mistakes" pass now scores only mistakes: missing a word there still counts against it (resets it and adds to its difficulty), but typing a correction right never gives credit or advances the word
