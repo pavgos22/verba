@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.9.10 — Words screen: filter the list by status (New / Learning / Mastered) with live counts, so your active words are one click away
+
 ## 0.9.9 — session progress bar and counter now track words, not steps; a new word's presentation + typing no longer double the total, so a 10-word session reads as 10, not 20
 
 ## 0.9.8 — synonymous Russian words are now interchangeable in answers (да/так, нет/не); Test summary offers a relaxed "fix mistakes" pass (practice-style, no forced looping) plus a "back to home" button
