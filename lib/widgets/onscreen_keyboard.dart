@@ -51,6 +51,9 @@ const _polishRows = [
   ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
 ];
 
+const _stressMark = '́';
+const _russianVowels = ['а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
+
 void insertIntoController(TextEditingController controller, String text) {
   final value = controller.value;
   final selection = value.selection.isValid
@@ -109,6 +112,13 @@ class OnScreenKeyboard extends StatelessWidget {
           ],
         ));
       }
+      rows.add(Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          for (final vowel in _russianVowels)
+            _KeyCap(label: '$vowel$_stressMark', onTap: () => onText('$vowel$_stressMark')),
+        ],
+      ));
     } else {
       for (final row in _polishRows) {
         rows.add(Row(

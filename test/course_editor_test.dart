@@ -35,6 +35,7 @@ void main() {
     expect(find.text('Kategoria'), findsOneWidget);
     expect(find.text('Bez kategorii'), findsOneWidget);
     expect(find.text('Dodaj'), findsOneWidget);
+    expect(find.text('Wymowa (opcjonalnie)'), findsOneWidget);
     expect(find.text('ł'), findsWidgets);
     expect(find.text('а'), findsNothing);
   });
@@ -50,6 +51,7 @@ void main() {
     await tester.tap(find.text('Rosyjska'));
     await tester.pumpAndSettle();
     expect(find.text('а'), findsWidgets);
+    expect(find.text('е́'), findsWidgets, reason: 'russian layout has an accented-vowel row');
     expect(find.text('ł'), findsNothing);
   });
 
