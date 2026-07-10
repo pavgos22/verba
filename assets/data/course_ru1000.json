@@ -21,7 +21,9 @@
     "być"
    ],
    "category": "czasowniki",
-   "pronunciation": "byt'"
+   "pronunciation": "byt'",
+   "firstPerson": "буду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-003",
@@ -63,7 +65,9 @@
     "powiedzieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "skazat'"
+   "pronunciation": "skazat'",
+   "firstPerson": "скажу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-007",
@@ -73,7 +77,9 @@
     "móc"
    ],
    "category": "czasowniki",
-   "pronunciation": "moć"
+   "pronunciation": "moć",
+   "firstPerson": "могу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-008",
@@ -180,7 +186,9 @@
     "znać"
    ],
    "category": "czasowniki",
-   "pronunciation": "znat'"
+   "pronunciation": "znat'",
+   "firstPerson": "знаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-018",
@@ -191,7 +199,9 @@
     "mówić"
    ],
    "category": "czasowniki",
-   "pronunciation": "gawarit'"
+   "pronunciation": "gawarit'",
+   "firstPerson": "говорю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-019",
@@ -244,7 +254,9 @@
     "stać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "stat'"
+   "pronunciation": "stat'",
+   "firstPerson": "стану",
+   "verbType": "1"
   },
   {
    "id": "ru1000-024",
@@ -319,7 +331,9 @@
     "jeść"
    ],
    "category": "czasowniki",
-   "pronunciation": "jest'"
+   "pronunciation": "jest'",
+   "firstPerson": "ем",
+   "verbType": "2"
   },
   {
    "id": "ru1000-031",
@@ -434,7 +448,9 @@
     "chcieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "hatjet'"
+   "pronunciation": "hatjet'",
+   "firstPerson": "хочу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-042",
@@ -467,7 +483,9 @@
     "widzieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "widjet'"
+   "pronunciation": "widjet'",
+   "firstPerson": "вижу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-045",
@@ -490,7 +508,9 @@
     "iść"
    ],
    "category": "czasowniki",
-   "pronunciation": "idti"
+   "pronunciation": "idti",
+   "firstPerson": "иду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-047",
@@ -523,7 +543,9 @@
     "stać"
    ],
    "category": "czasowniki",
-   "pronunciation": "stajat'"
+   "pronunciation": "stajat'",
+   "firstPerson": "стою",
+   "verbType": "2"
   },
   {
    "id": "ru1000-050",
@@ -588,7 +610,9 @@
     "myśleć"
    ],
    "category": "czasowniki",
-   "pronunciation": "dumać"
+   "pronunciation": "dumać",
+   "firstPerson": "думаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-056",
@@ -609,7 +633,9 @@
     "zapytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "sprasic"
+   "pronunciation": "sprasic",
+   "firstPerson": "спрошу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-058",
@@ -685,7 +711,9 @@
     "żyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "żyć"
+   "pronunciation": "żyć",
+   "firstPerson": "живу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-065",
@@ -729,7 +757,9 @@
     "patrzeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "smatriec"
+   "pronunciation": "smatriec",
+   "firstPerson": "смотрю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-069",
@@ -741,7 +771,9 @@
     "posiadać"
    ],
    "category": "czasowniki",
-   "pronunciation": "imieć"
+   "pronunciation": "imieć",
+   "firstPerson": "имею",
+   "verbType": "1"
   },
   {
    "id": "ru1000-070",
@@ -764,7 +796,9 @@
     "zrozumieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "paniać"
+   "pronunciation": "paniać",
+   "firstPerson": "пойму",
+   "verbType": "1"
   },
   {
    "id": "ru1000-072",
@@ -775,7 +809,9 @@
     "siedzieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "sidieć"
+   "pronunciation": "sidieć",
+   "firstPerson": "сижу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-073",
@@ -797,7 +833,9 @@
     "robić"
    ],
    "category": "czasowniki",
-   "pronunciation": "delać"
+   "pronunciation": "delać",
+   "firstPerson": "делаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-075",
@@ -808,7 +846,9 @@
     "zrobić"
    ],
    "category": "czasowniki",
-   "pronunciation": "sdelać"
+   "pronunciation": "sdelać",
+   "firstPerson": "сделаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-076",
@@ -850,7 +890,9 @@
     "wziąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "wzjać"
+   "pronunciation": "wzjać",
+   "firstPerson": "возьму",
+   "verbType": "1"
   },
   {
    "id": "ru1000-080",
@@ -872,7 +914,9 @@
     "rozumieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "panimać"
+   "pronunciation": "panimać",
+   "firstPerson": "понимаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-082",
@@ -893,7 +937,9 @@
     "wydawać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "kazatsa"
+   "pronunciation": "kazatsa",
+   "firstPerson": "кажусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-084",
@@ -948,7 +994,9 @@
     "rozpocząć"
    ],
    "category": "czasowniki",
-   "pronunciation": "naciać"
+   "pronunciation": "naciać",
+   "firstPerson": "начну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-089",
@@ -1069,7 +1117,9 @@
     "zobaczyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "uwidzjec"
+   "pronunciation": "uwidzjec",
+   "firstPerson": "увижу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-100",
@@ -1091,7 +1141,9 @@
     "dawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "dawac"
+   "pronunciation": "dawac",
+   "firstPerson": "даю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-102",
@@ -1125,7 +1177,9 @@
     "pójść"
    ],
    "category": "czasowniki",
-   "pronunciation": "pajti"
+   "pronunciation": "pajti",
+   "firstPerson": "пойду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-105",
@@ -1188,7 +1242,9 @@
     "zostać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ostacsje"
+   "pronunciation": "ostacsje",
+   "firstPerson": "останусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-111",
@@ -1231,7 +1287,9 @@
     "wyjść"
    ],
    "category": "czasowniki",
-   "pronunciation": "wyjti"
+   "pronunciation": "wyjti",
+   "firstPerson": "выйду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-115",
@@ -1274,7 +1332,9 @@
     "dać"
    ],
    "category": "czasowniki",
-   "pronunciation": "dac"
+   "pronunciation": "dac",
+   "firstPerson": "дам",
+   "verbType": "1"
   },
   {
    "id": "ru1000-119",
@@ -1285,7 +1345,9 @@
     "pracować"
    ],
    "category": "czasowniki",
-   "pronunciation": "rabotac"
+   "pronunciation": "rabotac",
+   "firstPerson": "работаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-120",
@@ -1296,7 +1358,9 @@
     "okazać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "okazacsja"
+   "pronunciation": "okazacsja",
+   "firstPerson": "окажусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-121",
@@ -1363,7 +1427,9 @@
     "odpowiedzieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "atwjetic"
+   "pronunciation": "atwjetic",
+   "firstPerson": "отвечу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-127",
@@ -1397,7 +1463,9 @@
     "pomyśleć"
    ],
    "category": "czasowniki",
-   "pronunciation": "padumac"
+   "pronunciation": "padumac",
+   "firstPerson": "подумаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-130",
@@ -1419,7 +1487,9 @@
     "kochać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ljubaić"
+   "pronunciation": "ljubaić",
+   "firstPerson": "люблю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-132",
@@ -1430,7 +1500,9 @@
     "znaczyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "znacic"
+   "pronunciation": "znacic",
+   "firstPerson": "значу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-133",
@@ -1506,7 +1578,9 @@
     "czekać"
    ],
    "category": "czasowniki",
-   "pronunciation": "żdać"
+   "pronunciation": "żdać",
+   "firstPerson": "жду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-140",
@@ -1528,7 +1602,9 @@
     "popatrzeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pasmatrjec"
+   "pronunciation": "pasmatrjec",
+   "firstPerson": "посмотрю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-142",
@@ -1571,7 +1647,9 @@
     "znaleźć"
    ],
    "category": "czasowniki",
-   "pronunciation": "najci"
+   "pronunciation": "najci",
+   "firstPerson": "найду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-146",
@@ -1614,7 +1692,9 @@
     "leżeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "ljeżac"
+   "pronunciation": "ljeżac",
+   "firstPerson": "лежу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-150",
@@ -1658,7 +1738,9 @@
     "postanowić"
    ],
    "category": "czasowniki",
-   "pronunciation": "rjeszic"
+   "pronunciation": "rjeszic",
+   "firstPerson": "решу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-154",
@@ -1670,7 +1752,9 @@
     "otrzymać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pałucic"
+   "pronunciation": "pałucic",
+   "firstPerson": "получу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-155",
@@ -1692,7 +1776,9 @@
     "pisać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pisac"
+   "pronunciation": "pisac",
+   "firstPerson": "пишу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-157",
@@ -1714,7 +1800,9 @@
     "wrócić"
    ],
    "category": "czasowniki",
-   "pronunciation": "wjernucsja"
+   "pronunciation": "wjernucsja",
+   "firstPerson": "вернусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-159",
@@ -1758,7 +1846,9 @@
     "odczytywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "scitac"
+   "pronunciation": "scitac",
+   "firstPerson": "считаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-163",
@@ -1891,7 +1981,9 @@
     "przypomnieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pomnic"
+   "pronunciation": "pomnic",
+   "firstPerson": "помню",
+   "verbType": "2"
   },
   {
    "id": "ru1000-175",
@@ -1979,7 +2071,9 @@
     "dowiedzieć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "uznac"
+   "pronunciation": "uznac",
+   "firstPerson": "узнаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-183",
@@ -2012,7 +2106,9 @@
     "przyjdź"
    ],
    "category": "czasowniki",
-   "pronunciation": "prijti"
+   "pronunciation": "prijti",
+   "firstPerson": "приду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-186",
@@ -2023,7 +2119,9 @@
     "chodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "chadic"
+   "pronunciation": "chadic",
+   "firstPerson": "хожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-187",
@@ -2035,7 +2133,9 @@
     "zapamiętać"
    ],
    "category": "czasowniki",
-   "pronunciation": "zamjetic"
+   "pronunciation": "zamjetic",
+   "firstPerson": "замечу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-188",
@@ -2114,7 +2214,9 @@
     "bywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "bywac"
+   "pronunciation": "bywac",
+   "firstPerson": "бываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-195",
@@ -2135,7 +2237,9 @@
     "słyszeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "słyszac"
+   "pronunciation": "słyszac",
+   "firstPerson": "слышу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-197",
@@ -2147,7 +2251,9 @@
     "wychodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "ujti"
+   "pronunciation": "ujti",
+   "firstPerson": "уйду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-198",
@@ -2170,7 +2276,9 @@
     "bać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "bojatsja"
+   "pronunciation": "bojatsja",
+   "firstPerson": "боюсь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-200",
@@ -2203,7 +2311,9 @@
     "słuchać"
    ],
    "category": "czasowniki",
-   "pronunciation": "słuszac"
+   "pronunciation": "słuszac",
+   "firstPerson": "слушаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-203",
@@ -2301,7 +2411,9 @@
     "patrzeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "gljadzjec"
+   "pronunciation": "gljadzjec",
+   "firstPerson": "гляжу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-212",
@@ -2365,7 +2477,9 @@
     "usiąść"
    ],
    "category": "czasowniki",
-   "pronunciation": "sjesc"
+   "pronunciation": "sjesc",
+   "firstPerson": "сяду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-218",
@@ -2387,7 +2501,9 @@
     "zostawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ostawacsja"
+   "pronunciation": "ostawacsja",
+   "firstPerson": "остаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-220",
@@ -2444,7 +2560,9 @@
     "napisać"
    ],
    "category": "czasowniki",
-   "pronunciation": "napisac"
+   "pronunciation": "napisac",
+   "firstPerson": "напишу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-225",
@@ -2476,7 +2594,9 @@
     "czytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "citac"
+   "pronunciation": "citac",
+   "firstPerson": "читаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-228",
@@ -2487,7 +2607,9 @@
     "czuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "ciuwstwować"
+   "pronunciation": "ciuwstwować",
+   "firstPerson": "чувствую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-229",
@@ -2509,7 +2631,9 @@
     "spać"
    ],
    "category": "czasowniki",
-   "pronunciation": "spat'"
+   "pronunciation": "spat'",
+   "firstPerson": "сплю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-231",
@@ -2532,7 +2656,9 @@
     "być"
    ],
    "category": "czasowniki",
-   "pronunciation": "yavliat'sa"
+   "pronunciation": "yavliat'sa",
+   "firstPerson": "являюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-233",
@@ -2598,7 +2724,9 @@
     "szukać"
    ],
    "category": "czasowniki",
-   "pronunciation": "iskat'"
+   "pronunciation": "iskat'",
+   "firstPerson": "ищу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-239",
@@ -2609,7 +2737,9 @@
     "zatrzymać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "astanavit'sa"
+   "pronunciation": "astanavit'sa",
+   "firstPerson": "остановлюсь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-240",
@@ -2666,7 +2796,9 @@
     "wierzyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "vierit'"
+   "pronunciation": "vierit'",
+   "firstPerson": "верю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-245",
@@ -2732,7 +2864,9 @@
     "grać"
    ],
    "category": "czasowniki",
-   "pronunciation": "igrat'"
+   "pronunciation": "igrat'",
+   "firstPerson": "играю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-251",
@@ -2788,7 +2922,9 @@
     "stać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "stanovit'sa"
+   "pronunciation": "stanovit'sa",
+   "firstPerson": "становлюсь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-256",
@@ -2874,7 +3010,9 @@
     "móc"
    ],
    "category": "czasowniki",
-   "pronunciation": "smoc'"
+   "pronunciation": "smoc'",
+   "firstPerson": "смогу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-264",
@@ -2896,7 +3034,9 @@
     "biec"
    ],
    "category": "czasowniki",
-   "pronunciation": "biezhat'"
+   "pronunciation": "biezhat'",
+   "firstPerson": "бегу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-266",
@@ -2939,7 +3079,9 @@
     "przyjechać"
    ],
    "category": "czasowniki",
-   "pronunciation": "priehat'"
+   "pronunciation": "priehat'",
+   "firstPerson": "приеду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-270",
@@ -2962,7 +3104,9 @@
     "przyjąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "priniat'"
+   "pronunciation": "priniat'",
+   "firstPerson": "приму",
+   "verbType": "1"
   },
   {
    "id": "ru1000-272",
@@ -2994,7 +3138,9 @@
     "otworzyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "atkryt'"
+   "pronunciation": "atkryt'",
+   "firstPerson": "открою",
+   "verbType": "1"
   },
   {
    "id": "ru1000-275",
@@ -3038,7 +3184,9 @@
     "wywodzić się od"
    ],
    "category": "czasowniki",
-   "pronunciation": "praishadit'"
+   "pronunciation": "praishadit'",
+   "firstPerson": "происхожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-279",
@@ -3103,7 +3251,9 @@
     "jechać"
    ],
    "category": "czasowniki",
-   "pronunciation": "jehat'"
+   "pronunciation": "jehat'",
+   "firstPerson": "еду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-285",
@@ -3160,7 +3310,9 @@
     "zbierać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "sabirat'sa"
+   "pronunciation": "sabirat'sa",
+   "firstPerson": "собираюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-290",
@@ -3171,7 +3323,9 @@
     "wydawać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "pakazat'sa"
+   "pronunciation": "pakazat'sa",
+   "firstPerson": "покажусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-291",
@@ -3205,7 +3359,9 @@
     "dostać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "papast'"
+   "pronunciation": "papast'",
+   "firstPerson": "попаду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-294",
@@ -3216,7 +3372,9 @@
     "usłyszeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "uslyszat'"
+   "pronunciation": "uslyszat'",
+   "firstPerson": "услышу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-295",
@@ -3227,7 +3385,9 @@
     "przychodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prihadit'"
+   "pronunciation": "prihadit'",
+   "firstPerson": "прихожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-296",
@@ -3238,7 +3398,9 @@
     "krzyczeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "kricziat'"
+   "pronunciation": "kricziat'",
+   "firstPerson": "кричу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-297",
@@ -3261,7 +3423,9 @@
     "zdarzyć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "praizajti"
+   "pronunciation": "praizajti",
+   "firstPerson": "произойду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-299",
@@ -3282,7 +3446,9 @@
     "podnieść się"
    ],
    "category": "czasowniki",
-   "pronunciation": "padniat'sa"
+   "pronunciation": "padniat'sa",
+   "firstPerson": "поднимусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-301",
@@ -3328,7 +3494,9 @@
     "zdarzać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "sluczit'sa"
+   "pronunciation": "sluczit'sa",
+   "firstPerson": "случусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-305",
@@ -3417,7 +3585,9 @@
     "starać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "starat'sa"
+   "pronunciation": "starat'sa",
+   "firstPerson": "стараюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-313",
@@ -3480,7 +3650,9 @@
     "pojechać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pajehat'"
+   "pronunciation": "pajehat'",
+   "firstPerson": "поеду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-319",
@@ -3604,7 +3776,9 @@
     "potrafić"
    ],
    "category": "czasowniki",
-   "pronunciation": "umiet"
+   "pronunciation": "umiet",
+   "firstPerson": "умею",
+   "verbType": "1"
   },
   {
    "id": "ru1000-330",
@@ -3737,7 +3911,9 @@
     "zajmować się"
    ],
    "category": "czasowniki",
-   "pronunciation": "zanimatsa"
+   "pronunciation": "zanimatsa",
+   "firstPerson": "занимаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-342",
@@ -3760,7 +3936,9 @@
     "położyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "palażyt"
+   "pronunciation": "palażyt",
+   "firstPerson": "положу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-344",
@@ -4010,7 +4188,9 @@
     "zacząć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "naciatsa"
+   "pronunciation": "naciatsa",
+   "firstPerson": "начнусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-367",
@@ -4030,7 +4210,9 @@
     "wołać"
    ],
    "category": "czasowniki",
-   "pronunciation": "zwat"
+   "pronunciation": "zwat",
+   "firstPerson": "зову",
+   "verbType": "1"
   },
   {
    "id": "ru1000-369",
@@ -4098,7 +4280,9 @@
     "przechodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prahodit"
+   "pronunciation": "prahodit",
+   "firstPerson": "прохожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-375",
@@ -4109,7 +4293,9 @@
     "udać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "udatsa"
+   "pronunciation": "udatsa",
+   "firstPerson": "удамся",
+   "verbType": "1"
   },
   {
    "id": "ru1000-376",
@@ -4175,7 +4361,9 @@
     "okazać się odpowiednim"
    ],
    "category": "czasowniki",
-   "pronunciation": "prijtis'"
+   "pronunciation": "prijtis'",
+   "firstPerson": "придусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-382",
@@ -4197,7 +4385,9 @@
     "wycofać"
    ],
    "category": "czasowniki",
-   "pronunciation": "cnjat"
+   "pronunciation": "cnjat",
+   "firstPerson": "сниму",
+   "verbType": "1"
   },
   {
    "id": "ru1000-384",
@@ -4219,7 +4409,9 @@
     "przedstawić"
    ],
    "category": "czasowniki",
-   "pronunciation": "priedstawit"
+   "pronunciation": "priedstawit",
+   "firstPerson": "представлю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-386",
@@ -4242,7 +4434,9 @@
     "wygłosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "praizniesti"
+   "pronunciation": "praizniesti",
+   "firstPerson": "произнесу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-388",
@@ -4298,7 +4492,9 @@
     "wyjaśnić"
    ],
    "category": "czasowniki",
-   "pronunciation": "abjasnit"
+   "pronunciation": "abjasnit",
+   "firstPerson": "объясню",
+   "verbType": "2"
   },
   {
    "id": "ru1000-393",
@@ -4330,7 +4526,9 @@
     "przedstawiać"
    ],
    "category": "czasowniki",
-   "pronunciation": "priedstawljat"
+   "pronunciation": "priedstawljat",
+   "firstPerson": "представляю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-396",
@@ -4352,7 +4550,9 @@
     "kupić"
    ],
    "category": "czasowniki",
-   "pronunciation": "kupit"
+   "pronunciation": "kupit",
+   "firstPerson": "куплю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-398",
@@ -4363,7 +4563,9 @@
     "istnieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "suśsiestwawat"
+   "pronunciation": "suśsiestwawat",
+   "firstPerson": "существую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-399",
@@ -4396,7 +4598,9 @@
     "umrzeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "umieriet"
+   "pronunciation": "umieriet",
+   "firstPerson": "умру",
+   "verbType": "1"
   },
   {
    "id": "ru1000-402",
@@ -4472,7 +4676,9 @@
     "pić"
    ],
    "category": "czasowniki",
-   "pronunciation": "pit"
+   "pronunciation": "pit",
+   "firstPerson": "пью",
+   "verbType": "1"
   },
   {
    "id": "ru1000-409",
@@ -4594,7 +4800,9 @@
     "poinformować"
    ],
    "category": "czasowniki",
-   "pronunciation": "saabśsit"
+   "pronunciation": "saabśsit",
+   "firstPerson": "сообщу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-420",
@@ -4617,7 +4825,9 @@
     "wymienić"
    ],
    "category": "czasowniki",
-   "pronunciation": "nazwat"
+   "pronunciation": "nazwat",
+   "firstPerson": "назову",
+   "verbType": "1"
   },
   {
    "id": "ru1000-422",
@@ -4682,7 +4892,9 @@
     "zabić"
    ],
    "category": "czasowniki",
-   "pronunciation": "ubic"
+   "pronunciation": "ubic",
+   "firstPerson": "убью",
+   "verbType": "1"
   },
   {
    "id": "ru1000-428",
@@ -4716,7 +4928,9 @@
     "zgodzić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "sogłasitsja"
+   "pronunciation": "sogłasitsja",
+   "firstPerson": "соглашусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-431",
@@ -4782,7 +4996,9 @@
     "uśmiechać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "ułybnutsja"
+   "pronunciation": "ułybnutsja",
+   "firstPerson": "улыбнусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-437",
@@ -4815,7 +5031,9 @@
     "uśmiechać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "ułybacsja"
+   "pronunciation": "ułybacsja",
+   "firstPerson": "улыбаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-440",
@@ -4826,7 +5044,9 @@
     "poczuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pociuwstwowac"
+   "pronunciation": "pociuwstwowac",
+   "firstPerson": "почувствую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-441",
@@ -4870,7 +5090,9 @@
     "podobać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "nrawicsja"
+   "pronunciation": "nrawicsja",
+   "firstPerson": "нравлюсь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-445",
@@ -4924,7 +5146,9 @@
     "przywieść"
    ],
    "category": "czasowniki",
-   "pronunciation": "priwjesti"
+   "pronunciation": "priwjesti",
+   "firstPerson": "приведу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-450",
@@ -4935,7 +5159,9 @@
     "zaoferować"
    ],
    "category": "czasowniki",
-   "pronunciation": "prjedłożic"
+   "pronunciation": "prjedłożic",
+   "firstPerson": "предложу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-451",
@@ -4946,7 +5172,9 @@
     "wezwać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wyzwac"
+   "pronunciation": "wyzwac",
+   "firstPerson": "вызову",
+   "verbType": "1"
   },
   {
    "id": "ru1000-452",
@@ -5013,7 +5241,9 @@
     "chwytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "chwatac"
+   "pronunciation": "chwatac",
+   "firstPerson": "хватаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-458",
@@ -5024,7 +5254,9 @@
     "przynieść"
    ],
    "category": "czasowniki",
-   "pronunciation": "priniesti"
+   "pronunciation": "priniesti",
+   "firstPerson": "принесу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-459",
@@ -5146,7 +5378,9 @@
     "akceptować"
    ],
    "category": "czasowniki",
-   "pronunciation": "prinimac"
+   "pronunciation": "prinimac",
+   "firstPerson": "принимаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-470",
@@ -5214,7 +5448,9 @@
     "przeprowadzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prowjesti"
+   "pronunciation": "prowjesti",
+   "firstPerson": "проведу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-476",
@@ -5326,7 +5562,9 @@
     "to"
    ],
    "category": "czasowniki",
-   "pronunciation": "prichoditsja"
+   "pronunciation": "prichoditsja",
+   "firstPerson": "прихожусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-486",
@@ -5337,7 +5575,9 @@
     "krzyknąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "kriknuc"
+   "pronunciation": "kriknuc",
+   "firstPerson": "крикну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-487",
@@ -5348,7 +5588,9 @@
     "spytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "poprosic"
+   "pronunciation": "poprosic",
+   "firstPerson": "попрошу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-488",
@@ -5359,7 +5601,9 @@
     "żądać"
    ],
    "category": "czasowniki",
-   "pronunciation": "trjebowac"
+   "pronunciation": "trjebowac",
+   "firstPerson": "требую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-489",
@@ -5391,7 +5635,9 @@
     "śmiać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "cmjejatsja"
+   "pronunciation": "cmjejatsja",
+   "firstPerson": "смеюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-492",
@@ -5454,7 +5700,9 @@
     "przysłać"
    ],
    "category": "czasowniki",
-   "pronunciation": "prisłac"
+   "pronunciation": "prisłac",
+   "firstPerson": "пришлю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-498",
@@ -5552,7 +5800,9 @@
     "wracać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "wozwraściatsja"
+   "pronunciation": "wozwraściatsja",
+   "firstPerson": "возвращаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-507",
@@ -5596,7 +5846,9 @@
     "okazywać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "okazywacsja"
+   "pronunciation": "okazywacsja",
+   "firstPerson": "оказываюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-511",
@@ -5618,7 +5870,9 @@
     "zgubić"
    ],
    "category": "czasowniki",
-   "pronunciation": "potjerjac"
+   "pronunciation": "potjerjac",
+   "firstPerson": "потеряю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-513",
@@ -5664,7 +5918,9 @@
     "wypić"
    ],
    "category": "czasowniki",
-   "pronunciation": "wypic"
+   "pronunciation": "wypic",
+   "firstPerson": "выпью",
+   "verbType": "1"
   },
   {
    "id": "ru1000-517",
@@ -5675,7 +5931,9 @@
     "pokazywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pokazywac"
+   "pronunciation": "pokazywac",
+   "firstPerson": "показываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-518",
@@ -5795,7 +6053,9 @@
     "oddać"
    ],
    "category": "czasowniki",
-   "pronunciation": "atdat'"
+   "pronunciation": "atdat'",
+   "firstPerson": "отдам",
+   "verbType": "1"
   },
   {
    "id": "ru1000-529",
@@ -5818,7 +6078,9 @@
     "skinąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "kivnut'"
+   "pronunciation": "kivnut'",
+   "firstPerson": "кивну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-531",
@@ -5842,7 +6104,9 @@
     "zniknąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "isicieznut'"
+   "pronunciation": "isicieznut'",
+   "firstPerson": "исчезну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-533",
@@ -5946,7 +6210,9 @@
     "wyniknąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "połuczitsa"
+   "pronunciation": "połuczitsa",
+   "firstPerson": "получусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-542",
@@ -5999,7 +6265,9 @@
     "bić"
    ],
    "category": "czasowniki",
-   "pronunciation": "bit'"
+   "pronunciation": "bit'",
+   "firstPerson": "бью",
+   "verbType": "1"
   },
   {
    "id": "ru1000-547",
@@ -6032,7 +6300,9 @@
     "stworzyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "sazdat'"
+   "pronunciation": "sazdat'",
+   "firstPerson": "создам",
+   "verbType": "1"
   },
   {
    "id": "ru1000-550",
@@ -6099,7 +6369,9 @@
     "przypominać"
    ],
    "category": "czasowniki",
-   "pronunciation": "vspaminat'"
+   "pronunciation": "vspaminat'",
+   "firstPerson": "вспоминаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-556",
@@ -6111,7 +6383,9 @@
     "otrzymywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pałucziat'"
+   "pronunciation": "pałucziat'",
+   "firstPerson": "получаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-557",
@@ -6143,7 +6417,9 @@
     "upaść"
    ],
    "category": "czasowniki",
-   "pronunciation": "upas't'"
+   "pronunciation": "upas't'",
+   "firstPerson": "упаду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-560",
@@ -6177,7 +6453,9 @@
     "dosięgnąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "dastat'"
+   "pronunciation": "dastat'",
+   "firstPerson": "достану",
+   "verbType": "1"
   },
   {
    "id": "ru1000-563",
@@ -6210,7 +6488,9 @@
     "mieć nadzieję"
    ],
    "category": "czasowniki",
-   "pronunciation": "nadjejat'sa"
+   "pronunciation": "nadjejat'sa",
+   "firstPerson": "надеюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-566",
@@ -6266,7 +6546,9 @@
     "przesyłać"
    ],
    "category": "czasowniki",
-   "pronunciation": "słat'"
+   "pronunciation": "słat'",
+   "firstPerson": "шлю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-571",
@@ -6288,7 +6570,9 @@
     "westchnąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "vzdohnut'"
+   "pronunciation": "vzdohnut'",
+   "firstPerson": "вздохну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-573",
@@ -6489,7 +6773,9 @@
     "śpiewać"
    ],
    "category": "czasowniki",
-   "pronunciation": "piet'"
+   "pronunciation": "piet'",
+   "firstPerson": "пою",
+   "verbType": "1"
   },
   {
    "id": "ru1000-591",
@@ -6544,7 +6830,9 @@
     "wybaczyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "prastit'"
+   "pronunciation": "prastit'",
+   "firstPerson": "прощу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-596",
@@ -6635,7 +6923,9 @@
     "przestać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pieriestat'"
+   "pronunciation": "pieriestat'",
+   "firstPerson": "перестану",
+   "verbType": "1"
   },
   {
    "id": "ru1000-604",
@@ -6703,7 +6993,9 @@
     "zawitać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pażaławat'"
+   "pronunciation": "pażaławat'",
+   "firstPerson": "пожалую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-610",
@@ -6808,7 +7100,9 @@
     "oczekiwać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ażidać"
+   "pronunciation": "ażidać",
+   "firstPerson": "ожидаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-620",
@@ -6873,7 +7167,9 @@
     "pojawiać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "pojawliatsja"
+   "pronunciation": "pojawliatsja",
+   "firstPerson": "появляюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-626",
@@ -6929,7 +7225,9 @@
     "wykorzystywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ispol'zować"
+   "pronunciation": "ispol'zować",
+   "firstPerson": "использую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-631",
@@ -6940,7 +7238,9 @@
     "spojrzeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "wzglianuć"
+   "pronunciation": "wzglianuć",
+   "firstPerson": "взгляну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-632",
@@ -7082,7 +7382,9 @@
     "przeciągnąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pratianuć"
+   "pronunciation": "pratianuć",
+   "firstPerson": "протяну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-645",
@@ -7094,7 +7396,9 @@
     "pracować"
    ],
    "category": "czasowniki",
-   "pronunciation": "clużić"
+   "pronunciation": "clużić",
+   "firstPerson": "служу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-646",
@@ -7127,7 +7431,9 @@
     "wyjechać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ujechać"
+   "pronunciation": "ujechać",
+   "firstPerson": "уеду",
+   "verbType": "1"
   },
   {
    "id": "ru1000-649",
@@ -7138,7 +7444,9 @@
     "uwierzyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pawierić"
+   "pronunciation": "pawierić",
+   "firstPerson": "поверю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-650",
@@ -7216,7 +7524,9 @@
     "wywoływać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wyzwać"
+   "pronunciation": "wyzwać",
+   "firstPerson": "вызываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-657",
@@ -7227,7 +7537,9 @@
     "nazywać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "nazywaćsa"
+   "pronunciation": "nazywaćsa",
+   "firstPerson": "называюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-658",
@@ -7238,7 +7550,9 @@
     "spotkać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wstrietić"
+   "pronunciation": "wstrietić",
+   "firstPerson": "встречу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-659",
@@ -7271,7 +7585,9 @@
     "rozmawiać"
    ],
    "category": "czasowniki",
-   "pronunciation": "razgawatywać"
+   "pronunciation": "razgawatywać",
+   "firstPerson": "разговариваю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-662",
@@ -7282,7 +7598,9 @@
     "pozwolić"
    ],
    "category": "czasowniki",
-   "pronunciation": "pazwolić"
+   "pronunciation": "pazwolić",
+   "firstPerson": "позволю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-663",
@@ -7294,7 +7612,9 @@
     "ujawnić"
    ],
    "category": "czasowniki",
-   "pronunciation": "abnarużyć"
+   "pronunciation": "abnarużyć",
+   "firstPerson": "обнаружу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-664",
@@ -7317,7 +7637,9 @@
     "przekręcać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "pawiernutsa"
+   "pronunciation": "pawiernutsa",
+   "firstPerson": "повернусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-666",
@@ -7372,7 +7694,9 @@
     "podchodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "padchadić"
+   "pronunciation": "padchadić",
+   "firstPerson": "подхожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-671",
@@ -7469,7 +7793,9 @@
     "wisieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "wisieć"
+   "pronunciation": "wisieć",
+   "firstPerson": "вишу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-680",
@@ -7491,7 +7817,9 @@
     "wyglądać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wygliadieć"
+   "pronunciation": "wygliadieć",
+   "firstPerson": "выгляжу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-682",
@@ -7503,7 +7831,9 @@
     "postępować"
    ],
    "category": "czasowniki",
-   "pronunciation": "diejstwować"
+   "pronunciation": "diejstwować",
+   "firstPerson": "действую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-683",
@@ -7514,7 +7844,9 @@
     "nieść"
    ],
    "category": "czasowniki",
-   "pronunciation": "niesti"
+   "pronunciation": "niesti",
+   "firstPerson": "несу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-684",
@@ -7547,7 +7879,9 @@
     "palić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "garieć"
+   "pronunciation": "garieć",
+   "firstPerson": "горю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-687",
@@ -7569,7 +7903,9 @@
     "dodać"
    ],
    "category": "czasowniki",
-   "pronunciation": "dobawić"
+   "pronunciation": "dobawić",
+   "firstPerson": "добавлю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-689",
@@ -7603,7 +7939,9 @@
     "usiąść"
    ],
    "category": "czasowniki",
-   "pronunciation": "saditsa"
+   "pronunciation": "saditsa",
+   "firstPerson": "сажусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-692",
@@ -7625,7 +7963,9 @@
     "pomagać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pamagać"
+   "pronunciation": "pamagać",
+   "firstPerson": "помогаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-694",
@@ -7800,7 +8140,9 @@
     "powtórzyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pawtarić"
+   "pronunciation": "pawtarić",
+   "firstPerson": "повторю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-710",
@@ -7877,7 +8219,9 @@
     "ustosunkować się"
    ],
    "category": "czasowniki",
-   "pronunciation": "atnositsa"
+   "pronunciation": "atnositsa",
+   "firstPerson": "отношусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-717",
@@ -7888,7 +8232,9 @@
     "uczyć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "ucitsa"
+   "pronunciation": "ucitsa",
+   "firstPerson": "учусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-718",
@@ -7909,7 +8255,9 @@
     "zdziwić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "udiwitsa"
+   "pronunciation": "udiwitsa",
+   "firstPerson": "удивлюсь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-720",
@@ -8008,7 +8356,9 @@
     "zginąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pagibnuć"
+   "pronunciation": "pagibnuć",
+   "firstPerson": "погибну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-729",
@@ -8042,7 +8392,9 @@
     "trzymać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "dierżatsa"
+   "pronunciation": "dierżatsa",
+   "firstPerson": "держусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-732",
@@ -8075,7 +8427,9 @@
     "przełożyć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pieriedać"
+   "pronunciation": "pieriedać",
+   "firstPerson": "передам",
+   "verbType": "1"
   },
   {
    "id": "ru1000-735",
@@ -8097,7 +8451,9 @@
     "strzelać"
    ],
    "category": "czasowniki",
-   "pronunciation": "strieliać"
+   "pronunciation": "strieliać",
+   "firstPerson": "стреляю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-737",
@@ -8140,7 +8496,9 @@
     "spędzać"
    ],
    "category": "czasowniki",
-   "pronunciation": "prawadić"
+   "pronunciation": "prawadić",
+   "firstPerson": "провожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-741",
@@ -8205,7 +8563,9 @@
     "wchodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "wchadić"
+   "pronunciation": "wchadić",
+   "firstPerson": "вхожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-747",
@@ -8238,7 +8598,9 @@
     "poruszać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "dwigatsa"
+   "pronunciation": "dwigatsa",
+   "firstPerson": "двигаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-750",
@@ -8249,7 +8611,9 @@
     "pojawić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "wazniknuć"
+   "pronunciation": "wazniknuć",
+   "firstPerson": "возникну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-751",
@@ -8314,7 +8678,9 @@
     "zadzwonić"
    ],
    "category": "czasowniki",
-   "pronunciation": "pozwonić"
+   "pronunciation": "pozwonić",
+   "firstPerson": "позвоню",
+   "verbType": "2"
   },
   {
    "id": "ru1000-757",
@@ -8325,7 +8691,9 @@
     "zakrzyczeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "zakriciać"
+   "pronunciation": "zakriciać",
+   "firstPerson": "закричу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-758",
@@ -8348,7 +8716,9 @@
     "polecić"
    ],
    "category": "czasowniki",
-   "pronunciation": "pikazać"
+   "pronunciation": "pikazać",
+   "firstPerson": "прикажу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-760",
@@ -8393,7 +8763,9 @@
     "spróbować"
    ],
    "category": "czasowniki",
-   "pronunciation": "paprobować"
+   "pronunciation": "paprobować",
+   "firstPerson": "попробую",
+   "verbType": "1"
   },
   {
    "id": "ru1000-764",
@@ -8448,7 +8820,9 @@
     "nosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "nasić"
+   "pronunciation": "nasić",
+   "firstPerson": "ношу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-769",
@@ -8470,7 +8844,9 @@
     "kończyć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "koncitsa"
+   "pronunciation": "koncitsa",
+   "firstPerson": "кончусь",
+   "verbType": "2"
   },
   {
    "id": "ru1000-771",
@@ -8481,7 +8857,9 @@
     "płakać"
    ],
    "category": "czasowniki",
-   "pronunciation": "plakać"
+   "pronunciation": "plakać",
+   "firstPerson": "плачу",
+   "verbType": "1"
   },
   {
    "id": "ru1000-772",
@@ -8502,7 +8880,9 @@
     "przeszkadzać"
    ],
    "category": "czasowniki",
-   "pronunciation": "mieszać"
+   "pronunciation": "mieszać",
+   "firstPerson": "мешаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-774",
@@ -8555,7 +8935,9 @@
     "nosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "paluciatsa"
+   "pronunciation": "paluciatsa",
+   "firstPerson": "получаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-779",
@@ -8587,7 +8969,9 @@
     "chcieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "żelać"
+   "pronunciation": "żelać",
+   "firstPerson": "желаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-782",
@@ -8620,7 +9004,9 @@
     "przyzwyczaić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "priwyknuć"
+   "pronunciation": "priwyknuć",
+   "firstPerson": "привыкну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-785",
@@ -8642,7 +9028,9 @@
     "sądzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "sudić"
+   "pronunciation": "sudić",
+   "firstPerson": "сужу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-787",
@@ -8740,7 +9128,9 @@
     "obiecać"
    ],
    "category": "czasowniki",
-   "pronunciation": "abiesiać"
+   "pronunciation": "abiesiać",
+   "firstPerson": "обещаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-796",
@@ -8762,7 +9152,9 @@
     "stawiać"
    ],
    "category": "czasowniki",
-   "pronunciation": "stawić"
+   "pronunciation": "stawić",
+   "firstPerson": "ставлю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-798",
@@ -8796,7 +9188,9 @@
     "poruszać"
    ],
    "category": "czasowniki",
-   "pronunciation": "kasatsa"
+   "pronunciation": "kasatsa",
+   "firstPerson": "касаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-801",
@@ -8830,7 +9224,9 @@
     "ukłuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "koloć"
+   "pronunciation": "koloć",
+   "firstPerson": "колю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-804",
@@ -8852,7 +9248,9 @@
     "zebrać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "sabratsa"
+   "pronunciation": "sabratsa",
+   "firstPerson": "соберусь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-806",
@@ -8885,7 +9283,9 @@
     "pachnieć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pachnuć"
+   "pronunciation": "pachnuć",
+   "firstPerson": "пахну",
+   "verbType": "1"
   },
   {
    "id": "ru1000-809",
@@ -8896,7 +9296,9 @@
     "powstawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "waznikać"
+   "pronunciation": "waznikać",
+   "firstPerson": "возникаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-810",
@@ -8962,7 +9364,9 @@
     "pytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "spraszywat'"
+   "pronunciation": "spraszywat'",
+   "firstPerson": "спрашиваю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-816",
@@ -9028,7 +9432,9 @@
     "zaczynać"
    ],
    "category": "czasowniki",
-   "pronunciation": "naczinat'"
+   "pronunciation": "naczinat'",
+   "firstPerson": "начинаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-822",
@@ -9061,7 +9467,9 @@
     "wychodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "wychadit'"
+   "pronunciation": "wychadit'",
+   "firstPerson": "выхожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-825",
@@ -9073,7 +9481,9 @@
     "decydować"
    ],
    "category": "czasowniki",
-   "pronunciation": "rieszat'"
+   "pronunciation": "rieszat'",
+   "firstPerson": "решаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-826",
@@ -9084,7 +9494,9 @@
     "odchodzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "uchadit'"
+   "pronunciation": "uchadit'",
+   "firstPerson": "ухожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-827",
@@ -9162,7 +9574,9 @@
     "opowiadać"
    ],
    "category": "czasowniki",
-   "pronunciation": "rasskazywat'"
+   "pronunciation": "rasskazywat'",
+   "firstPerson": "рассказываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-834",
@@ -9173,7 +9587,9 @@
     "znajdować"
    ],
    "category": "czasowniki",
-   "pronunciation": "nachadit'"
+   "pronunciation": "nachadit'",
+   "firstPerson": "нахожу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-835",
@@ -9207,7 +9623,9 @@
     "rozpoznawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "uznawat'"
+   "pronunciation": "uznawat'",
+   "firstPerson": "узнаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-838",
@@ -9274,7 +9692,9 @@
     "odpowiadać"
    ],
    "category": "czasowniki",
-   "pronunciation": "atwieczat'"
+   "pronunciation": "atwieczat'",
+   "firstPerson": "отвечаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-844",
@@ -9319,7 +9739,9 @@
     "prosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prasit'"
+   "pronunciation": "prasit'",
+   "firstPerson": "прошу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-848",
@@ -9374,7 +9796,9 @@
     "przyjeżdżać"
    ],
    "category": "czasowniki",
-   "pronunciation": "prijeżdżat'"
+   "pronunciation": "prijeżdżat'",
+   "firstPerson": "приезжаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-853",
@@ -9450,7 +9874,9 @@
     "kontynuować"
    ],
    "category": "czasowniki",
-   "pronunciation": "pradałżat'"
+   "pronunciation": "pradałżat'",
+   "firstPerson": "продолжаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-860",
@@ -9461,7 +9887,9 @@
     "zauważać"
    ],
    "category": "czasowniki",
-   "pronunciation": "zamieczat'"
+   "pronunciation": "zamieczat'",
+   "firstPerson": "замечаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-861",
@@ -9505,7 +9933,9 @@
     "milczeć"
    ],
    "category": "czasowniki",
-   "pronunciation": "małczat'"
+   "pronunciation": "małczat'",
+   "firstPerson": "молчу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-865",
@@ -9604,7 +10034,9 @@
     "podnosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "padnimat'"
+   "pronunciation": "padnimat'",
+   "firstPerson": "поднимаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-874",
@@ -9614,7 +10046,9 @@
     "brać"
    ],
    "category": "czasowniki",
-   "pronunciation": "brat'"
+   "pronunciation": "brat'",
+   "firstPerson": "беру",
+   "verbType": "1"
   },
   {
    "id": "ru1000-875",
@@ -9636,7 +10070,9 @@
     "zapominać"
    ],
    "category": "czasowniki",
-   "pronunciation": "zabywat'"
+   "pronunciation": "zabywat'",
+   "firstPerson": "забываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-877",
@@ -9658,7 +10094,9 @@
     "wstawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wstawat'"
+   "pronunciation": "wstawat'",
+   "firstPerson": "встаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-879",
@@ -9703,7 +10141,9 @@
     "przynosić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prinasit'"
+   "pronunciation": "prinasit'",
+   "firstPerson": "приношу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-883",
@@ -9737,7 +10177,9 @@
     "rosnąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "rasti"
+   "pronunciation": "rasti",
+   "firstPerson": "расту",
+   "verbType": "1"
   },
   {
    "id": "ru1000-886",
@@ -9770,7 +10212,9 @@
     "trzymać"
    ],
    "category": "czasowniki",
-   "pronunciation": "dierżat'"
+   "pronunciation": "dierżat'",
+   "firstPerson": "держу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-889",
@@ -9781,7 +10225,9 @@
     "spotykać"
    ],
    "category": "czasowniki",
-   "pronunciation": "wstrieczat'"
+   "pronunciation": "wstrieczat'",
+   "firstPerson": "встречаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-890",
@@ -9815,7 +10261,9 @@
     "zatrzymywać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "astanawliwatsa"
+   "pronunciation": "astanawliwatsa",
+   "firstPerson": "останавливаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-893",
@@ -9860,7 +10308,9 @@
     "wznosić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "padnimatsa"
+   "pronunciation": "padnimatsa",
+   "firstPerson": "поднимаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-897",
@@ -9892,7 +10342,9 @@
     "budować"
    ],
    "category": "czasowniki",
-   "pronunciation": "stroit'"
+   "pronunciation": "stroit'",
+   "firstPerson": "строю",
+   "verbType": "2"
   },
   {
    "id": "ru1000-900",
@@ -9947,7 +10399,9 @@
     "uczyć się"
    ],
    "category": "czasowniki",
-   "pronunciation": "uczit'"
+   "pronunciation": "uczit'",
+   "firstPerson": "учу",
+   "verbType": "2"
   },
   {
    "id": "ru1000-905",
@@ -9958,7 +10412,9 @@
     "zdarzać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "słuczatsa"
+   "pronunciation": "słuczatsa",
+   "firstPerson": "случаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-906",
@@ -9969,7 +10425,9 @@
     "nazywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "nazywat'"
+   "pronunciation": "nazywat'",
+   "firstPerson": "называю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-907",
@@ -9992,7 +10450,9 @@
     "odkrywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "atkrywat'"
+   "pronunciation": "atkrywat'",
+   "firstPerson": "открываю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-909",
@@ -10014,7 +10474,9 @@
     "zaczynać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "naczinatsa"
+   "pronunciation": "naczinatsa",
+   "firstPerson": "начинаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-911",
@@ -10191,7 +10653,9 @@
     "rzucać"
    ],
    "category": "czasowniki",
-   "pronunciation": "brasat'"
+   "pronunciation": "brasat'",
+   "firstPerson": "бросаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-927",
@@ -10399,7 +10863,9 @@
     "przekazywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pieriedawat'"
+   "pronunciation": "pieriedawat'",
+   "firstPerson": "передаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-946",
@@ -10634,7 +11100,9 @@
     "zdążać"
    ],
    "category": "czasowniki",
-   "pronunciation": "uspiewat'"
+   "pronunciation": "uspiewat'",
+   "firstPerson": "успеваю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-967",
@@ -10734,7 +11202,9 @@
     "trafiać"
    ],
    "category": "czasowniki",
-   "pronunciation": "papadat'"
+   "pronunciation": "papadat'",
+   "firstPerson": "попадаю",
+   "verbType": "1"
   },
   {
    "id": "ru1000-976",
@@ -10848,7 +11318,9 @@
     "cześć"
    ],
    "category": "czasowniki",
-   "pronunciation": "cziest'"
+   "pronunciation": "cziest'",
+   "firstPerson": "чту",
+   "verbType": "1"
   },
   {
    "id": "ru1000-986",
@@ -10951,7 +11423,9 @@
     "próbować"
    ],
    "category": "czasowniki",
-   "pronunciation": "pytatsa"
+   "pronunciation": "pytatsa",
+   "firstPerson": "пытаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-995",
@@ -10963,7 +11437,9 @@
     "używać"
    ],
    "category": "czasowniki",
-   "pronunciation": "polzawatsa"
+   "pronunciation": "polzawatsa",
+   "firstPerson": "пользуюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-996",
@@ -11008,7 +11484,9 @@
     "udawać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "udawatsa"
+   "pronunciation": "udawatsa",
+   "firstPerson": "удаюсь",
+   "verbType": "1"
   },
   {
    "id": "ru1000-1000",

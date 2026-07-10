@@ -50,4 +50,17 @@ void main() {
       }
     }
   });
+
+  test('ru1000 verbs carry first-person and conjugation data', () async {
+    final course = await load('assets/data/course_ru1000.json');
+    final verbs = course.words.where((w) => w.category == 'czasowniki').toList();
+    expect(verbs.length, greaterThan(200));
+    final withInfo = verbs.where((w) => w.firstPerson != null && w.verbType != null).length;
+    expect(withInfo, greaterThan(230));
+    for (final word in verbs) {
+      if (word.verbType != null) {
+        expect(['1', '2'].contains(word.verbType), isTrue, reason: 'odd verbType ${word.verbType} for ${word.ru}');
+      }
+    }
+  });
 }
