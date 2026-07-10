@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.0 — verbs can now carry a 1st-person form and a conjugation type (e.g. е́хать¹ (я е́ду)); a new "Odmiana czasowników" setting shows them never / always / on holding Tab (default: on Tab, next to the pronunciation reveal). Add both fields when building your own course or via JSON import (firstPerson / verbType)
+
 ## 0.10.4 — a word can lose at most one point per session no matter how many times it is missed (e.g. in the looping fix-up), so hammering wrong answers on one word can't tank its score
 
 ## 0.10.3 — renamed the session scope "Najtrudniejsze" to "Sprawiające trudności" and added it as a filter on the Words screen; a new debug setting (off by default) adds a per-word "Punkty" column (streak − difficulty) coloured red for negative, green for positive, neutral for zero
