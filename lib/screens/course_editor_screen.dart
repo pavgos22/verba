@@ -393,6 +393,14 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                   ],
                 ),
               ),
+            const SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerRight,
+              child: FilledButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Zapisz'),
+              ),
+            ),
           ],
         ),
       ),

@@ -35,6 +35,7 @@ void main() {
     expect(find.text('Kategoria'), findsOneWidget);
     expect(find.text('Bez kategorii'), findsOneWidget);
     expect(find.text('Dodaj'), findsOneWidget);
+    expect(find.text('Zapisz'), findsOneWidget);
     expect(find.text('Wymowa (opcjonalnie)'), findsOneWidget);
     expect(find.text('ł'), findsWidgets);
     expect(find.text('а'), findsNothing);
