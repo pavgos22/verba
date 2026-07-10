@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/transliteration.dart';
+import '../data/course.dart';
 import '../data/custom_courses.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
@@ -91,20 +92,18 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _ruFocus.requestFocus();
   }
 
-  List<String> _allCategories() {
-    return ref.watch(coursesProvider).maybeWhen(
-      data: (courses) {
-        final set = <String>{};
-        for (final course in courses) {
-          for (final word in course.words) {
-            if (word.category != null && word.category!.isNotEmpty) set.add(word.category!);
-          }
-        }
-        final list = set.toList()..sort();
-        return list;
-      },
-      orElse: () => const <String>[],
+  List<String> _watchCategories() =>
+      ref.watch(coursesProvider).maybeWhen(data: gatherCategories, orElse: () => const <String>[]);
+
+  Future<void> _editWord(Word word) async {
+    final categories = ref.read(coursesProvider).maybeWhen(data: gatherCategories, orElse: () => const <String>[]);
+    final edited = await showDialog<Word>(
+      context: context,
+      builder: (_) => _EditWordDialog(word: word, categories: categories),
     );
+    if (edited != null) {
+      ref.read(customCoursesProvider.notifier).updateWord(widget.courseId, word.id, edited);
+    }
   }
 
   Future<void> _import(bool hasWords) async {
@@ -259,7 +258,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                         width: 200,
                         child: _DropdownField(
                           value: _category,
-                          categories: _allCategories(),
+                          categories: _watchCategories(),
                           onChanged: (value) => setState(() => _category = value),
                         ),
                       ),
@@ -381,6 +380,12 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                                   style: TextStyle(fontSize: 14, color: context.c.foreground)),
                             ),
                             IconButton(
+                              onPressed: () => _editWord(word),
+                              icon: Icon(Icons.edit_outlined, size: 18, color: context.c.mutedForeground),
+                              tooltip: 'Edytuj',
+                              mouseCursor: SystemMouseCursors.click,
+                            ),
+                            IconButton(
                               onPressed: () =>
                                   ref.read(customCoursesProvider.notifier).removeWord(widget.courseId, word.id),
                               icon: Icon(Icons.delete_outline, size: 18, color: context.c.mutedForeground),
@@ -404,6 +409,117 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+List<String> gatherCategories(List<Course> courses) {
+  final set = <String>{};
+  for (final course in courses) {
+    for (final word in course.words) {
+      if (word.category != null && word.category!.isNotEmpty) set.add(word.category!);
+    }
+  }
+  final list = set.toList()..sort();
+  return list;
+}
+
+class _EditWordDialog extends StatefulWidget {
+  const _EditWordDialog({required this.word, required this.categories});
+
+  final Word word;
+  final List<String> categories;
+
+  @override
+  State<_EditWordDialog> createState() => _EditWordDialogState();
+}
+
+class _EditWordDialogState extends State<_EditWordDialog> {
+  late final _ru = TextEditingController(text: widget.word.ruAccented);
+  late final _pl = TextEditingController(text: widget.word.pl.join(', '));
+  late final _pronunciation = TextEditingController(text: widget.word.pronunciation ?? '');
+  late final _firstPerson = TextEditingController(text: widget.word.firstPerson ?? '');
+  late final _verbType = TextEditingController(text: widget.word.verbType ?? '');
+  late String? _category = widget.word.category;
+
+  @override
+  void dispose() {
+    _ru.dispose();
+    _pl.dispose();
+    _pronunciation.dispose();
+    _firstPerson.dispose();
+    _verbType.dispose();
+    super.dispose();
+  }
+
+  void _save() {
+    final ruAccented = _ru.text.trim();
+    final plRaw = _pl.text.trim();
+    if (ruAccented.isEmpty || plRaw.isEmpty) return;
+    final pl = plRaw.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
+    if (pl.isEmpty) return;
+    final pronunciation = _pronunciation.text.trim();
+    final firstPerson = _firstPerson.text.trim();
+    final verbType = _verbType.text.trim();
+    Navigator.of(context).pop(Word(
+      id: widget.word.id,
+      ru: ruAccented.replaceAll('́', ''),
+      ruAccented: ruAccented,
+      pl: pl,
+      category: _category,
+      pronunciation: pronunciation.isEmpty ? null : pronunciation,
+      firstPerson: firstPerson.isEmpty ? null : firstPerson,
+      verbType: verbType.isEmpty ? null : verbType,
+    ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Edytuj słówko'),
+      content: SizedBox(
+        width: 460,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _Field(label: 'Rosyjski', controller: _ru, transliterate: true, onSubmit: _save),
+              const SizedBox(height: 12),
+              _Field(label: 'Polski (warianty po przecinku)', controller: _pl, onSubmit: _save),
+              const SizedBox(height: 12),
+              _DropdownField(
+                value: _category,
+                categories: widget.categories,
+                onChanged: (value) => setState(() => _category = value),
+              ),
+              const SizedBox(height: 12),
+              _Field(label: 'Wymowa (opcjonalnie)', controller: _pronunciation, onSubmit: _save),
+              const SizedBox(height: 12),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: _Field(
+                        label: '1. osoba (opcjonalnie)',
+                        controller: _firstPerson,
+                        transliterate: true,
+                        onSubmit: _save),
+                  ),
+                  const SizedBox(width: 12),
+                  SizedBox(
+                    width: 120,
+                    child: _Field(label: 'Typ (opcjonalnie)', controller: _verbType, onSubmit: _save),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Anuluj')),
+        FilledButton(onPressed: _save, child: const Text('Zapisz')),
+      ],
     );
   }
 }

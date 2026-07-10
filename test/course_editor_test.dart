@@ -65,4 +65,19 @@ void main() {
       lessThan(tester.getTopLeft(find.text('дом')).dy),
     );
   });
+
+  testWidgets('the pencil dialog edits a word', (tester) async {
+    await _pump(tester, wordsJson: '{"id":"a","ru":"кот","pl":["kot"]}');
+
+    await tester.tap(find.byIcon(Icons.edit_outlined));
+    await tester.pumpAndSettle();
+    expect(find.text('Edytuj słówko'), findsOneWidget);
+
+    final dialogFields = find.descendant(of: find.byType(AlertDialog), matching: find.byType(TextField));
+    await tester.enterText(dialogFields.at(1), 'kot, kotek');
+    await tester.tap(find.descendant(of: find.byType(AlertDialog), matching: find.text('Zapisz')));
+    await tester.pumpAndSettle();
+
+    expect(find.text('kot, kotek'), findsOneWidget);
+  });
 }

@@ -167,6 +167,17 @@ class CustomCoursesNotifier extends Notifier<List<Course>> {
     _persist();
   }
 
+  void updateWord(String courseId, String wordId, Word word) {
+    state = [
+      for (final c in state)
+        if (c.id == courseId)
+          c.copyWith(words: [for (final w in c.words) if (w.id == wordId) word else w])
+        else
+          c,
+    ];
+    _persist();
+  }
+
   Course importCourse(String rawJson, String fallbackName) {
     final parsed = parseCourseJson(rawJson, fallbackName);
     final course = Course(
