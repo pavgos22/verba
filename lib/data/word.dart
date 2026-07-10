@@ -6,6 +6,8 @@ class Word {
     required this.pl,
     this.category,
     this.pronunciation,
+    this.firstPerson,
+    this.verbType,
   }) : ruAccented = ruAccented ?? ru;
 
   final String id;
@@ -14,8 +16,13 @@ class Word {
   final List<String> pl;
   final String? category;
   final String? pronunciation;
+  final String? firstPerson;
+  final String? verbType;
 
   String get plPrimary => pl.first;
+
+  bool get hasVerbInfo =>
+      (firstPerson != null && firstPerson!.isNotEmpty) || (verbType != null && verbType!.isNotEmpty);
 
   factory Word.fromJson(Map<String, dynamic> json) {
     return Word(
@@ -25,6 +32,8 @@ class Word {
       pl: [for (final v in json['pl'] as List<dynamic>) v as String],
       category: json['category'] as String?,
       pronunciation: json['pronunciation'] as String?,
+      firstPerson: json['firstPerson'] as String?,
+      verbType: json['verbType'] as String?,
     );
   }
 
@@ -35,5 +44,7 @@ class Word {
         'pl': pl,
         if (category != null) 'category': category,
         if (pronunciation != null) 'pronunciation': pronunciation,
+        if (firstPerson != null) 'firstPerson': firstPerson,
+        if (verbType != null) 'verbType': verbType,
       };
 }

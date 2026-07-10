@@ -25,4 +25,20 @@ void main() {
     final container = await _container({'settings.newWordOrder': 'inOrder'});
     expect(container.read(settingsProvider).newWordOrder, NewWordOrder.inOrder);
   });
+
+  test('verb info defaults to on-hold', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).verbInfo, VerbInfoMode.onHold);
+  });
+
+  test('setVerbInfo updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setVerbInfo(VerbInfoMode.always);
+    expect(container.read(settingsProvider).verbInfo, VerbInfoMode.always);
+  });
+
+  test('loads persisted verb info', () async {
+    final container = await _container({'settings.verbInfo': 'never'});
+    expect(container.read(settingsProvider).verbInfo, VerbInfoMode.never);
+  });
 }

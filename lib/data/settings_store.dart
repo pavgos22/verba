@@ -14,6 +14,8 @@ enum NewWordOrder { inOrder, random }
 
 enum SessionScope { all, newest, hardest }
 
+enum VerbInfoMode { never, always, onHold }
+
 const sessionModeKeys = ['full', 'practice', 'test'];
 
 class ModeConfig {
@@ -42,6 +44,7 @@ class Settings {
     required this.lector,
     required this.activeCourseId,
     required this.newWordOrder,
+    required this.verbInfo,
     required this.showWordPoints,
     required this.modes,
   });
@@ -56,6 +59,7 @@ class Settings {
   final Lector lector;
   final String activeCourseId;
   final NewWordOrder newWordOrder;
+  final VerbInfoMode verbInfo;
   final bool showWordPoints;
   final Map<String, ModeConfig> modes;
 
@@ -73,6 +77,7 @@ class Settings {
     Lector? lector,
     String? activeCourseId,
     NewWordOrder? newWordOrder,
+    VerbInfoMode? verbInfo,
     bool? showWordPoints,
     Map<String, ModeConfig>? modes,
   }) {
@@ -87,6 +92,7 @@ class Settings {
       lector: lector ?? this.lector,
       activeCourseId: activeCourseId ?? this.activeCourseId,
       newWordOrder: newWordOrder ?? this.newWordOrder,
+      verbInfo: verbInfo ?? this.verbInfo,
       showWordPoints: showWordPoints ?? this.showWordPoints,
       modes: modes ?? this.modes,
     );
@@ -109,6 +115,7 @@ class SettingsNotifier extends Notifier<Settings> {
       activeCourseId: prefs.getString('settings.activeCourseId') ?? 'starter',
       newWordOrder: NewWordOrder.values.asNameMap()[prefs.getString('settings.newWordOrder')] ??
           NewWordOrder.random,
+      verbInfo: VerbInfoMode.values.asNameMap()[prefs.getString('settings.verbInfo')] ?? VerbInfoMode.onHold,
       showWordPoints: prefs.getBool('settings.showWordPoints') ?? false,
       modes: {
         for (final mode in sessionModeKeys)
@@ -172,6 +179,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setNewWordOrder(NewWordOrder value) {
     state = state.copyWith(newWordOrder: value);
     ref.read(prefsProvider).setString('settings.newWordOrder', value.name);
+  }
+
+  void setVerbInfo(VerbInfoMode value) {
+    state = state.copyWith(verbInfo: value);
+    ref.read(prefsProvider).setString('settings.verbInfo', value.name);
   }
 
   void setShowWordPoints(bool value) {

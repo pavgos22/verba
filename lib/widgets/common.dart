@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/settings_store.dart';
+import '../data/word.dart';
 import '../services/audio_service.dart';
 import '../theme/app_colors.dart';
+import 'accented_text.dart';
 
 class AppCard extends StatelessWidget {
   const AppCard({super.key, required this.child, this.padding = const EdgeInsets.all(20)});
@@ -68,6 +70,54 @@ class PronunciationSlot extends StatelessWidget {
               style: TextStyle(fontSize: fontSize, color: context.c.mutedForeground),
             )
           : null,
+    );
+  }
+}
+
+bool showVerbInfo(Word word, VerbInfoMode mode, bool held) {
+  if (!word.hasVerbInfo) return false;
+  return switch (mode) {
+    VerbInfoMode.never => false,
+    VerbInfoMode.always => true,
+    VerbInfoMode.onHold => held,
+  };
+}
+
+class VerbInfoSlot extends StatelessWidget {
+  const VerbInfoSlot({super.key, required this.word, required this.visible, this.fontSize = 15});
+
+  final Word word;
+  final bool visible;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!word.hasVerbInfo) return const SizedBox.shrink();
+    final height = fontSize + 10;
+    if (!visible) return SizedBox(height: height);
+    final muted = TextStyle(fontSize: fontSize, color: context.c.mutedForeground);
+    return SizedBox(
+      height: height,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (word.verbType != null && word.verbType!.isNotEmpty) ...[
+            Transform.translate(
+              offset: Offset(0, -fontSize * 0.32),
+              child: Text(
+                word.verbType!,
+                style: TextStyle(fontSize: fontSize * 0.72, fontWeight: FontWeight.w700, color: context.c.warning),
+              ),
+            ),
+            const SizedBox(width: 6),
+          ],
+          if (word.firstPerson != null && word.firstPerson!.isNotEmpty) ...[
+            Text('(я ', style: muted),
+            AccentedText(word.firstPerson!, style: muted),
+            Text(')', style: muted),
+          ],
+        ],
+      ),
     );
   }
 }

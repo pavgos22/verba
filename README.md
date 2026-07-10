@@ -28,14 +28,17 @@ or a bare array of words:
   "description": "optional",
   "words": [
     {"ru": "кот", "pl": ["kot"]},
-    {"ru": "собака", "pl": "pies, piesek"}
+    {"ru": "собака", "pl": "pies, piesek"},
+    {"ru": "ехать", "ruAccented": "е́хать", "pl": ["jechać"], "category": "czasowniki", "firstPerson": "е́ду", "verbType": "1"}
   ]
 }
 ```
 
 `ru` and `pl` are required (`pl` may be a string with comma-separated variants or an
-array); `ruAccented`, `category`, `pronunciation` are optional. If the top level is an
-array of words, the file name becomes the course name.
+array); `ruAccented`, `category`, `pronunciation` are optional. For verbs, `firstPerson`
+(the "я …" form, may carry a stress mark) and `verbType` (the conjugation marker shown as
+a superscript) are optional and shown during study. If the top level is an array of words,
+the file name becomes the course name.
 
 ## Versioning
 

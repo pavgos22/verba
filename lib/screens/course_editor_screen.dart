@@ -18,12 +18,16 @@ class CourseEditorScreen extends ConsumerStatefulWidget {
 class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   final _ru = TextEditingController();
   final _pl = TextEditingController();
+  final _firstPerson = TextEditingController();
+  final _verbType = TextEditingController();
   final _ruFocus = FocusNode();
 
   @override
   void dispose() {
     _ru.dispose();
     _pl.dispose();
+    _firstPerson.dispose();
+    _verbType.dispose();
     _ruFocus.dispose();
     super.dispose();
   }
@@ -34,14 +38,20 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     if (ru.isEmpty || plRaw.isEmpty) return;
     final pl = plRaw.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
     if (pl.isEmpty) return;
+    final firstPerson = _firstPerson.text.trim();
+    final verbType = _verbType.text.trim();
     final word = Word(
       id: 'w-${DateTime.now().microsecondsSinceEpoch}',
       ru: ru,
       pl: pl,
+      firstPerson: firstPerson.isEmpty ? null : firstPerson,
+      verbType: verbType.isEmpty ? null : verbType,
     );
     ref.read(customCoursesProvider.notifier).addWord(widget.courseId, word);
     _ru.clear();
     _pl.clear();
+    _firstPerson.clear();
+    _verbType.clear();
     _ruFocus.requestFocus();
   }
 
@@ -190,9 +200,28 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 12),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: _Field(
+                            label: '1. osoba — czasownik (opcjonalnie)',
+                            controller: _firstPerson,
+                            transliterate: true,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
+                      SizedBox(
+                        width: 160,
+                        child: _Field(label: 'Typ (opcjonalnie)', controller: _verbType, onSubmit: _add),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   Text(
-                    'Rosyjski: pisz po łacińsku, zamieni się na cyrylicę (q = akcent). Polski: warianty oddziel przecinkiem.',
+                    'Rosyjski: pisz po łacińsku, zamieni się na cyrylicę (q = akcent). Polski: warianty oddziel przecinkiem. '
+                    'Dla czasowników możesz podać formę 1. osoby (np. „еду”) i typ (np. „1”) — pokazują się przy nauce.',
                     style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
                   ),
                 ],

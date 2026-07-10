@@ -48,6 +48,20 @@ class SettingsScreen extends ConsumerWidget {
                 description: 'Pokazuj akcent nad rosyjskimi słowami',
                 control: VerbaSwitch(value: settings.showAccents, onChanged: notifier.setShowAccents),
               ),
+              _SettingRow(
+                title: 'Odmiana czasowników',
+                description: 'Forma 1. osoby i typ przy czasownikach (Na Tab = po przytrzymaniu)',
+                control: SegmentedButton<VerbInfoMode>(
+                  segments: const [
+                    ButtonSegment(value: VerbInfoMode.never, label: Text('Nie')),
+                    ButtonSegment(value: VerbInfoMode.always, label: Text('Zawsze')),
+                    ButtonSegment(value: VerbInfoMode.onHold, label: Text('Na Tab')),
+                  ],
+                  selected: {settings.verbInfo},
+                  onSelectionChanged: (selection) => notifier.setVerbInfo(selection.first),
+                  showSelectedIcon: false,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 20),
