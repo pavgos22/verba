@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.4 — the on-screen Russian keyboard gains a bottom row of accented vowels (above the spacebar) for typing stress marks — in the course editor and during sessions; the custom-course editor also gets an optional "Wymowa" (pronunciation) field
+
 ## 0.11.3 — the custom-course word list is now numbered 1…n with the first added word on top (was newest-first and unnumbered), and the delete (trash) icon shows a pointer cursor on hover
 
 ## 0.11.2 — the custom-course editor gains an on-screen keyboard with a manual Russian/Polish layout toggle (keys type into the last focused field), a "Kategoria" dropdown listing every category used across the courses, and a "Dodaj" button matched to the input height
