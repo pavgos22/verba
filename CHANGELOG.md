@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.6 — edit a word in a custom course: a pencil icon on each row opens a dialog to change its Russian (with accent), Polish variants, category, pronunciation and verb fields
+
 ## 0.11.5 — a "Zapisz" button at the bottom of the custom-course editor returns to the course list (words already save the moment you add them)
 
 ## 0.11.4 — the on-screen Russian keyboard gains a bottom row of accented vowels (above the spacebar) for typing stress marks — in the course editor and during sessions; the custom-course editor also gets an optional "Wymowa" (pronunciation) field
