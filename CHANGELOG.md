@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.5 — a "Zapisz" button at the bottom of the custom-course editor returns to the course list (words already save the moment you add them)
+
 ## 0.11.4 — the on-screen Russian keyboard gains a bottom row of accented vowels (above the spacebar) for typing stress marks — in the course editor and during sessions; the custom-course editor also gets an optional "Wymowa" (pronunciation) field
 
 ## 0.11.3 — the custom-course word list is now numbered 1…n with the first added word on top (was newest-first and unnumbered), and the delete (trash) icon shows a pointer cursor on hover
