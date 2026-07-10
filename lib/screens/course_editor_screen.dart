@@ -341,7 +341,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                 clipBehavior: Clip.antiAlias,
                 child: Column(
                   children: [
-                    for (final word in course.words.reversed)
+                    for (final (index, word) in course.words.indexed)
                       Container(
                         height: 52,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -349,7 +349,12 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                         child: Row(
                           children: [
                             SizedBox(
-                              width: 300,
+                              width: 36,
+                              child: Text('${index + 1}',
+                                  style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+                            ),
+                            SizedBox(
+                              width: 264,
                               child: Text(word.ru,
                                   style: TextStyle(
                                       fontSize: 15, fontWeight: FontWeight.w500, color: context.c.foreground)),
@@ -363,6 +368,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                                   ref.read(customCoursesProvider.notifier).removeWord(widget.courseId, word.id),
                               icon: Icon(Icons.delete_outline, size: 18, color: context.c.mutedForeground),
                               tooltip: 'Usuń',
+                              mouseCursor: SystemMouseCursors.click,
                             ),
                           ],
                         ),

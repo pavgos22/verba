@@ -7,14 +7,14 @@ import 'package:verba/data/settings_store.dart';
 import 'package:verba/screens/course_editor_screen.dart';
 import 'package:verba/theme/app_theme.dart';
 
-Future<void> _pump(WidgetTester tester) async {
+Future<void> _pump(WidgetTester tester, {String wordsJson = ''}) async {
   tester.view.physicalSize = const Size(1400, 1400);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
 
   SharedPreferences.setMockInitialValues({});
   final prefs = await SharedPreferences.getInstance();
-  const raw = '[{"id":"custom-1","name":"Test","description":"d","words":[]}]';
+  final raw = '[{"id":"custom-1","name":"Test","description":"d","words":[$wordsJson]}]';
   await tester.pumpWidget(ProviderScope(
     overrides: [
       prefsProvider.overrideWithValue(prefs),
@@ -51,5 +51,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('а'), findsWidgets);
     expect(find.text('ł'), findsNothing);
+  });
+
+  testWidgets('words are numbered from 1 with the first added on top', (tester) async {
+    await _pump(tester, wordsJson: '{"id":"a","ru":"кот","pl":["kot"]},{"id":"b","ru":"дом","pl":["dom"]}');
+    expect(find.text('1'), findsOneWidget);
+    expect(find.text('2'), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text('кот')).dy,
+      lessThan(tester.getTopLeft(find.text('дом')).dy),
+    );
   });
 }
