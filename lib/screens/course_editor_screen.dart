@@ -4,7 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/transliteration.dart';
 import '../data/custom_courses.dart';
 import '../data/word.dart';
+import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
+import '../widgets/app_dropdown.dart';
+import '../widgets/onscreen_keyboard.dart';
 
 class CourseEditorScreen extends ConsumerStatefulWidget {
   const CourseEditorScreen({super.key, required this.courseId});
@@ -21,6 +24,27 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   final _firstPerson = TextEditingController();
   final _verbType = TextEditingController();
   final _ruFocus = FocusNode();
+  final _plFocus = FocusNode();
+  final _firstPersonFocus = FocusNode();
+  final _verbTypeFocus = FocusNode();
+  String? _category;
+  late TextEditingController _active = _ru;
+  KeyboardLayoutType _layout = KeyboardLayoutType.polish;
+
+  @override
+  void initState() {
+    super.initState();
+    _target(_ruFocus, _ru);
+    _target(_firstPersonFocus, _firstPerson);
+    _target(_plFocus, _pl);
+    _target(_verbTypeFocus, _verbType);
+  }
+
+  void _target(FocusNode node, TextEditingController controller) {
+    node.addListener(() {
+      if (node.hasFocus) _active = controller;
+    });
+  }
 
   @override
   void dispose() {
@@ -29,6 +53,9 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _firstPerson.dispose();
     _verbType.dispose();
     _ruFocus.dispose();
+    _plFocus.dispose();
+    _firstPersonFocus.dispose();
+    _verbTypeFocus.dispose();
     super.dispose();
   }
 
@@ -44,6 +71,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
       id: 'w-${DateTime.now().microsecondsSinceEpoch}',
       ru: ru,
       pl: pl,
+      category: _category,
       firstPerson: firstPerson.isEmpty ? null : firstPerson,
       verbType: verbType.isEmpty ? null : verbType,
     );
@@ -53,6 +81,22 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _firstPerson.clear();
     _verbType.clear();
     _ruFocus.requestFocus();
+  }
+
+  List<String> _allCategories() {
+    return ref.watch(coursesProvider).maybeWhen(
+      data: (courses) {
+        final set = <String>{};
+        for (final course in courses) {
+          for (final word in course.words) {
+            if (word.category != null && word.category!.isNotEmpty) set.add(word.category!);
+          }
+        }
+        final list = set.toList()..sort();
+        return list;
+      },
+      orElse: () => const <String>[],
+    );
   }
 
   Future<void> _import(bool hasWords) async {
@@ -190,13 +234,26 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Expanded(child: _Field(label: 'Rosyjski', controller: _ru, focusNode: _ruFocus, transliterate: true, onSubmit: _add)),
+                      Expanded(
+                        child: _Field(
+                            label: 'Rosyjski',
+                            controller: _ru,
+                            focusNode: _ruFocus,
+                            transliterate: true,
+                            onSubmit: _add),
+                      ),
                       const SizedBox(width: 12),
-                      Expanded(child: _Field(label: 'Polski', controller: _pl, onSubmit: _add)),
+                      Expanded(
+                        child: _Field(label: 'Polski', controller: _pl, focusNode: _plFocus, onSubmit: _add),
+                      ),
                       const SizedBox(width: 12),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 26),
-                        child: FilledButton(onPressed: _add, child: const Text('Dodaj')),
+                      SizedBox(
+                        width: 200,
+                        child: _DropdownField(
+                          value: _category,
+                          categories: _allCategories(),
+                          onChanged: (value) => setState(() => _category = value),
+                        ),
                       ),
                     ],
                   ),
@@ -208,21 +265,59 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                         child: _Field(
                             label: '1. osoba — czasownik (opcjonalnie)',
                             controller: _firstPerson,
+                            focusNode: _firstPersonFocus,
                             transliterate: true,
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
                       SizedBox(
-                        width: 160,
-                        child: _Field(label: 'Typ (opcjonalnie)', controller: _verbType, onSubmit: _add),
+                        width: 140,
+                        child: _Field(
+                            label: 'Typ (opcjonalnie)',
+                            controller: _verbType,
+                            focusNode: _verbTypeFocus,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
+                      SizedBox(
+                        height: 40,
+                        child: FilledButton(
+                          onPressed: _add,
+                          style: FilledButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          child: const Text('Dodaj'),
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Rosyjski: pisz po łacińsku, zamieni się na cyrylicę (q = akcent). Polski: warianty oddziel przecinkiem. '
-                    'Dla czasowników możesz podać formę 1. osoby (np. „еду”) i typ (np. „1”) — pokazują się przy nauce.',
+                    'Rosyjski i 1. osoba: pisz po łacińsku (q = akcent) lub klawiaturą niżej. '
+                    'Polski: warianty po przecinku. Kategoria oraz pola czasownika (1. osoba, typ) są opcjonalne.',
                     style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
+                  ),
+                  const SizedBox(height: 14),
+                  Center(
+                    child: SegmentedButton<KeyboardLayoutType>(
+                      segments: const [
+                        ButtonSegment(value: KeyboardLayoutType.russian, label: Text('Rosyjska')),
+                        ButtonSegment(value: KeyboardLayoutType.polish, label: Text('Polska')),
+                      ],
+                      selected: {_layout},
+                      onSelectionChanged: (selection) => setState(() => _layout = selection.first),
+                      showSelectedIcon: false,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Center(
+                    child: OnScreenKeyboard(
+                      layout: _layout,
+                      onText: (text) => insertIntoController(_active, text),
+                      onBackspace: () => backspaceInController(_active),
+                    ),
                   ),
                 ],
               ),
@@ -278,6 +373,36 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _DropdownField extends StatelessWidget {
+  const _DropdownField({required this.value, required this.categories, required this.onChanged});
+
+  final String? value;
+  final List<String> categories;
+  final ValueChanged<String?> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Kategoria',
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+        const SizedBox(height: 6),
+        AppDropdown<String?>(
+          value: value,
+          expand: true,
+          menuWidth: 200,
+          onChanged: onChanged,
+          items: [
+            const AppDropdownItem<String?>(value: null, label: 'Bez kategorii'),
+            for (final category in categories) AppDropdownItem<String?>(value: category, label: category),
+          ],
+        ),
+      ],
     );
   }
 }
