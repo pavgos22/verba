@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.2 — the custom-course editor gains an on-screen keyboard with a manual Russian/Polish layout toggle (keys type into the last focused field), a "Kategoria" dropdown listing every category used across the courses, and a "Dodaj" button matched to the input height
+
 ## 0.11.1 — the built-in verbs in "Pierwsze kroki" and "1000 słówek" now carry their 1st-person form and conjugation type (1/2), generated with pymorphy3 (tool/generate_verb_forms.py); forms are unstressed for now — stress to follow from a stressed dictionary. A handful of irregular/impersonal verbs were left for manual review
 
 ## 0.11.0 — verbs can now carry a 1st-person form and a conjugation type (e.g. е́хать¹ (я е́ду)); a new "Odmiana czasowników" setting shows them never / always / on holding Tab (default: on Tab, next to the pronunciation reveal). Add both fields when building your own course or via JSON import (firstPerson / verbType)
