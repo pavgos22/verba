@@ -331,6 +331,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                   Center(
                     child: OnScreenKeyboard(
                       layout: _layout,
+                      accentRow: true,
                       onText: (text) => insertIntoController(_active, text),
                       onBackspace: () => backspaceInController(_active),
                     ),

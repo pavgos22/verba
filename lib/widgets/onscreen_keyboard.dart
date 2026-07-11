@@ -93,11 +93,13 @@ class OnScreenKeyboard extends StatelessWidget {
     required this.layout,
     required this.onText,
     required this.onBackspace,
+    this.accentRow = false,
   });
 
   final KeyboardLayoutType layout;
   final ValueChanged<String> onText;
   final VoidCallback onBackspace;
+  final bool accentRow;
 
   @override
   Widget build(BuildContext context) {
@@ -112,13 +114,15 @@ class OnScreenKeyboard extends StatelessWidget {
           ],
         ));
       }
-      rows.add(Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (final vowel in _russianVowels)
-            _KeyCap(label: '$vowel$_stressMark', onTap: () => onText('$vowel$_stressMark')),
-        ],
-      ));
+      if (accentRow) {
+        rows.add(Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (final vowel in _russianVowels)
+              _KeyCap(label: '$vowel$_stressMark', onTap: () => onText('$vowel$_stressMark')),
+          ],
+        ));
+      }
     } else {
       for (final row in _polishRows) {
         rows.add(Row(

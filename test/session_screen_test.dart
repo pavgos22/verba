@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -85,5 +86,48 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(container.read(progressProvider).words['w1']!.wrong, 1);
+  });
+
+  testWidgets('after a correct PL->RU answer, holding Tab reveals verb info', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    SharedPreferences.setMockInitialValues({
+      'settings.autoplay': false,
+      'settings.answerSounds': false,
+      'settings.showKeyboard': false,
+      'settings.showAccents': false,
+    });
+    final prefs = await SharedPreferences.getInstance();
+    const verb = Word(id: 'v', ru: 'ехать', ruAccented: 'е́хать', pl: ['jechać'], firstPerson: 'еду', verbType: '1');
+    final container = ProviderContainer(overrides: [
+      prefsProvider.overrideWithValue(prefs),
+      wordsProvider.overrideWith((ref) => [verb]),
+    ]);
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        theme: buildTheme(Brightness.light),
+        home: const SessionScreen(
+          mode: SessionMode.retry,
+          retryTasks: [SessionTask(word: verb, kind: TaskKind.typingPlToRu)],
+          loop: false,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'ехать');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    expect(find.text('еду'), findsNothing);
+
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.tab);
+    await tester.pumpAndSettle();
+    expect(find.text('еду'), findsOneWidget);
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.tab);
   });
 }

@@ -501,6 +501,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
           const SizedBox(width: 8),
           Text('Świetnie!',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
+          if (_isPlToRu && (widget.word.pronunciation != null || widget.word.hasVerbInfo)) ...[
+            const SizedBox(width: 10),
+            Text('· Tab — szczegóły', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+          ],
         ],
       );
     }
@@ -627,11 +631,12 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                   const SizedBox(height: 4),
                   VerbInfoSlot(
                     word: widget.word,
-                    visible: !_isPlToRu && showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
+                    visible:
+                        (!_isPlToRu || _done) && showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
                     fontSize: 13,
                   ),
                   PronunciationSlot(
-                    pronunciation: _isPlToRu ? null : widget.word.pronunciation,
+                    pronunciation: _isPlToRu && !_done ? null : widget.word.pronunciation,
                     visible: widget.showPronunciation,
                     fontSize: 13,
                   ),
