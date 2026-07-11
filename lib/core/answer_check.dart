@@ -28,14 +28,20 @@ List<String> acceptedRu(Word word) {
   return [n];
 }
 
-bool checkRuAnswer(Word word, String answer) {
-  return acceptedRu(word).contains(normalizeRu(answer));
+List<String> _answerTokens(String answer, String Function(String) normalize) {
+  return answer.split(',').map(normalize).where((t) => t.isNotEmpty).toList();
 }
 
-bool checkPlAnswer(Word word, String answer) {
-  final normalized = normalizePl(answer);
-  return word.pl.any((variant) => normalizePl(variant) == normalized);
+bool _checkTokens(String answer, List<String> accepted, String Function(String) normalize) {
+  final set = accepted.toSet();
+  final tokens = _answerTokens(answer, normalize);
+  return tokens.isNotEmpty && tokens.every(set.contains);
 }
+
+bool checkRuAnswer(Word word, String answer) => _checkTokens(answer, acceptedRu(word), normalizeRu);
+
+bool checkPlAnswer(Word word, String answer) =>
+    _checkTokens(answer, [for (final variant in word.pl) normalizePl(variant)], normalizePl);
 
 int levenshtein(String a, String b) {
   if (a == b) return 0;
@@ -74,10 +80,18 @@ AnswerGrade _grade(String given, List<String> accepted) {
   return AnswerGrade.wrong;
 }
 
-AnswerGrade gradeRuAnswer(Word word, String answer) {
-  return _grade(normalizeRu(answer), acceptedRu(word));
+AnswerGrade _gradeTokens(String answer, List<String> accepted, String Function(String) normalize) {
+  final tokens = _answerTokens(answer, normalize);
+  if (tokens.isEmpty) return AnswerGrade.wrong;
+  var worst = AnswerGrade.correct;
+  for (final token in tokens) {
+    final grade = _grade(token, accepted);
+    if (grade.index > worst.index) worst = grade;
+  }
+  return worst;
 }
 
-AnswerGrade gradePlAnswer(Word word, String answer) {
-  return _grade(normalizePl(answer), [for (final variant in word.pl) normalizePl(variant)]);
-}
+AnswerGrade gradeRuAnswer(Word word, String answer) => _gradeTokens(answer, acceptedRu(word), normalizeRu);
+
+AnswerGrade gradePlAnswer(Word word, String answer) =>
+    _gradeTokens(answer, [for (final variant in word.pl) normalizePl(variant)], normalizePl);

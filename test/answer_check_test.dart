@@ -37,6 +37,15 @@ void main() {
     expect(checkPlAnswer(word, 'umieć'), isFalse);
   });
 
+  test('accepts several comma-separated variants in any order', () {
+    expect(checkPlAnswer(word, 'wiedzieć, znać'), isTrue);
+    expect(gradePlAnswer(word, 'wiedzieć, znać'), AnswerGrade.correct);
+    expect(checkPlAnswer(word, 'znać, wiedzieć'), isTrue);
+    expect(gradePlAnswer(word, 'znać, wiedzieć'), AnswerGrade.correct);
+    expect(checkPlAnswer(word, 'wiedzieć, umieć'), isFalse);
+    expect(gradePlAnswer(word, 'wiedzieć, umieć'), AnswerGrade.wrong);
+  });
+
   test('levenshtein distance', () {
     expect(levenshtein('kot', 'kot'), 0);
     expect(levenshtein('kot', 'kos'), 1);
