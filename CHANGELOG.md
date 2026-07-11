@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.7 — on a custom course the "Nadia" voice is now greyed out in the session lector picker with a tooltip — its pre-recorded audio only covers the built-in courses, so custom words fall back to the system voice
+
 ## 0.11.6 — edit a word in a custom course: a pencil icon on each row opens a dialog to change its Russian (with accent), Polish variants, category, pronunciation and verb fields
 
 ## 0.11.5 — a "Zapisz" button at the bottom of the custom-course editor returns to the course list (words already save the moment you add them)
