@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.8 — the accented-vowel keyboard row now appears only in the custom-course editor, not in learning/practice/test sessions; and in a Polish→Russian exercise, once you answer correctly you can hold Tab to peek at the word's 1st-person form, conjugation type and pronunciation
+
 ## 0.11.7 — on a custom course the "Nadia" voice is now greyed out in the session lector picker with a tooltip — its pre-recorded audio only covers the built-in courses, so custom words fall back to the system voice
 
 ## 0.11.6 — edit a word in a custom course: a pencil icon on each row opens a dialog to change its Russian (with accent), Polish variants, category, pronunciation and verb fields
