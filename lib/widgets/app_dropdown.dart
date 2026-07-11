@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 
 class AppDropdownItem<T> {
-  const AppDropdownItem({required this.value, required this.label});
+  const AppDropdownItem({required this.value, required this.label, this.enabled = true, this.tooltip});
 
   final T value;
   final String label;
+  final bool enabled;
+  final String? tooltip;
 }
 
 class AppDropdown<T> extends StatefulWidget {
@@ -36,6 +38,42 @@ class AppDropdown<T> extends StatefulWidget {
 class _AppDropdownState<T> extends State<AppDropdown<T>> {
   final _controller = MenuController();
 
+  Widget _menuItem(BuildContext context, AppDropdownItem<T> item) {
+    final button = MenuItemButton(
+      style: ButtonStyle(
+        minimumSize: const WidgetStatePropertyAll(Size(0, 36)),
+        fixedSize: WidgetStatePropertyAll(Size(widget.menuWidth, 36)),
+        padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 10)),
+        overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        foregroundColor: WidgetStateProperty.resolveWith(
+            (states) => states.contains(WidgetState.disabled) ? context.c.mutedForeground : context.c.foreground),
+        textStyle: const WidgetStatePropertyAll(TextStyle(fontFamily: 'Inter', fontSize: 14)),
+        mouseCursor: WidgetStatePropertyAll(item.enabled ? SystemMouseCursors.click : SystemMouseCursors.basic),
+        shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
+            return context.c.accent;
+          }
+          return Colors.transparent;
+        }),
+      ),
+      onPressed: item.enabled ? () => widget.onChanged(item.value) : null,
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(item.label,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontWeight: item.value == widget.value ? FontWeight.w600 : FontWeight.normal)),
+          ),
+          if (item.value == widget.value && item.enabled)
+            Icon(Icons.check, size: 15, color: context.c.foreground),
+        ],
+      ),
+    );
+    if (item.tooltip == null) return button;
+    return Tooltip(message: item.tooltip!, child: button);
+  }
+
   @override
   Widget build(BuildContext context) {
     final selected = widget.items.firstWhere(
@@ -60,42 +98,7 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
           ),
         ),
       ),
-      menuChildren: [
-        for (final item in widget.items)
-          MenuItemButton(
-            style: ButtonStyle(
-              minimumSize: const WidgetStatePropertyAll(Size(0, 36)),
-              fixedSize: WidgetStatePropertyAll(Size(widget.menuWidth, 36)),
-              padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 10)),
-              overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-              foregroundColor: WidgetStatePropertyAll(context.c.foreground),
-              textStyle: const WidgetStatePropertyAll(TextStyle(fontFamily: 'Inter', fontSize: 14)),
-              mouseCursor: const WidgetStatePropertyAll(SystemMouseCursors.click),
-              shape: WidgetStatePropertyAll(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-              ),
-              backgroundColor: WidgetStateProperty.resolveWith((states) {
-                if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
-                  return context.c.accent;
-                }
-                return Colors.transparent;
-              }),
-            ),
-            onPressed: () => widget.onChanged(item.value),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(item.label,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontWeight: item.value == widget.value ? FontWeight.w600 : FontWeight.normal)),
-                ),
-                if (item.value == widget.value)
-                  Icon(Icons.check, size: 15, color: context.c.foreground),
-              ],
-            ),
-          ),
-      ],
+      menuChildren: [for (final item in widget.items) _menuItem(context, item)],
       builder: (context, controller, child) {
         return MouseRegion(
           cursor: SystemMouseCursors.click,

@@ -390,6 +390,7 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
         _SessionFooter(
           leading: LectorDropdown(
             value: settings.lector,
+            googleUnavailable: settings.activeCourseId.startsWith('custom-'),
             onChanged: (lector) {
               ref.read(settingsProvider.notifier).setLector(lector);
               ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
@@ -696,6 +697,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
         _SessionFooter(
           leading: LectorDropdown(
             value: settings.lector,
+            googleUnavailable: settings.activeCourseId.startsWith('custom-'),
             onChanged: (lector) {
               ref.read(settingsProvider.notifier).setLector(lector);
               if (!_isPlToRu) {
