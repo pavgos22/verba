@@ -1759,7 +1759,7 @@
                   "id": "U1WicW",
                   "name": "Word",
                   "fill": "$foreground",
-                  "content": "приве́т",
+                  "content": "е́хать",
                   "fontFamily": "$font-body",
                   "fontSize": 48,
                   "fontWeight": "600"
@@ -1793,10 +1793,20 @@
             },
             {
               "type": "text",
+              "id": "v8JjsL",
+              "name": "VerbForm",
+              "fill": "$muted-foreground",
+              "content": "¹ (я е́ду)",
+              "fontFamily": "$font-body",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
               "id": "R1xSd",
               "name": "Transliteration",
               "fill": "$muted-foreground",
-              "content": "priwiet",
+              "content": "jechat'",
               "fontFamily": "$font-body",
               "fontSize": 15,
               "fontWeight": "normal"
@@ -1814,7 +1824,7 @@
               "id": "F72Yd",
               "name": "Translation",
               "fill": "$foreground",
-              "content": "cześć",
+              "content": "jechać",
               "fontFamily": "$font-body",
               "fontSize": 22,
               "fontWeight": "500"
@@ -1826,7 +1836,7 @@
               "name": "CategoryBadge",
               "descendants": {
                 "zVpXg": {
-                  "content": "zwroty podstawowe"
+                  "content": "czasowniki"
                 }
               }
             }
@@ -4095,12 +4105,12 @@
     {
       "type": "frame",
       "id": "M08nI",
-      "x": 2760,
-      "y": 1800,
+      "x": 15980,
+      "y": 0,
       "name": "Ustawienia",
       "clip": true,
       "width": 1280,
-      "height": 800,
+      "height": 1440,
       "fill": "$background",
       "children": [
         {
@@ -4302,6 +4312,200 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GXV6P",
+                  "name": "Row-Znaki akcentu",
+                  "width": "fill_container",
+                  "height": 44,
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Fw7wq",
+                      "name": "RowLabel",
+                      "width": 340,
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "r4tHY",
+                          "name": "RowTitle",
+                          "fill": "$foreground",
+                          "content": "Znaki akcentu",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "z1qUR",
+                          "name": "RowDesc",
+                          "fill": "$muted-foreground",
+                          "content": "Pokazuj akcent nad rosyjskimi słowami",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e0r7Fv",
+                      "name": "Toggle",
+                      "width": 36,
+                      "height": 20,
+                      "fill": "$primary",
+                      "cornerRadius": 10,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Vl5oN",
+                          "x": 18,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 16,
+                          "height": 16
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VMJ4g",
+                  "name": "Row-Odmiana czasowników",
+                  "width": "fill_container",
+                  "height": 44,
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Eu5Tu",
+                      "name": "RowLabel",
+                      "width": 340,
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yGvUc",
+                          "name": "RowTitle",
+                          "fill": "$foreground",
+                          "content": "Odmiana czasowników",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "VlyMf",
+                          "name": "RowDesc",
+                          "fill": "$muted-foreground",
+                          "content": "Forma 1. osoby i typ przy czasownikach",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Uhwdz",
+                      "name": "Segmented",
+                      "height": 36,
+                      "fill": "$muted",
+                      "cornerRadius": 8,
+                      "gap": 2,
+                      "padding": [
+                        0,
+                        2
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "NJCo9",
+                          "name": "Seg-Jasny",
+                          "height": 32,
+                          "fill": "#00000000",
+                          "cornerRadius": 6,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "PUc3f",
+                              "name": "SegLabel",
+                              "fill": "$muted-foreground",
+                              "content": "Nie",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "L2H2B5",
+                          "name": "Seg-Ciemny",
+                          "height": 32,
+                          "cornerRadius": 6,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "A7Ebi",
+                              "name": "SegLabel",
+                              "fill": "$muted-foreground",
+                              "content": "Zawsze",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dyp7p",
+                          "name": "Seg-Systemowy",
+                          "height": 32,
+                          "fill": "$background",
+                          "cornerRadius": 6,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "r7aZR4",
+                              "name": "SegLabel",
+                              "fill": "$foreground",
+                              "content": "Na Tab",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -4327,6 +4531,95 @@
                   "fontFamily": "$font-body",
                   "fontSize": 16,
                   "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "G6YzNr",
+                  "name": "Row-Lektor",
+                  "width": "fill_container",
+                  "height": 44,
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "o7envR",
+                      "name": "RowLabel",
+                      "width": 340,
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "q0ayY1",
+                          "name": "RowTitle",
+                          "fill": "$foreground",
+                          "content": "Lektor",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "V9ZJE",
+                          "name": "RowDesc",
+                          "fill": "$muted-foreground",
+                          "content": "Głos czytający rosyjskie słówka",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "VrkUr",
+                      "name": "LektorDrop",
+                      "height": 36,
+                      "fill": "$background",
+                      "cornerRadius": 8,
+                      "stroke": "$input",
+                      "strokeWidth": 1,
+                      "gap": 8,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "SLW8B",
+                          "name": "I",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "mic",
+                          "library": "lucide",
+                          "fill": "$muted-foreground"
+                        },
+                        {
+                          "type": "text",
+                          "id": "MtcqB",
+                          "name": "L",
+                          "fill": "$foreground",
+                          "content": "Nadia",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "D4XABK",
+                          "name": "Chevron",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "chevron-down",
+                          "library": "lucide",
+                          "fill": "$muted-foreground"
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   "type": "frame",
@@ -4380,6 +4673,69 @@
                         {
                           "type": "ellipse",
                           "id": "K9bai",
+                          "x": 18,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 16,
+                          "height": 16
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "evpmv",
+                  "name": "Row-Dźwięki odpowiedzi",
+                  "width": "fill_container",
+                  "height": 44,
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "o48oR",
+                      "name": "RowLabel",
+                      "width": 340,
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Nnyfr",
+                          "name": "RowTitle",
+                          "fill": "$foreground",
+                          "content": "Dźwięki odpowiedzi",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l9hNlN",
+                          "name": "RowDesc",
+                          "fill": "$muted-foreground",
+                          "content": "Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZFgdr",
+                      "name": "Toggle",
+                      "width": 36,
+                      "height": 20,
+                      "fill": "$primary",
+                      "cornerRadius": 10,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "qbl8x",
                           "x": 18,
                           "y": 2,
                           "name": "Knob",
@@ -4675,8 +5031,8 @@
                 },
                 {
                   "type": "frame",
-                  "id": "Y34K9",
-                  "name": "Row-Cel dzienny",
+                  "id": "onM0Q",
+                  "name": "Row-Kolejność nowych słówek",
                   "width": "fill_container",
                   "height": 44,
                   "gap": 16,
@@ -4684,7 +5040,7 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "XnLWF",
+                      "id": "xcfxD",
                       "name": "RowLabel",
                       "width": 340,
                       "layout": "vertical",
@@ -4692,20 +5048,20 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "uYN4s",
+                          "id": "MFvKs",
                           "name": "RowTitle",
                           "fill": "$foreground",
-                          "content": "Cel dzienny",
+                          "content": "Kolejność nowych słówek",
                           "fontFamily": "$font-body",
                           "fontSize": 14,
                           "fontWeight": "500"
                         },
                         {
                           "type": "text",
-                          "id": "xa81v",
+                          "id": "HqxFf",
                           "name": "RowDesc",
                           "fill": "$muted-foreground",
-                          "content": "Liczba nowych słówek na dzień",
+                          "content": "Dobór nowych słówek w „Dzisiejszej sesji”",
                           "fontFamily": "$font-body",
                           "fontSize": 13,
                           "fontWeight": "normal"
@@ -4714,82 +5070,129 @@
                     },
                     {
                       "type": "frame",
-                      "id": "a1WeO",
-                      "name": "Stepper",
-                      "height": 32,
-                      "gap": 8,
+                      "id": "yk3d1",
+                      "name": "Segmented",
+                      "height": 36,
+                      "fill": "$muted",
+                      "cornerRadius": 8,
+                      "gap": 2,
+                      "padding": [
+                        0,
+                        2
+                      ],
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "frame",
-                          "id": "s63GL",
-                          "name": "StepMinus",
-                          "width": 32,
+                          "id": "VtgFC",
+                          "name": "Seg-Po kolei",
                           "height": 32,
-                          "fill": "$background",
-                          "cornerRadius": 8,
-                          "stroke": "$border",
-                          "strokeWidth": 1,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "dCgps",
-                              "name": "MinusIcon",
-                              "width": 14,
-                              "height": 14,
-                              "icon": "minus",
-                              "library": "lucide",
-                              "fill": "$foreground"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "hhkjD",
-                          "name": "StepValue",
-                          "width": 40,
-                          "height": 32,
-                          "justifyContent": "center",
+                          "cornerRadius": 6,
+                          "padding": [
+                            0,
+                            12
+                          ],
                           "alignItems": "center",
                           "children": [
                             {
                               "type": "text",
-                              "id": "ti7UL",
-                              "name": "StepText",
-                              "fill": "$foreground",
-                              "content": "20",
+                              "id": "bP3BR",
+                              "name": "SegLabel",
+                              "fill": "$muted-foreground",
+                              "content": "Po kolei",
                               "fontFamily": "$font-body",
-                              "fontSize": 14,
-                              "fontWeight": "600"
+                              "fontSize": 13,
+                              "fontWeight": "500"
                             }
                           ]
                         },
                         {
                           "type": "frame",
-                          "id": "LJgx5",
-                          "name": "StepPlus",
-                          "width": 32,
+                          "id": "Qi6Ar",
+                          "name": "Seg-Losowo",
                           "height": 32,
                           "fill": "$background",
-                          "cornerRadius": 8,
-                          "stroke": "$border",
-                          "strokeWidth": 1,
-                          "justifyContent": "center",
+                          "cornerRadius": 6,
+                          "padding": [
+                            0,
+                            12
+                          ],
                           "alignItems": "center",
                           "children": [
                             {
-                              "type": "icon",
-                              "id": "jbZzu",
-                              "name": "PlusIcon",
-                              "width": 14,
-                              "height": 14,
-                              "icon": "plus",
-                              "library": "lucide",
-                              "fill": "$foreground"
+                              "type": "text",
+                              "id": "b6pIqV",
+                              "name": "SegLabel",
+                              "fill": "$foreground",
+                              "content": "Losowo",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
                             }
                           ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BL8f8",
+                  "name": "Row-Kolumna punktów (debug)",
+                  "width": "fill_container",
+                  "height": 44,
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "EOIwT",
+                      "name": "RowLabel",
+                      "width": 340,
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "V1llM",
+                          "name": "RowTitle",
+                          "fill": "$foreground",
+                          "content": "Kolumna punktów (debug)",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XvtjX",
+                          "name": "RowDesc",
+                          "fill": "$muted-foreground",
+                          "content": "Wynik punktowy słówka w tabeli Słówka",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A4gxa",
+                      "name": "Toggle",
+                      "width": 36,
+                      "height": 20,
+                      "fill": "$muted-foreground",
+                      "cornerRadius": 10,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "RhrTL",
+                          "x": 2,
+                          "y": 2,
+                          "name": "Knob",
+                          "fill": "$primary-foreground",
+                          "width": 16,
+                          "height": 16
                         }
                       ]
                     }
@@ -7708,6 +8111,131 @@
         },
         {
           "type": "text",
+          "id": "u9Us01",
+          "name": "ScopeLabel",
+          "fill": "$muted-foreground",
+          "content": "Zakres słówek",
+          "fontFamily": "$font-body",
+          "fontSize": 13,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "dcTkz",
+          "name": "Scope-Wszystkie rozpoczęte",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "fKmso",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$primary",
+              "strokeWidth": 5
+            },
+            {
+              "type": "text",
+              "id": "UYMGc",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Wszystkie rozpoczęte",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ravMk",
+          "name": "Scope-Najnowsze poznane",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "l0f4iF",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$border",
+              "strokeWidth": 1.5
+            },
+            {
+              "type": "text",
+              "id": "di5x0",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Najnowsze poznane",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "F6HTA",
+          "name": "Scope-Sprawiające trudności",
+          "width": "fill_container",
+          "height": 40,
+          "cornerRadius": 8,
+          "gap": 12,
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "DMi1J",
+              "name": "Radio",
+              "fill": "#00000000",
+              "width": 16,
+              "height": 16,
+              "stroke": "$border",
+              "strokeWidth": 1.5
+            },
+            {
+              "type": "text",
+              "id": "nlfoj",
+              "name": "OptionLabel",
+              "fill": "$foreground",
+              "content": "Sprawiające trudności",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xuAnm",
+          "name": "ScopeAfterGap",
+          "width": 8,
+          "height": 8
+        },
+        {
+          "type": "text",
           "id": "ZDxKX",
           "name": "SectionLabel",
           "fill": "$muted-foreground",
@@ -9540,6 +10068,148 @@
             },
             {
               "type": "frame",
+              "id": "Ar4Ng",
+              "name": "StatusFilter",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ZxFS2",
+                  "name": "Chip-Wszystkie",
+                  "height": 32,
+                  "fill": "$primary",
+                  "cornerRadius": 8,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zCGQg",
+                      "name": "L",
+                      "fill": "$primary-foreground",
+                      "content": "Wszystkie",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q8cf5o",
+                  "name": "Chip-Nowe (643)",
+                  "height": 32,
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DoQSp",
+                      "name": "L",
+                      "fill": "$muted-foreground",
+                      "content": "Nowe (643)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d2C1OL",
+                  "name": "Chip-W nauce (312)",
+                  "height": 32,
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "L87odO",
+                      "name": "L",
+                      "fill": "$muted-foreground",
+                      "content": "W nauce (312)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "l4NlO",
+                  "name": "Chip-Opanowane (45)",
+                  "height": 32,
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jW8Aj",
+                      "name": "L",
+                      "fill": "$muted-foreground",
+                      "content": "Opanowane (45)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RZHmT",
+                  "name": "Chip-Sprawiające trudności (28)",
+                  "height": 32,
+                  "fill": "$background",
+                  "cornerRadius": 8,
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zRifZ",
+                      "name": "L",
+                      "fill": "$muted-foreground",
+                      "content": "Sprawiające trudności (28)",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
               "id": "hIVFn",
               "name": "Toolbar",
               "height": 40,
@@ -10635,6 +11305,106 @@
                   "fontFamily": "$font-body",
                   "fontSize": 14,
                   "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "C7QFZ3",
+              "name": "ImportArea",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "J3lxsE",
+                  "name": "ImportRow",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Ey7Kd",
+                      "name": "ImportBtn",
+                      "height": 36,
+                      "cornerRadius": 8,
+                      "gap": 8,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "f7FQX",
+                          "name": "I",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "file-up",
+                          "library": "lucide",
+                          "fill": "$muted-foreground"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pghZX",
+                          "name": "L",
+                          "fill": "$muted-foreground",
+                          "content": "Importuj kurs z pliku JSON",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "P6KS7",
+                      "name": "Info",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "info",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mks9R",
+                  "name": "DownloadBtn",
+                  "height": 36,
+                  "cornerRadius": 8,
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "RjQRj",
+                      "name": "I",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "download",
+                      "library": "lucide",
+                      "fill": "$muted-foreground"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S5sJ6",
+                      "name": "L",
+                      "fill": "$muted-foreground",
+                      "content": "Pobierz przykładowy plik JSON",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
                 }
               ]
             }
