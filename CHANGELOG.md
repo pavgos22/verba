@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.10 — in a custom course the lector picker (both in a session and in Settings) now shows "Systemowy" as the selected voice instead of a greyed-out "Nadia" you can't pick — the system voice was already the one playing; switch back to a built-in course and Nadia returns. Display-only fix
+
 ## 0.11.9 — an answer that lists several meanings separated by commas is now accepted (e.g. "ufać, powierzać" for доверять) — each part just has to be one of the word's variants, in any order
 
 ## 0.11.8 — the accented-vowel keyboard row now appears only in the custom-course editor, not in learning/practice/test sessions; and in a Polish→Russian exercise, once you answer correctly you can hold Tab to peek at the word's 1st-person form, conjugation type and pronunciation
