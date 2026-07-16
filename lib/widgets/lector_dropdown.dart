@@ -17,8 +17,9 @@ class LectorDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final displayValue = googleUnavailable && value.hasAssets ? Lector.system : value;
     return AppDropdown<Lector>(
-      value: value,
+      value: displayValue,
       leadingIcon: Icons.record_voice_over_outlined,
       triggerPrefix: 'Lektor: ',
       menuWidth: 200,

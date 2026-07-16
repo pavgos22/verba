@@ -32,4 +32,18 @@ void main() {
     final picks = await _openAndTapNadia(tester, googleUnavailable: false);
     expect(picks, [Lector.google]);
   });
+
+  testWidgets('trigger shows system when Nadia is unavailable', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      theme: buildTheme(Brightness.light),
+      home: Scaffold(
+        body: Center(
+          child: LectorDropdown(value: Lector.google, googleUnavailable: true, onChanged: (_) {}),
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+    expect(find.text('Lektor: Systemowy'), findsOneWidget);
+    expect(find.text('Lektor: Nadia'), findsNothing);
+  });
 }

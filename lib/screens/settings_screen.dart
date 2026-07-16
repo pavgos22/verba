@@ -73,6 +73,7 @@ class SettingsScreen extends ConsumerWidget {
                 description: 'Głos czytający rosyjskie słówka',
                 control: LectorDropdown(
                   value: settings.lector,
+                  googleUnavailable: settings.activeCourseId.startsWith('custom-'),
                   onChanged: (lector) {
                     notifier.setLector(lector);
                     ref.read(audioServiceProvider).speakRussian('привет');
