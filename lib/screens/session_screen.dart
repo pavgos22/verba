@@ -753,7 +753,9 @@ class _SummaryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final percent = total == 0 ? 100 : (correct * 100 / total).round();
-    return Center(
+    return Focus(
+      autofocus: true,
+      child: Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(40),
         child: Column(
@@ -840,7 +842,6 @@ class _SummaryView extends StatelessWidget {
               children: [
                 if (allowRetry) ...[
                   OutlinedButton(
-                      autofocus: true,
                       onPressed: onRetry,
                       child: Text(loose
                           ? 'Popraw błędne (${mistakes.length})'
@@ -848,13 +849,13 @@ class _SummaryView extends StatelessWidget {
                   const SizedBox(width: 12),
                 ],
                 FilledButton(
-                    autofocus: !allowRetry,
                     onPressed: onFinish,
                     child: Text(loose ? 'Powróć do ekranu głównego' : 'Zakończ')),
               ],
             ),
           ],
         ),
+      ),
       ),
     );
   }

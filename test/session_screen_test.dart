@@ -130,4 +130,36 @@ void main() {
     expect(find.text('еду'), findsOneWidget);
     await tester.sendKeyUpEvent(LogicalKeyboardKey.tab);
   });
+
+  testWidgets('the end-of-session summary always shows and no Enter skips it into the retry', (tester) async {
+    await _pumpRetry(tester, loop: false);
+
+    await tester.enterText(find.byType(TextField), 'zzz');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'kot');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(find.text('Sesja ukończona!'), findsOneWidget);
+
+    await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(find.text('Sesja ukończona!'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(find.text('Sesja ukończona!'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+
+    await tester.tap(find.text('Popraw błędne (1)'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TextField), findsOneWidget);
+    expect(find.text('Sesja ukończona!'), findsNothing);
+  });
 }
