@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.11.11 — the end-of-session summary is now always shown before the "fix mistakes" pass, in every session type: it used to be possible to shoot straight past it into the retry by holding (or quickly double-tapping) Enter after the last answer; the summary no longer starts the retry from a keypress at all — you choose "Popraw/Powtórz błędne" or "Zakończ" with a deliberate click (or Tab+Enter)
+
 ## 0.11.10 — in a custom course the lector picker (both in a session and in Settings) now shows "Systemowy" as the selected voice instead of a greyed-out "Nadia" you can't pick — the system voice was already the one playing; switch back to a built-in course and Nadia returns. Display-only fix
 
 ## 0.11.9 — an answer that lists several meanings separated by commas is now accepted (e.g. "ufać, powierzać" for доверять) — each part just has to be one of the word's variants, in any order
