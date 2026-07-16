@@ -96,6 +96,8 @@ class VerbInfoSlot extends StatelessWidget {
     final height = fontSize + 10;
     if (!visible) return SizedBox(height: height);
     final muted = TextStyle(fontSize: fontSize, color: context.c.mutedForeground);
+    final hasFirst = word.firstPerson != null && word.firstPerson!.isNotEmpty;
+    final hasSecond = word.secondPerson != null && word.secondPerson!.isNotEmpty;
     return SizedBox(
       height: height,
       child: Row(
@@ -111,15 +113,45 @@ class VerbInfoSlot extends StatelessWidget {
             ),
             const SizedBox(width: 6),
           ],
-          if (word.firstPerson != null && word.firstPerson!.isNotEmpty) ...[
-            Text('(я ', style: muted),
-            AccentedText(word.firstPerson!, style: muted),
+          if (hasFirst || hasSecond) ...[
+            Text('(', style: muted),
+            if (hasFirst) ...[
+              Text('я ', style: muted),
+              AccentedText(word.firstPerson!, style: muted),
+            ],
+            if (hasFirst && hasSecond) Text(', ', style: muted),
+            if (hasSecond) ...[
+              Text('ты ', style: muted),
+              _highlightJo(word.secondPerson!, muted, context.c.success),
+            ],
             Text(')', style: muted),
           ],
         ],
       ),
     );
   }
+}
+
+Widget _highlightJo(String form, TextStyle base, Color joColor) {
+  final spans = <TextSpan>[];
+  final buffer = StringBuffer();
+  void flush() {
+    if (buffer.isEmpty) return;
+    spans.add(TextSpan(text: buffer.toString()));
+    buffer.clear();
+  }
+
+  for (var i = 0; i < form.length; i++) {
+    final ch = form[i];
+    if (ch == 'ё' || ch == 'Ё') {
+      flush();
+      spans.add(TextSpan(text: ch, style: TextStyle(color: joColor, fontWeight: FontWeight.w700)));
+    } else {
+      buffer.write(ch);
+    }
+  }
+  flush();
+  return Text.rich(TextSpan(style: base, children: spans));
 }
 
 class SpeakerButton extends ConsumerWidget {

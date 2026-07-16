@@ -67,7 +67,7 @@ void main() {
   test('ships a valid example course json', () {
     final parsed = parseCourseJson(exampleCourseJson, 'fallback');
     expect(parsed.name, 'Przykładowy kurs');
-    expect(parsed.words.length, 5);
+    expect(parsed.words.length, 6);
     final dog = parsed.words.firstWhere((w) => w.ru == 'собака');
     expect(dog.pl, ['pies', 'piesek']);
     expect(parsed.words.any((w) => w.category == 'rzeczowniki'), isTrue);
@@ -78,22 +78,24 @@ void main() {
     expect(verb.firstPerson, 'е́ду');
     expect(verb.verbType, '1');
     expect(verb.hasVerbInfo, isTrue);
+    final joVerb = parsed.words.firstWhere((w) => w.ru == 'жить');
+    expect(joVerb.secondPerson, 'живёшь');
   });
 
   test('word json round-trips verb fields', () {
     const word = Word(
       id: 'v',
-      ru: 'ехать',
-      ruAccented: 'е́хать',
-      pl: ['jechać'],
+      ru: 'жить',
+      pl: ['mieszkać'],
       category: 'czasowniki',
-      firstPerson: 'е́ду',
+      firstPerson: 'живу',
+      secondPerson: 'живёшь',
       verbType: '1',
     );
     final back = Word.fromJson(word.toJson());
-    expect(back.firstPerson, 'е́ду');
+    expect(back.firstPerson, 'живу');
+    expect(back.secondPerson, 'живёшь');
     expect(back.verbType, '1');
-    expect(back.ruAccented, 'е́хать');
   });
 
   test('loads from raw json', () {

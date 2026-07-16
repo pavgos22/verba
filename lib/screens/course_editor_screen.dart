@@ -23,11 +23,13 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   final _ru = TextEditingController();
   final _pl = TextEditingController();
   final _firstPerson = TextEditingController();
+  final _secondPerson = TextEditingController();
   final _verbType = TextEditingController();
   final _pronunciation = TextEditingController();
   final _ruFocus = FocusNode();
   final _plFocus = FocusNode();
   final _firstPersonFocus = FocusNode();
+  final _secondPersonFocus = FocusNode();
   final _verbTypeFocus = FocusNode();
   final _pronunciationFocus = FocusNode();
   String? _category;
@@ -39,6 +41,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     super.initState();
     _target(_ruFocus, _ru);
     _target(_firstPersonFocus, _firstPerson);
+    _target(_secondPersonFocus, _secondPerson);
     _target(_plFocus, _pl);
     _target(_verbTypeFocus, _verbType);
     _target(_pronunciationFocus, _pronunciation);
@@ -55,11 +58,13 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _ru.dispose();
     _pl.dispose();
     _firstPerson.dispose();
+    _secondPerson.dispose();
     _verbType.dispose();
     _pronunciation.dispose();
     _ruFocus.dispose();
     _plFocus.dispose();
     _firstPersonFocus.dispose();
+    _secondPersonFocus.dispose();
     _verbTypeFocus.dispose();
     _pronunciationFocus.dispose();
     super.dispose();
@@ -72,6 +77,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     final pl = plRaw.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
     if (pl.isEmpty) return;
     final firstPerson = _firstPerson.text.trim();
+    final secondPerson = _secondPerson.text.trim();
     final verbType = _verbType.text.trim();
     final pronunciation = _pronunciation.text.trim();
     final word = Word(
@@ -81,12 +87,14 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
       firstPerson: firstPerson.isEmpty ? null : firstPerson,
+      secondPerson: secondPerson.isEmpty ? null : secondPerson,
       verbType: verbType.isEmpty ? null : verbType,
     );
     ref.read(customCoursesProvider.notifier).addWord(widget.courseId, word);
     _ru.clear();
     _pl.clear();
     _firstPerson.clear();
+    _secondPerson.clear();
     _verbType.clear();
     _pronunciation.clear();
     _ruFocus.requestFocus();
@@ -278,15 +286,24 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: _Field(
-                            label: '1. osoba — czasownik (opcjonalnie)',
+                            label: '1. osoba (opcjonalnie)',
                             controller: _firstPerson,
                             focusNode: _firstPersonFocus,
                             transliterate: true,
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
+                      Expanded(
+                        child: _Field(
+                            label: '2. osoba — ё (opcjonalnie)',
+                            controller: _secondPerson,
+                            focusNode: _secondPersonFocus,
+                            transliterate: true,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
                       SizedBox(
-                        width: 140,
+                        width: 120,
                         child: _Field(
                             label: 'Typ (opcjonalnie)',
                             controller: _verbType,
@@ -310,9 +327,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Rosyjski i 1. osoba: pisz po łacińsku (q = akcent) lub klawiaturą niżej '
+                    'Rosyjski oraz 1. i 2. osoba: pisz po łacińsku (q = akcent) lub klawiaturą niżej '
                     '(dolny rząd rosyjskiej klawiatury to samogłoski z akcentem). '
-                    'Polski: warianty po przecinku. Wymowa, kategoria oraz pola czasownika są opcjonalne.',
+                    'Polski: warianty po przecinku. 2. osoba wypełniaj tylko przy przeskoku na ё (np. живёшь). '
+                    'Wymowa, kategoria oraz pola czasownika są opcjonalne.',
                     style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
                   ),
                   const SizedBox(height: 14),
@@ -440,6 +458,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
   late final _pl = TextEditingController(text: widget.word.pl.join(', '));
   late final _pronunciation = TextEditingController(text: widget.word.pronunciation ?? '');
   late final _firstPerson = TextEditingController(text: widget.word.firstPerson ?? '');
+  late final _secondPerson = TextEditingController(text: widget.word.secondPerson ?? '');
   late final _verbType = TextEditingController(text: widget.word.verbType ?? '');
   late String? _category = widget.word.category;
 
@@ -449,6 +468,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
     _pl.dispose();
     _pronunciation.dispose();
     _firstPerson.dispose();
+    _secondPerson.dispose();
     _verbType.dispose();
     super.dispose();
   }
@@ -461,6 +481,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
     if (pl.isEmpty) return;
     final pronunciation = _pronunciation.text.trim();
     final firstPerson = _firstPerson.text.trim();
+    final secondPerson = _secondPerson.text.trim();
     final verbType = _verbType.text.trim();
     Navigator.of(context).pop(Word(
       id: widget.word.id,
@@ -470,6 +491,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
       firstPerson: firstPerson.isEmpty ? null : firstPerson,
+      secondPerson: secondPerson.isEmpty ? null : secondPerson,
       verbType: verbType.isEmpty ? null : verbType,
     ));
   }
@@ -513,6 +535,12 @@ class _EditWordDialogState extends State<_EditWordDialog> {
                   ),
                 ],
               ),
+              const SizedBox(height: 12),
+              _Field(
+                  label: '2. osoba — ё (opcjonalnie)',
+                  controller: _secondPerson,
+                  transliterate: true,
+                  onSubmit: _save),
             ],
           ),
         ),

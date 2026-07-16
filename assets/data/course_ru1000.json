@@ -510,7 +510,8 @@
    "category": "czasowniki",
    "pronunciation": "idti",
    "firstPerson": "иду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "идёшь"
   },
   {
    "id": "ru1000-047",
@@ -713,7 +714,8 @@
    "category": "czasowniki",
    "pronunciation": "żyć",
    "firstPerson": "живу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "живёшь"
   },
   {
    "id": "ru1000-065",
@@ -798,7 +800,8 @@
    "category": "czasowniki",
    "pronunciation": "paniać",
    "firstPerson": "пойму",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "поймёшь"
   },
   {
    "id": "ru1000-072",
@@ -892,7 +895,8 @@
    "category": "czasowniki",
    "pronunciation": "wzjać",
    "firstPerson": "возьму",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "возьмёшь"
   },
   {
    "id": "ru1000-080",
@@ -996,7 +1000,8 @@
    "category": "czasowniki",
    "pronunciation": "naciać",
    "firstPerson": "начну",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "начнёшь"
   },
   {
    "id": "ru1000-089",
@@ -1143,7 +1148,8 @@
    "category": "czasowniki",
    "pronunciation": "dawac",
    "firstPerson": "даю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "даёшь"
   },
   {
    "id": "ru1000-102",
@@ -1179,7 +1185,8 @@
    "category": "czasowniki",
    "pronunciation": "pajti",
    "firstPerson": "пойду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "пойдёшь"
   },
   {
    "id": "ru1000-105",
@@ -1580,7 +1587,8 @@
    "category": "czasowniki",
    "pronunciation": "żdać",
    "firstPerson": "жду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "ждёшь"
   },
   {
    "id": "ru1000-140",
@@ -1649,7 +1657,8 @@
    "category": "czasowniki",
    "pronunciation": "najci",
    "firstPerson": "найду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "найдёшь"
   },
   {
    "id": "ru1000-146",
@@ -1802,7 +1811,8 @@
    "category": "czasowniki",
    "pronunciation": "wjernucsja",
    "firstPerson": "вернусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "вернёшься"
   },
   {
    "id": "ru1000-159",
@@ -2108,7 +2118,8 @@
    "category": "czasowniki",
    "pronunciation": "prijti",
    "firstPerson": "приду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "придёшь"
   },
   {
    "id": "ru1000-186",
@@ -2253,7 +2264,8 @@
    "category": "czasowniki",
    "pronunciation": "ujti",
    "firstPerson": "уйду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "уйдёшь"
   },
   {
    "id": "ru1000-198",
@@ -2503,7 +2515,8 @@
    "category": "czasowniki",
    "pronunciation": "ostawacsja",
    "firstPerson": "остаюсь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "остаёшься"
   },
   {
    "id": "ru1000-220",
@@ -3361,7 +3374,8 @@
    "category": "czasowniki",
    "pronunciation": "papast'",
    "firstPerson": "попаду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "попадёшь"
   },
   {
    "id": "ru1000-294",
@@ -3425,7 +3439,8 @@
    "category": "czasowniki",
    "pronunciation": "praizajti",
    "firstPerson": "произойду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "произойдёшь"
   },
   {
    "id": "ru1000-299",
@@ -4190,7 +4205,8 @@
    "category": "czasowniki",
    "pronunciation": "naciatsa",
    "firstPerson": "начнусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "начнёшься"
   },
   {
    "id": "ru1000-367",
@@ -4212,7 +4228,8 @@
    "category": "czasowniki",
    "pronunciation": "zwat",
    "firstPerson": "зову",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "зовёшь"
   },
   {
    "id": "ru1000-369",
@@ -4363,7 +4380,8 @@
    "category": "czasowniki",
    "pronunciation": "prijtis'",
    "firstPerson": "придусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "придёшься"
   },
   {
    "id": "ru1000-382",
@@ -4436,7 +4454,8 @@
    "category": "czasowniki",
    "pronunciation": "praizniesti",
    "firstPerson": "произнесу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "произнесёшь"
   },
   {
    "id": "ru1000-388",
@@ -4600,7 +4619,8 @@
    "category": "czasowniki",
    "pronunciation": "umieriet",
    "firstPerson": "умру",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "умрёшь"
   },
   {
    "id": "ru1000-402",
@@ -4678,7 +4698,8 @@
    "category": "czasowniki",
    "pronunciation": "pit",
    "firstPerson": "пью",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "пьёшь"
   },
   {
    "id": "ru1000-409",
@@ -4827,7 +4848,8 @@
    "category": "czasowniki",
    "pronunciation": "nazwat",
    "firstPerson": "назову",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "назовёшь"
   },
   {
    "id": "ru1000-422",
@@ -4894,7 +4916,8 @@
    "category": "czasowniki",
    "pronunciation": "ubic",
    "firstPerson": "убью",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "убьёшь"
   },
   {
    "id": "ru1000-428",
@@ -4998,7 +5021,8 @@
    "category": "czasowniki",
    "pronunciation": "ułybnutsja",
    "firstPerson": "улыбнусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "улыбнёшься"
   },
   {
    "id": "ru1000-437",
@@ -5148,7 +5172,8 @@
    "category": "czasowniki",
    "pronunciation": "priwjesti",
    "firstPerson": "приведу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "приведёшь"
   },
   {
    "id": "ru1000-450",
@@ -5256,7 +5281,8 @@
    "category": "czasowniki",
    "pronunciation": "priniesti",
    "firstPerson": "принесу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "принесёшь"
   },
   {
    "id": "ru1000-459",
@@ -5450,7 +5476,8 @@
    "category": "czasowniki",
    "pronunciation": "prowjesti",
    "firstPerson": "проведу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "проведёшь"
   },
   {
    "id": "ru1000-476",
@@ -5637,7 +5664,8 @@
    "category": "czasowniki",
    "pronunciation": "cmjejatsja",
    "firstPerson": "смеюсь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "смеёшься"
   },
   {
    "id": "ru1000-492",
@@ -5702,7 +5730,8 @@
    "category": "czasowniki",
    "pronunciation": "prisłac",
    "firstPerson": "пришлю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "пришлёшь"
   },
   {
    "id": "ru1000-498",
@@ -6080,7 +6109,8 @@
    "category": "czasowniki",
    "pronunciation": "kivnut'",
    "firstPerson": "кивну",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "кивнёшь"
   },
   {
    "id": "ru1000-531",
@@ -6267,7 +6297,8 @@
    "category": "czasowniki",
    "pronunciation": "bit'",
    "firstPerson": "бью",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "бьёшь"
   },
   {
    "id": "ru1000-547",
@@ -6419,7 +6450,8 @@
    "category": "czasowniki",
    "pronunciation": "upas't'",
    "firstPerson": "упаду",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "упадёшь"
   },
   {
    "id": "ru1000-560",
@@ -6548,7 +6580,8 @@
    "category": "czasowniki",
    "pronunciation": "słat'",
    "firstPerson": "шлю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "шлёшь"
   },
   {
    "id": "ru1000-571",
@@ -6572,7 +6605,8 @@
    "category": "czasowniki",
    "pronunciation": "vzdohnut'",
    "firstPerson": "вздохну",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "вздохнёшь"
   },
   {
    "id": "ru1000-573",
@@ -6775,7 +6809,8 @@
    "category": "czasowniki",
    "pronunciation": "piet'",
    "firstPerson": "пою",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "поёшь"
   },
   {
    "id": "ru1000-591",
@@ -7639,7 +7674,8 @@
    "category": "czasowniki",
    "pronunciation": "pawiernutsa",
    "firstPerson": "повернусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "повернёшься"
   },
   {
    "id": "ru1000-666",
@@ -7846,7 +7882,8 @@
    "category": "czasowniki",
    "pronunciation": "niesti",
    "firstPerson": "несу",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "несёшь"
   },
   {
    "id": "ru1000-684",
@@ -9250,7 +9287,8 @@
    "category": "czasowniki",
    "pronunciation": "sabratsa",
    "firstPerson": "соберусь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "соберёшься"
   },
   {
    "id": "ru1000-806",
@@ -9625,7 +9663,8 @@
    "category": "czasowniki",
    "pronunciation": "uznawat'",
    "firstPerson": "узнаю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "узнаёшь"
   },
   {
    "id": "ru1000-838",
@@ -10048,7 +10087,8 @@
    "category": "czasowniki",
    "pronunciation": "brat'",
    "firstPerson": "беру",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "берёшь"
   },
   {
    "id": "ru1000-875",
@@ -10096,7 +10136,8 @@
    "category": "czasowniki",
    "pronunciation": "wstawat'",
    "firstPerson": "встаю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "встаёшь"
   },
   {
    "id": "ru1000-879",
@@ -10179,7 +10220,8 @@
    "category": "czasowniki",
    "pronunciation": "rasti",
    "firstPerson": "расту",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "растёшь"
   },
   {
    "id": "ru1000-886",
@@ -10865,7 +10907,8 @@
    "category": "czasowniki",
    "pronunciation": "pieriedawat'",
    "firstPerson": "передаю",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "передаёшь"
   },
   {
    "id": "ru1000-946",
@@ -11486,7 +11529,8 @@
    "category": "czasowniki",
    "pronunciation": "udawatsa",
    "firstPerson": "удаюсь",
-   "verbType": "1"
+   "verbType": "1",
+   "secondPerson": "удаёшься"
   },
   {
    "id": "ru1000-1000",

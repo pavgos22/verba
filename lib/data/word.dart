@@ -7,6 +7,7 @@ class Word {
     this.category,
     this.pronunciation,
     this.firstPerson,
+    this.secondPerson,
     this.verbType,
   }) : ruAccented = ruAccented ?? ru;
 
@@ -17,12 +18,15 @@ class Word {
   final String? category;
   final String? pronunciation;
   final String? firstPerson;
+  final String? secondPerson;
   final String? verbType;
 
   String get plPrimary => pl.first;
 
   bool get hasVerbInfo =>
-      (firstPerson != null && firstPerson!.isNotEmpty) || (verbType != null && verbType!.isNotEmpty);
+      (firstPerson != null && firstPerson!.isNotEmpty) ||
+      (secondPerson != null && secondPerson!.isNotEmpty) ||
+      (verbType != null && verbType!.isNotEmpty);
 
   factory Word.fromJson(Map<String, dynamic> json) {
     return Word(
@@ -33,6 +37,7 @@ class Word {
       category: json['category'] as String?,
       pronunciation: json['pronunciation'] as String?,
       firstPerson: json['firstPerson'] as String?,
+      secondPerson: json['secondPerson'] as String?,
       verbType: json['verbType'] as String?,
     );
   }
@@ -45,6 +50,7 @@ class Word {
         if (category != null) 'category': category,
         if (pronunciation != null) 'pronunciation': pronunciation,
         if (firstPerson != null) 'firstPerson': firstPerson,
+        if (secondPerson != null) 'secondPerson': secondPerson,
         if (verbType != null) 'verbType': verbType,
       };
 }

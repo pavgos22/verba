@@ -48,6 +48,7 @@ ParsedCourse parseCourseJson(String rawJson, String fallbackName) {
     if (pl.isEmpty) continue;
     final category = (e['category'] as String?)?.trim();
     final firstPerson = (e['firstPerson'] as String?)?.trim();
+    final secondPerson = (e['secondPerson'] as String?)?.trim();
     final verbType = (e['verbType'] as String?)?.trim();
     words.add(Word(
       id: 'w-$base-${words.length}',
@@ -57,6 +58,7 @@ ParsedCourse parseCourseJson(String rawJson, String fallbackName) {
       category: category == null || category.isEmpty ? null : category,
       pronunciation: e['pronunciation'] as String?,
       firstPerson: firstPerson == null || firstPerson.isEmpty ? null : firstPerson,
+      secondPerson: secondPerson == null || secondPerson.isEmpty ? null : secondPerson,
       verbType: verbType == null || verbType.isEmpty ? null : verbType,
     ));
   }
@@ -87,7 +89,8 @@ const exampleCourseJson = '''{
     {"ru": "собака", "pl": "pies, piesek"},
     {"ru": "дом", "pl": ["dom"], "category": "rzeczowniki"},
     {"ru": "хорошо", "ruAccented": "хорошо́", "pl": ["dobrze"], "category": "przysłówki", "pronunciation": "charaszo"},
-    {"ru": "ехать", "ruAccented": "е́хать", "pl": ["jechać"], "category": "czasowniki", "firstPerson": "е́ду", "verbType": "1"}
+    {"ru": "ехать", "ruAccented": "е́хать", "pl": ["jechać"], "category": "czasowniki", "firstPerson": "е́ду", "verbType": "1"},
+    {"ru": "жить", "pl": ["mieszkać", "żyć"], "category": "czasowniki", "firstPerson": "живу", "secondPerson": "живёшь", "verbType": "1"}
   ]
 }''';
 

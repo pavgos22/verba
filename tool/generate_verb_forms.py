@@ -1,15 +1,19 @@
-"""Fill firstPerson + verbType for verbs in the course JSON files.
+"""Fill firstPerson + secondPerson + verbType for verbs in the course JSON files.
 
 Requires: pip install pymorphy3 pymorphy3-dicts-ru
 
 For every word whose category is "czasowniki" this derives:
   - firstPerson: the 1st-person singular present/future form (unstressed).
+  - secondPerson: the 2nd-person singular form, but only when it contains "ё"
+    (the stem vowel shifting to a stressed ё is "trap 2"; e.g. жить -> живёшь,
+    петь -> поёшь). Verbs without that shift (ехать -> едешь) get no secondPerson.
   - verbType: conjugation class "1" or "2", from the 3rd-person plural ending
     (-ут/-ют = 1st conjugation, -ат/-ят = 2nd).
 
-Forms carry no stress marks yet (morphology has no stress); they can be
-accented later from a stressed dictionary. Irregular / mixed-conjugation verbs
-and anything the analyzer could not resolve are written to a review report.
+The 1st-person forms carry no stress marks yet (morphology has no stress); they
+can be accented later from a stressed dictionary. The ё in secondPerson already
+marks its own stress. Irregular / mixed-conjugation verbs and anything the
+analyzer could not resolve are written to a review report.
 
 Usage:
   python tool/generate_verb_forms.py            # write the JSON files
@@ -26,8 +30,10 @@ import pymorphy3
 COURSES = ["assets/data/course_ru1000.json", "assets/data/course_starter.json"]
 REPORT = "tool/verb_forms_report.txt"
 STRESS = "́"
+STRESS_JO = "ё"
 SUSPECT_ROOTS = ("бежать", "хотеть", "дать", "есть", "идти", "ехать", "чтить")
 OVERRIDES = {"быть": ("буду", "1")}
+EXCLUDE_SECOND = {"пахнуть", "честь"}
 
 morph = pymorphy3.MorphAnalyzer()
 
@@ -47,25 +53,27 @@ def analyze(infinitive):
     inf = bare(infinitive)
     if inf in OVERRIDES:
         first, vtype = OVERRIDES[inf]
-        return first, vtype, ""
+        return first, None, vtype, ""
     cands = [p for p in morph.parse(inf) if p.tag.POS in ("INFN", "VERB")]
     exact = [p for p in cands if p.normal_form == inf]
     cands = exact or cands
     if not cands:
-        return None, None, "no-parse"
+        return None, None, None, "no-parse"
     p = cands[0]
     tenses = ["futr", "pres"] if "perf" in p.tag else ["pres", "futr"]
-    first = third = None
+    first = second = third = None
     for tense in tenses:
         one = p.inflect({"1per", "sing", tense})
         if one is None:
             continue
         first = one.word
+        two = p.inflect({"2per", "sing", tense})
+        second = two.word if two is not None else None
         plur = p.inflect({"3per", "plur", tense})
         third = plur.word if plur is not None else None
         break
     if first is None:
-        return None, None, "no-1sg"
+        return None, None, None, "no-1sg"
     vtype = None
     if third:
         stem = strip_reflexive(third)
@@ -73,7 +81,7 @@ def analyze(infinitive):
             vtype = "1"
         elif stem.endswith(("ат", "ят")):
             vtype = "2"
-    return first, vtype, "" if vtype else "no-conj"
+    return first, second, vtype, "" if vtype else "no-conj"
 
 
 def is_suspect(infinitive):
@@ -108,9 +116,13 @@ def process(path, report, write):
         if word.get("category") != "czasowniki":
             continue
         verbs += 1
-        first, vtype, reason = analyze(word["ru"])
+        first, second, vtype, reason = analyze(word["ru"])
         if first:
             word["firstPerson"] = first
+        if second and STRESS_JO in second and bare(word["ru"]) not in EXCLUDE_SECOND:
+            word["secondPerson"] = second
+        elif "secondPerson" in word:
+            del word["secondPerson"]
         if vtype:
             word["verbType"] = vtype
         if first and vtype:

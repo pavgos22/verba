@@ -16,6 +16,16 @@ const _verb = Word(
   firstPerson: 'е́ду',
   verbType: '1',
 );
+const _joVerb = Word(
+  id: 'v2',
+  ru: 'жить',
+  ruAccented: 'жить',
+  pl: ['mieszkać'],
+  category: 'czasowniki',
+  firstPerson: 'живу',
+  secondPerson: 'живёшь',
+  verbType: '1',
+);
 const _noun = Word(id: 'n', ru: 'дом', pl: ['dom']);
 
 Future<void> _pump(WidgetTester tester, Widget child) async {
@@ -42,6 +52,29 @@ void main() {
     await _pump(tester, const VerbInfoSlot(word: _verb, visible: false));
     expect(find.text('1'), findsNothing);
     expect(find.text('еду'), findsNothing);
+  });
+
+  testWidgets('verb info shows the second person (ё trap) when present', (tester) async {
+    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: true));
+    expect(find.text('живу'), findsOneWidget);
+    expect(find.text('живёшь'), findsOneWidget);
+  });
+
+  testWidgets('the ё in the second person is highlighted in its own colour', (tester) async {
+    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: true));
+    final richText = tester.widget<Text>(find.text('живёшь'));
+    final joSpans = <TextSpan>[];
+    richText.textSpan!.visitChildren((span) {
+      if (span is TextSpan && span.text == 'ё') joSpans.add(span);
+      return true;
+    });
+    expect(joSpans, hasLength(1));
+    expect(joSpans.single.style?.color, isNotNull);
+  });
+
+  testWidgets('the second person is hidden when not visible', (tester) async {
+    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: false));
+    expect(find.text('живёшь'), findsNothing);
   });
 
   testWidgets('a non-verb word renders nothing', (tester) async {
