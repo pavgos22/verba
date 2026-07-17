@@ -100,6 +100,46 @@ void main() {
     expect(find.text('kot'), findsOneWidget);
   });
 
+  testWidgets('the accent is split off into ruAccented, ru stays plain', (tester) async {
+    await _pump(tester);
+
+    await tester.enterText(find.byType(TextField).at(0), 'дава́ть'); // stress mark in the field
+    await tester.enterText(find.byType(TextField).at(1), 'dawać');
+    await tester.tap(find.text('Dodaj'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('давать'), findsOneWidget); // the list shows the plain ru
+  });
+
+  testWidgets('add-form verb fields are disabled when no category is chosen', (tester) async {
+    await _pump(tester);
+
+    expect(tester.widget<TextField>(find.byType(TextField).at(3)).enabled, isFalse); // 1. osoba
+    expect(tester.widget<TextField>(find.byType(TextField).at(4)).enabled, isFalse); // 2. osoba
+    expect(tester.widget<TextField>(find.byType(TextField).at(5)).enabled, isFalse); // Typ
+  });
+
+  testWidgets('the edit dialog enables verb fields for a verb, disables them otherwise', (tester) async {
+    await _pump(tester, wordsJson: '{"id":"a","ru":"жить","pl":["żyć"],"category":"czasowniki","firstPerson":"живу"}');
+
+    await tester.tap(find.byIcon(Icons.edit_outlined));
+    await tester.pumpAndSettle();
+    final verbFields = find.descendant(of: find.byType(AlertDialog), matching: find.byType(TextField));
+    expect(tester.widget<TextField>(verbFields.at(3)).enabled, isTrue); // 1. osoba
+    expect(tester.widget<TextField>(verbFields.at(4)).enabled, isTrue); // Typ
+    expect(tester.widget<TextField>(verbFields.at(5)).enabled, isTrue); // 2. osoba
+  });
+
+  testWidgets('the edit dialog disables verb fields for a non-verb', (tester) async {
+    await _pump(tester, wordsJson: '{"id":"a","ru":"дом","pl":["dom"],"category":"rzeczowniki"}');
+
+    await tester.tap(find.byIcon(Icons.edit_outlined));
+    await tester.pumpAndSettle();
+    final fields = find.descendant(of: find.byType(AlertDialog), matching: find.byType(TextField));
+    expect(tester.widget<TextField>(fields.at(3)).enabled, isFalse);
+    expect(tester.widget<TextField>(fields.at(5)).enabled, isFalse);
+  });
+
   testWidgets('words are numbered from 1 with the first added on top', (tester) async {
     await _pump(tester, wordsJson: '{"id":"a","ru":"кот","pl":["kot"]},{"id":"b","ru":"дом","pl":["dom"]}');
     expect(find.text('1'), findsOneWidget);

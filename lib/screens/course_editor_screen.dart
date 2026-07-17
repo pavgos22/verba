@@ -8,6 +8,7 @@ import '../data/settings_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
+import '../widgets/accented_text.dart';
 import '../widgets/app_dropdown.dart';
 import '../widgets/onscreen_keyboard.dart';
 
@@ -38,6 +39,8 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   KeyboardLayoutType _layout = KeyboardLayoutType.polish;
   bool _ruError = false;
   bool _plError = false;
+
+  bool get _isVerb => _category == 'czasowniki';
 
   @override
   void initState() {
@@ -78,7 +81,8 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   }
 
   void _add() {
-    final ru = _ru.text.trim();
+    final ruAccented = _ru.text.trim();
+    final ru = ruAccented.replaceAll(stressMark, '');
     final pl = _pl.text.trim().split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
     if (ru.isEmpty || pl.isEmpty) {
       setState(() {
@@ -104,12 +108,13 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     final word = Word(
       id: 'w-${DateTime.now().microsecondsSinceEpoch}',
       ru: ru,
+      ruAccented: ruAccented,
       pl: pl,
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
-      firstPerson: firstPerson.isEmpty ? null : firstPerson,
-      secondPerson: secondPerson.isEmpty ? null : secondPerson,
-      verbType: verbType.isEmpty ? null : verbType,
+      firstPerson: _isVerb && firstPerson.isNotEmpty ? firstPerson : null,
+      secondPerson: _isVerb && secondPerson.isNotEmpty ? secondPerson : null,
+      verbType: _isVerb && verbType.isNotEmpty ? verbType : null,
     );
     ref.read(customCoursesProvider.notifier).addWord(widget.courseId, word);
     _ru.clear();
@@ -323,6 +328,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                             controller: _firstPerson,
                             focusNode: _firstPersonFocus,
                             transliterate: true,
+                            enabled: _isVerb,
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
@@ -332,6 +338,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                             controller: _secondPerson,
                             focusNode: _secondPersonFocus,
                             transliterate: true,
+                            enabled: _isVerb,
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
@@ -341,6 +348,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                             label: 'Typ (opcjonalnie)',
                             controller: _verbType,
                             focusNode: _verbTypeFocus,
+                            enabled: _isVerb,
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
@@ -363,7 +371,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                     'Rosyjski oraz 1. i 2. osoba: pisz po łacińsku (q = akcent) lub klawiaturą niżej '
                     '(dolny rząd rosyjskiej klawiatury to samogłoski z akcentem). '
                     'Polski: warianty po przecinku. 2. osoba wypełniaj tylko przy przeskoku na ё (np. живёшь). '
-                    'Wymowa, kategoria oraz pola czasownika są opcjonalne.',
+                    'Pola czasownika są aktywne dla kategorii „czasowniki". Wymowa i kategoria są opcjonalne.',
                     style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
                   ),
                   const SizedBox(height: 14),
@@ -495,6 +503,8 @@ class _EditWordDialogState extends State<_EditWordDialog> {
   late final _verbType = TextEditingController(text: widget.word.verbType ?? '');
   late String? _category = widget.word.category;
 
+  bool get _isVerb => _category == 'czasowniki';
+
   @override
   void dispose() {
     _ru.dispose();
@@ -523,9 +533,9 @@ class _EditWordDialogState extends State<_EditWordDialog> {
       pl: pl,
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
-      firstPerson: firstPerson.isEmpty ? null : firstPerson,
-      secondPerson: secondPerson.isEmpty ? null : secondPerson,
-      verbType: verbType.isEmpty ? null : verbType,
+      firstPerson: _isVerb && firstPerson.isNotEmpty ? firstPerson : null,
+      secondPerson: _isVerb && secondPerson.isNotEmpty ? secondPerson : null,
+      verbType: _isVerb && verbType.isNotEmpty ? verbType : null,
     ));
   }
 
@@ -559,12 +569,14 @@ class _EditWordDialogState extends State<_EditWordDialog> {
                         label: '1. osoba (opcjonalnie)',
                         controller: _firstPerson,
                         transliterate: true,
+                        enabled: _isVerb,
                         onSubmit: _save),
                   ),
                   const SizedBox(width: 12),
                   SizedBox(
                     width: 120,
-                    child: _Field(label: 'Typ (opcjonalnie)', controller: _verbType, onSubmit: _save),
+                    child: _Field(
+                        label: 'Typ (opcjonalnie)', controller: _verbType, enabled: _isVerb, onSubmit: _save),
                   ),
                 ],
               ),
@@ -573,6 +585,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
                   label: '2. osoba — ё (opcjonalnie)',
                   controller: _secondPerson,
                   transliterate: true,
+                  enabled: _isVerb,
                   onSubmit: _save),
             ],
           ),
@@ -623,6 +636,7 @@ class _Field extends StatelessWidget {
     this.focusNode,
     this.transliterate = false,
     this.hasError = false,
+    this.enabled = true,
     this.onChanged,
     required this.onSubmit,
   });
@@ -632,6 +646,7 @@ class _Field extends StatelessWidget {
   final FocusNode? focusNode;
   final bool transliterate;
   final bool hasError;
+  final bool enabled;
   final ValueChanged<String>? onChanged;
   final VoidCallback onSubmit;
 
@@ -639,20 +654,26 @@ class _Field extends StatelessWidget {
   Widget build(BuildContext context) {
     final borderColor = hasError ? context.c.destructive : context.c.inputBorder;
     final focusedColor = hasError ? context.c.destructive : context.c.ring;
+    final disabledFg = context.c.mutedForeground.withValues(alpha: 0.4);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+        Text(label,
+            style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: enabled ? context.c.mutedForeground : disabledFg)),
         const SizedBox(height: 6),
         SizedBox(
           height: 40,
           child: TextField(
             controller: controller,
             focusNode: focusNode,
+            enabled: enabled,
             inputFormatters: transliterate ? [TransliterationFormatter()] : null,
             onChanged: onChanged,
             onSubmitted: (_) => onSubmit(),
-            style: TextStyle(fontSize: 14, color: context.c.foreground),
+            style: TextStyle(fontSize: 14, color: enabled ? context.c.foreground : disabledFg),
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 12),
               enabledBorder: OutlineInputBorder(
@@ -662,6 +683,10 @@ class _Field extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: focusedColor),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(color: context.c.inputBorder.withValues(alpha: 0.4)),
               ),
             ),
           ),
