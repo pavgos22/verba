@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.8 — the on-screen Cyrillic keyboard on the Klawiatura screen now has a row of accented vowels (а́ е́ и́ о́ у́ ы́ э́ ю́ я́) you can click to add a stress mark, matching the course-editor keyboard — previously stress marks were only reachable by physically typing a vowel then q (that shortcut, and its hint, still works)
+
 ## 0.13.7 — restyled the on/off toggles in Settings to a slimmer Material-style switch: a thin track with a larger round thumb that overhangs it and slides across, replacing the old thick pill whose knob stretched on press. On uses the primary colour (near-black thumb in the light theme, white in dark), off shows a light thumb on a muted track; no ripple/halo effect
 
 ## 0.13.6 — redesigned the session top bar: it now shows the course name · session mode centred, with a full-width progress bar underneath and the counter on the right. When you filter the session to one word type, that category shows as a badge next to the counter (e.g. "Czasowniki"); with "wszystkie" (all words) selected there's no badge
