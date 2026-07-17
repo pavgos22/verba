@@ -225,10 +225,19 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           final task = tasks[_index];
           final wordIds = <String>{for (final t in tasks) t.word.id}.toList();
           final wordIndex = wordIds.indexOf(task.word.id);
-          final modeLabel = switch (widget.mode) {
+          final courseName = ref.watch(activeCourseProvider).asData?.value.name ?? '';
+          final modeName = switch (widget.mode) {
+            SessionMode.full => 'Dzisiejsza sesja',
+            SessionMode.reviewsOnly => 'Powtórki',
             SessionMode.practice => 'Utrwalanie',
             SessionMode.test => 'Test',
             SessionMode.retry => 'Poprawka',
+          };
+          final settings = ref.read(settingsProvider);
+          final category = switch (widget.mode) {
+            SessionMode.full => settings.configFor('full').category,
+            SessionMode.practice => settings.configFor('practice').category,
+            SessionMode.test => settings.configFor('test').category,
             _ => null,
           };
           return Focus(
@@ -238,7 +247,13 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             },
             child: Column(
               children: [
-                _SessionTopBar(index: wordIndex, total: wordIds.length, modeLabel: modeLabel),
+                _SessionTopBar(
+                  index: wordIndex,
+                  total: wordIds.length,
+                  courseName: courseName,
+                  modeName: modeName,
+                  category: category,
+                ),
                 Expanded(
                   child: KeyedSubtree(
                     key: ValueKey(_index),
@@ -264,49 +279,78 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 }
 
 class _SessionTopBar extends StatelessWidget {
-  const _SessionTopBar({required this.index, required this.total, this.modeLabel});
+  const _SessionTopBar({
+    required this.index,
+    required this.total,
+    required this.courseName,
+    required this.modeName,
+    this.category,
+  });
 
   final int index;
   final int total;
-  final String? modeLabel;
+  final String courseName;
+  final String modeName;
+  final String? category;
 
   @override
   Widget build(BuildContext context) {
+    final hasCategory = category != null && category!.isNotEmpty;
+    final meta = TextStyle(fontSize: 13, color: context.c.foreground);
     return Container(
-      height: 64,
-      padding: const EdgeInsets.symmetric(horizontal: 24),
       decoration: BoxDecoration(border: Border(bottom: BorderSide(color: context.c.border))),
-      child: Row(
+      child: Column(
         children: [
-          IconButton(
-            onPressed: () => Navigator.of(context).pop(),
-            icon: Icon(Icons.close, size: 18, color: context.c.mutedForeground),
-            tooltip: 'Przerwij sesję',
-          ),
-          if (modeLabel != null) ...[
-            const SizedBox(width: 16),
-            AppBadge(label: modeLabel!),
-          ],
-          const SizedBox(width: 16),
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: LinearProgressIndicator(
-                value: total == 0 ? 0 : index / total,
-                minHeight: 8,
-                backgroundColor: context.c.muted,
-                color: context.c.primary,
-              ),
+          SizedBox(
+            height: 56,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.school_outlined, size: 16, color: context.c.mutedForeground),
+                    const SizedBox(width: 8),
+                    Text(courseName, style: meta.copyWith(fontWeight: FontWeight.w500)),
+                    Text('  ·  ', style: meta),
+                    Text(modeName, style: meta),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: Icon(Icons.close, size: 18, color: context.c.mutedForeground),
+                        tooltip: 'Przerwij sesję',
+                      ),
+                      const Spacer(),
+                      if (hasCategory) ...[
+                        AppBadge(label: _capitalize(category!)),
+                        const SizedBox(width: 12),
+                      ],
+                      Text('${index + 1} / $total',
+                          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(width: 16),
-          Text('${index + 1} / $total',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+          LinearProgressIndicator(
+            value: total == 0 ? 0 : index / total,
+            minHeight: 8,
+            backgroundColor: context.c.muted,
+            color: context.c.primary,
+          ),
         ],
       ),
     );
   }
 }
+
+String _capitalize(String s) => s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';
 
 class _SessionFooter extends StatelessWidget {
   const _SessionFooter({required this.children, this.leading});

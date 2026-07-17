@@ -167,6 +167,40 @@ void main() {
     expect(find.text('дом'), findsOneWidget);
   });
 
+  testWidgets('the session top bar shows the category filter as a badge, hidden for all words', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    Future<void> pump({String? category}) async {
+      final initial = <String, Object>{
+        'settings.autoplay': false,
+        'settings.answerSounds': false,
+        'settings.showKeyboard': false,
+      };
+      if (category != null) initial['settings.mode.full.category'] = category;
+      SharedPreferences.setMockInitialValues(initial);
+      final prefs = await SharedPreferences.getInstance();
+      const word = Word(id: 'w1', ru: 'кот', pl: ['kot'], category: 'czasowniki');
+      final container = ProviderContainer(overrides: [
+        prefsProvider.overrideWithValue(prefs),
+        wordsProvider.overrideWith((ref) => [word]),
+      ]);
+      addTearDown(container.dispose);
+      await tester.pumpWidget(UncontrolledProviderScope(
+        container: container,
+        child: MaterialApp(theme: buildTheme(Brightness.light), home: const SessionScreen(mode: SessionMode.full)),
+      ));
+      await tester.pumpAndSettle();
+    }
+
+    await pump(category: 'czasowniki');
+    expect(find.text('Czasowniki'), findsOneWidget); // capitalised badge in the top bar
+
+    await pump(); // "wszystkie" — no category filter
+    expect(find.text('Czasowniki'), findsNothing);
+  });
+
   testWidgets('after a correct PL->RU answer, holding Tab reveals verb info', (tester) async {
     tester.view.physicalSize = const Size(1400, 1400);
     tester.view.devicePixelRatio = 1.0;
