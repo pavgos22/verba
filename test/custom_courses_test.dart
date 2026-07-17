@@ -67,7 +67,7 @@ void main() {
   test('ships a valid example course json', () {
     final parsed = parseCourseJson(exampleCourseJson, 'fallback');
     expect(parsed.name, 'Przykładowy kurs');
-    expect(parsed.words.length, 6);
+    expect(parsed.words.length, 7);
     final dog = parsed.words.firstWhere((w) => w.ru == 'собака');
     expect(dog.pl, ['pies', 'piesek']);
     expect(parsed.words.any((w) => w.category == 'rzeczowniki'), isTrue);
@@ -80,10 +80,15 @@ void main() {
     expect(verb.hasVerbInfo, isTrue);
     final joVerb = parsed.words.firstWhere((w) => w.ru == 'жить');
     expect(joVerb.secondPerson, 'живёшь');
+    final adj = parsed.words.firstWhere((w) => w.ru == 'новый');
+    expect(adj.feminine, 'но́вая');
+    expect(adj.neuter, 'но́вое');
+    expect(adj.plural, 'но́вые');
+    expect(adj.hasAdjInfo, isTrue);
   });
 
-  test('word json round-trips verb fields', () {
-    const word = Word(
+  test('word json round-trips verb and adjective fields', () {
+    const verb = Word(
       id: 'v',
       ru: 'жить',
       pl: ['mieszkać'],
@@ -92,10 +97,27 @@ void main() {
       secondPerson: 'живёшь',
       verbType: '1',
     );
-    final back = Word.fromJson(word.toJson());
-    expect(back.firstPerson, 'живу');
-    expect(back.secondPerson, 'живёшь');
-    expect(back.verbType, '1');
+    final backVerb = Word.fromJson(verb.toJson());
+    expect(backVerb.firstPerson, 'живу');
+    expect(backVerb.secondPerson, 'живёшь');
+    expect(backVerb.verbType, '1');
+
+    const adj = Word(
+      id: 'a',
+      ru: 'новый',
+      ruAccented: 'но́вый',
+      pl: ['nowy'],
+      category: 'przymiotniki',
+      feminine: 'но́вая',
+      neuter: 'но́вое',
+      plural: 'но́вые',
+    );
+    final backAdj = Word.fromJson(adj.toJson());
+    expect(backAdj.feminine, 'но́вая');
+    expect(backAdj.neuter, 'но́вое');
+    expect(backAdj.plural, 'но́вые');
+    expect(backAdj.masculineForm, 'но́вый');
+    expect(backAdj.hasAdjInfo, isTrue);
   });
 
   test('loads from raw json', () {

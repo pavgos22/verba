@@ -9,6 +9,10 @@ class Word {
     this.firstPerson,
     this.secondPerson,
     this.verbType,
+    this.masculine,
+    this.feminine,
+    this.neuter,
+    this.plural,
   }) : ruAccented = ruAccented ?? ru;
 
   final String id;
@@ -20,6 +24,10 @@ class Word {
   final String? firstPerson;
   final String? secondPerson;
   final String? verbType;
+  final String? masculine;
+  final String? feminine;
+  final String? neuter;
+  final String? plural;
 
   String get plPrimary => pl.first;
 
@@ -27,6 +35,13 @@ class Word {
       (firstPerson != null && firstPerson!.isNotEmpty) ||
       (secondPerson != null && secondPerson!.isNotEmpty) ||
       (verbType != null && verbType!.isNotEmpty);
+
+  bool get hasAdjInfo =>
+      (feminine != null && feminine!.isNotEmpty) ||
+      (neuter != null && neuter!.isNotEmpty) ||
+      (plural != null && plural!.isNotEmpty);
+
+  String get masculineForm => masculine != null && masculine!.isNotEmpty ? masculine! : ruAccented;
 
   factory Word.fromJson(Map<String, dynamic> json) {
     return Word(
@@ -39,6 +54,10 @@ class Word {
       firstPerson: json['firstPerson'] as String?,
       secondPerson: json['secondPerson'] as String?,
       verbType: json['verbType'] as String?,
+      masculine: json['masculine'] as String?,
+      feminine: json['feminine'] as String?,
+      neuter: json['neuter'] as String?,
+      plural: json['plural'] as String?,
     );
   }
 
@@ -52,5 +71,9 @@ class Word {
         if (firstPerson != null) 'firstPerson': firstPerson,
         if (secondPerson != null) 'secondPerson': secondPerson,
         if (verbType != null) 'verbType': verbType,
+        if (masculine != null) 'masculine': masculine,
+        if (feminine != null) 'feminine': feminine,
+        if (neuter != null) 'neuter': neuter,
+        if (plural != null) 'plural': plural,
       };
 }

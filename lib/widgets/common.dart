@@ -74,8 +74,8 @@ class PronunciationSlot extends StatelessWidget {
   }
 }
 
-bool showVerbInfo(Word word, VerbInfoMode mode, bool held) {
-  if (!word.hasVerbInfo) return false;
+bool showGrammarInfo(Word word, VerbInfoMode mode, bool held) {
+  if (!word.hasVerbInfo && !word.hasAdjInfo) return false;
   return switch (mode) {
     VerbInfoMode.never => false,
     VerbInfoMode.always => true,
@@ -83,8 +83,8 @@ bool showVerbInfo(Word word, VerbInfoMode mode, bool held) {
   };
 }
 
-class VerbInfoSlot extends StatelessWidget {
-  const VerbInfoSlot({
+class GrammarInfoSlot extends StatelessWidget {
+  const GrammarInfoSlot({
     super.key,
     required this.word,
     required this.visible,
@@ -101,41 +101,64 @@ class VerbInfoSlot extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!reserve) return const SizedBox.shrink();
     final height = fontSize + 10;
-    if (!visible || !word.hasVerbInfo) return SizedBox(height: height);
+    final show = visible && (word.hasVerbInfo || word.hasAdjInfo);
+    if (!show) return SizedBox(height: height);
     final muted = TextStyle(fontSize: fontSize, color: context.c.mutedForeground);
-    final hasFirst = word.firstPerson != null && word.firstPerson!.isNotEmpty;
-    final hasSecond = word.secondPerson != null && word.secondPerson!.isNotEmpty;
     return SizedBox(
       height: height,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (word.verbType != null && word.verbType!.isNotEmpty) ...[
-            Transform.translate(
-              offset: Offset(0, -fontSize * 0.32),
-              child: Text(
-                word.verbType!,
-                style: TextStyle(fontSize: fontSize * 0.72, fontWeight: FontWeight.w700, color: context.c.warning),
-              ),
-            ),
-            const SizedBox(width: 6),
-          ],
-          if (hasFirst || hasSecond) ...[
-            Text('(', style: muted),
-            if (hasFirst) ...[
-              Text('я ', style: muted),
-              AccentedText(word.firstPerson!, style: muted),
-            ],
-            if (hasFirst && hasSecond) Text(', ', style: muted),
-            if (hasSecond) ...[
-              Text('ты ', style: muted),
-              _highlightJo(word.secondPerson!, muted, context.c.success),
-            ],
-            Text(')', style: muted),
-          ],
-        ],
-      ),
+      child: word.hasVerbInfo ? _verbInfo(context, muted) : _adjInfo(context, muted),
     );
+  }
+
+  Widget _verbInfo(BuildContext context, TextStyle muted) {
+    final hasFirst = word.firstPerson != null && word.firstPerson!.isNotEmpty;
+    final hasSecond = word.secondPerson != null && word.secondPerson!.isNotEmpty;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (word.verbType != null && word.verbType!.isNotEmpty) ...[
+          Transform.translate(
+            offset: Offset(0, -fontSize * 0.32),
+            child: Text(
+              word.verbType!,
+              style: TextStyle(fontSize: fontSize * 0.72, fontWeight: FontWeight.w700, color: context.c.warning),
+            ),
+          ),
+          const SizedBox(width: 6),
+        ],
+        if (hasFirst || hasSecond) ...[
+          Text('(', style: muted),
+          if (hasFirst) ...[
+            Text('я ', style: muted),
+            AccentedText(word.firstPerson!, style: muted),
+          ],
+          if (hasFirst && hasSecond) Text(', ', style: muted),
+          if (hasSecond) ...[
+            Text('ты ', style: muted),
+            _highlightJo(word.secondPerson!, muted, context.c.success),
+          ],
+          Text(')', style: muted),
+        ],
+      ],
+    );
+  }
+
+  Widget _adjInfo(BuildContext context, TextStyle muted) {
+    final label = muted.copyWith(color: context.c.success, fontWeight: FontWeight.w600);
+    final forms = <(String, String)>[
+      ('м.', word.masculineForm),
+      if (word.feminine != null && word.feminine!.isNotEmpty) ('ж.', word.feminine!),
+      if (word.neuter != null && word.neuter!.isNotEmpty) ('с.', word.neuter!),
+      if (word.plural != null && word.plural!.isNotEmpty) ('мн.', word.plural!),
+    ];
+    final children = <Widget>[Text('(', style: muted)];
+    for (var i = 0; i < forms.length; i++) {
+      if (i > 0) children.add(Text(' · ', style: muted));
+      children.add(Text('${forms[i].$1} ', style: label));
+      children.add(AccentedText(forms[i].$2, style: muted));
+    }
+    children.add(Text(')', style: muted));
+    return Row(mainAxisSize: MainAxisSize.min, children: children);
   }
 }
 

@@ -27,12 +27,20 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   final _firstPerson = TextEditingController();
   final _secondPerson = TextEditingController();
   final _verbType = TextEditingController();
+  final _masculine = TextEditingController();
+  final _feminine = TextEditingController();
+  final _neuter = TextEditingController();
+  final _plural = TextEditingController();
   final _pronunciation = TextEditingController();
   final _ruFocus = FocusNode();
   final _plFocus = FocusNode();
   final _firstPersonFocus = FocusNode();
   final _secondPersonFocus = FocusNode();
   final _verbTypeFocus = FocusNode();
+  final _masculineFocus = FocusNode();
+  final _feminineFocus = FocusNode();
+  final _neuterFocus = FocusNode();
+  final _pluralFocus = FocusNode();
   final _pronunciationFocus = FocusNode();
   String? _category;
   late TextEditingController _active = _ru;
@@ -41,6 +49,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   bool _plError = false;
 
   bool get _isVerb => _category == 'czasowniki';
+  bool get _isAdjective => _category == 'przymiotniki';
 
   @override
   void initState() {
@@ -48,6 +57,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _target(_ruFocus, _ru, KeyboardLayoutType.russian);
     _target(_firstPersonFocus, _firstPerson, KeyboardLayoutType.russian);
     _target(_secondPersonFocus, _secondPerson, KeyboardLayoutType.russian);
+    _target(_masculineFocus, _masculine, KeyboardLayoutType.russian);
+    _target(_feminineFocus, _feminine, KeyboardLayoutType.russian);
+    _target(_neuterFocus, _neuter, KeyboardLayoutType.russian);
+    _target(_pluralFocus, _plural, KeyboardLayoutType.russian);
     _target(_plFocus, _pl, KeyboardLayoutType.polish);
     _target(_verbTypeFocus, _verbType);
     _target(_pronunciationFocus, _pronunciation, KeyboardLayoutType.polish);
@@ -70,12 +83,20 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _firstPerson.dispose();
     _secondPerson.dispose();
     _verbType.dispose();
+    _masculine.dispose();
+    _feminine.dispose();
+    _neuter.dispose();
+    _plural.dispose();
     _pronunciation.dispose();
     _ruFocus.dispose();
     _plFocus.dispose();
     _firstPersonFocus.dispose();
     _secondPersonFocus.dispose();
     _verbTypeFocus.dispose();
+    _masculineFocus.dispose();
+    _feminineFocus.dispose();
+    _neuterFocus.dispose();
+    _pluralFocus.dispose();
     _pronunciationFocus.dispose();
     super.dispose();
   }
@@ -104,6 +125,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     final firstPerson = _firstPerson.text.trim();
     final secondPerson = _secondPerson.text.trim();
     final verbType = _verbType.text.trim();
+    final masculine = _masculine.text.trim();
+    final feminine = _feminine.text.trim();
+    final neuter = _neuter.text.trim();
+    final plural = _plural.text.trim();
     final pronunciation = _pronunciation.text.trim();
     final word = Word(
       id: 'w-${DateTime.now().microsecondsSinceEpoch}',
@@ -115,6 +140,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
       firstPerson: _isVerb && firstPerson.isNotEmpty ? firstPerson : null,
       secondPerson: _isVerb && secondPerson.isNotEmpty ? secondPerson : null,
       verbType: _isVerb && verbType.isNotEmpty ? verbType : null,
+      masculine: _isAdjective && masculine.isNotEmpty ? masculine : null,
+      feminine: _isAdjective && feminine.isNotEmpty ? feminine : null,
+      neuter: _isAdjective && neuter.isNotEmpty ? neuter : null,
+      plural: _isAdjective && plural.isNotEmpty ? plural : null,
     );
     ref.read(customCoursesProvider.notifier).addWord(widget.courseId, word);
     _ru.clear();
@@ -122,6 +151,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
     _firstPerson.clear();
     _secondPerson.clear();
     _verbType.clear();
+    _masculine.clear();
+    _feminine.clear();
+    _neuter.clear();
+    _plural.clear();
     _pronunciation.clear();
     _ruFocus.requestFocus();
   }
@@ -366,12 +399,57 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 12),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: _Field(
+                            label: 'Rodz. męski (opcj.)',
+                            controller: _masculine,
+                            focusNode: _masculineFocus,
+                            transliterate: true,
+                            enabled: _isAdjective,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _Field(
+                            label: 'Rodz. żeński (opcj.)',
+                            controller: _feminine,
+                            focusNode: _feminineFocus,
+                            transliterate: true,
+                            enabled: _isAdjective,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _Field(
+                            label: 'Rodz. nijaki (opcj.)',
+                            controller: _neuter,
+                            focusNode: _neuterFocus,
+                            transliterate: true,
+                            enabled: _isAdjective,
+                            onSubmit: _add),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _Field(
+                            label: 'L. mnoga (opcj.)',
+                            controller: _plural,
+                            focusNode: _pluralFocus,
+                            transliterate: true,
+                            enabled: _isAdjective,
+                            onSubmit: _add),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   Text(
-                    'Rosyjski oraz 1. i 2. osoba: pisz po łacińsku (q = akcent) lub klawiaturą niżej '
+                    'Rosyjski oraz formy: pisz po łacińsku (q = akcent) lub klawiaturą niżej '
                     '(dolny rząd rosyjskiej klawiatury to samogłoski z akcentem). '
                     'Polski: warianty po przecinku. 2. osoba wypełniaj tylko przy przeskoku na ё (np. живёшь). '
-                    'Pola czasownika są aktywne dla kategorii „czasowniki". Wymowa i kategoria są opcjonalne.',
+                    'Pola czasownika są aktywne dla „czasowniki", pola rodzajów dla „przymiotniki". Wymowa i kategoria są opcjonalne.',
                     style: TextStyle(fontSize: 12, color: context.c.mutedForeground),
                   ),
                   const SizedBox(height: 14),
@@ -501,9 +579,14 @@ class _EditWordDialogState extends State<_EditWordDialog> {
   late final _firstPerson = TextEditingController(text: widget.word.firstPerson ?? '');
   late final _secondPerson = TextEditingController(text: widget.word.secondPerson ?? '');
   late final _verbType = TextEditingController(text: widget.word.verbType ?? '');
+  late final _masculine = TextEditingController(text: widget.word.masculine ?? '');
+  late final _feminine = TextEditingController(text: widget.word.feminine ?? '');
+  late final _neuter = TextEditingController(text: widget.word.neuter ?? '');
+  late final _plural = TextEditingController(text: widget.word.plural ?? '');
   late String? _category = widget.word.category;
 
   bool get _isVerb => _category == 'czasowniki';
+  bool get _isAdjective => _category == 'przymiotniki';
 
   @override
   void dispose() {
@@ -513,6 +596,10 @@ class _EditWordDialogState extends State<_EditWordDialog> {
     _firstPerson.dispose();
     _secondPerson.dispose();
     _verbType.dispose();
+    _masculine.dispose();
+    _feminine.dispose();
+    _neuter.dispose();
+    _plural.dispose();
     super.dispose();
   }
 
@@ -526,6 +613,10 @@ class _EditWordDialogState extends State<_EditWordDialog> {
     final firstPerson = _firstPerson.text.trim();
     final secondPerson = _secondPerson.text.trim();
     final verbType = _verbType.text.trim();
+    final masculine = _masculine.text.trim();
+    final feminine = _feminine.text.trim();
+    final neuter = _neuter.text.trim();
+    final plural = _plural.text.trim();
     Navigator.of(context).pop(Word(
       id: widget.word.id,
       ru: ruAccented.replaceAll('́', ''),
@@ -536,6 +627,10 @@ class _EditWordDialogState extends State<_EditWordDialog> {
       firstPerson: _isVerb && firstPerson.isNotEmpty ? firstPerson : null,
       secondPerson: _isVerb && secondPerson.isNotEmpty ? secondPerson : null,
       verbType: _isVerb && verbType.isNotEmpty ? verbType : null,
+      masculine: _isAdjective && masculine.isNotEmpty ? masculine : null,
+      feminine: _isAdjective && feminine.isNotEmpty ? feminine : null,
+      neuter: _isAdjective && neuter.isNotEmpty ? neuter : null,
+      plural: _isAdjective && plural.isNotEmpty ? plural : null,
     ));
   }
 
@@ -587,6 +682,52 @@ class _EditWordDialogState extends State<_EditWordDialog> {
                   transliterate: true,
                   enabled: _isVerb,
                   onSubmit: _save),
+              const SizedBox(height: 12),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: _Field(
+                        label: 'Rodz. męski (opcj.)',
+                        controller: _masculine,
+                        transliterate: true,
+                        enabled: _isAdjective,
+                        onSubmit: _save),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _Field(
+                        label: 'Rodz. żeński (opcj.)',
+                        controller: _feminine,
+                        transliterate: true,
+                        enabled: _isAdjective,
+                        onSubmit: _save),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: _Field(
+                        label: 'Rodz. nijaki (opcj.)',
+                        controller: _neuter,
+                        transliterate: true,
+                        enabled: _isAdjective,
+                        onSubmit: _save),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _Field(
+                        label: 'L. mnoga (opcj.)',
+                        controller: _plural,
+                        transliterate: true,
+                        enabled: _isAdjective,
+                        onSubmit: _save),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

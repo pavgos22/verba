@@ -140,6 +140,25 @@ void main() {
     expect(tester.widget<TextField>(fields.at(5)).enabled, isFalse);
   });
 
+  testWidgets('add-form adjective fields are disabled when no category is chosen', (tester) async {
+    await _pump(tester);
+
+    expect(tester.widget<TextField>(find.byType(TextField).at(6)).enabled, isFalse); // rodz. męski
+    expect(tester.widget<TextField>(find.byType(TextField).at(9)).enabled, isFalse); // l. mnoga
+  });
+
+  testWidgets('the edit dialog enables adjective fields for an adjective and disables verb ones', (tester) async {
+    await _pump(tester,
+        wordsJson: '{"id":"a","ru":"новый","ruAccented":"но́вый","pl":["nowy"],"category":"przymiotniki","feminine":"но́вая"}');
+
+    await tester.tap(find.byIcon(Icons.edit_outlined));
+    await tester.pumpAndSettle();
+    final fields = find.descendant(of: find.byType(AlertDialog), matching: find.byType(TextField));
+    expect(tester.widget<TextField>(fields.at(6)).enabled, isTrue); // rodz. męski
+    expect(tester.widget<TextField>(fields.at(9)).enabled, isTrue); // l. mnoga
+    expect(tester.widget<TextField>(fields.at(3)).enabled, isFalse); // 1. osoba (verb) greyed
+  });
+
   testWidgets('words are numbered from 1 with the first added on top', (tester) async {
     await _pump(tester, wordsJson: '{"id":"a","ru":"кот","pl":["kot"]},{"id":"b","ru":"дом","pl":["dom"]}');
     expect(find.text('1'), findsOneWidget);

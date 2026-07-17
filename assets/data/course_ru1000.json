@@ -122,7 +122,10 @@
     "taki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "takoj"
+   "pronunciation": "takoj",
+   "feminine": "така́я",
+   "neuter": "тако́е",
+   "plural": "таки́е"
   },
   {
    "id": "ru1000-012",
@@ -234,7 +237,10 @@
     "naj-"
    ],
    "category": "przymiotniki",
-   "pronunciation": "samyj"
+   "pronunciation": "samyj",
+   "feminine": "са́мая",
+   "neuter": "са́мое",
+   "plural": "са́мые"
   },
   {
    "id": "ru1000-022",
@@ -267,7 +273,10 @@
     "duży"
    ],
    "category": "przymiotniki",
-   "pronunciation": "balszoj"
+   "pronunciation": "balszoj",
+   "feminine": "больша́я",
+   "neuter": "большо́е",
+   "plural": "больши́е"
   },
   {
    "id": "ru1000-025",
@@ -289,7 +298,10 @@
     "inny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "drugoj"
+   "pronunciation": "drugoj",
+   "feminine": "друга́я",
+   "neuter": "друго́е",
+   "plural": "други́е"
   },
   {
    "id": "ru1000-027",
@@ -384,7 +396,10 @@
     "pierwszy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "pierwyj"
+   "pronunciation": "pierwyj",
+   "feminine": "пе́рвая",
+   "neuter": "пе́рвое",
+   "plural": "пе́рвые"
   },
   {
    "id": "ru1000-036",
@@ -669,7 +684,10 @@
     "właściwy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dalżnyj"
+   "pronunciation": "dalżnyj",
+   "feminine": "до́лжная",
+   "neuter": "до́лжное",
+   "plural": "до́лжные"
   },
   {
    "id": "ru1000-061",
@@ -680,7 +698,10 @@
     "nowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "nowyj"
+   "pronunciation": "nowyj",
+   "feminine": "но́вая",
+   "neuter": "но́вое",
+   "plural": "но́вые"
   },
   {
    "id": "ru1000-062",
@@ -691,7 +712,10 @@
     "każdy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "każdyj"
+   "pronunciation": "każdyj",
+   "feminine": "ка́ждая",
+   "neuter": "ка́ждое",
+   "plural": "ка́ждые"
   },
   {
    "id": "ru1000-063",
@@ -702,7 +726,10 @@
     "dobry"
    ],
    "category": "przymiotniki",
-   "pronunciation": "charoszyj"
+   "pronunciation": "charoszyj",
+   "feminine": "хоро́шая",
+   "neuter": "хоро́шее",
+   "plural": "хоро́шие"
   },
   {
    "id": "ru1000-064",
@@ -883,7 +910,10 @@
     "potrzebny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "nużnyj"
+   "pronunciation": "nużnyj",
+   "feminine": "ну́жная",
+   "neuter": "ну́жное",
+   "plural": "ну́жные"
   },
   {
    "id": "ru1000-079",
@@ -1045,7 +1075,10 @@
     "ostatni"
    ],
    "category": "przymiotniki",
-   "pronunciation": "pasliednij"
+   "pronunciation": "pasliednij",
+   "feminine": "после́дняя",
+   "neuter": "после́днее",
+   "plural": "после́дние"
   },
   {
    "id": "ru1000-093",
@@ -1111,7 +1144,10 @@
     "drugi"
    ],
    "category": "przymiotniki",
-   "pronunciation": "wtaroj"
+   "pronunciation": "wtaroj",
+   "feminine": "втора́я",
+   "neuter": "второ́е",
+   "plural": "вторы́е"
   },
   {
    "id": "ru1000-099",
@@ -1412,7 +1448,10 @@
     "stary"
    ],
    "category": "przymiotniki",
-   "pronunciation": "staryj"
+   "pronunciation": "staryj",
+   "feminine": "ста́рая",
+   "neuter": "ста́рое",
+   "plural": "ста́рые"
   },
   {
    "id": "ru1000-125",
@@ -1520,7 +1559,10 @@
     "biały"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bjełyj"
+   "pronunciation": "bjełyj",
+   "feminine": "бе́лая",
+   "neuter": "бе́лое",
+   "plural": "бе́лые"
   },
   {
    "id": "ru1000-134",
@@ -1531,7 +1573,10 @@
     "główny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "gławnyj"
+   "pronunciation": "gławnyj",
+   "feminine": "гла́вная",
+   "neuter": "гла́вное",
+   "plural": "гла́вные"
   },
   {
    "id": "ru1000-135",
@@ -1833,7 +1878,10 @@
     "daleki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "daljekij"
+   "pronunciation": "daljekij",
+   "feminine": "далёкая",
+   "neuter": "далёкое",
+   "plural": "далёкие"
   },
   {
    "id": "ru1000-161",
@@ -1844,7 +1892,10 @@
     "maleńki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "maljeńkij"
+   "pronunciation": "maljeńkij",
+   "feminine": "ма́ленькая",
+   "neuter": "ма́ленькое",
+   "plural": "ма́ленькие"
   },
   {
    "id": "ru1000-162",
@@ -1891,7 +1942,10 @@
     "radziecki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sowjetskij"
+   "pronunciation": "sowjetskij",
+   "feminine": "сове́тская",
+   "neuter": "сове́тское",
+   "plural": "сове́тские"
   },
   {
    "id": "ru1000-166",
@@ -2037,7 +2091,10 @@
     "rosyjski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "russkij"
+   "pronunciation": "russkij",
+   "feminine": "ру́сская",
+   "neuter": "ру́сское",
+   "plural": "ру́сские"
   },
   {
    "id": "ru1000-179",
@@ -2069,7 +2126,10 @@
     "pełny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "połnyj"
+   "pronunciation": "połnyj",
+   "feminine": "по́лная",
+   "neuter": "по́лное",
+   "plural": "по́лные"
   },
   {
    "id": "ru1000-182",
@@ -2095,7 +2155,10 @@
     "dowolny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ljuboj"
+   "pronunciation": "ljuboj",
+   "feminine": "люба́я",
+   "neuter": "любо́е",
+   "plural": "любы́е"
   },
   {
    "id": "ru1000-184",
@@ -2157,7 +2220,10 @@
     "znany"
    ],
    "category": "przymiotniki",
-   "pronunciation": "izwjestnyj"
+   "pronunciation": "izwjestnyj",
+   "feminine": "изве́стная",
+   "neuter": "изве́стное",
+   "plural": "изве́стные"
   },
   {
    "id": "ru1000-189",
@@ -2191,7 +2257,10 @@
     "ogólny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "obścij"
+   "pronunciation": "obścij",
+   "feminine": "о́бщая",
+   "neuter": "о́бщее",
+   "plural": "о́бщие"
   },
   {
    "id": "ru1000-192",
@@ -2277,7 +2346,10 @@
     "ubiegły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "proszłyj"
+   "pronunciation": "proszłyj",
+   "feminine": "про́шлая",
+   "neuter": "про́шлое",
+   "plural": "про́шлые"
   },
   {
    "id": "ru1000-199",
@@ -2381,7 +2453,10 @@
     "podobny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "pachożij"
+   "pronunciation": "pachożij",
+   "feminine": "похо́жая",
+   "neuter": "похо́жее",
+   "plural": "похо́жие"
   },
   {
    "id": "ru1000-208",
@@ -2479,7 +2554,10 @@
     "czerwony"
    ],
    "category": "przymiotniki",
-   "pronunciation": "krasnyj"
+   "pronunciation": "krasnyj",
+   "feminine": "кра́сная",
+   "neuter": "кра́сное",
+   "plural": "кра́сные"
   },
   {
    "id": "ru1000-217",
@@ -2527,7 +2605,10 @@
     "wysoki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "wysokij"
+   "pronunciation": "wysokij",
+   "feminine": "высо́кая",
+   "neuter": "высо́кое",
+   "plural": "высо́кие"
   },
   {
    "id": "ru1000-221",
@@ -2596,7 +2677,10 @@
     "ranny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "rannyj"
+   "pronunciation": "rannyj",
+   "feminine": "ра́нняя",
+   "neuter": "ра́ннее",
+   "plural": "ра́нние"
   },
   {
    "id": "ru1000-227",
@@ -2657,7 +2741,10 @@
     "gotowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "gatovyi"
+   "pronunciation": "gatovyi",
+   "feminine": "гото́вая",
+   "neuter": "гото́вое",
+   "plural": "гото́вые"
   },
   {
    "id": "ru1000-232",
@@ -2763,7 +2850,10 @@
     "osobisty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "licz'nyi"
+   "pronunciation": "licz'nyi",
+   "feminine": "ли́чная",
+   "neuter": "ли́чное",
+   "plural": "ли́чные"
   },
   {
    "id": "ru1000-241",
@@ -2785,7 +2875,10 @@
     "długi"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dlinnyi"
+   "pronunciation": "dlinnyi",
+   "feminine": "дли́нная",
+   "neuter": "дли́нное",
+   "plural": "дли́нные"
   },
   {
    "id": "ru1000-243",
@@ -2901,7 +2994,10 @@
     "silny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sil'nyi"
+   "pronunciation": "sil'nyi",
+   "feminine": "си́льная",
+   "neuter": "си́льное",
+   "plural": "си́льные"
   },
   {
    "id": "ru1000-253",
@@ -2990,7 +3086,10 @@
     "znajomy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "znakomyi"
+   "pronunciation": "znakomyi",
+   "feminine": "знако́мая",
+   "neuter": "знако́мое",
+   "plural": "знако́мые"
   },
   {
    "id": "ru1000-261",
@@ -3036,7 +3135,10 @@
     "inny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "inoi"
+   "pronunciation": "inoi",
+   "feminine": "ина́я",
+   "neuter": "ино́е",
+   "plural": "ины́е"
   },
   {
    "id": "ru1000-265",
@@ -3059,7 +3161,10 @@
     "czarny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ciornyi"
+   "pronunciation": "ciornyi",
+   "feminine": "чёрная",
+   "neuter": "чёрное",
+   "plural": "чёрные"
   },
   {
    "id": "ru1000-267",
@@ -3070,7 +3175,10 @@
     "szybki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "skoryi"
+   "pronunciation": "skoryi",
+   "feminine": "ско́рая",
+   "neuter": "ско́рое",
+   "plural": "ско́рые"
   },
   {
    "id": "ru1000-268",
@@ -3106,7 +3214,10 @@
     "łatwy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "prastoi"
+   "pronunciation": "prastoi",
+   "feminine": "проста́я",
+   "neuter": "просто́е",
+   "plural": "просты́е"
   },
   {
    "id": "ru1000-271",
@@ -3185,7 +3296,10 @@
     "wojskowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "vaiennyi"
+   "pronunciation": "vaiennyi",
+   "feminine": "вое́нная",
+   "neuter": "вое́нное",
+   "plural": "вое́нные"
   },
   {
    "id": "ru1000-278",
@@ -3288,7 +3402,10 @@
     "jakiś"
    ],
    "category": "przymiotniki",
-   "pronunciation": "koi"
+   "pronunciation": "koi",
+   "feminine": "ко́я",
+   "neuter": "ко́е",
+   "plural": "ко́и"
   },
   {
    "id": "ru1000-287",
@@ -3521,7 +3638,10 @@
     "zielony"
    ],
    "category": "przymiotniki",
-   "pronunciation": "zielionyi"
+   "pronunciation": "zielionyi",
+   "feminine": "зелёная",
+   "neuter": "зелёное",
+   "plural": "зелёные"
   },
   {
    "id": "ru1000-306",
@@ -3689,7 +3809,10 @@
     "dziwny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "strannyi"
+   "pronunciation": "strannyi",
+   "feminine": "стра́нная",
+   "neuter": "стра́нное",
+   "plural": "стра́нные"
   },
   {
    "id": "ru1000-321",
@@ -3700,7 +3823,10 @@
     "straszny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "strasznyi"
+   "pronunciation": "strasznyi",
+   "feminine": "стра́шная",
+   "neuter": "стра́шное",
+   "plural": "стра́шные"
   },
   {
    "id": "ru1000-322",
@@ -3722,7 +3848,10 @@
     "jedyny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "jedinstviennyi"
+   "pronunciation": "jedinstviennyi",
+   "feminine": "еди́нственная",
+   "neuter": "еди́нственное",
+   "plural": "еди́нственные"
   },
   {
    "id": "ru1000-324",
@@ -3768,7 +3897,10 @@
     "rosyjski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "rassijskij"
+   "pronunciation": "rassijskij",
+   "feminine": "росси́йская",
+   "neuter": "росси́йское",
+   "plural": "росси́йские"
   },
   {
    "id": "ru1000-328",
@@ -3779,7 +3911,10 @@
     "krótki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "karotkij"
+   "pronunciation": "karotkij",
+   "feminine": "коро́ткая",
+   "neuter": "коро́ткое",
+   "plural": "коро́ткие"
   },
   {
    "id": "ru1000-329",
@@ -3804,7 +3939,10 @@
     "dany"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dannyj"
+   "pronunciation": "dannyj",
+   "feminine": "да́нная",
+   "neuter": "да́нное",
+   "plural": "да́нные"
   },
   {
    "id": "ru1000-331",
@@ -3816,7 +3954,10 @@
     "konieczny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "nieabhadimyj"
+   "pronunciation": "nieabhadimyj",
+   "feminine": "необходи́мая",
+   "neuter": "необходи́мое",
+   "plural": "необходи́мые"
   },
   {
    "id": "ru1000-332",
@@ -3905,7 +4046,10 @@
     "dobry"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dobryj"
+   "pronunciation": "dobryj",
+   "feminine": "до́брая",
+   "neuter": "до́брое",
+   "plural": "до́брые"
   },
   {
    "id": "ru1000-340",
@@ -4007,7 +4151,10 @@
     "ciemny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tjomnyj"
+   "pronunciation": "tjomnyj",
+   "feminine": "тёмная",
+   "neuter": "тёмное",
+   "plural": "тёмные"
   },
   {
    "id": "ru1000-349",
@@ -4050,7 +4197,10 @@
     "szary"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sieryj"
+   "pronunciation": "sieryj",
+   "feminine": "се́рая",
+   "neuter": "се́рое",
+   "plural": "се́рые"
   },
   {
    "id": "ru1000-353",
@@ -4095,7 +4245,10 @@
     "podstawowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "asnawnoj"
+   "pronunciation": "asnawnoj",
+   "feminine": "основна́я",
+   "neuter": "основно́е",
+   "plural": "основны́е"
   },
   {
    "id": "ru1000-357",
@@ -4216,7 +4369,10 @@
     "lekki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ljohkij"
+   "pronunciation": "ljohkij",
+   "feminine": "лёгкая",
+   "neuter": "лёгкое",
+   "plural": "лёгкие"
   },
   {
    "id": "ru1000-368",
@@ -4253,7 +4409,10 @@
     "miniony"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bywszyj"
+   "pronunciation": "bywszyj",
+   "feminine": "бы́вшая",
+   "neuter": "бы́вшее",
+   "plural": "бы́вшие"
   },
   {
    "id": "ru1000-371",
@@ -4344,7 +4503,10 @@
     "podobny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "padobnyj"
+   "pronunciation": "padobnyj",
+   "feminine": "подо́бная",
+   "neuter": "подо́бное",
+   "plural": "подо́бные"
   },
   {
    "id": "ru1000-379",
@@ -4355,7 +4517,10 @@
     "szeroki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "szyrokij"
+   "pronunciation": "szyrokij",
+   "feminine": "широ́кая",
+   "neuter": "широ́кое",
+   "plural": "широ́кие"
   },
   {
    "id": "ru1000-380",
@@ -4441,7 +4606,10 @@
     "były"
    ],
    "category": "przymiotniki",
-   "pronunciation": "prjeżnij"
+   "pronunciation": "prjeżnij",
+   "feminine": "пре́жняя",
+   "neuter": "пре́жнее",
+   "plural": "пре́жние"
   },
   {
    "id": "ru1000-387",
@@ -4467,7 +4635,10 @@
     "mały"
    ],
    "category": "przymiotniki",
-   "pronunciation": "niebalszoj"
+   "pronunciation": "niebalszoj",
+   "feminine": "небольша́я",
+   "neuter": "небольшо́е",
+   "plural": "небольши́е"
   },
   {
    "id": "ru1000-389",
@@ -4478,7 +4649,10 @@
     "pusty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "pustoj"
+   "pronunciation": "pustoj",
+   "feminine": "пуста́я",
+   "neuter": "пусто́е",
+   "plural": "пусты́е"
   },
   {
    "id": "ru1000-390",
@@ -4595,7 +4769,10 @@
     "szczególny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "asobyj"
+   "pronunciation": "asobyj",
+   "feminine": "осо́бая",
+   "neuter": "осо́бое",
+   "plural": "осо́бые"
   },
   {
    "id": "ru1000-400",
@@ -4662,7 +4839,10 @@
     "piękny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "krasiwyj"
+   "pronunciation": "krasiwyj",
+   "feminine": "краси́вая",
+   "neuter": "краси́вое",
+   "plural": "краси́вые"
   },
   {
    "id": "ru1000-406",
@@ -4776,7 +4956,10 @@
     "bliski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bliskij"
+   "pronunciation": "bliskij",
+   "feminine": "бли́зкая",
+   "neuter": "бли́зкое",
+   "plural": "бли́зкие"
   },
   {
    "id": "ru1000-416",
@@ -4787,7 +4970,10 @@
     "czysty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "cistyj"
+   "pronunciation": "cistyj",
+   "feminine": "чи́стая",
+   "neuter": "чи́стое",
+   "plural": "чи́стые"
   },
   {
    "id": "ru1000-417",
@@ -4834,7 +5020,10 @@
     "ludzki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "cielawiecieskij"
+   "pronunciation": "cielawiecieskij",
+   "feminine": "челове́ческая",
+   "neuter": "челове́ческое",
+   "plural": "челове́ческие"
   },
   {
    "id": "ru1000-421",
@@ -4881,7 +5070,10 @@
     "chudy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "hudoj"
+   "pronunciation": "hudoj",
+   "feminine": "худа́я",
+   "neuter": "худо́е",
+   "plural": "худы́е"
   },
   {
    "id": "ru1000-425",
@@ -4940,7 +5132,10 @@
     "obcy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ciużoj"
+   "pronunciation": "ciużoj",
+   "feminine": "чужа́я",
+   "neuter": "чужо́е",
+   "plural": "чужи́е"
   },
   {
    "id": "ru1000-430",
@@ -4986,7 +5181,10 @@
     "starszy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "starszij"
+   "pronunciation": "starszij",
+   "feminine": "ста́ршая",
+   "neuter": "ста́ршее",
+   "plural": "ста́ршие"
   },
   {
    "id": "ru1000-434",
@@ -5103,7 +5301,10 @@
     "gruby"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tołstyj"
+   "pronunciation": "tołstyj",
+   "feminine": "то́лстая",
+   "neuter": "то́лстое",
+   "plural": "то́лстые"
   },
   {
    "id": "ru1000-444",
@@ -5127,7 +5328,10 @@
     "prawy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "prawyj"
+   "pronunciation": "prawyj",
+   "feminine": "пра́вая",
+   "neuter": "пра́вое",
+   "plural": "пра́вые"
   },
   {
    "id": "ru1000-446",
@@ -5138,7 +5342,10 @@
     "chory"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bolnoj"
+   "pronunciation": "bolnoj",
+   "feminine": "больна́я",
+   "neuter": "больно́е",
+   "plural": "больны́е"
   },
   {
    "id": "ru1000-447",
@@ -5316,7 +5523,10 @@
     "państwowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "gosudarstwjennyj"
+   "pronunciation": "gosudarstwjennyj",
+   "feminine": "госуда́рственная",
+   "neuter": "госуда́рственное",
+   "plural": "госуда́рственные"
   },
   {
    "id": "ru1000-462",
@@ -5328,7 +5538,10 @@
     "robotnik"
    ],
    "category": "przymiotniki",
-   "pronunciation": "rabocij"
+   "pronunciation": "rabocij",
+   "feminine": "рабо́чая",
+   "neuter": "рабо́чее",
+   "plural": "рабо́чие"
   },
   {
    "id": "ru1000-463",
@@ -5371,7 +5584,10 @@
     "duży"
    ],
    "category": "przymiotniki",
-   "pronunciation": "krupnyj"
+   "pronunciation": "krupnyj",
+   "feminine": "кру́пная",
+   "neuter": "кру́пное",
+   "plural": "кру́пные"
   },
   {
    "id": "ru1000-467",
@@ -5382,7 +5598,10 @@
     "otwarty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "otkrytyj"
+   "pronunciation": "otkrytyj",
+   "feminine": "откры́тая",
+   "neuter": "откры́тое",
+   "plural": "откры́тые"
   },
   {
    "id": "ru1000-468",
@@ -5510,7 +5729,10 @@
     "zimny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "chołodnyj"
+   "pronunciation": "chołodnyj",
+   "feminine": "холо́дная",
+   "neuter": "холо́дное",
+   "plural": "холо́дные"
   },
   {
    "id": "ru1000-479",
@@ -5544,7 +5766,10 @@
     "lokalny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "mjestnyj"
+   "pronunciation": "mjestnyj",
+   "feminine": "ме́стная",
+   "neuter": "ме́стное",
+   "plural": "ме́стные"
   },
   {
    "id": "ru1000-482",
@@ -5676,7 +5901,10 @@
     "ojczysty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "rodnoj"
+   "pronunciation": "rodnoj",
+   "feminine": "родна́я",
+   "neuter": "родно́е",
+   "plural": "родны́е"
   },
   {
    "id": "ru1000-493",
@@ -5686,7 +5914,10 @@
     "żółty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "żjołtyj"
+   "pronunciation": "żjołtyj",
+   "feminine": "жёлтая",
+   "neuter": "жёлтое",
+   "plural": "жёлтые"
   },
   {
    "id": "ru1000-494",
@@ -5742,7 +5973,10 @@
     "złoty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "załatoj"
+   "pronunciation": "załatoj",
+   "feminine": "золота́я",
+   "neuter": "золото́е",
+   "plural": "золоты́е"
   },
   {
    "id": "ru1000-499",
@@ -5753,7 +5987,10 @@
     "polityczny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "politicieskij"
+   "pronunciation": "politicieskij",
+   "feminine": "полити́ческая",
+   "neuter": "полити́ческое",
+   "plural": "полити́ческие"
   },
   {
    "id": "ru1000-500",
@@ -5764,7 +6001,10 @@
     "zwykły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "obyćnyj"
+   "pronunciation": "obyćnyj",
+   "feminine": "обы́чная",
+   "neuter": "обы́чное",
+   "plural": "обы́чные"
   },
   {
    "id": "ru1000-501",
@@ -5786,7 +6026,10 @@
     "ważny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ważnyj"
+   "pronunciation": "ważnyj",
+   "feminine": "ва́жная",
+   "neuter": "ва́жное",
+   "plural": "ва́жные"
   },
   {
    "id": "ru1000-503",
@@ -5864,7 +6107,10 @@
     "metalowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "żjeljeznyj"
+   "pronunciation": "żjeljeznyj",
+   "feminine": "желе́зная",
+   "neuter": "желе́зное",
+   "plural": "желе́зные"
   },
   {
    "id": "ru1000-510",
@@ -5935,7 +6181,10 @@
     "inni"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ostalnoj"
+   "pronunciation": "ostalnoj",
+   "feminine": "остальна́я",
+   "neuter": "остально́е",
+   "plural": "остальны́е"
   },
   {
    "id": "ru1000-516",
@@ -6203,7 +6452,10 @@
     "niebieski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sinij"
+   "pronunciation": "sinij",
+   "feminine": "си́няя",
+   "neuter": "си́нее",
+   "plural": "си́ние"
   },
   {
    "id": "ru1000-539",
@@ -6252,7 +6504,10 @@
     "ciepły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tiopłyj"
+   "pronunciation": "tiopłyj",
+   "feminine": "тёплая",
+   "neuter": "тёплое",
+   "plural": "тёплые"
   },
   {
    "id": "ru1000-543",
@@ -6274,7 +6529,10 @@
     "niemiecki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "niemieckij"
+   "pronunciation": "niemieckij",
+   "feminine": "неме́цкая",
+   "neuter": "неме́цкое",
+   "plural": "неме́цкие"
   },
   {
    "id": "ru1000-545",
@@ -6309,7 +6567,10 @@
     "częsty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "cziastyj"
+   "pronunciation": "cziastyj",
+   "feminine": "ча́стая",
+   "neuter": "ча́стое",
+   "plural": "ча́стые"
   },
   {
    "id": "ru1000-548",
@@ -6320,7 +6581,10 @@
     "późny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "poznij"
+   "pronunciation": "poznij",
+   "feminine": "по́здняя",
+   "neuter": "по́зднее",
+   "plural": "по́здние"
   },
   {
    "id": "ru1000-549",
@@ -6544,7 +6808,10 @@
     "moskiewski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "maskovskij"
+   "pronunciation": "maskovskij",
+   "feminine": "моско́вская",
+   "neuter": "моско́вское",
+   "plural": "моско́вские"
   },
   {
    "id": "ru1000-568",
@@ -6618,7 +6885,10 @@
     "pewny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "uvieriennyj"
+   "pronunciation": "uvieriennyj",
+   "feminine": "уве́ренная",
+   "neuter": "уве́ренное",
+   "plural": "уве́ренные"
   },
   {
    "id": "ru1000-574",
@@ -6630,7 +6900,10 @@
     "niewiadomy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "nieizviesnyj"
+   "pronunciation": "nieizviesnyj",
+   "feminine": "неизве́стная",
+   "neuter": "неизве́стное",
+   "plural": "неизве́стные"
   },
   {
    "id": "ru1000-575",
@@ -6706,7 +6979,10 @@
     "cienki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tonkij"
+   "pronunciation": "tonkij",
+   "feminine": "то́нкая",
+   "neuter": "то́нкое",
+   "plural": "то́нкие"
   },
   {
    "id": "ru1000-582",
@@ -6727,7 +7003,10 @@
     "wewnętrzny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "vnutriennij"
+   "pronunciation": "vnutriennij",
+   "feminine": "вну́тренняя",
+   "neuter": "вну́треннее",
+   "plural": "вну́тренние"
   },
   {
    "id": "ru1000-584",
@@ -6761,7 +7040,10 @@
     "wierny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "viernyj"
+   "pronunciation": "viernyj",
+   "feminine": "ве́рная",
+   "neuter": "ве́рное",
+   "plural": "ве́рные"
   },
   {
    "id": "ru1000-587",
@@ -6797,7 +7079,10 @@
     "wspaniały"
    ],
    "category": "przymiotniki",
-   "pronunciation": "priekrasnyj"
+   "pronunciation": "priekrasnyj",
+   "feminine": "прекра́сная",
+   "neuter": "прекра́сное",
+   "plural": "прекра́сные"
   },
   {
    "id": "ru1000-590",
@@ -6843,7 +7128,10 @@
     "amerykański"
    ],
    "category": "przymiotniki",
-   "pronunciation": "amierikanskij"
+   "pronunciation": "amierikanskij",
+   "feminine": "америка́нская",
+   "neuter": "америка́нское",
+   "plural": "америка́нские"
   },
   {
    "id": "ru1000-594",
@@ -7124,7 +7412,10 @@
     "poważny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sierioznyj"
+   "pronunciation": "sierioznyj",
+   "feminine": "серьёзная",
+   "neuter": "серьёзное",
+   "plural": "серьёзные"
   },
   {
    "id": "ru1000-619",
@@ -7191,7 +7482,10 @@
     "szybki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bystryj"
+   "pronunciation": "bystryj",
+   "feminine": "бы́страя",
+   "neuter": "бы́строе",
+   "plural": "бы́стрые"
   },
   {
    "id": "ru1000-625",
@@ -7226,7 +7520,10 @@
     "związany"
    ],
    "category": "przymiotniki",
-   "pronunciation": "swiazannyj"
+   "pronunciation": "swiazannyj",
+   "feminine": "свя́занная",
+   "neuter": "свя́занное",
+   "plural": "свя́занные"
   },
   {
    "id": "ru1000-628",
@@ -7297,7 +7594,10 @@
     "długi"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dolgij"
+   "pronunciation": "dolgij",
+   "feminine": "до́лгая",
+   "neuter": "до́лгое",
+   "plural": "до́лгие"
   },
   {
    "id": "ru1000-634",
@@ -7340,7 +7640,10 @@
     "cichy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tichij"
+   "pronunciation": "tichij",
+   "feminine": "ти́хая",
+   "neuter": "ти́хое",
+   "plural": "ти́хие"
   },
   {
    "id": "ru1000-638",
@@ -7351,7 +7654,10 @@
     "głęboki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "glubokij"
+   "pronunciation": "glubokij",
+   "feminine": "глубо́кая",
+   "neuter": "глубо́кое",
+   "plural": "глубо́кие"
   },
   {
    "id": "ru1000-639",
@@ -7362,7 +7668,10 @@
     "lewy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "liewyj"
+   "pronunciation": "liewyj",
+   "feminine": "ле́вая",
+   "neuter": "ле́вое",
+   "plural": "ле́вые"
   },
   {
    "id": "ru1000-640",
@@ -7384,7 +7693,10 @@
     "przybysz"
    ],
    "category": "przymiotniki",
-   "pronunciation": "priszlyj"
+   "pronunciation": "priszlyj",
+   "feminine": "при́шлая",
+   "neuter": "при́шлое",
+   "plural": "при́шлые"
   },
   {
    "id": "ru1000-642",
@@ -7743,7 +8055,10 @@
     "gorący"
    ],
    "category": "przymiotniki",
-   "pronunciation": "gariacij"
+   "pronunciation": "gariacij",
+   "feminine": "горя́чая",
+   "neuter": "горя́чее",
+   "plural": "горя́чие"
   },
   {
    "id": "ru1000-672",
@@ -7754,7 +8069,10 @@
     "miły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "milyj"
+   "pronunciation": "milyj",
+   "feminine": "ми́лая",
+   "neuter": "ми́лое",
+   "plural": "ми́лые"
   },
   {
    "id": "ru1000-673",
@@ -7765,7 +8083,10 @@
     "słaby"
    ],
    "category": "przymiotniki",
-   "pronunciation": "slabyj"
+   "pronunciation": "slabyj",
+   "feminine": "сла́бая",
+   "neuter": "сла́бое",
+   "plural": "сла́бые"
   },
   {
    "id": "ru1000-674",
@@ -7905,7 +8226,10 @@
     "niebieski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "galuboj"
+   "pronunciation": "galuboj",
+   "feminine": "голуба́я",
+   "neuter": "голубо́е",
+   "plural": "голубы́е"
   },
   {
    "id": "ru1000-686",
@@ -7989,7 +8313,10 @@
     "drobny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "mielkij"
+   "pronunciation": "mielkij",
+   "feminine": "ме́лкая",
+   "neuter": "ме́лкое",
+   "plural": "ме́лкие"
   },
   {
    "id": "ru1000-693",
@@ -8014,7 +8341,10 @@
     "ulubiony"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ljubimyj"
+   "pronunciation": "ljubimyj",
+   "feminine": "люби́мая",
+   "neuter": "люби́мое",
+   "plural": "люби́мые"
   },
   {
    "id": "ru1000-695",
@@ -8069,7 +8399,10 @@
     "dziecinny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "dietskij"
+   "pronunciation": "dietskij",
+   "feminine": "де́тская",
+   "neuter": "де́тское",
+   "plural": "де́тские"
   },
   {
    "id": "ru1000-700",
@@ -8135,7 +8468,10 @@
     "szczęśliwy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ściasliwyj"
+   "pronunciation": "ściasliwyj",
+   "feminine": "счастли́вая",
+   "neuter": "счастли́вое",
+   "plural": "счастли́вые"
   },
   {
    "id": "ru1000-706",
@@ -8166,7 +8502,10 @@
     "wesoły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "wiesiolyj"
+   "pronunciation": "wiesiolyj",
+   "feminine": "весёлая",
+   "neuter": "весёлое",
+   "plural": "весёлые"
   },
   {
    "id": "ru1000-709",
@@ -8305,7 +8644,10 @@
     "średni"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sriednij"
+   "pronunciation": "sriednij",
+   "feminine": "сре́дняя",
+   "neuter": "сре́днее",
+   "plural": "сре́дние"
   },
   {
    "id": "ru1000-721",
@@ -8316,7 +8658,10 @@
     "współczesny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sawriemiennyj"
+   "pronunciation": "sawriemiennyj",
+   "feminine": "совреме́нная",
+   "neuter": "совреме́нное",
+   "plural": "совреме́нные"
   },
   {
    "id": "ru1000-722",
@@ -8407,7 +8752,10 @@
     "utalentowany"
    ],
    "category": "przymiotniki",
-   "pronunciation": "spasobnyj"
+   "pronunciation": "spasobnyj",
+   "feminine": "спосо́бная",
+   "neuter": "спосо́бное",
+   "plural": "спосо́бные"
   },
   {
    "id": "ru1000-730",
@@ -8557,7 +8905,10 @@
     "ostry"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ostryj"
+   "pronunciation": "ostryj",
+   "feminine": "о́страя",
+   "neuter": "о́строе",
+   "plural": "о́стрые"
   },
   {
    "id": "ru1000-743",
@@ -8589,7 +8940,10 @@
     "wolny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "swabodnyj"
+   "pronunciation": "swabodnyj",
+   "feminine": "свобо́дная",
+   "neuter": "свобо́дное",
+   "plural": "свобо́дные"
   },
   {
    "id": "ru1000-746",
@@ -8766,7 +9120,10 @@
     "prosty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "priamoj"
+   "pronunciation": "priamoj",
+   "feminine": "пряма́я",
+   "neuter": "прямо́е",
+   "plural": "прямы́е"
   },
   {
    "id": "ru1000-761",
@@ -8835,7 +9192,10 @@
     "nocny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "naćnoj"
+   "pronunciation": "naćnoj",
+   "feminine": "ночна́я",
+   "neuter": "ночно́е",
+   "plural": "ночны́е"
   },
   {
    "id": "ru1000-767",
@@ -8930,7 +9290,10 @@
     "suchy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "suchoj"
+   "pronunciation": "suchoj",
+   "feminine": "суха́я",
+   "neuter": "сухо́е",
+   "plural": "сухи́е"
   },
   {
    "id": "ru1000-775",
@@ -9100,7 +9463,10 @@
     "kolejny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "acieriednoj"
+   "pronunciation": "acieriednoj",
+   "feminine": "очередна́я",
+   "neuter": "очередно́е",
+   "plural": "очередны́е"
   },
   {
    "id": "ru1000-790",
@@ -9391,7 +9757,10 @@
     "młody"
    ],
    "category": "przymiotniki",
-   "pronunciation": "maładoj"
+   "pronunciation": "maładoj",
+   "feminine": "молода́я",
+   "neuter": "молодо́е",
+   "plural": "молоды́е"
   },
   {
    "id": "ru1000-815",
@@ -9545,7 +9914,10 @@
     "trzeci"
    ],
    "category": "przymiotniki",
-   "pronunciation": "trietij"
+   "pronunciation": "trietij",
+   "feminine": "тре́тья",
+   "neuter": "тре́тье",
+   "plural": "тре́тьи"
   },
   {
    "id": "ru1000-828",
@@ -9567,7 +9939,10 @@
     "własny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sobstwiennyj"
+   "pronunciation": "sobstwiennyj",
+   "feminine": "со́бственная",
+   "neuter": "со́бственное",
+   "plural": "со́бственные"
   },
   {
    "id": "ru1000-830",
@@ -9649,7 +10024,10 @@
     "prawdziwy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "nastajaszczij"
+   "pronunciation": "nastajaszczij",
+   "feminine": "настоя́щая",
+   "neuter": "настоя́щее",
+   "plural": "настоя́щие"
   },
   {
    "id": "ru1000-837",
@@ -9709,7 +10087,10 @@
     "interesujący"
    ],
    "category": "przymiotniki",
-   "pronunciation": "intieriesnyj"
+   "pronunciation": "intieriesnyj",
+   "feminine": "интере́сная",
+   "neuter": "интере́сное",
+   "plural": "интере́сные"
   },
   {
    "id": "ru1000-842",
@@ -9756,7 +10137,10 @@
     "różny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "raznyj"
+   "pronunciation": "raznyj",
+   "feminine": "ра́зная",
+   "neuter": "ра́зное",
+   "plural": "ра́зные"
   },
   {
    "id": "ru1000-846",
@@ -9802,7 +10186,10 @@
     "cały"
    ],
    "category": "przymiotniki",
-   "pronunciation": "cełyj"
+   "pronunciation": "cełyj",
+   "feminine": "це́лая",
+   "neuter": "це́лое",
+   "plural": "це́лые"
   },
   {
    "id": "ru1000-850",
@@ -9869,7 +10256,10 @@
     "wielki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "wielikij"
+   "pronunciation": "wielikij",
+   "feminine": "вели́кая",
+   "neuter": "вели́кое",
+   "plural": "вели́кие"
   },
   {
    "id": "ru1000-856",
@@ -9880,7 +10270,10 @@
     "przyszły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "buduszczij"
+   "pronunciation": "buduszczij",
+   "feminine": "бу́дущая",
+   "neuter": "бу́дущее",
+   "plural": "бу́дущие"
   },
   {
    "id": "ru1000-857",
@@ -9961,7 +10354,10 @@
     "drogi"
    ],
    "category": "przymiotniki",
-   "pronunciation": "daragoj"
+   "pronunciation": "daragoj",
+   "feminine": "дорога́я",
+   "neuter": "дорого́е",
+   "plural": "дороги́е"
   },
   {
    "id": "ru1000-864",
@@ -9996,7 +10392,10 @@
     "ogromny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "agromnyj"
+   "pronunciation": "agromnyj",
+   "feminine": "огро́мная",
+   "neuter": "огро́мное",
+   "plural": "огро́мные"
   },
   {
    "id": "ru1000-867",
@@ -10160,7 +10559,10 @@
     "żywy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "żywoj"
+   "pronunciation": "żywoj",
+   "feminine": "жива́я",
+   "neuter": "живо́е",
+   "plural": "живы́е"
   },
   {
    "id": "ru1000-881",
@@ -10418,7 +10820,10 @@
     "jasny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "jasnyj"
+   "pronunciation": "jasnyj",
+   "feminine": "я́сная",
+   "neuter": "я́сное",
+   "plural": "я́сные"
   },
   {
    "id": "ru1000-903",
@@ -10594,7 +10999,10 @@
     "uczony"
    ],
    "category": "przymiotniki",
-   "pronunciation": "uczionyj"
+   "pronunciation": "uczionyj",
+   "feminine": "учёная",
+   "neuter": "учёное",
+   "plural": "учёные"
   },
   {
    "id": "ru1000-918",
@@ -10616,7 +11024,10 @@
     "międzynarodowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "mieżdunarodnyj"
+   "pronunciation": "mieżdunarodnyj",
+   "feminine": "междунаро́дная",
+   "neuter": "междунаро́дное",
+   "plural": "междунаро́дные"
   },
   {
    "id": "ru1000-920",
@@ -10673,7 +11084,10 @@
     "trudny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "słożnyj"
+   "pronunciation": "słożnyj",
+   "feminine": "сло́жная",
+   "neuter": "сло́жное",
+   "plural": "сло́жные"
   },
   {
    "id": "ru1000-925",
@@ -10684,7 +11098,10 @@
     "bogaty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bagatyj"
+   "pronunciation": "bagatyj",
+   "feminine": "бога́тая",
+   "neuter": "бога́тое",
+   "plural": "бога́тые"
   },
   {
    "id": "ru1000-926",
@@ -10751,7 +11168,10 @@
     "francuski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "francuzskij"
+   "pronunciation": "francuzskij",
+   "feminine": "францу́зская",
+   "neuter": "францу́зское",
+   "plural": "францу́зские"
   },
   {
    "id": "ru1000-932",
@@ -10762,7 +11182,10 @@
     "angielski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "anglijskij"
+   "pronunciation": "anglijskij",
+   "feminine": "англи́йская",
+   "neuter": "англи́йское",
+   "plural": "англи́йские"
   },
   {
    "id": "ru1000-933",
@@ -10894,7 +11317,10 @@
     "oddzielny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "atdielnyj"
+   "pronunciation": "atdielnyj",
+   "feminine": "отде́льная",
+   "neuter": "отде́льное",
+   "plural": "отде́льные"
   },
   {
    "id": "ru1000-945",
@@ -10986,7 +11412,10 @@
     "wyrazisty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "jarkij"
+   "pronunciation": "jarkij",
+   "feminine": "я́ркая",
+   "neuter": "я́ркое",
+   "plural": "я́ркие"
   },
   {
    "id": "ru1000-953",
@@ -11042,7 +11471,10 @@
     "morski"
    ],
    "category": "przymiotniki",
-   "pronunciation": "marskoj"
+   "pronunciation": "marskoj",
+   "feminine": "морска́я",
+   "neuter": "морско́е",
+   "plural": "морски́е"
   },
   {
    "id": "ru1000-958",
@@ -11087,7 +11519,10 @@
     "mądry"
    ],
    "category": "przymiotniki",
-   "pronunciation": "umnyj"
+   "pronunciation": "umnyj",
+   "feminine": "у́мная",
+   "neuter": "у́мное",
+   "plural": "у́мные"
   },
   {
    "id": "ru1000-962",
@@ -11121,7 +11556,10 @@
     "piąty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "piatyj"
+   "pronunciation": "piatyj",
+   "feminine": "пя́тая",
+   "neuter": "пя́тое",
+   "plural": "пя́тые"
   },
   {
    "id": "ru1000-965",
@@ -11177,7 +11615,10 @@
     "ciężki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "tiażołyj"
+   "pronunciation": "tiażołyj",
+   "feminine": "тяжёлая",
+   "neuter": "тяжёлое",
+   "plural": "тяжёлые"
   },
   {
    "id": "ru1000-970",
@@ -11374,7 +11815,10 @@
     "wspaniały"
    ],
    "category": "przymiotniki",
-   "pronunciation": "zamiecziatielnyj"
+   "pronunciation": "zamiecziatielnyj",
+   "feminine": "замеча́тельная",
+   "neuter": "замеча́тельное",
+   "plural": "замеча́тельные"
   },
   {
    "id": "ru1000-987",
@@ -11386,7 +11830,10 @@
     "znany"
    ],
    "category": "przymiotniki",
-   "pronunciation": "znamienityj"
+   "pronunciation": "znamienityj",
+   "feminine": "знамени́тая",
+   "neuter": "знамени́тое",
+   "plural": "знамени́тые"
   },
   {
    "id": "ru1000-988",
@@ -11420,7 +11867,10 @@
     "szósty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "szestoj"
+   "pronunciation": "szestoj",
+   "feminine": "шеста́я",
+   "neuter": "шесто́е",
+   "plural": "шесты́е"
   },
   {
    "id": "ru1000-991",
@@ -11455,7 +11905,10 @@
     "znaczący"
    ],
    "category": "przymiotniki",
-   "pronunciation": "znaczitielnyj"
+   "pronunciation": "znaczitielnyj",
+   "feminine": "значи́тельная",
+   "neuter": "значи́тельное",
+   "plural": "значи́тельные"
   },
   {
    "id": "ru1000-994",

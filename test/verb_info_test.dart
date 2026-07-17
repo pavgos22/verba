@@ -26,6 +26,16 @@ const _joVerb = Word(
   secondPerson: 'живёшь',
   verbType: '1',
 );
+const _adj = Word(
+  id: 'a',
+  ru: 'новый',
+  ruAccented: 'но́вый',
+  pl: ['nowy'],
+  category: 'przymiotniki',
+  feminine: 'но́вая',
+  neuter: 'но́вое',
+  plural: 'но́вые',
+);
 const _noun = Word(id: 'n', ru: 'дом', pl: ['dom']);
 
 Future<void> _pump(WidgetTester tester, Widget child) async {
@@ -43,25 +53,25 @@ Future<void> _pump(WidgetTester tester, Widget child) async {
 
 void main() {
   testWidgets('verb info shows first person and type when visible', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _verb, visible: true));
+    await _pump(tester, const GrammarInfoSlot(word: _verb, visible: true));
     expect(find.text('1'), findsOneWidget);
     expect(find.text('еду'), findsOneWidget);
   });
 
   testWidgets('verb info reserves but hides content when not visible', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _verb, visible: false));
+    await _pump(tester, const GrammarInfoSlot(word: _verb, visible: false));
     expect(find.text('1'), findsNothing);
     expect(find.text('еду'), findsNothing);
   });
 
   testWidgets('verb info shows the second person (ё trap) when present', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: true));
+    await _pump(tester, const GrammarInfoSlot(word: _joVerb, visible: true));
     expect(find.text('живу'), findsOneWidget);
     expect(find.text('живёшь'), findsOneWidget);
   });
 
   testWidgets('the ё in the second person is highlighted in its own colour', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: true));
+    await _pump(tester, const GrammarInfoSlot(word: _joVerb, visible: true));
     final richText = tester.widget<Text>(find.text('живёшь'));
     final joSpans = <TextSpan>[];
     richText.textSpan!.visitChildren((span) {
@@ -72,35 +82,47 @@ void main() {
     expect(joSpans.single.style?.color, isNotNull);
   });
 
-  testWidgets('the second person is hidden when not visible', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _joVerb, visible: false));
-    expect(find.text('живёшь'), findsNothing);
+  testWidgets('adjective info shows the gender and plural forms when visible', (tester) async {
+    await _pump(tester, const GrammarInfoSlot(word: _adj, visible: true));
+    expect(find.text('новый'), findsOneWidget); // masculine falls back to ruAccented
+    expect(find.text('новая'), findsOneWidget);
+    expect(find.text('новое'), findsOneWidget);
+    expect(find.text('новые'), findsOneWidget);
   });
 
-  testWidgets('a non-verb word shows no verb content', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _noun, visible: true));
+  testWidgets('adjective info is hidden when not visible', (tester) async {
+    await _pump(tester, const GrammarInfoSlot(word: _adj, visible: false));
+    expect(find.text('новая'), findsNothing);
+  });
+
+  testWidgets('a noun shows no grammar content', (tester) async {
+    await _pump(tester, const GrammarInfoSlot(word: _noun, visible: true));
     expect(find.text('1'), findsNothing);
   });
 
-  testWidgets('reserves the same height for verbs and non-verbs so words do not jump', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _noun, visible: false));
-    final nounHeight = tester.getSize(find.byType(VerbInfoSlot)).height;
-    await _pump(tester, const VerbInfoSlot(word: _verb, visible: false));
-    final verbHeight = tester.getSize(find.byType(VerbInfoSlot)).height;
+  testWidgets('reserves the same height for verbs, adjectives and nouns so words do not jump', (tester) async {
+    await _pump(tester, const GrammarInfoSlot(word: _noun, visible: false));
+    final nounHeight = tester.getSize(find.byType(GrammarInfoSlot)).height;
+    await _pump(tester, const GrammarInfoSlot(word: _verb, visible: false));
+    final verbHeight = tester.getSize(find.byType(GrammarInfoSlot)).height;
+    await _pump(tester, const GrammarInfoSlot(word: _adj, visible: false));
+    final adjHeight = tester.getSize(find.byType(GrammarInfoSlot)).height;
     expect(nounHeight, greaterThan(0));
     expect(nounHeight, verbHeight);
+    expect(nounHeight, adjHeight);
   });
 
   testWidgets('reserve:false collapses the slot to nothing', (tester) async {
-    await _pump(tester, const VerbInfoSlot(word: _verb, visible: false, reserve: false));
-    expect(tester.getSize(find.byType(VerbInfoSlot)).height, 0);
+    await _pump(tester, const GrammarInfoSlot(word: _verb, visible: false, reserve: false));
+    expect(tester.getSize(find.byType(GrammarInfoSlot)).height, 0);
   });
 
-  test('showVerbInfo respects mode and hold state', () {
-    expect(showVerbInfo(_verb, VerbInfoMode.never, true), isFalse);
-    expect(showVerbInfo(_verb, VerbInfoMode.always, false), isTrue);
-    expect(showVerbInfo(_verb, VerbInfoMode.onHold, false), isFalse);
-    expect(showVerbInfo(_verb, VerbInfoMode.onHold, true), isTrue);
-    expect(showVerbInfo(_noun, VerbInfoMode.always, true), isFalse);
+  test('showGrammarInfo respects mode, hold state and word type', () {
+    expect(showGrammarInfo(_verb, VerbInfoMode.never, true), isFalse);
+    expect(showGrammarInfo(_verb, VerbInfoMode.always, false), isTrue);
+    expect(showGrammarInfo(_verb, VerbInfoMode.onHold, false), isFalse);
+    expect(showGrammarInfo(_verb, VerbInfoMode.onHold, true), isTrue);
+    expect(showGrammarInfo(_adj, VerbInfoMode.always, false), isTrue);
+    expect(showGrammarInfo(_noun, VerbInfoMode.always, true), isFalse);
   });
 }

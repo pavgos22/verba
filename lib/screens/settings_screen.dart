@@ -49,8 +49,8 @@ class SettingsScreen extends ConsumerWidget {
                 control: VerbaSwitch(value: settings.showAccents, onChanged: notifier.setShowAccents),
               ),
               _SettingRow(
-                title: 'Odmiana czasowników',
-                description: 'Forma 1. osoby i typ przy czasownikach (Na Tab = po przytrzymaniu)',
+                title: 'Odmiana słówek',
+                description: 'Formy czasowników i rodzaje przymiotników (Na Tab = po przytrzymaniu)',
                 control: SegmentedButton<VerbInfoMode>(
                   segments: const [
                     ButtonSegment(value: VerbInfoMode.never, label: Text('Nie')),

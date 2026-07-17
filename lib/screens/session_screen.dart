@@ -366,9 +366,9 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                   ],
                 ),
                 const SizedBox(height: 8),
-                VerbInfoSlot(
+                GrammarInfoSlot(
                   word: widget.word,
-                  visible: showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
+                  visible: showGrammarInfo(widget.word, settings.verbInfo, widget.showPronunciation),
                   reserve: settings.verbInfo != VerbInfoMode.never,
                   fontSize: 17,
                 ),
@@ -630,10 +630,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                     ],
                   ),
                   const SizedBox(height: 4),
-                  VerbInfoSlot(
+                  GrammarInfoSlot(
                     word: widget.word,
-                    visible:
-                        (!_isPlToRu || _done) && showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
+                    visible: (!_isPlToRu || _done) &&
+                        showGrammarInfo(widget.word, settings.verbInfo, widget.showPronunciation),
                     reserve: settings.verbInfo != VerbInfoMode.never,
                     fontSize: 13,
                   ),
