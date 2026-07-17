@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.3 — fixed the grammar-details view (shown while holding Tab) getting stuck open: if the Tab key-up was ever missed — e.g. you held Tab and then Alt+Tabbed to another window — the details stayed on even after releasing Tab. The held state now re-syncs with the real keyboard on every key and resets when the session loses focus
+
 ## 0.13.2 — fixed three pronunciations in the "1000 słówek" course where a stressed о had been reduced to "a": до́лжный (dolżnyj, not dalżnyj), доро́га (daroga) and ро́та (rota). A stressed о is read [o]; the о→a reduction only applies to unstressed о. Checked all 195 stressed-о words — these were the only three off
 
 ## 0.13.1 — the "Kursy" back button in the custom-course editor had its label almost touching the right edge of its hover area; it now has proper horizontal padding. Audited the rest of the UI — other buttons/badges/chips already had comfortable spacing
