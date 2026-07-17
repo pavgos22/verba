@@ -77,9 +77,23 @@ void main() {
     expect(find.text('живёшь'), findsNothing);
   });
 
-  testWidgets('a non-verb word renders nothing', (tester) async {
+  testWidgets('a non-verb word shows no verb content', (tester) async {
     await _pump(tester, const VerbInfoSlot(word: _noun, visible: true));
     expect(find.text('1'), findsNothing);
+  });
+
+  testWidgets('reserves the same height for verbs and non-verbs so words do not jump', (tester) async {
+    await _pump(tester, const VerbInfoSlot(word: _noun, visible: false));
+    final nounHeight = tester.getSize(find.byType(VerbInfoSlot)).height;
+    await _pump(tester, const VerbInfoSlot(word: _verb, visible: false));
+    final verbHeight = tester.getSize(find.byType(VerbInfoSlot)).height;
+    expect(nounHeight, greaterThan(0));
+    expect(nounHeight, verbHeight);
+  });
+
+  testWidgets('reserve:false collapses the slot to nothing', (tester) async {
+    await _pump(tester, const VerbInfoSlot(word: _verb, visible: false, reserve: false));
+    expect(tester.getSize(find.byType(VerbInfoSlot)).height, 0);
   });
 
   test('showVerbInfo respects mode and hold state', () {

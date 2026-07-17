@@ -84,17 +84,24 @@ bool showVerbInfo(Word word, VerbInfoMode mode, bool held) {
 }
 
 class VerbInfoSlot extends StatelessWidget {
-  const VerbInfoSlot({super.key, required this.word, required this.visible, this.fontSize = 15});
+  const VerbInfoSlot({
+    super.key,
+    required this.word,
+    required this.visible,
+    this.reserve = true,
+    this.fontSize = 15,
+  });
 
   final Word word;
   final bool visible;
+  final bool reserve;
   final double fontSize;
 
   @override
   Widget build(BuildContext context) {
-    if (!word.hasVerbInfo) return const SizedBox.shrink();
+    if (!reserve) return const SizedBox.shrink();
     final height = fontSize + 10;
-    if (!visible) return SizedBox(height: height);
+    if (!visible || !word.hasVerbInfo) return SizedBox(height: height);
     final muted = TextStyle(fontSize: fontSize, color: context.c.mutedForeground);
     final hasFirst = word.firstPerson != null && word.firstPerson!.isNotEmpty;
     final hasSecond = word.secondPerson != null && word.secondPerson!.isNotEmpty;

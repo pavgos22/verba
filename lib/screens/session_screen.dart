@@ -369,6 +369,7 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                 VerbInfoSlot(
                   word: widget.word,
                   visible: showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
+                  reserve: settings.verbInfo != VerbInfoMode.never,
                   fontSize: 17,
                 ),
                 PronunciationSlot(
@@ -633,6 +634,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                     word: widget.word,
                     visible:
                         (!_isPlToRu || _done) && showVerbInfo(widget.word, settings.verbInfo, widget.showPronunciation),
+                    reserve: settings.verbInfo != VerbInfoMode.never,
                     fontSize: 13,
                   ),
                   PronunciationSlot(
