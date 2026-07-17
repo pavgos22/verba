@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.1 — the "Kursy" back button in the custom-course editor had its label almost touching the right edge of its hover area; it now has proper horizontal padding. Audited the rest of the UI — other buttons/badges/chips already had comfortable spacing
+
 ## 0.13.0 — adjectives now carry their gender + plural forms (masculine / feminine / neuter / plural, e.g. но́вый · но́вая · но́вое · но́вые), revealed on Tab next to a word just like verb forms. The custom-course editor gains four "rodzaj" fields, active only for the "przymiotniki" category (greyed out otherwise, like the verb fields for "czasowniki"); JSON import accepts masculine/feminine/neuter/plural too. The built-in "1000 słówek" course was filled in for 151 adjectives (stress carried from the masculine form; a handful of pronouns/comparatives were left for manual entry). The "Odmiana słówek" setting (was "Odmiana czasowników") now governs both
 
 ## 0.12.4 — custom courses now always read with the system voice, matching the UI: a word you add to your own course that happens to also exist in a built-in course was still being read by "Nadia" (its pre-recorded clip was found by text), instead of the system voice — now the pre-recorded voice is skipped entirely on custom courses
