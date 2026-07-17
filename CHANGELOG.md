@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.12.2 — in the custom-course editor the on-screen keyboard now follows the field you're typing in — click a Russian field (Russian, 1st/2nd person) and it flips to the Russian layout, click Polish/pronunciation and it flips back; you can still switch it by hand, and there's a new "Automatyczny układ klawiatury" toggle in Settings → Klawiatura (on by default). Adding a word with an empty "Rosyjski" or "Polski" field now flags the field in red and explains why instead of silently doing nothing
+
 ## 0.12.1 — every clickable control now shows the hand/pointer cursor on hover; icon-only buttons (like the "X" that ends a session) were still showing the plain arrow — fixed app-wide via the theme so future icon buttons get it too
 
 ## 0.12.0 — holding Tab on a verb now also reveals its 2nd-person form when that form has the "trap 2" ё shift (e.g. жить → ты живёшь, петь → ты поёшь), shown next to the 1st person with the ё highlighted; verbs without the shift (ехать → едешь) are unaffected. Built-in courses were regenerated (47 verbs got it) and custom courses can set a "2. osoba" field or a "secondPerson" on JSON import. Also: the verb-details line now keeps a fixed reserved height for every word during a session, so the word no longer jumps up or down as you move between verbs and non-verbs
