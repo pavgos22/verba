@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.12.3 — adding a word in the custom-course editor now stores the stress mark correctly: the Russian field is split into a plain "ru" (used for answers) and an accented "ruAccented" (used for display), the way the edit dialog already did — so a word typed with a stress mark no longer keeps the mark in its matched form. The verb-only fields (1st/2nd person, conjugation type) are now enabled only when the category is "czasowniki" and greyed out otherwise, in both the add form and the edit dialog
+
 ## 0.12.2 — in the custom-course editor the on-screen keyboard now follows the field you're typing in — click a Russian field (Russian, 1st/2nd person) and it flips to the Russian layout, click Polish/pronunciation and it flips back; you can still switch it by hand, and there's a new "Automatyczny układ klawiatury" toggle in Settings → Klawiatura (on by default). Adding a word with an empty "Rosyjski" or "Polski" field now flags the field in red and explains why instead of silently doing nothing
 
 ## 0.12.1 — every clickable control now shows the hand/pointer cursor on hover; icon-only buttons (like the "X" that ends a session) were still showing the plain arrow — fixed app-wide via the theme so future icon buttons get it too
