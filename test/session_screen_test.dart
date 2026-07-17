@@ -131,6 +131,54 @@ void main() {
     await tester.sendKeyUpEvent(LogicalKeyboardKey.tab);
   });
 
+  testWidgets('losing focus un-sticks the Tab details view (missed key-up)', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    SharedPreferences.setMockInitialValues({
+      'settings.autoplay': false,
+      'settings.answerSounds': false,
+      'settings.showKeyboard': false,
+      'settings.showAccents': false,
+    });
+    final prefs = await SharedPreferences.getInstance();
+    const verb = Word(id: 'v', ru: 'ехать', ruAccented: 'е́хать', pl: ['jechać'], firstPerson: 'еду', verbType: '1');
+    final container = ProviderContainer(overrides: [
+      prefsProvider.overrideWithValue(prefs),
+      wordsProvider.overrideWith((ref) => [verb]),
+    ]);
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        theme: buildTheme(Brightness.light),
+        home: const SessionScreen(
+          mode: SessionMode.retry,
+          retryTasks: [SessionTask(word: verb, kind: TaskKind.typingPlToRu)],
+          loop: false,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'ехать');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.tab);
+    await tester.pumpAndSettle();
+    expect(find.text('еду'), findsOneWidget);
+
+    // The Tab key-up is never delivered (e.g. Alt+Tab away); focus leaves the session.
+    tester.binding.focusManager.primaryFocus?.unfocus();
+    await tester.pumpAndSettle();
+    expect(find.text('еду'), findsNothing);
+
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.tab);
+  });
+
   testWidgets('the end-of-session summary always shows and no Enter skips it into the retry', (tester) async {
     await _pumpRetry(tester, loop: false);
 

@@ -60,6 +60,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   bool _finished = false;
   bool _tabHeld = false;
 
+  void _syncTabHeld() {
+    final held = HardwareKeyboard.instance.logicalKeysPressed.contains(LogicalKeyboardKey.tab);
+    if (held != _tabHeld) setState(() => _tabHeld = held);
+  }
+
   KeyEventResult _handleKey(FocusNode node, KeyEvent event) {
     if (event is KeyDownEvent &&
         event.logicalKey == LogicalKeyboardKey.space &&
@@ -67,13 +72,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _playCurrent();
       return KeyEventResult.handled;
     }
-    if (event.logicalKey != LogicalKeyboardKey.tab) return KeyEventResult.ignored;
-    if (event is KeyDownEvent && !_tabHeld) {
-      setState(() => _tabHeld = true);
-    } else if (event is KeyUpEvent && _tabHeld) {
-      setState(() => _tabHeld = false);
-    }
-    return KeyEventResult.handled;
+    _syncTabHeld();
+    return event.logicalKey == LogicalKeyboardKey.tab ? KeyEventResult.handled : KeyEventResult.ignored;
   }
 
   void _playCurrent() {
@@ -228,6 +228,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           };
           return Focus(
             onKeyEvent: _handleKey,
+            onFocusChange: (hasFocus) {
+              if (!hasFocus && _tabHeld) setState(() => _tabHeld = false);
+            },
             child: Column(
               children: [
                 _SessionTopBar(index: wordIndex, total: wordIds.length, modeLabel: modeLabel),
