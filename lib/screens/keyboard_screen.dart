@@ -125,6 +125,7 @@ class _KeyboardScreenState extends ConsumerState<KeyboardScreen> {
                 const SizedBox(height: 16),
                 OnScreenKeyboard(
                   layout: _layout,
+                  accentRow: true,
                   onText: (text) => insertIntoController(_controller, text),
                   onBackspace: () => backspaceInController(_controller),
                 ),
