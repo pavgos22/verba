@@ -88,6 +88,64 @@ void main() {
     expect(container.read(progressProvider).words['w1']!.wrong, 1);
   });
 
+  testWidgets('loop retry counter shrinks to the words still to fix each round', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    SharedPreferences.setMockInitialValues({
+      'settings.autoplay': false,
+      'settings.answerSounds': false,
+      'settings.showKeyboard': false,
+    });
+    final prefs = await SharedPreferences.getInstance();
+    const w1 = Word(id: 'w1', ru: 'кот', pl: ['kot']);
+    const w2 = Word(id: 'w2', ru: 'дом', pl: ['dom']);
+    final container = ProviderContainer(overrides: [
+      prefsProvider.overrideWithValue(prefs),
+      wordsProvider.overrideWith((ref) => [w1, w2]),
+    ]);
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        theme: buildTheme(Brightness.light),
+        home: const SessionScreen(
+          mode: SessionMode.retry,
+          retryTasks: [
+            SessionTask(word: w1, kind: TaskKind.typingRuToPl),
+            SessionTask(word: w2, kind: TaskKind.typingRuToPl),
+          ],
+          loop: true,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.text('1 / 2'), findsOneWidget);
+
+    await tester.enterText(find.byType(TextField), 'kot'); // w1 correct
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Dalej'));
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 2'), findsOneWidget);
+
+    await tester.enterText(find.byType(TextField), 'zzz'); // w2 wrong
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'dom'); // retype correct
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Dalej'));
+    await tester.pumpAndSettle();
+
+    // second round contains only the one word that was still wrong
+    expect(find.text('1 / 1'), findsOneWidget);
+    expect(find.text('дом'), findsOneWidget);
+  });
+
   testWidgets('after a correct PL->RU answer, holding Tab reveals verb info', (tester) async {
     tester.view.physicalSize = const Size(1400, 1400);
     tester.view.devicePixelRatio = 1.0;

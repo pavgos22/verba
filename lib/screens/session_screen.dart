@@ -56,6 +56,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   int _answered = 0;
   int _correct = 0;
   final List<SessionMistake> _mistakes = [];
+  final List<SessionTask> _retryQueue = [];
   final Set<String> _penalized = {};
   bool _finished = false;
   bool _tabHeld = false;
@@ -165,7 +166,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       if (grade == AnswerGrade.correct) {
         _correct++;
       } else if (widget.mode == SessionMode.retry && widget.loop) {
-        _tasks!.add(SessionTask(word: task.word, kind: task.kind));
+        _retryQueue.add(SessionTask(word: task.word, kind: task.kind));
       } else {
         _mistakes.add(SessionMistake(word: task.word, kind: task.kind, given: given));
       }
@@ -175,11 +176,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   void _next() {
     final tasks = _tasks!;
     setState(() {
-      if (_index + 1 >= tasks.length) {
+      if (_index + 1 < tasks.length) {
+        _index++;
+      } else if (widget.mode == SessionMode.retry && widget.loop && _retryQueue.isNotEmpty) {
+        _tasks = List.of(_retryQueue);
+        _retryQueue.clear();
+        _index = 0;
+      } else {
         _finished = true;
         ref.read(progressProvider.notifier).finishSession();
-      } else {
-        _index++;
       }
     });
   }
