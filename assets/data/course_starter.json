@@ -49,9 +49,9 @@
   {"id": "time", "ru": "время", "ruAccented": "вре́мя", "pl": ["czas"], "category": "rzeczowniki", "pronunciation": "wriemia"},
   {"id": "year", "ru": "год", "ruAccented": "год", "pl": ["rok"], "category": "rzeczowniki", "pronunciation": "god"},
   {"id": "city", "ru": "город", "ruAccented": "го́род", "pl": ["miasto"], "category": "rzeczowniki", "pronunciation": "gorad"},
-  {"id": "big", "ru": "большой", "ruAccented": "большо́й", "pl": ["duży", "wielki"], "category": "przymiotniki", "pronunciation": "balszoj"},
-  {"id": "small", "ru": "маленький", "ruAccented": "ма́ленький", "pl": ["mały"], "category": "przymiotniki", "pronunciation": "malien'kij"},
-  {"id": "new", "ru": "новый", "ruAccented": "но́вый", "pl": ["nowy"], "category": "przymiotniki", "pronunciation": "nowyj"},
-  {"id": "old", "ru": "старый", "ruAccented": "ста́рый", "pl": ["stary"], "category": "przymiotniki", "pronunciation": "staryj"}
+  {"id": "big", "ru": "большой", "ruAccented": "большо́й", "pl": ["duży", "wielki"], "category": "przymiotniki", "pronunciation": "balszoj", "feminine": "больша́я", "neuter": "большо́е", "plural": "больши́е"},
+  {"id": "small", "ru": "маленький", "ruAccented": "ма́ленький", "pl": ["mały"], "category": "przymiotniki", "pronunciation": "malien'kij", "feminine": "ма́ленькая", "neuter": "ма́ленькое", "plural": "ма́ленькие"},
+  {"id": "new", "ru": "новый", "ruAccented": "но́вый", "pl": ["nowy"], "category": "przymiotniki", "pronunciation": "nowyj", "feminine": "но́вая", "neuter": "но́вое", "plural": "но́вые"},
+  {"id": "old", "ru": "старый", "ruAccented": "ста́рый", "pl": ["stary"], "category": "przymiotniki", "pronunciation": "staryj", "feminine": "ста́рая", "neuter": "ста́рое", "plural": "ста́рые"}
  ]
 }
