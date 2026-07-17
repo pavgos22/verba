@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.6 — redesigned the session top bar: it now shows the course name · session mode centred, with a full-width progress bar underneath and the counter on the right. When you filter the session to one word type, that category shows as a badge next to the counter (e.g. "Czasowniki"); with "wszystkie" (all words) selected there's no badge
+
 ## 0.13.5 — pressing Enter with an empty answer field now counts as "Nie wiem" (reveals the answer / marks it wrong), so you don't have to reach for the button. You can turn this off in Settings → Nauka → "Puste Enter = Nie wiem" (on by default)
 
 ## 0.13.4 — in the looping "fix your mistakes" pass, the progress counter now reflects how many words are still left to fix: after a round it counts down (e.g. 5 mistakes, 3 fixed → the next round shows x/2 instead of staying x/5). Rounds still flow into each other seamlessly, with no summary screen in between — the summary is only after the main session
