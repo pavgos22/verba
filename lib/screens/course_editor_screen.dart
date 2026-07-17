@@ -259,7 +259,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
               mouseCursor: SystemMouseCursors.click,
               onTap: () => Navigator.of(context).pop(),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
+                padding: const EdgeInsets.fromLTRB(6, 4, 12, 4),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
