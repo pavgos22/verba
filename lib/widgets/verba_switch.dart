@@ -12,8 +12,7 @@ class VerbaSwitch extends StatelessWidget {
   static const _trackH = 16.0;
   static const _thumb = 22.0;
   static const _travel = _trackW - _thumb;
-  static const _duration = Duration(milliseconds: 200);
-  static const _curve = Curves.easeInOut;
+  static const _duration = Duration(milliseconds: 340);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +20,8 @@ class VerbaSwitch extends StatelessWidget {
     final on = value;
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    final trackColor = (on ? c.primary : c.mutedForeground).withValues(alpha: 0.38);
-    final thumbColor = on ? c.primary : (isDark ? c.foreground : c.card);
+    final trackColor = on ? c.mutedForeground : c.mutedForeground.withValues(alpha: 0.25);
+    final thumbColor = isDark ? c.foreground : c.card;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -37,7 +36,7 @@ class VerbaSwitch extends StatelessWidget {
             children: [
               AnimatedContainer(
                 duration: _duration,
-                curve: _curve,
+                curve: Curves.easeOut,
                 width: _trackW,
                 height: _trackH,
                 decoration: BoxDecoration(
@@ -47,11 +46,9 @@ class VerbaSwitch extends StatelessWidget {
               ),
               AnimatedPositioned(
                 duration: _duration,
-                curve: _curve,
+                curve: Curves.easeOutCubic,
                 left: on ? _travel : 0,
-                child: AnimatedContainer(
-                  duration: _duration,
-                  curve: _curve,
+                child: Container(
                   width: _thumb,
                   height: _thumb,
                   decoration: BoxDecoration(
