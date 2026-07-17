@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.12.1 — every clickable control now shows the hand/pointer cursor on hover; icon-only buttons (like the "X" that ends a session) were still showing the plain arrow — fixed app-wide via the theme so future icon buttons get it too
+
 ## 0.12.0 — holding Tab on a verb now also reveals its 2nd-person form when that form has the "trap 2" ё shift (e.g. жить → ты живёшь, петь → ты поёшь), shown next to the 1st person with the ё highlighted; verbs without the shift (ехать → едешь) are unaffected. Built-in courses were regenerated (47 verbs got it) and custom courses can set a "2. osoba" field or a "secondPerson" on JSON import. Also: the verb-details line now keeps a fixed reserved height for every word during a session, so the word no longer jumps up or down as you move between verbs and non-verbs
 
 ## 0.11.11 — the end-of-session summary is now always shown before the "fix mistakes" pass, in every session type: it used to be possible to shoot straight past it into the retry by holding (or quickly double-tapping) Enter after the last answer; the summary no longer starts the retry from a keypress at all — you choose "Popraw/Powtórz błędne" or "Zakończ" with a deliberate click (or Tab+Enter)
