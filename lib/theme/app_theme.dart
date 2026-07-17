@@ -114,6 +114,12 @@ ThemeData buildTheme(Brightness brightness) {
         enabledMouseCursor: SystemMouseCursors.click,
       ),
     ),
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(
+        enabledMouseCursor: SystemMouseCursors.click,
+        disabledMouseCursor: SystemMouseCursors.basic,
+      ),
+    ),
     sliderTheme: SliderThemeData(
       trackHeight: 6,
       activeTrackColor: colors.primary,
