@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.7 — restyled the on/off toggles in Settings to a slimmer Material-style switch: a thin track with a larger round thumb that overhangs it and slides across, replacing the old thick pill whose knob stretched on press. On uses the primary colour (near-black thumb in the light theme, white in dark), off shows a light thumb on a muted track; no ripple/halo effect
+
 ## 0.13.6 — redesigned the session top bar: it now shows the course name · session mode centred, with a full-width progress bar underneath and the counter on the right. When you filter the session to one word type, that category shows as a badge next to the counter (e.g. "Czasowniki"); with "wszystkie" (all words) selected there's no badge
 
 ## 0.13.5 — pressing Enter with an empty answer field now counts as "Nie wiem" (reveals the answer / marks it wrong), so you don't have to reach for the button. You can turn this off in Settings → Nauka → "Puste Enter = Nie wiem" (on by default)
