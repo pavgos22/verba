@@ -3043,8 +3043,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -3054,7 +3053,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -3372,8 +3371,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -3383,7 +3381,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -3456,8 +3454,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -3467,7 +3464,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -3671,8 +3668,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -3682,7 +3678,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -3755,8 +3751,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -3766,7 +3761,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -3970,7 +3965,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
+                          "opacity": 0.25,
                           "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
@@ -14030,8 +14025,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -14041,7 +14035,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -14359,8 +14353,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -14370,7 +14363,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -14443,8 +14436,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -14454,7 +14446,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -14658,8 +14650,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -14669,7 +14660,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -14742,8 +14733,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
-                          "fill": "$primary",
+                          "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
                         },
@@ -14753,7 +14743,7 @@
                           "x": 20,
                           "y": 0,
                           "name": "Knob",
-                          "fill": "$primary",
+                          "fill": "#FAFAFA",
                           "width": 22,
                           "height": 22,
                           "effect": {
@@ -14957,7 +14947,7 @@
                           "x": 0,
                           "y": 3,
                           "name": "Track",
-                          "opacity": 0.38,
+                          "opacity": 0.25,
                           "fill": "$muted-foreground",
                           "width": 42,
                           "height": 16
