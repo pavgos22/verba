@@ -3031,21 +3031,42 @@
                       "type": "frame",
                       "id": "e0r7Fv",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "wMitC",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "Vl5oN",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -3339,21 +3360,42 @@
                       "type": "frame",
                       "id": "E8uBt",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "plc9z",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "K9bai",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -3402,21 +3444,42 @@
                       "type": "frame",
                       "id": "ZFgdr",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "cfs14",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "qbl8x",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -3596,21 +3659,42 @@
                       "type": "frame",
                       "id": "KpWhp",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "GH1QZ",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "ruJJY",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -3659,21 +3743,42 @@
                       "type": "frame",
                       "id": "luivZ",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "UDtpT",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "g3OVD8",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -3853,21 +3958,42 @@
                       "type": "frame",
                       "id": "A4gxa",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$muted-foreground",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "G9Sfg",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$muted-foreground",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "RhrTL",
-                          "x": 2,
-                          "y": 2,
+                          "x": 0,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "#FAFAFA",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -13892,21 +14018,42 @@
                       "type": "frame",
                       "id": "M90om",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "cFZ4I",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "for5j",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -14200,21 +14347,42 @@
                       "type": "frame",
                       "id": "VY7l7",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "JeXdG",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "S0pyyz",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -14263,21 +14431,42 @@
                       "type": "frame",
                       "id": "sZvHO",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "inAd2",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "EwIvJ",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -14457,21 +14646,42 @@
                       "type": "frame",
                       "id": "w3TFzx",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "WuuAa",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "Fs9oR",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -14520,21 +14730,42 @@
                       "type": "frame",
                       "id": "E3lkn",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$primary",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "D7M6Ri",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$primary",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "pJxrh",
-                          "x": 18,
-                          "y": 2,
+                          "x": 20,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "$primary",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
@@ -14714,21 +14945,42 @@
                       "type": "frame",
                       "id": "I3riZ",
                       "name": "Toggle",
-                      "width": 36,
-                      "height": 20,
-                      "fill": "$muted-foreground",
-                      "cornerRadius": 10,
+                      "width": 42,
+                      "height": 22,
+                      "fill": "#00000000",
                       "layout": "none",
                       "children": [
                         {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "F2Z5bv",
+                          "x": 0,
+                          "y": 3,
+                          "name": "Track",
+                          "opacity": 0.38,
+                          "fill": "$muted-foreground",
+                          "width": 42,
+                          "height": 16
+                        },
+                        {
                           "type": "ellipse",
                           "id": "WKppm",
-                          "x": 2,
-                          "y": 2,
+                          "x": 0,
+                          "y": 0,
                           "name": "Knob",
-                          "fill": "$primary-foreground",
-                          "width": 16,
-                          "height": 16
+                          "fill": "#FAFAFA",
+                          "width": 22,
+                          "height": 22,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#0000002E",
+                            "offset": {
+                              "x": 0,
+                              "y": 1
+                            },
+                            "blur": 3
+                          }
                         }
                       ]
                     }
