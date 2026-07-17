@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.9 — reworked the on/off toggle colours and animation: dropped the heavy near-black look for a softer grey — the track is a mid grey when on, a faint grey when off, with a light thumb in both themes — so on/off now read clearly in the dark theme (where they were nearly indistinguishable) and the light theme is no longer overwhelmingly black. The slide is also slower (340 ms) with an ease-out curve
+
 ## 0.13.8 — the on-screen Cyrillic keyboard on the Klawiatura screen now has a row of accented vowels (а́ е́ и́ о́ у́ ы́ э́ ю́ я́) you can click to add a stress mark, matching the course-editor keyboard — previously stress marks were only reachable by physically typing a vowel then q (that shortcut, and its hint, still works)
 
 ## 0.13.7 — restyled the on/off toggles in Settings to a slimmer Material-style switch: a thin track with a larger round thumb that overhangs it and slides across, replacing the old thick pill whose knob stretched on press. On uses the primary colour (near-black thumb in the light theme, white in dark), off shows a light thumb on a muted track; no ripple/halo effect
