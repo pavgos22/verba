@@ -553,7 +553,10 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
   void _check() {
     if (_done) return;
     final given = _controller.text.trim();
-    if (given.isEmpty) return;
+    if (given.isEmpty) {
+      if (_grade == null && ref.read(settingsProvider).enterEmptyIsGiveUp) _giveUp();
+      return;
+    }
     if (_grade == null) {
       final grade = _isPlToRu ? gradeRuAnswer(widget.word, given) : gradePlAnswer(widget.word, given);
       widget.onResult(grade, given);

@@ -47,6 +47,7 @@ class Settings {
     required this.verbInfo,
     required this.showWordPoints,
     required this.autoKeyboardLayout,
+    required this.enterEmptyIsGiveUp,
     required this.modes,
   });
 
@@ -63,6 +64,7 @@ class Settings {
   final VerbInfoMode verbInfo;
   final bool showWordPoints;
   final bool autoKeyboardLayout;
+  final bool enterEmptyIsGiveUp;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -82,6 +84,7 @@ class Settings {
     VerbInfoMode? verbInfo,
     bool? showWordPoints,
     bool? autoKeyboardLayout,
+    bool? enterEmptyIsGiveUp,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -98,6 +101,7 @@ class Settings {
       verbInfo: verbInfo ?? this.verbInfo,
       showWordPoints: showWordPoints ?? this.showWordPoints,
       autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
+      enterEmptyIsGiveUp: enterEmptyIsGiveUp ?? this.enterEmptyIsGiveUp,
       modes: modes ?? this.modes,
     );
   }
@@ -122,6 +126,7 @@ class SettingsNotifier extends Notifier<Settings> {
       verbInfo: VerbInfoMode.values.asNameMap()[prefs.getString('settings.verbInfo')] ?? VerbInfoMode.onHold,
       showWordPoints: prefs.getBool('settings.showWordPoints') ?? false,
       autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
+      enterEmptyIsGiveUp: prefs.getBool('settings.enterEmptyIsGiveUp') ?? true,
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -199,6 +204,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setAutoKeyboardLayout(bool value) {
     state = state.copyWith(autoKeyboardLayout: value);
     ref.read(prefsProvider).setBool('settings.autoKeyboardLayout', value);
+  }
+
+  void setEnterEmptyIsGiveUp(bool value) {
+    state = state.copyWith(enterEmptyIsGiveUp: value);
+    ref.read(prefsProvider).setBool('settings.enterEmptyIsGiveUp', value);
   }
 
   void setModeConfig(String mode, ModeConfig config) {

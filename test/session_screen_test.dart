@@ -12,7 +12,7 @@ import 'package:verba/theme/app_theme.dart';
 
 const _word = Word(id: 'w1', ru: 'кот', pl: ['kot']);
 
-Future<ProviderContainer> _pumpRetry(WidgetTester tester, {bool loop = false}) async {
+Future<ProviderContainer> _pumpRetry(WidgetTester tester, {bool loop = false, bool enterEmpty = true}) async {
   tester.view.physicalSize = const Size(1400, 1400);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
@@ -21,6 +21,7 @@ Future<ProviderContainer> _pumpRetry(WidgetTester tester, {bool loop = false}) a
     'settings.autoplay': false,
     'settings.answerSounds': false,
     'settings.showKeyboard': false,
+    'settings.enterEmptyIsGiveUp': enterEmpty,
   });
   final prefs = await SharedPreferences.getInstance();
   final container = ProviderContainer(overrides: [
@@ -66,6 +67,26 @@ void main() {
     expect(progress, isNotNull);
     expect(progress!.wrong, 1);
     expect(progress.box, 1);
+  });
+
+  testWidgets('Enter on an empty field counts as a give-up', (tester) async {
+    final container = await _pumpRetry(tester);
+
+    await tester.testTextInput.receiveAction(TextInputAction.done); // Enter, nothing typed
+    await tester.pumpAndSettle();
+
+    final progress = container.read(progressProvider).words['w1'];
+    expect(progress, isNotNull);
+    expect(progress!.wrong, 1);
+  });
+
+  testWidgets('Enter on an empty field does nothing when the setting is off', (tester) async {
+    final container = await _pumpRetry(tester, enterEmpty: false);
+
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+
+    expect(container.read(progressProvider).words, isEmpty);
   });
 
   testWidgets('a word loses at most one point per session however many misses', (tester) async {

@@ -57,4 +57,20 @@ void main() {
     final container = await _container({'settings.autoKeyboardLayout': false});
     expect(container.read(settingsProvider).autoKeyboardLayout, isFalse);
   });
+
+  test('empty-Enter-is-give-up defaults to on', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).enterEmptyIsGiveUp, isTrue);
+  });
+
+  test('setEnterEmptyIsGiveUp updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setEnterEmptyIsGiveUp(false);
+    expect(container.read(settingsProvider).enterEmptyIsGiveUp, isFalse);
+  });
+
+  test('loads persisted empty-Enter-is-give-up', () async {
+    final container = await _container({'settings.enterEmptyIsGiveUp': false});
+    expect(container.read(settingsProvider).enterEmptyIsGiveUp, isFalse);
+  });
 }

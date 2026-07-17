@@ -144,6 +144,11 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               _SettingRow(
+                title: 'Puste Enter = „Nie wiem"',
+                description: 'Enter przy pustym polu zalicza odpowiedź jako „Nie wiem"',
+                control: VerbaSwitch(value: settings.enterEmptyIsGiveUp, onChanged: notifier.setEnterEmptyIsGiveUp),
+              ),
+              _SettingRow(
                 title: 'Kolumna punktów (debug)',
                 description: 'Pokazuje wynik punktowy słówka w tabeli Słówka',
                 control: VerbaSwitch(value: settings.showWordPoints, onChanged: notifier.setShowWordPoints),
