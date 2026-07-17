@@ -20,6 +20,9 @@ enum Lector {
       Lector.values.firstWhere((l) => l.name == name, orElse: () => Lector.google);
 }
 
+bool useAssetVoice(Lector lector, String activeCourseId) =>
+    lector.hasAssets && !activeCourseId.startsWith('custom-');
+
 String lectorKey(String text) {
   var hash = BigInt.parse('14695981039346656037');
   final prime = BigInt.parse('1099511628211');
@@ -45,9 +48,9 @@ class VerbaAudioService implements AudioService {
 
   @override
   Future<bool> speakRussian(String text, {bool slow = false}) async {
-    final lector = _ref.read(settingsProvider).lector;
-    if (lector.hasAssets) {
-      if (await _playAsset(lector, text, slow: slow)) return true;
+    final settings = _ref.read(settingsProvider);
+    if (useAssetVoice(settings.lector, settings.activeCourseId)) {
+      if (await _playAsset(settings.lector, text, slow: slow)) return true;
     }
     return _speakSystem(text, slow: slow);
   }

@@ -13,4 +13,18 @@ void main() {
     expect(key.length, 16);
     expect(RegExp(r'^[0-9a-f]{16}$').hasMatch(key), isTrue);
   });
+
+  test('the asset voice plays on built-in courses', () {
+    expect(useAssetVoice(Lector.google, 'starter'), isTrue);
+    expect(useAssetVoice(Lector.google, 'ru1000'), isTrue);
+  });
+
+  test('custom courses never use the asset voice, even for a word shared with a built-in course', () {
+    expect(useAssetVoice(Lector.google, 'custom-1783701402417'), isFalse);
+  });
+
+  test('the system lector never uses assets', () {
+    expect(useAssetVoice(Lector.system, 'starter'), isFalse);
+    expect(useAssetVoice(Lector.system, 'custom-1'), isFalse);
+  });
 }
