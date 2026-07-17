@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.2 — fixed three pronunciations in the "1000 słówek" course where a stressed о had been reduced to "a": до́лжный (dolżnyj, not dalżnyj), доро́га (daroga) and ро́та (rota). A stressed о is read [o]; the о→a reduction only applies to unstressed о. Checked all 195 stressed-о words — these were the only three off
+
 ## 0.13.1 — the "Kursy" back button in the custom-course editor had its label almost touching the right edge of its hover area; it now has proper horizontal padding. Audited the rest of the UI — other buttons/badges/chips already had comfortable spacing
 
 ## 0.13.0 — adjectives now carry their gender + plural forms (masculine / feminine / neuter / plural, e.g. но́вый · но́вая · но́вое · но́вые), revealed on Tab next to a word just like verb forms. The custom-course editor gains four "rodzaj" fields, active only for the "przymiotniki" category (greyed out otherwise, like the verb fields for "czasowniki"); JSON import accepts masculine/feminine/neuter/plural too. The built-in "1000 słówek" course was filled in for 151 adjectives (stress carried from the masculine form; a handful of pronouns/comparatives were left for manual entry). The "Odmiana słówek" setting (was "Odmiana czasowników") now governs both
