@@ -2,70 +2,71 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 
-class VerbaSwitch extends StatefulWidget {
+class VerbaSwitch extends StatelessWidget {
   const VerbaSwitch({super.key, required this.value, required this.onChanged});
 
   final bool value;
   final ValueChanged<bool> onChanged;
 
-  @override
-  State<VerbaSwitch> createState() => _VerbaSwitchState();
-}
-
-class _VerbaSwitchState extends State<VerbaSwitch> {
-  static const _w = 52.0;
-  static const _h = 30.0;
-  static const _knob = 22.0;
-  static const _wider = 44.0;
-  static const _offset = (_h - _knob) / 2;
-  static const _duration = Duration(milliseconds: 300);
+  static const _trackW = 42.0;
+  static const _trackH = 16.0;
+  static const _thumb = 22.0;
+  static const _travel = _trackW - _thumb;
+  static const _duration = Duration(milliseconds: 200);
   static const _curve = Curves.easeInOut;
-
-  bool _pressed = false;
 
   @override
   Widget build(BuildContext context) {
-    final on = widget.value;
-    final knobWidth = _pressed ? _wider : _knob;
-    final left = on ? _w - knobWidth - _offset : _offset;
-    final trackOff = context.c.mutedForeground.withValues(alpha: 0.35);
+    final c = context.c;
+    final on = value;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final trackColor = (on ? c.primary : c.mutedForeground).withValues(alpha: 0.38);
+    final thumbColor = on ? c.primary : (isDark ? c.foreground : c.card);
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => widget.onChanged(!on),
-        onTapDown: (_) => setState(() => _pressed = true),
-        onTapUp: (_) => setState(() => _pressed = false),
-        onTapCancel: () => setState(() => _pressed = false),
-        child: AnimatedContainer(
-          duration: _duration,
-          curve: _curve,
-          width: _w,
-          height: _h,
-          decoration: BoxDecoration(
-            color: on ? context.c.primary : trackOff,
-            borderRadius: BorderRadius.circular(_h / 2),
-          ),
+        onTap: () => onChanged(!on),
+        child: SizedBox(
+          width: _trackW,
+          height: _thumb,
           child: Stack(
+            alignment: Alignment.centerLeft,
+            clipBehavior: Clip.none,
             children: [
+              AnimatedContainer(
+                duration: _duration,
+                curve: _curve,
+                width: _trackW,
+                height: _trackH,
+                decoration: BoxDecoration(
+                  color: trackColor,
+                  borderRadius: BorderRadius.circular(_trackH / 2),
+                ),
+              ),
               AnimatedPositioned(
                 duration: _duration,
                 curve: _curve,
-                left: left,
-                top: _offset,
+                left: on ? _travel : 0,
                 child: AnimatedContainer(
                   duration: _duration,
                   curve: _curve,
-                  width: knobWidth,
-                  height: _knob,
+                  width: _thumb,
+                  height: _thumb,
                   decoration: BoxDecoration(
-                    color: context.c.primaryForeground,
-                    borderRadius: BorderRadius.circular(_knob / 2),
+                    color: thumbColor,
+                    shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.10),
-                        offset: Offset(on ? -10 : 10, 0),
-                        blurRadius: 40,
+                        color: Colors.black.withValues(alpha: 0.20),
+                        offset: const Offset(0, 2),
+                        blurRadius: 2.5,
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.12),
+                        offset: const Offset(0, 1),
+                        blurRadius: 5,
                       ),
                     ],
                   ),
