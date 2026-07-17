@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/transliteration.dart';
 import '../data/course.dart';
 import '../data/custom_courses.dart';
+import '../data/settings_store.dart';
 import '../data/word.dart';
 import '../data/words_repository.dart';
 import '../theme/app_colors.dart';
@@ -35,21 +36,27 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   String? _category;
   late TextEditingController _active = _ru;
   KeyboardLayoutType _layout = KeyboardLayoutType.polish;
+  bool _ruError = false;
+  bool _plError = false;
 
   @override
   void initState() {
     super.initState();
-    _target(_ruFocus, _ru);
-    _target(_firstPersonFocus, _firstPerson);
-    _target(_secondPersonFocus, _secondPerson);
-    _target(_plFocus, _pl);
+    _target(_ruFocus, _ru, KeyboardLayoutType.russian);
+    _target(_firstPersonFocus, _firstPerson, KeyboardLayoutType.russian);
+    _target(_secondPersonFocus, _secondPerson, KeyboardLayoutType.russian);
+    _target(_plFocus, _pl, KeyboardLayoutType.polish);
     _target(_verbTypeFocus, _verbType);
-    _target(_pronunciationFocus, _pronunciation);
+    _target(_pronunciationFocus, _pronunciation, KeyboardLayoutType.polish);
   }
 
-  void _target(FocusNode node, TextEditingController controller) {
+  void _target(FocusNode node, TextEditingController controller, [KeyboardLayoutType? layout]) {
     node.addListener(() {
-      if (node.hasFocus) _active = controller;
+      if (!node.hasFocus) return;
+      _active = controller;
+      if (layout != null && layout != _layout && ref.read(settingsProvider).autoKeyboardLayout) {
+        setState(() => _layout = layout);
+      }
     });
   }
 
@@ -72,10 +79,24 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
 
   void _add() {
     final ru = _ru.text.trim();
-    final plRaw = _pl.text.trim();
-    if (ru.isEmpty || plRaw.isEmpty) return;
-    final pl = plRaw.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
-    if (pl.isEmpty) return;
+    final pl = _pl.text.trim().split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
+    if (ru.isEmpty || pl.isEmpty) {
+      setState(() {
+        _ruError = ru.isEmpty;
+        _plError = pl.isEmpty;
+      });
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(const SnackBar(
+          content: Text('Podaj słówko po rosyjsku i po polsku — te pola nie mogą być puste.'),
+          duration: Duration(seconds: 3),
+        ));
+      return;
+    }
+    setState(() {
+      _ruError = false;
+      _plError = false;
+    });
     final firstPerson = _firstPerson.text.trim();
     final secondPerson = _secondPerson.text.trim();
     final verbType = _verbType.text.trim();
@@ -255,11 +276,23 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
                             controller: _ru,
                             focusNode: _ruFocus,
                             transliterate: true,
+                            hasError: _ruError,
+                            onChanged: (_) {
+                              if (_ruError) setState(() => _ruError = false);
+                            },
                             onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
-                        child: _Field(label: 'Polski', controller: _pl, focusNode: _plFocus, onSubmit: _add),
+                        child: _Field(
+                            label: 'Polski',
+                            controller: _pl,
+                            focusNode: _plFocus,
+                            hasError: _plError,
+                            onChanged: (_) {
+                              if (_plError) setState(() => _plError = false);
+                            },
+                            onSubmit: _add),
                       ),
                       const SizedBox(width: 12),
                       SizedBox(
@@ -589,6 +622,8 @@ class _Field extends StatelessWidget {
     required this.controller,
     this.focusNode,
     this.transliterate = false,
+    this.hasError = false,
+    this.onChanged,
     required this.onSubmit,
   });
 
@@ -596,10 +631,14 @@ class _Field extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode? focusNode;
   final bool transliterate;
+  final bool hasError;
+  final ValueChanged<String>? onChanged;
   final VoidCallback onSubmit;
 
   @override
   Widget build(BuildContext context) {
+    final borderColor = hasError ? context.c.destructive : context.c.inputBorder;
+    final focusedColor = hasError ? context.c.destructive : context.c.ring;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -611,17 +650,18 @@ class _Field extends StatelessWidget {
             controller: controller,
             focusNode: focusNode,
             inputFormatters: transliterate ? [TransliterationFormatter()] : null,
+            onChanged: onChanged,
             onSubmitted: (_) => onSubmit(),
             style: TextStyle(fontSize: 14, color: context.c.foreground),
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 12),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: context.c.inputBorder),
+                borderSide: BorderSide(color: borderColor),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: context.c.ring),
+                borderSide: BorderSide(color: focusedColor),
               ),
             ),
           ),

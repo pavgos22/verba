@@ -119,6 +119,11 @@ class SettingsScreen extends ConsumerWidget {
                 description: 'Łacińskie podpowiedzi na klawiszach',
                 control: VerbaSwitch(value: settings.showHints, onChanged: notifier.setShowHints),
               ),
+              _SettingRow(
+                title: 'Automatyczny układ klawiatury',
+                description: 'W edytorze kursu przełączaj układ (rosyjski/polski) do wybranego pola',
+                control: VerbaSwitch(value: settings.autoKeyboardLayout, onChanged: notifier.setAutoKeyboardLayout),
+              ),
             ],
           ),
           const SizedBox(height: 20),

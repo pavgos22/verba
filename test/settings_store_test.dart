@@ -41,4 +41,20 @@ void main() {
     final container = await _container({'settings.verbInfo': 'never'});
     expect(container.read(settingsProvider).verbInfo, VerbInfoMode.never);
   });
+
+  test('auto keyboard layout defaults to on', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).autoKeyboardLayout, isTrue);
+  });
+
+  test('setAutoKeyboardLayout updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setAutoKeyboardLayout(false);
+    expect(container.read(settingsProvider).autoKeyboardLayout, isFalse);
+  });
+
+  test('loads persisted auto keyboard layout', () async {
+    final container = await _container({'settings.autoKeyboardLayout': false});
+    expect(container.read(settingsProvider).autoKeyboardLayout, isFalse);
+  });
 }

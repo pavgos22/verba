@@ -46,6 +46,7 @@ class Settings {
     required this.newWordOrder,
     required this.verbInfo,
     required this.showWordPoints,
+    required this.autoKeyboardLayout,
     required this.modes,
   });
 
@@ -61,6 +62,7 @@ class Settings {
   final NewWordOrder newWordOrder;
   final VerbInfoMode verbInfo;
   final bool showWordPoints;
+  final bool autoKeyboardLayout;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -79,6 +81,7 @@ class Settings {
     NewWordOrder? newWordOrder,
     VerbInfoMode? verbInfo,
     bool? showWordPoints,
+    bool? autoKeyboardLayout,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -94,6 +97,7 @@ class Settings {
       newWordOrder: newWordOrder ?? this.newWordOrder,
       verbInfo: verbInfo ?? this.verbInfo,
       showWordPoints: showWordPoints ?? this.showWordPoints,
+      autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
       modes: modes ?? this.modes,
     );
   }
@@ -117,6 +121,7 @@ class SettingsNotifier extends Notifier<Settings> {
           NewWordOrder.random,
       verbInfo: VerbInfoMode.values.asNameMap()[prefs.getString('settings.verbInfo')] ?? VerbInfoMode.onHold,
       showWordPoints: prefs.getBool('settings.showWordPoints') ?? false,
+      autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -189,6 +194,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setShowWordPoints(bool value) {
     state = state.copyWith(showWordPoints: value);
     ref.read(prefsProvider).setBool('settings.showWordPoints', value);
+  }
+
+  void setAutoKeyboardLayout(bool value) {
+    state = state.copyWith(autoKeyboardLayout: value);
+    ref.read(prefsProvider).setBool('settings.autoKeyboardLayout', value);
   }
 
   void setModeConfig(String mode, ModeConfig config) {

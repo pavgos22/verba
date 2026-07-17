@@ -7,12 +7,12 @@ import 'package:verba/data/settings_store.dart';
 import 'package:verba/screens/course_editor_screen.dart';
 import 'package:verba/theme/app_theme.dart';
 
-Future<void> _pump(WidgetTester tester, {String wordsJson = ''}) async {
+Future<void> _pump(WidgetTester tester, {String wordsJson = '', bool autoLayout = true}) async {
   tester.view.physicalSize = const Size(1400, 1400);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
 
-  SharedPreferences.setMockInitialValues({});
+  SharedPreferences.setMockInitialValues({'settings.autoKeyboardLayout': autoLayout});
   final prefs = await SharedPreferences.getInstance();
   final raw = '[{"id":"custom-1","name":"Test","description":"d","words":[$wordsJson]}]';
   await tester.pumpWidget(ProviderScope(
@@ -41,19 +41,63 @@ void main() {
     expect(find.text('а'), findsNothing);
   });
 
-  testWidgets('the layout toggle switches the keyboard, focus does not', (tester) async {
+  testWidgets('auto layout switches the keyboard to match the focused field', (tester) async {
     await _pump(tester);
-
-    await tester.tap(find.byType(TextField).at(0));
-    await tester.pumpAndSettle();
-    expect(find.text('ł'), findsWidgets, reason: 'focusing the Russian field must not change the layout');
+    expect(find.text('ł'), findsWidgets);
     expect(find.text('а'), findsNothing);
+
+    await tester.tap(find.byType(TextField).at(0)); // Rosyjski
+    await tester.pumpAndSettle();
+    expect(find.text('а'), findsWidgets, reason: 'focusing the Russian field switches to the Russian layout');
+    expect(find.text('ł'), findsNothing);
+
+    await tester.tap(find.byType(TextField).at(1)); // Polski
+    await tester.pumpAndSettle();
+    expect(find.text('ł'), findsWidgets, reason: 'focusing the Polish field switches back to Polish');
+    expect(find.text('а'), findsNothing);
+  });
+
+  testWidgets('with auto layout off, focusing a field does not switch the keyboard', (tester) async {
+    await _pump(tester, autoLayout: false);
+
+    await tester.tap(find.byType(TextField).at(0)); // Rosyjski
+    await tester.pumpAndSettle();
+    expect(find.text('ł'), findsWidgets, reason: 'auto off: the layout stays as chosen');
+    expect(find.text('а'), findsNothing);
+  });
+
+  testWidgets('the manual layout toggle still switches the keyboard', (tester) async {
+    await _pump(tester, autoLayout: false);
 
     await tester.tap(find.text('Rosyjska'));
     await tester.pumpAndSettle();
     expect(find.text('а'), findsWidgets);
     expect(find.text('е́'), findsWidgets, reason: 'russian layout has an accented-vowel row');
     expect(find.text('ł'), findsNothing);
+  });
+
+  testWidgets('adding with an empty field shows an error and adds nothing', (tester) async {
+    await _pump(tester);
+
+    await tester.enterText(find.byType(TextField).at(0), 'кот'); // only Russian filled
+    await tester.tap(find.text('Dodaj'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.textContaining('nie mogą być puste'), findsOneWidget);
+    expect(find.text('Dodaj pierwsze słówko powyżej'), findsOneWidget);
+  });
+
+  testWidgets('adding with both required fields creates the word', (tester) async {
+    await _pump(tester);
+
+    await tester.enterText(find.byType(TextField).at(0), 'кот');
+    await tester.enterText(find.byType(TextField).at(1), 'kot');
+    await tester.tap(find.text('Dodaj'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('кот'), findsOneWidget);
+    expect(find.text('kot'), findsOneWidget);
   });
 
   testWidgets('words are numbered from 1 with the first added on top', (tester) async {
