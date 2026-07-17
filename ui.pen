@@ -2679,7 +2679,7 @@
                   }
                 },
                 {
-                  "id": "byiD2",
+                  "id": "yASI1",
                   "type": "ref",
                   "ref": "Dt4bI",
                   "name": "Hint",
@@ -2766,9 +2766,9 @@
                   ]
                 },
                 {
-                  "id": "I5Rh5j",
+                  "id": "c8T8Mc",
                   "type": "ref",
-                  "ref": "K6Ln1i",
+                  "ref": "FG2Yr",
                   "name": "FreeKeyboard"
                 }
               ]
@@ -11208,7 +11208,7 @@
                   }
                 },
                 {
-                  "id": "L6d8nG",
+                  "id": "L38Ys",
                   "type": "ref",
                   "ref": "Dt4bI",
                   "name": "Hint",
@@ -11295,9 +11295,9 @@
                   ]
                 },
                 {
-                  "id": "XvOer",
+                  "id": "j5lBV",
                   "type": "ref",
-                  "ref": "K6Ln1i",
+                  "ref": "FG2Yr",
                   "name": "FreeKeyboard"
                 }
               ]
@@ -16423,6 +16423,688 @@
                   "width": 16,
                   "height": 16,
                   "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted-foreground"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "FG2Yr",
+      "x": 0,
+      "y": 9780,
+      "name": "KeyboardAccent",
+      "reusable": true,
+      "layout": "vertical",
+      "gap": 6,
+      "children": [
+        {
+          "type": "frame",
+          "id": "GOST9",
+          "name": "KeyRow1",
+          "gap": 5,
+          "children": [
+            {
+              "id": "Y7RsC",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-а",
+              "descendants": {
+                "TsmTG": {
+                  "content": "a"
+                },
+                "CGJ6l": {
+                  "content": "а"
+                }
+              }
+            },
+            {
+              "id": "zp8Ds",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-б",
+              "descendants": {
+                "TsmTG": {
+                  "content": "b"
+                },
+                "CGJ6l": {
+                  "content": "б"
+                }
+              }
+            },
+            {
+              "id": "G22un",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-в",
+              "descendants": {
+                "TsmTG": {
+                  "content": "v"
+                },
+                "CGJ6l": {
+                  "content": "в"
+                }
+              }
+            },
+            {
+              "id": "fV90D",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-г",
+              "descendants": {
+                "TsmTG": {
+                  "content": "g"
+                },
+                "CGJ6l": {
+                  "content": "г"
+                }
+              }
+            },
+            {
+              "id": "D8i2R",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-д",
+              "descendants": {
+                "TsmTG": {
+                  "content": "d"
+                },
+                "CGJ6l": {
+                  "content": "д"
+                }
+              }
+            },
+            {
+              "id": "THaFA",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-е",
+              "descendants": {
+                "TsmTG": {
+                  "content": "e"
+                },
+                "CGJ6l": {
+                  "content": "е"
+                }
+              }
+            },
+            {
+              "id": "mFLQ9",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ё",
+              "descendants": {
+                "TsmTG": {
+                  "content": "e="
+                },
+                "CGJ6l": {
+                  "content": "ё"
+                }
+              }
+            },
+            {
+              "id": "PkYI0",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ж",
+              "descendants": {
+                "TsmTG": {
+                  "content": "zh"
+                },
+                "CGJ6l": {
+                  "content": "ж"
+                }
+              }
+            },
+            {
+              "id": "lOWKW",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-з",
+              "descendants": {
+                "TsmTG": {
+                  "content": "z"
+                },
+                "CGJ6l": {
+                  "content": "з"
+                }
+              }
+            },
+            {
+              "id": "T3N4G",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-и",
+              "descendants": {
+                "TsmTG": {
+                  "content": "i"
+                },
+                "CGJ6l": {
+                  "content": "и"
+                }
+              }
+            },
+            {
+              "id": "J1bKF",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-й",
+              "descendants": {
+                "TsmTG": {
+                  "content": "j"
+                },
+                "CGJ6l": {
+                  "content": "й"
+                }
+              }
+            },
+            {
+              "id": "KIAKe",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-к",
+              "descendants": {
+                "TsmTG": {
+                  "content": "k"
+                },
+                "CGJ6l": {
+                  "content": "к"
+                }
+              }
+            },
+            {
+              "id": "b0S5vd",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-л",
+              "descendants": {
+                "TsmTG": {
+                  "content": "l"
+                },
+                "CGJ6l": {
+                  "content": "л"
+                }
+              }
+            },
+            {
+              "id": "cnCy5",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-м",
+              "descendants": {
+                "TsmTG": {
+                  "content": "m"
+                },
+                "CGJ6l": {
+                  "content": "м"
+                }
+              }
+            },
+            {
+              "id": "JWWmK",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-н",
+              "descendants": {
+                "TsmTG": {
+                  "content": "n"
+                },
+                "CGJ6l": {
+                  "content": "н"
+                }
+              }
+            },
+            {
+              "id": "uaa0S",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-о",
+              "descendants": {
+                "TsmTG": {
+                  "content": "o"
+                },
+                "CGJ6l": {
+                  "content": "о"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Krbec",
+          "name": "KeyRow2",
+          "gap": 5,
+          "children": [
+            {
+              "id": "fe1bt",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-п",
+              "descendants": {
+                "TsmTG": {
+                  "content": "p"
+                },
+                "CGJ6l": {
+                  "content": "п"
+                }
+              }
+            },
+            {
+              "id": "flaTg",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-р",
+              "descendants": {
+                "TsmTG": {
+                  "content": "r"
+                },
+                "CGJ6l": {
+                  "content": "р"
+                }
+              }
+            },
+            {
+              "id": "Jipfa",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-с",
+              "descendants": {
+                "TsmTG": {
+                  "content": "s"
+                },
+                "CGJ6l": {
+                  "content": "с"
+                }
+              }
+            },
+            {
+              "id": "IKjqV",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-т",
+              "descendants": {
+                "TsmTG": {
+                  "content": "t"
+                },
+                "CGJ6l": {
+                  "content": "т"
+                }
+              }
+            },
+            {
+              "id": "fyefD",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-у",
+              "descendants": {
+                "TsmTG": {
+                  "content": "u"
+                },
+                "CGJ6l": {
+                  "content": "у"
+                }
+              }
+            },
+            {
+              "id": "EK3gX",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ф",
+              "descendants": {
+                "TsmTG": {
+                  "content": "f"
+                },
+                "CGJ6l": {
+                  "content": "ф"
+                }
+              }
+            },
+            {
+              "id": "h4Kmrx",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-х",
+              "descendants": {
+                "TsmTG": {
+                  "content": "h"
+                },
+                "CGJ6l": {
+                  "content": "х"
+                }
+              }
+            },
+            {
+              "id": "lzGvY",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ц",
+              "descendants": {
+                "TsmTG": {
+                  "content": "c"
+                },
+                "CGJ6l": {
+                  "content": "ц"
+                }
+              }
+            },
+            {
+              "id": "xzN8L",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ч",
+              "descendants": {
+                "TsmTG": {
+                  "content": "ch"
+                },
+                "CGJ6l": {
+                  "content": "ч"
+                }
+              }
+            },
+            {
+              "id": "g68aJM",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ш",
+              "descendants": {
+                "TsmTG": {
+                  "content": "sh"
+                },
+                "CGJ6l": {
+                  "content": "ш"
+                }
+              }
+            },
+            {
+              "id": "p5V47",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-щ",
+              "descendants": {
+                "TsmTG": {
+                  "content": "w"
+                },
+                "CGJ6l": {
+                  "content": "щ"
+                }
+              }
+            },
+            {
+              "id": "PyphD",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ъ",
+              "descendants": {
+                "TsmTG": {
+                  "content": "''"
+                },
+                "CGJ6l": {
+                  "content": "ъ"
+                }
+              }
+            },
+            {
+              "id": "ltU5X",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ы",
+              "descendants": {
+                "TsmTG": {
+                  "content": "y"
+                },
+                "CGJ6l": {
+                  "content": "ы"
+                }
+              }
+            },
+            {
+              "id": "X1GSl",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ь",
+              "descendants": {
+                "TsmTG": {
+                  "content": "'"
+                },
+                "CGJ6l": {
+                  "content": "ь"
+                }
+              }
+            },
+            {
+              "id": "lsyNl",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-э",
+              "descendants": {
+                "TsmTG": {
+                  "content": "e=="
+                },
+                "CGJ6l": {
+                  "content": "э"
+                }
+              }
+            },
+            {
+              "id": "Ci1rO",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-ю",
+              "descendants": {
+                "TsmTG": {
+                  "content": "ju"
+                },
+                "CGJ6l": {
+                  "content": "ю"
+                }
+              }
+            },
+            {
+              "id": "EZLPm",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "Key-я",
+              "descendants": {
+                "TsmTG": {
+                  "content": "ja"
+                },
+                "CGJ6l": {
+                  "content": "я"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NOlwx",
+          "name": "AccentRow",
+          "gap": 5,
+          "children": [
+            {
+              "id": "g2JUN",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ą",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "а́"
+                }
+              }
+            },
+            {
+              "id": "oaJQB",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ć",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "е́"
+                }
+              }
+            },
+            {
+              "id": "xlGOT",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ę",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "и́"
+                }
+              }
+            },
+            {
+              "id": "i7xTrR",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ł",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "о́"
+                }
+              }
+            },
+            {
+              "id": "S5wRK",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ń",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "у́"
+                }
+              }
+            },
+            {
+              "id": "f2JIjz",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ó",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "ы́"
+                }
+              }
+            },
+            {
+              "id": "qtT5P",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ś",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "э́"
+                }
+              }
+            },
+            {
+              "id": "lprqc",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ź",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "ю́"
+                }
+              }
+            },
+            {
+              "id": "QHltx",
+              "type": "ref",
+              "ref": "ZQbtY",
+              "name": "PlKey-ż",
+              "descendants": {
+                "TsmTG": {
+                  "enabled": false
+                },
+                "CGJ6l": {
+                  "content": "я́"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AY5HY",
+          "name": "KeyRow3",
+          "gap": 5,
+          "children": [
+            {
+              "type": "frame",
+              "id": "t22VI",
+              "name": "KeySpace",
+              "width": 380,
+              "height": 52,
+              "fill": "$card",
+              "cornerRadius": 6,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "miRkb",
+                  "name": "SpaceLabel",
+                  "fill": "$muted-foreground",
+                  "content": "spacja",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rdV2H",
+              "name": "KeyBackspace",
+              "width": 80,
+              "height": 52,
+              "fill": "$card",
+              "cornerRadius": 6,
+              "stroke": "$border",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "A9n4X",
+                  "name": "BackIcon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "delete",
                   "library": "lucide",
                   "fill": "$muted-foreground"
                 }
