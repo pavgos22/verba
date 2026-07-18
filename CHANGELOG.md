@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.14.0 — new "Tłumacz" section in the sidebar: a Russian ↔ Polish translator that works straight after download, no key needed (keyless MyMemory API, with a per-user daily quota). It translates live as you type (with the Latin→Cyrillic transliteration and the on-screen keyboards from the rest of the app), caches repeated phrases, and has a direction swap and a copy button. For higher quality you can paste your own free DeepL key in Settings → Tłumacz and it switches to DeepL. Needs an internet connection; nothing is bundled, so the app stays light
+
 ## 0.13.15 — the in-session progress bar now has a rounded leading tip as it fills, while its outer ends stay square and flush against the walls — flush at the start, and flush against the far edge once it reaches 100%
 
 ## 0.13.14 — widened the "Punkty" column in the Słówka table so its header no longer clips to "Pun…" now that it carries a sort arrow, and nudged the Status and Punkty columns a little further left (only when the points column is shown)
