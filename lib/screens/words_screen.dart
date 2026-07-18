@@ -466,20 +466,12 @@ class _SortArrows extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final faded = context.c.mutedForeground.withValues(alpha: 0.4);
-    final upColor = active && asc ? context.c.foreground : faded;
-    final downColor = active && !asc ? context.c.foreground : faded;
+    final icon = active ? (asc ? Icons.arrow_drop_up : Icons.arrow_drop_down) : Icons.unfold_more;
+    final color = active ? context.c.foreground : context.c.mutedForeground.withValues(alpha: 0.4);
     return SizedBox(
-      width: 14,
-      height: 16,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          Positioned(top: -4, child: Icon(Icons.arrow_drop_up, size: 16, color: upColor)),
-          Positioned(bottom: -4, child: Icon(Icons.arrow_drop_down, size: 16, color: downColor)),
-        ],
-      ),
+      width: 16,
+      height: 18,
+      child: Center(child: Icon(icon, size: active ? 18 : 15, color: color)),
     );
   }
 }
