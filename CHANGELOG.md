@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.14.1 — Tłumacz polish: pick the engine right on the screen (MyMemory or DeepL, with a lock hint on DeepL until you add your key); a speaker button on each side reads the text aloud in Polish or Russian with the system voice; the direction labels sit in fixed slots so they no longer jump when you swap; footer buttons got a tidier hover; and a small BETA tag marks "Tłumacz" in the sidebar
+
 ## 0.14.0 — new "Tłumacz" section in the sidebar: a Russian ↔ Polish translator that works straight after download, no key needed (keyless MyMemory API, with a per-user daily quota). It translates live as you type (with the Latin→Cyrillic transliteration and the on-screen keyboards from the rest of the app), caches repeated phrases, and has a direction swap and a copy button. For higher quality you can paste your own free DeepL key in Settings → Tłumacz and it switches to DeepL. Needs an internet connection; nothing is bundled, so the app stays light
 
 ## 0.13.15 — the in-session progress bar now has a rounded leading tip as it fills, while its outer ends stay square and flush against the walls — flush at the start, and flush against the far edge once it reaches 100%
