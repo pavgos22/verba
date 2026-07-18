@@ -390,11 +390,11 @@ class _TableRow extends StatelessWidget {
           Expanded(
               flex: 2,
               child: points != null
-                  ? Transform.translate(offset: const Offset(-10, 0), child: cells[3])
+                  ? Transform.translate(offset: const Offset(-12, 0), child: cells[3])
                   : cells[3]),
           const SizedBox(width: 16),
           if (points != null) ...[
-            SizedBox(width: 56, child: Transform.translate(offset: const Offset(-10, 0), child: points!)),
+            SizedBox(width: 76, child: Transform.translate(offset: const Offset(-12, 0), child: points!)),
             const SizedBox(width: 16),
           ],
           SizedBox(width: 56, child: cells[4]),
