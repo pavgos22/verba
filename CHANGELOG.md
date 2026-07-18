@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.14 — widened the "Punkty" column in the Słówka table so its header no longer clips to "Pun…" now that it carries a sort arrow, and nudged the Status and Punkty columns a little further left (only when the points column is shown)
+
 ## 0.13.13 — the sort indicator in the "Słówka" table is now a single centred arrow that changes shape instead of a stacked pair of triangles: a subtle ⇅ when the column isn't the current sort key, and a solid ▲ or ▼ on the active column showing the direction
 
 ## 0.13.12 — the "Słówka" table columns are now sortable: click a header (a small up/down triangle marks the direction) to sort ascending or descending. The "Słowo" column sorts by the order the words were added to the course, not alphabetically; Audio has no sort. When the points column is on, the Status and Punkty columns sit slightly further left. The in-session progress bar now slides smoothly to each new value instead of jumping
