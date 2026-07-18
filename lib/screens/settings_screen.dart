@@ -302,9 +302,10 @@ class _ApiKeyFieldState extends ConsumerState<_ApiKeyField> {
         controller: _controller,
         obscureText: _obscure,
         onChanged: (value) => ref.read(settingsProvider.notifier).setTranslatorApiKey(value.trim()),
-        style: TextStyle(fontSize: 14, color: context.c.foreground),
+        style: TextStyle(fontSize: 14, color: context.c.mutedForeground),
         decoration: InputDecoration(
           hintText: 'xxxxxxxx-…:fx',
+          hintStyle: TextStyle(fontSize: 14, color: context.c.mutedForeground.withValues(alpha: 0.5)),
           isDense: true,
           contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           suffixIcon: IconButton(
