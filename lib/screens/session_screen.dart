@@ -349,11 +349,22 @@ class _SessionTopBar extends StatelessWidget {
             tween: Tween<double>(begin: 0, end: progress),
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeOut,
-            builder: (context, value, _) => LinearProgressIndicator(
-              value: value,
-              minHeight: 8,
-              backgroundColor: context.c.muted,
-              color: context.c.primary,
+            builder: (context, value, _) => Container(
+              height: 8,
+              alignment: Alignment.centerLeft,
+              color: context.c.muted,
+              child: FractionallySizedBox(
+                widthFactor: value.clamp(0.0, 1.0),
+                heightFactor: 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: context.c.primary,
+                    borderRadius: value >= 1.0
+                        ? BorderRadius.zero
+                        : const BorderRadius.horizontal(right: Radius.circular(4)),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
