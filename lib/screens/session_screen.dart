@@ -345,11 +345,16 @@ class _SessionTopBar extends StatelessWidget {
               ],
             ),
           ),
-          LinearProgressIndicator(
-            value: progress,
-            minHeight: 8,
-            backgroundColor: context.c.muted,
-            color: context.c.primary,
+          TweenAnimationBuilder<double>(
+            tween: Tween<double>(begin: 0, end: progress),
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+            builder: (context, value, _) => LinearProgressIndicator(
+              value: value,
+              minHeight: 8,
+              backgroundColor: context.c.muted,
+              color: context.c.primary,
+            ),
           ),
         ],
       ),
