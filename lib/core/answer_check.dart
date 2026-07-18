@@ -21,11 +21,17 @@ const List<Set<String>> ruSynonymGroups = [
 ];
 
 List<String> acceptedRu(Word word) {
-  final n = normalizeRu(word.ru);
-  for (final group in ruSynonymGroups) {
-    if (group.contains(n)) return group.toList();
+  final base = <String>{
+    normalizeRu(word.ru),
+    for (final alt in word.ruAlt) normalizeRu(alt),
+  }..removeWhere((e) => e.isEmpty);
+  final accepted = <String>{...base};
+  for (final form in base) {
+    for (final group in ruSynonymGroups) {
+      if (group.contains(form)) accepted.addAll(group);
+    }
   }
-  return [n];
+  return accepted.toList();
 }
 
 List<String> _answerTokens(String answer, String Function(String) normalize) {

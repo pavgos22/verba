@@ -4,6 +4,7 @@ class Word {
     required this.ru,
     String? ruAccented,
     required this.pl,
+    this.ruAlt = const [],
     this.category,
     this.pronunciation,
     this.firstPerson,
@@ -19,6 +20,7 @@ class Word {
   final String ru;
   final String ruAccented;
   final List<String> pl;
+  final List<String> ruAlt;
   final String? category;
   final String? pronunciation;
   final String? firstPerson;
@@ -49,6 +51,7 @@ class Word {
       ru: json['ru'] as String,
       ruAccented: json['ruAccented'] as String?,
       pl: [for (final v in json['pl'] as List<dynamic>) v as String],
+      ruAlt: [for (final v in (json['ruAlt'] as List<dynamic>? ?? const [])) v as String],
       category: json['category'] as String?,
       pronunciation: json['pronunciation'] as String?,
       firstPerson: json['firstPerson'] as String?,
@@ -66,6 +69,7 @@ class Word {
         'ru': ru,
         if (ruAccented != ru) 'ruAccented': ruAccented,
         'pl': pl,
+        if (ruAlt.isNotEmpty) 'ruAlt': ruAlt,
         if (category != null) 'category': category,
         if (pronunciation != null) 'pronunciation': pronunciation,
         if (firstPerson != null) 'firstPerson': firstPerson,

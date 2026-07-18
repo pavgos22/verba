@@ -102,8 +102,10 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
   }
 
   void _add() {
-    final ruAccented = _ru.text.trim();
+    final ruParts = _ru.text.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
+    final ruAccented = ruParts.isEmpty ? '' : ruParts.first;
     final ru = ruAccented.replaceAll(stressMark, '');
+    final ruAlt = [for (final part in ruParts.skip(1)) part.replaceAll(stressMark, '')];
     final pl = _pl.text.trim().split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
     if (ru.isEmpty || pl.isEmpty) {
       setState(() {
@@ -134,6 +136,7 @@ class _CourseEditorScreenState extends ConsumerState<CourseEditorScreen> {
       id: 'w-${DateTime.now().microsecondsSinceEpoch}',
       ru: ru,
       ruAccented: ruAccented,
+      ruAlt: ruAlt,
       pl: pl,
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
@@ -573,7 +576,7 @@ class _EditWordDialog extends StatefulWidget {
 }
 
 class _EditWordDialogState extends State<_EditWordDialog> {
-  late final _ru = TextEditingController(text: widget.word.ruAccented);
+  late final _ru = TextEditingController(text: [widget.word.ruAccented, ...widget.word.ruAlt].join(', '));
   late final _pl = TextEditingController(text: widget.word.pl.join(', '));
   late final _pronunciation = TextEditingController(text: widget.word.pronunciation ?? '');
   late final _firstPerson = TextEditingController(text: widget.word.firstPerson ?? '');
@@ -604,7 +607,9 @@ class _EditWordDialogState extends State<_EditWordDialog> {
   }
 
   void _save() {
-    final ruAccented = _ru.text.trim();
+    final ruParts = _ru.text.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
+    final ruAccented = ruParts.isEmpty ? '' : ruParts.first;
+    final ruAlt = [for (final part in ruParts.skip(1)) part.replaceAll('́', '')];
     final plRaw = _pl.text.trim();
     if (ruAccented.isEmpty || plRaw.isEmpty) return;
     final pl = plRaw.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
@@ -621,6 +626,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
       id: widget.word.id,
       ru: ruAccented.replaceAll('́', ''),
       ruAccented: ruAccented,
+      ruAlt: ruAlt,
       pl: pl,
       category: _category,
       pronunciation: pronunciation.isEmpty ? null : pronunciation,
@@ -644,7 +650,7 @@ class _EditWordDialogState extends State<_EditWordDialog> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _Field(label: 'Rosyjski', controller: _ru, transliterate: true, onSubmit: _save),
+              _Field(label: 'Rosyjski (warianty po przecinku)', controller: _ru, transliterate: true, onSubmit: _save),
               const SizedBox(height: 12),
               _Field(label: 'Polski (warianty po przecinku)', controller: _pl, onSubmit: _save),
               const SizedBox(height: 12),

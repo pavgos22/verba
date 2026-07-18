@@ -10,6 +10,9 @@
    "pl": [
     "nie"
    ],
+   "ruAlt": [
+    "нет"
+   ],
    "category": "inne",
    "pronunciation": "nie"
   },
@@ -19,6 +22,9 @@
    "ru": "быть",
    "pl": [
     "być"
+   ],
+   "ruAlt": [
+    "являться"
    ],
    "category": "czasowniki",
    "pronunciation": "byt'",
@@ -31,6 +37,9 @@
    "ru": "весь",
    "pl": [
     "cały"
+   ],
+   "ruAlt": [
+    "целый"
    ],
    "category": "przymiotniki",
    "pronunciation": "wjes'"
@@ -52,6 +61,10 @@
    "pl": [
     "tak",
     "więc"
+   ],
+   "ruAlt": [
+    "да",
+    "столь"
    ],
    "category": "przysłówki",
    "pronunciation": "tak"
@@ -75,6 +88,9 @@
    "ru": "мочь",
    "pl": [
     "móc"
+   ],
+   "ruAlt": [
+    "смочь"
    ],
    "category": "czasowniki",
    "pronunciation": "moć",
@@ -135,6 +151,9 @@
    "pl": [
     "tylko"
    ],
+   "ruAlt": [
+    "лишь"
+   ],
    "category": "przysłówki",
    "pronunciation": "tol'ka"
   },
@@ -166,6 +185,10 @@
    "ru": "да",
    "pl": [
     "tak"
+   ],
+   "ruAlt": [
+    "так",
+    "столь"
    ],
    "category": "zwroty",
    "pronunciation": "da"
@@ -249,6 +272,9 @@
    "pl": [
     "nie"
    ],
+   "ruAlt": [
+    "не"
+   ],
    "category": "zwroty",
    "pronunciation": "niet"
   },
@@ -258,6 +284,9 @@
    "ru": "стать",
    "pl": [
     "stać się"
+   ],
+   "ruAlt": [
+    "становиться"
    ],
    "category": "czasowniki",
    "pronunciation": "stat'",
@@ -271,6 +300,9 @@
    "ruAccented": "большо́й",
    "pl": [
     "duży"
+   ],
+   "ruAlt": [
+    "крупный"
    ],
    "category": "przymiotniki",
    "pronunciation": "balszoj",
@@ -296,6 +328,9 @@
    "ruAccented": "друго́й",
    "pl": [
     "inny"
+   ],
+   "ruAlt": [
+    "иной"
    ],
    "category": "przymiotniki",
    "pronunciation": "drugoj",
@@ -354,6 +389,9 @@
    "pl": [
     "raz"
    ],
+   "ruAlt": [
+    "однажды"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "raz"
   },
@@ -373,6 +411,9 @@
    "ru": "там",
    "pl": [
     "tam"
+   ],
+   "ruAlt": [
+    "туда"
    ],
    "category": "przysłówki",
    "pronunciation": "tam"
@@ -429,6 +470,9 @@
     "tu",
     "tutaj"
    ],
+   "ruAlt": [
+    "сюда"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "tut"
   },
@@ -451,6 +495,9 @@
    "pl": [
     "bardzo"
    ],
+   "ruAlt": [
+    "весьма"
+   ],
    "category": "przysłówki",
    "pronunciation": "ocień"
   },
@@ -461,6 +508,9 @@
    "ruAccented": "хоте́ть",
    "pl": [
     "chcieć"
+   ],
+   "ruAlt": [
+    "желать"
    ],
    "category": "czasowniki",
    "pronunciation": "hatjet'",
@@ -511,6 +561,9 @@
     "teraz",
     "obecnie"
    ],
+   "ruAlt": [
+    "сейчас"
+   ],
    "category": "przysłówki",
    "pronunciation": "tjepier'"
   },
@@ -546,6 +599,9 @@
    "pl": [
     "teraz",
     "dopiero co"
+   ],
+   "ruAlt": [
+    "теперь"
    ],
    "category": "przysłówki",
    "pronunciation": "sjejcias"
@@ -592,6 +648,9 @@
    "pl": [
     "możliwe"
    ],
+   "ruAlt": [
+    "возможно"
+   ],
    "category": "inne",
    "pronunciation": "możno"
   },
@@ -636,6 +695,10 @@
    "ru": "здесь",
    "pl": [
     "tutaj"
+   ],
+   "ruAlt": [
+    "тут",
+    "сюда"
    ],
    "category": "przysłówki",
    "pronunciation": "zdes'"
@@ -711,6 +774,9 @@
    "pl": [
     "każdy"
    ],
+   "ruAlt": [
+    "любой"
+   ],
    "category": "przymiotniki",
    "pronunciation": "każdyj",
    "feminine": "ка́ждая",
@@ -724,6 +790,9 @@
    "ruAccented": "хоро́ший",
    "pl": [
     "dobry"
+   ],
+   "ruAlt": [
+    "добрый"
    ],
    "category": "przymiotniki",
    "pronunciation": "charoszyj",
@@ -763,6 +832,9 @@
    "pl": [
     "dlatego"
    ],
+   "ruAlt": [
+    "поэтому"
+   ],
    "category": "przysłówki",
    "pronunciation": "patamu"
   },
@@ -774,6 +846,10 @@
    "pl": [
     "strona"
    ],
+   "ruAlt": [
+    "бок",
+    "страница"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "storona"
   },
@@ -784,6 +860,9 @@
    "ruAccented": "смотре́ть",
    "pl": [
     "patrzeć"
+   ],
+   "ruAlt": [
+    "глядеть"
    ],
    "category": "czasowniki",
    "pronunciation": "smatriec",
@@ -898,6 +977,9 @@
    "pl": [
     "praca"
    ],
+   "ruAlt": [
+    "труд"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "rabota"
   },
@@ -969,6 +1051,9 @@
    "ruAccented": "каза́ться",
    "pl": [
     "wydawać się"
+   ],
+   "ruAlt": [
+    "показаться"
    ],
    "category": "czasowniki",
    "pronunciation": "kazatsa",
@@ -1109,6 +1194,9 @@
    "ruAccented": "хорошо́",
    "pl": [
     "dobrze"
+   ],
+   "ruAlt": [
+    "ладно"
    ],
    "category": "przysłówki",
    "pronunciation": "haraszo"
@@ -1273,6 +1361,9 @@
    "pl": [
     "kobieta"
    ],
+   "ruAlt": [
+    "баба"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "żenścina"
   },
@@ -1329,6 +1420,9 @@
    "pl": [
     "wyjść"
    ],
+   "ruAlt": [
+    "получиться"
+   ],
    "category": "czasowniki",
    "pronunciation": "wyjti",
    "firstPerson": "выйду",
@@ -1341,6 +1435,10 @@
    "pl": [
     "rodzaj",
     "typ"
+   ],
+   "ruAlt": [
+    "род",
+    "тип"
    ],
    "category": "rzeczowniki",
    "pronunciation": "wid"
@@ -1387,6 +1485,9 @@
    "pl": [
     "pracować"
    ],
+   "ruAlt": [
+    "служить"
+   ],
    "category": "czasowniki",
    "pronunciation": "rabotac",
    "firstPerson": "работаю",
@@ -1413,6 +1514,9 @@
     "rząd",
     "szereg"
    ],
+   "ruAlt": [
+    "правительство"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "rjad"
   },
@@ -1435,6 +1539,10 @@
    "pl": [
     "znowu",
     "od nowa"
+   ],
+   "ruAlt": [
+    "опять",
+    "вновь"
    ],
    "category": "przysłówki",
    "pronunciation": "snowa"
@@ -1460,6 +1568,9 @@
    "ruAccented": "страна́",
    "pl": [
     "kraj"
+   ],
+   "ruAlt": [
+    "край"
    ],
    "category": "rzeczowniki",
    "pronunciation": "strana"
@@ -1596,6 +1707,9 @@
    "pl": [
     "tylko"
    ],
+   "ruAlt": [
+    "только"
+   ],
    "category": "przysłówki",
    "pronunciation": "lisz"
   },
@@ -1618,6 +1732,10 @@
    "ruAccented": "опя́ть",
    "pl": [
     "znowu"
+   ],
+   "ruAlt": [
+    "снова",
+    "вновь"
    ],
    "category": "przysłówki",
    "pronunciation": "apjac"
@@ -1713,6 +1831,9 @@
    "pl": [
     "droga"
    ],
+   "ruAlt": [
+    "путь"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "daroga"
   },
@@ -1804,6 +1925,9 @@
    "pl": [
     "dostać",
     "otrzymać"
+   ],
+   "ruAlt": [
+    "достать"
    ],
    "category": "czasowniki",
    "pronunciation": "pałucic",
@@ -1977,6 +2101,9 @@
    "pl": [
     "dusza"
    ],
+   "ruAlt": [
+    "дух"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "dusza"
   },
@@ -2044,6 +2171,9 @@
     "zapamiętać",
     "przypomnieć"
    ],
+   "ruAlt": [
+    "заметить"
+   ],
    "category": "czasowniki",
    "pronunciation": "pomnic",
    "firstPerson": "помню",
@@ -2089,6 +2219,9 @@
    "ruAccented": "ру́сский",
    "pl": [
     "rosyjski"
+   ],
+   "ruAlt": [
+    "российский"
    ],
    "category": "przymiotniki",
    "pronunciation": "russkij",
@@ -2154,6 +2287,9 @@
     "każdy",
     "dowolny"
    ],
+   "ruAlt": [
+    "каждый"
+   ],
    "category": "przymiotniki",
    "pronunciation": "ljuboj",
    "feminine": "люба́я",
@@ -2218,6 +2354,9 @@
    "ruAccented": "изве́стный",
    "pl": [
     "znany"
+   ],
+   "ruAlt": [
+    "знаменитый"
    ],
    "category": "przymiotniki",
    "pronunciation": "izwjestnyj",
@@ -2407,6 +2546,9 @@
    "pl": [
     "prosto"
    ],
+   "ruAlt": [
+    "просто"
+   ],
    "category": "przysłówki",
    "pronunciation": "prjamo"
   },
@@ -2417,6 +2559,9 @@
    "ruAccented": "разгово́р",
    "pl": [
     "rozmowa"
+   ],
+   "ruAlt": [
+    "беседа"
    ],
    "category": "rzeczowniki",
    "pronunciation": "razgawor"
@@ -2452,6 +2597,9 @@
    "pl": [
     "podobny"
    ],
+   "ruAlt": [
+    "подобный"
+   ],
    "category": "przymiotniki",
    "pronunciation": "pachożij",
    "feminine": "похо́жая",
@@ -2465,6 +2613,9 @@
    "ruAccented": "пра́во",
    "pl": [
     "prawo"
+   ],
+   "ruAlt": [
+    "закон"
    ],
    "category": "rzeczowniki",
    "pronunciation": "prawo"
@@ -2497,6 +2648,9 @@
    "pl": [
     "patrzeć"
    ],
+   "ruAlt": [
+    "смотреть"
+   ],
    "category": "czasowniki",
    "pronunciation": "gljadzjec",
    "firstPerson": "гляжу",
@@ -2518,6 +2672,9 @@
    "ru": "путь",
    "pl": [
     "droga"
+   ],
+   "ruAlt": [
+    "дорога"
    ],
    "category": "rzeczowniki",
    "pronunciation": "puc"
@@ -2565,6 +2722,9 @@
    "ru": "сесть",
    "pl": [
     "usiąść"
+   ],
+   "ruAlt": [
+    "садиться"
    ],
    "category": "czasowniki",
    "pronunciation": "sjesc",
@@ -2630,6 +2790,9 @@
     "całkiem",
     "absolutnie"
    ],
+   "ruAlt": [
+    "вполне"
+   ],
    "category": "przysłówki",
    "pronunciation": "sawjerszenno"
   },
@@ -2641,6 +2804,9 @@
    "pl": [
     "dlatego",
     "wobec tego"
+   ],
+   "ruAlt": [
+    "потому"
    ],
    "category": "przysłówki",
    "pronunciation": "paetamu"
@@ -2779,6 +2945,9 @@
    "pl": [
     "brzeg"
    ],
+   "ruAlt": [
+    "край"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "biereg"
   },
@@ -2873,6 +3042,9 @@
    "ruAccented": "дли́нный",
    "pl": [
     "długi"
+   ],
+   "ruAlt": [
+    "долгий"
    ],
    "category": "przymiotniki",
    "pronunciation": "dlinnyi",
@@ -3007,6 +3179,9 @@
    "pl": [
     "czyżby"
    ],
+   "ruAlt": [
+    "неужели"
+   ],
    "category": "pytania",
    "pronunciation": "razvie"
   },
@@ -3030,6 +3205,9 @@
    "pl": [
     "stać się"
    ],
+   "ruAlt": [
+    "стать"
+   ],
    "category": "czasowniki",
    "pronunciation": "stanovit'sa",
    "firstPerson": "становлюсь",
@@ -3042,6 +3220,9 @@
    "ruAccented": "движе́ние",
    "pl": [
     "ruch"
+   ],
+   "ruAlt": [
+    "ход"
    ],
    "category": "rzeczowniki",
    "pronunciation": "dviżenie"
@@ -3121,6 +3302,9 @@
    "pl": [
     "móc"
    ],
+   "ruAlt": [
+    "мочь"
+   ],
    "category": "czasowniki",
    "pronunciation": "smoc'",
    "firstPerson": "смогу",
@@ -3133,6 +3317,9 @@
    "ruAccented": "ино́й",
    "pl": [
     "inny"
+   ],
+   "ruAlt": [
+    "другой"
    ],
    "category": "przymiotniki",
    "pronunciation": "inoi",
@@ -3174,6 +3361,9 @@
    "pl": [
     "szybki"
    ],
+   "ruAlt": [
+    "быстрый"
+   ],
    "category": "przymiotniki",
    "pronunciation": "skoryi",
    "feminine": "ско́рая",
@@ -3187,6 +3377,10 @@
    "ruAccented": "наве́рное",
    "pl": [
     "prawdopodobnie"
+   ],
+   "ruAlt": [
+    "видно",
+    "вероятно"
    ],
    "category": "przysłówki",
    "pronunciation": "naviernoje"
@@ -3212,6 +3406,9 @@
    "pl": [
     "prosty",
     "łatwy"
+   ],
+   "ruAlt": [
+    "прямой"
    ],
    "category": "przymiotniki",
    "pronunciation": "prastoi",
@@ -3428,6 +3625,9 @@
     "przepis",
     "ustawa"
    ],
+   "ruAlt": [
+    "право"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "zakon"
   },
@@ -3451,6 +3651,9 @@
    "ruAccented": "показа́ться",
    "pl": [
     "wydawać się"
+   ],
+   "ruAlt": [
+    "казаться"
    ],
    "category": "czasowniki",
    "pronunciation": "pakazat'sa",
@@ -3625,6 +3828,9 @@
    "pl": [
     "zdarzać się"
    ],
+   "ruAlt": [
+    "случаться"
+   ],
    "category": "czasowniki",
    "pronunciation": "sluczit'sa",
    "firstPerson": "случусь",
@@ -3650,6 +3856,9 @@
    "ruAccented": "де́вочка",
    "pl": [
     "dziewczyna"
+   ],
+   "ruAlt": [
+    "девушка"
    ],
    "category": "rzeczowniki",
    "pronunciation": "dievochka"
@@ -3707,6 +3916,9 @@
     "związek",
     "łączność",
     "stosunek"
+   ],
+   "ruAlt": [
+    "союз"
    ],
    "category": "rzeczowniki",
    "pronunciation": "sviaz'"
@@ -3772,6 +3984,9 @@
    "ru": "век",
    "pl": [
     "wiek"
+   ],
+   "ruAlt": [
+    "возраст"
    ],
    "category": "rzeczowniki",
    "pronunciation": "viek"
@@ -3861,6 +4076,9 @@
    "pl": [
     "wydarzenie"
    ],
+   "ruAlt": [
+    "событие"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "diejstvie"
   },
@@ -3895,6 +4113,9 @@
    "ruAccented": "росси́йский",
    "pl": [
     "rosyjski"
+   ],
+   "ruAlt": [
+    "русский"
    ],
    "category": "przymiotniki",
    "pronunciation": "rassijskij",
@@ -3990,6 +4211,9 @@
     "krawędź",
     "brzeg"
    ],
+   "ruAlt": [
+    "страна"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "kraj"
   },
@@ -4044,6 +4268,9 @@
    "ruAccented": "до́брый",
    "pl": [
     "dobry"
+   ],
+   "ruAlt": [
+    "хороший"
    ],
    "category": "przymiotniki",
    "pronunciation": "dobryj",
@@ -4208,6 +4435,9 @@
    "ru": "врач",
    "pl": [
     "lekarz"
+   ],
+   "ruAlt": [
+    "доктор"
    ],
    "category": "rzeczowniki",
    "pronunciation": "wrać"
@@ -4408,6 +4638,9 @@
     "były",
     "miniony"
    ],
+   "ruAlt": [
+    "прежний"
+   ],
    "category": "przymiotniki",
    "pronunciation": "bywszyj",
    "feminine": "бы́вшая",
@@ -4501,6 +4734,9 @@
    "ruAccented": "подо́бный",
    "pl": [
     "podobny"
+   ],
+   "ruAlt": [
+    "похожий"
    ],
    "category": "przymiotniki",
    "pronunciation": "padobnyj",
@@ -4604,6 +4840,9 @@
    "pl": [
     "dawny",
     "były"
+   ],
+   "ruAlt": [
+    "бывший"
    ],
    "category": "przymiotniki",
    "pronunciation": "prjeżnij",
@@ -4853,6 +5092,9 @@
     "wkrótce",
     "niedługo"
    ],
+   "ruAlt": [
+    "вскоре"
+   ],
    "category": "przysłówki",
    "pronunciation": "skora"
   },
@@ -4874,6 +5116,9 @@
    "ru": "пить",
    "pl": [
     "pić"
+   ],
+   "ruAlt": [
+    "выпить"
    ],
    "category": "czasowniki",
    "pronunciation": "pit",
@@ -5058,6 +5303,9 @@
    "pl": [
     "dusza"
    ],
+   "ruAlt": [
+    "душа"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "duch"
   },
@@ -5083,6 +5331,9 @@
    "pl": [
     "możliwe",
     "być może"
+   ],
+   "ruAlt": [
+    "можно"
    ],
    "category": "przysłówki",
    "pronunciation": "wozmożno"
@@ -5216,6 +5467,9 @@
    "pl": [
     "uśmiechać się"
    ],
+   "ruAlt": [
+    "улыбаться"
+   ],
    "category": "czasowniki",
    "pronunciation": "ułybnutsja",
    "firstPerson": "улыбнусь",
@@ -5241,6 +5495,9 @@
    "pl": [
     "obraz"
    ],
+   "ruAlt": [
+    "образ"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "kartina"
   },
@@ -5251,6 +5508,9 @@
    "ruAccented": "улыба́ться",
    "pl": [
     "uśmiechać się"
+   ],
+   "ruAlt": [
+    "улыбнуться"
    ],
    "category": "czasowniki",
    "pronunciation": "ułybacsja",
@@ -5450,6 +5710,9 @@
    "pl": [
     "lekko"
    ],
+   "ruAlt": [
+    "слегка"
+   ],
    "category": "przysłówki",
    "pronunciation": "legko"
   },
@@ -5537,6 +5800,9 @@
     "pracownik",
     "robotnik"
    ],
+   "ruAlt": [
+    "работник"
+   ],
    "category": "przymiotniki",
    "pronunciation": "rabocij",
    "feminine": "рабо́чая",
@@ -5583,6 +5849,9 @@
    "pl": [
     "duży"
    ],
+   "ruAlt": [
+    "большой"
+   ],
    "category": "przymiotniki",
    "pronunciation": "krupnyj",
    "feminine": "кру́пная",
@@ -5610,6 +5879,9 @@
    "ruAccented": "до́ктор",
    "pl": [
     "lekarz"
+   ],
+   "ruAlt": [
+    "врач"
    ],
    "category": "rzeczowniki",
    "pronunciation": "doktor"
@@ -5863,6 +6135,9 @@
    "ru": "бой",
    "pl": [
     "walka"
+   ],
+   "ruAlt": [
+    "борьба"
    ],
    "category": "rzeczowniki",
    "pronunciation": "boj"
@@ -6169,6 +6444,9 @@
    "pl": [
     "rząd"
    ],
+   "ruAlt": [
+    "ряд"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "prawitjelstwo"
   },
@@ -6194,6 +6472,9 @@
    "pl": [
     "pić",
     "wypić"
+   ],
+   "ruAlt": [
+    "пить"
    ],
    "category": "czasowniki",
    "pronunciation": "wypic",
@@ -6276,6 +6557,9 @@
    "pl": [
     "wydarzenie"
    ],
+   "ruAlt": [
+    "действие"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "sobytje"
   },
@@ -6286,6 +6570,9 @@
    "ruAccented": "сою́з",
    "pl": [
     "związek"
+   ],
+   "ruAlt": [
+    "связь"
    ],
    "category": "rzeczowniki",
    "pronunciation": "sajuz"
@@ -6451,6 +6738,9 @@
    "pl": [
     "niebieski"
    ],
+   "ruAlt": [
+    "голубой"
+   ],
    "category": "przymiotniki",
    "pronunciation": "sinij",
    "feminine": "си́няя",
@@ -6490,6 +6780,9 @@
     "wyjść",
     "wypaść",
     "wyniknąć"
+   ],
+   "ruAlt": [
+    "выйти"
    ],
    "category": "czasowniki",
    "pronunciation": "połuczitsa",
@@ -6541,6 +6834,9 @@
    "ruAccented": "ви́димо",
    "pl": [
     "widocznie"
+   ],
+   "ruAlt": [
+    "видно"
    ],
    "category": "przysłówki",
    "pronunciation": "vidima"
@@ -6736,6 +7032,9 @@
    "pl": [
     "walka"
    ],
+   "ruAlt": [
+    "бой"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "bar'ba"
   },
@@ -6747,6 +7046,9 @@
    "pl": [
     "dostać",
     "dosięgnąć"
+   ],
+   "ruAlt": [
+    "получить"
    ],
    "category": "czasowniki",
    "pronunciation": "dastat'",
@@ -7470,6 +7772,10 @@
    "pl": [
     "znowu"
    ],
+   "ruAlt": [
+    "снова",
+    "опять"
+   ],
    "category": "przysłówki",
    "pronunciation": "wnow'"
   },
@@ -7480,6 +7786,9 @@
    "ruAccented": "бы́стрый",
    "pl": [
     "szybki"
+   ],
+   "ruAlt": [
+    "скорый"
    ],
    "category": "przymiotniki",
    "pronunciation": "bystryj",
@@ -7532,6 +7841,9 @@
    "ruAccented": "мне́ние",
    "pl": [
     "zdanie"
+   ],
+   "ruAlt": [
+    "предложение"
    ],
    "category": "rzeczowniki",
    "pronunciation": "mnienie"
@@ -7592,6 +7904,9 @@
    "ruAccented": "до́лгий",
    "pl": [
     "długi"
+   ],
+   "ruAlt": [
+    "длинный"
    ],
    "category": "przymiotniki",
    "pronunciation": "dolgij",
@@ -8225,6 +8540,9 @@
    "pl": [
     "niebieski"
    ],
+   "ruAlt": [
+    "синий"
+   ],
    "category": "przymiotniki",
    "pronunciation": "galuboj",
    "feminine": "голуба́я",
@@ -8251,6 +8569,9 @@
    "ruAccented": "заво́д",
    "pl": [
     "fabryka"
+   ],
+   "ruAlt": [
+    "фабрика"
    ],
    "category": "rzeczowniki",
    "pronunciation": "zawod"
@@ -8288,6 +8609,9 @@
     "bardzo",
     "wielce"
    ],
+   "ruAlt": [
+    "очень"
+   ],
    "category": "przysłówki",
    "pronunciation": "wies'ma"
   },
@@ -8298,6 +8622,9 @@
    "ruAccented": "сади́ться",
    "pl": [
     "usiąść"
+   ],
+   "ruAlt": [
+    "сесть"
    ],
    "category": "czasowniki",
    "pronunciation": "saditsa",
@@ -8434,6 +8761,9 @@
    "pl": [
     "rozkaz"
    ],
+   "ruAlt": [
+    "команда"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "prikaz"
   },
@@ -8561,6 +8891,10 @@
     "tak",
     "tak bardzo"
    ],
+   "ruAlt": [
+    "так",
+    "да"
+   ],
    "category": "przysłówki",
    "pronunciation": "stol'"
   },
@@ -8606,6 +8940,9 @@
    "ruAccented": "учи́ться",
    "pl": [
     "uczyć się"
+   ],
+   "ruAlt": [
+    "учить"
    ],
    "category": "czasowniki",
    "pronunciation": "ucitsa",
@@ -8725,6 +9062,9 @@
    "ruAccented": "во́зраст",
    "pl": [
     "wiek"
+   ],
+   "ruAlt": [
+    "век"
    ],
    "category": "rzeczowniki",
    "pronunciation": "wozrast"
@@ -8859,6 +9199,9 @@
    "pl": [
     "czyżby"
    ],
+   "ruAlt": [
+    "разве"
+   ],
    "category": "pytania",
    "pronunciation": "nieużeli"
   },
@@ -8952,6 +9295,9 @@
    "ruAccented": "входи́ть",
    "pl": [
     "wchodzić"
+   ],
+   "ruAlt": [
+    "подниматься"
    ],
    "category": "czasowniki",
    "pronunciation": "wchadić",
@@ -9119,6 +9465,9 @@
    "pl": [
     "prosty"
    ],
+   "ruAlt": [
+    "простой"
+   ],
    "category": "przymiotniki",
    "pronunciation": "priamoj",
    "feminine": "пряма́я",
@@ -9145,6 +9494,9 @@
     "lekko",
     "z lekka"
    ],
+   "ruAlt": [
+    "легко"
+   ],
    "category": "przysłówki",
    "pronunciation": "sliehka"
   },
@@ -9168,6 +9520,9 @@
    "ruAccented": "вско́ре",
    "pl": [
     "wkrótce"
+   ],
+   "ruAlt": [
+    "скоро"
    ],
    "category": "przysłówki",
    "pronunciation": "wskorie"
@@ -9215,6 +9570,9 @@
    "ruAccented": "носи́ть",
    "pl": [
     "nosić"
+   ],
+   "ruAlt": [
+    "получаться"
    ],
    "category": "czasowniki",
    "pronunciation": "nasić",
@@ -9334,6 +9692,9 @@
    "pl": [
     "nosić"
    ],
+   "ruAlt": [
+    "носить"
+   ],
    "category": "czasowniki",
    "pronunciation": "paluciatsa",
    "firstPerson": "получаюсь",
@@ -9367,6 +9728,9 @@
    "ruAccented": "жела́ть",
    "pl": [
     "chcieć"
+   ],
+   "ruAlt": [
+    "хотеть"
    ],
    "category": "czasowniki",
    "pronunciation": "żelać",
@@ -9783,6 +10147,9 @@
     "praca",
     "trud"
    ],
+   "ruAlt": [
+    "работа"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "trud"
   },
@@ -9826,6 +10193,9 @@
    "ruAccented": "де́вушка",
    "pl": [
     "dziewczyna"
+   ],
+   "ruAlt": [
+    "девочка"
    ],
    "category": "rzeczowniki",
    "pronunciation": "diewuszka"
@@ -9872,6 +10242,9 @@
    "ruAccented": "выходи́ть",
    "pl": [
     "wychodzić"
+   ],
+   "ruAlt": [
+    "уйти"
    ],
    "category": "czasowniki",
    "pronunciation": "wychadit'",
@@ -10184,6 +10557,9 @@
    "ruAccented": "це́лый",
    "pl": [
     "cały"
+   ],
+   "ruAlt": [
+    "весь"
    ],
    "category": "przymiotniki",
    "pronunciation": "cełyj",
@@ -10644,6 +11020,9 @@
    "pl": [
     "tam"
    ],
+   "ruAlt": [
+    "там"
+   ],
    "category": "przysłówki",
    "pronunciation": "tuda"
   },
@@ -10681,6 +11060,9 @@
    "pl": [
     "stosunek",
     "relacja"
+   ],
+   "ruAlt": [
+    "связь"
    ],
    "category": "rzeczowniki",
    "pronunciation": "atnaszenije"
@@ -10750,6 +11132,9 @@
    "pl": [
     "wchodzić",
     "wznosić się"
+   ],
+   "ruAlt": [
+    "входить"
    ],
    "category": "czasowniki",
    "pronunciation": "padnimatsa",
@@ -10857,6 +11242,9 @@
    "ruAccented": "случа́ться",
    "pl": [
     "zdarzać się"
+   ],
+   "ruAlt": [
+    "случиться"
    ],
    "category": "czasowniki",
    "pronunciation": "słuczatsa",
@@ -11011,6 +11399,9 @@
    "ruAccented": "рабо́тник",
    "pl": [
     "pracownik"
+   ],
+   "ruAlt": [
+    "рабочий"
    ],
    "category": "rzeczowniki",
    "pronunciation": "rabotnik"
@@ -11216,6 +11607,10 @@
    "ruAccented": "страни́ца",
    "pl": [
     "strona"
+   ],
+   "ruAlt": [
+    "сторона",
+    "бок"
    ],
    "category": "rzeczowniki",
    "pronunciation": "stranica"
@@ -11485,6 +11880,9 @@
     "rozmowa",
     "pogawędka"
    ],
+   "ruAlt": [
+    "разговор"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "biesieda"
   },
@@ -11569,6 +11967,9 @@
    "pl": [
     "fabryka"
    ],
+   "ruAlt": [
+    "завод"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "fabrika"
   },
@@ -11639,6 +12040,9 @@
    "pl": [
     "sposób",
     "obraz"
+   ],
+   "ruAlt": [
+    "способ"
    ],
    "category": "rzeczowniki",
    "pronunciation": "obraz"
@@ -11778,6 +12182,9 @@
    "pl": [
     "sposób"
    ],
+   "ruAlt": [
+    "образ"
+   ],
    "category": "rzeczowniki",
    "pronunciation": "sposab"
   },
@@ -11813,6 +12220,9 @@
    "ruAccented": "замеча́тельный",
    "pl": [
     "wspaniały"
+   ],
+   "ruAlt": [
+    "прекрасный"
    ],
    "category": "przymiotniki",
    "pronunciation": "zamiecziatielnyj",
@@ -11855,6 +12265,10 @@
     "tutaj",
     "tu"
    ],
+   "ruAlt": [
+    "тут",
+    "здесь"
+   ],
    "category": "przysłówki",
    "pronunciation": "siuda"
   },
@@ -11891,6 +12305,10 @@
    "ruAccented": "вероя́тно",
    "pl": [
     "prawdopodobnie"
+   ],
+   "ruAlt": [
+    "видно",
+    "наверное"
    ],
    "category": "przysłówki",
    "pronunciation": "wierajatna"
@@ -11967,6 +12385,9 @@
    "pl": [
     "zdanie",
     "propozycja"
+   ],
+   "ruAlt": [
+    "мнение"
    ],
    "category": "rzeczowniki",
    "pronunciation": "priedłażenije"

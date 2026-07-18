@@ -96,6 +96,23 @@ void main() {
     expect(checkRuAnswer(noWord, 'да'), isFalse);
   });
 
+  const every = Word(
+    id: 'every',
+    ru: 'каждый',
+    ruAccented: 'ка́ждый',
+    pl: ['każdy'],
+    ruAlt: ['любой'],
+    category: 'przymiotniki',
+  );
+
+  test('accepts alternative russian answers from ruAlt', () {
+    expect(checkRuAnswer(every, 'каждый'), isTrue);
+    expect(checkRuAnswer(every, 'любой'), isTrue);
+    expect(checkRuAnswer(every, 'любо́й'), isTrue);
+    expect(gradeRuAnswer(every, 'любой'), AnswerGrade.correct);
+    expect(checkRuAnswer(every, 'весь'), isFalse);
+  });
+
   test('grades polish answers including diacritic slips', () {
     expect(gradePlAnswer(thanks, 'dziękuję'), AnswerGrade.correct);
     expect(gradePlAnswer(thanks, 'dziekuje'), AnswerGrade.almost);

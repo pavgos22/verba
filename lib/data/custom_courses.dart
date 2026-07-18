@@ -36,8 +36,18 @@ ParsedCourse parseCourseJson(String rawJson, String fallbackName) {
   final base = DateTime.now().microsecondsSinceEpoch;
   for (final e in rawWords) {
     if (e is! Map) continue;
-    final ru = (e['ru'] as String?)?.trim();
-    if (ru == null || ru.isEmpty) continue;
+    final ruRaw = (e['ru'] as String?)?.trim();
+    if (ruRaw == null || ruRaw.isEmpty) continue;
+    final ruParts = ruRaw.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList();
+    if (ruParts.isEmpty) continue;
+    final ru = ruParts.first;
+    final ruAlt = ruParts.skip(1).toList();
+    final rawRuAlt = e['ruAlt'];
+    if (rawRuAlt is String) {
+      ruAlt.addAll(rawRuAlt.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty));
+    } else if (rawRuAlt is List) {
+      ruAlt.addAll(rawRuAlt.map((s) => s.toString().trim()).where((s) => s.isNotEmpty));
+    }
     final plRaw = e['pl'];
     final pl = <String>[];
     if (plRaw is String) {
@@ -59,6 +69,7 @@ ParsedCourse parseCourseJson(String rawJson, String fallbackName) {
       id: 'w-$base-${words.length}',
       ru: ru,
       ruAccented: e['ruAccented'] as String?,
+      ruAlt: ruAlt,
       pl: pl,
       category: category == null || category.isEmpty ? null : category,
       pronunciation: e['pronunciation'] as String?,
@@ -96,6 +107,7 @@ const exampleCourseJson = '''{
   "words": [
     {"ru": "кот", "pl": ["kot"]},
     {"ru": "собака", "pl": "pies, piesek"},
+    {"ru": "каждый, любой", "pl": ["każdy"]},
     {"ru": "дом", "pl": ["dom"], "category": "rzeczowniki"},
     {"ru": "хорошо", "ruAccented": "хорошо́", "pl": ["dobrze"], "category": "przysłówki", "pronunciation": "charaszo"},
     {"ru": "ехать", "ruAccented": "е́хать", "pl": ["jechać"], "category": "czasowniki", "firstPerson": "е́ду", "verbType": "1"},

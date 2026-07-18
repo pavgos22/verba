@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:verba/core/answer_check.dart';
 import 'package:verba/data/course.dart';
 
 void main() {
@@ -49,6 +50,17 @@ void main() {
         expect(word.category, isNotNull, reason: 'missing category for ${word.ru}');
       }
     }
+  });
+
+  test('ru1000 cross-links polish synonyms into ruAlt', () async {
+    final course = await load('assets/data/course_ru1000.json');
+    final every = course.words.firstWhere((w) => w.ru == 'каждый');
+    expect(every.ruAlt, contains('любой'));
+    expect(acceptedRu(every), contains('любой'));
+    final any = course.words.firstWhere((w) => w.ru == 'любой');
+    expect(any.ruAlt, contains('каждый'));
+    final water = course.words.firstWhere((w) => w.ru == 'вода');
+    expect(water.ruAlt, isEmpty, reason: 'words with a unique polish primary keep no alternatives');
   });
 
   test('ru1000 verbs carry first-person and conjugation data', () async {

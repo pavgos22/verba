@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:verba/core/answer_check.dart';
 import 'package:verba/data/custom_courses.dart';
 import 'package:verba/data/word.dart';
 
@@ -48,6 +49,18 @@ void main() {
     expect(course.isCustom, isTrue);
   });
 
+  test('splits comma-separated russian into accepted alternatives', () {
+    const raw = '{"words":[{"ru":"каждый, любой","pl":["każdy"]}]}';
+    final parsed = parseCourseJson(raw, 'x');
+    final w = parsed.words.single;
+    expect(w.ru, 'каждый');
+    expect(w.ruAlt, ['любой']);
+    expect(checkRuAnswer(w, 'любой'), isTrue);
+    expect(checkRuAnswer(w, 'каждый'), isTrue);
+    final back = Word.fromJson(w.toJson());
+    expect(back.ruAlt, ['любой']);
+  });
+
   test('imports a bare word array using fallback name', () {
     final container = make();
     final notifier = container.read(customCoursesProvider.notifier);
@@ -67,9 +80,11 @@ void main() {
   test('ships a valid example course json', () {
     final parsed = parseCourseJson(exampleCourseJson, 'fallback');
     expect(parsed.name, 'Przykładowy kurs');
-    expect(parsed.words.length, 7);
+    expect(parsed.words.length, 8);
     final dog = parsed.words.firstWhere((w) => w.ru == 'собака');
     expect(dog.pl, ['pies', 'piesek']);
+    final every = parsed.words.firstWhere((w) => w.ru == 'каждый');
+    expect(every.ruAlt, ['любой']);
     expect(parsed.words.any((w) => w.category == 'rzeczowniki'), isTrue);
     final good = parsed.words.firstWhere((w) => w.ru == 'хорошо');
     expect(good.ruAccented, 'хорошо́');
