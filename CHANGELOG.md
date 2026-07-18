@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.15 — the in-session progress bar now has a rounded leading tip as it fills, while its outer ends stay square and flush against the walls — flush at the start, and flush against the far edge once it reaches 100%
+
 ## 0.13.14 — widened the "Punkty" column in the Słówka table so its header no longer clips to "Pun…" now that it carries a sort arrow, and nudged the Status and Punkty columns a little further left (only when the points column is shown)
 
 ## 0.13.13 — the sort indicator in the "Słówka" table is now a single centred arrow that changes shape instead of a stacked pair of triangles: a subtle ⇅ when the column isn't the current sort key, and a solid ▲ or ▼ on the active column showing the direction
