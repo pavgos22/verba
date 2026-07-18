@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/transliteration.dart';
 import '../data/settings_store.dart';
+import '../services/audio_service.dart';
 import '../services/translation_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/common.dart';
@@ -23,6 +24,7 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
   final _sourceFocus = FocusNode();
   Timer? _debounce;
   bool _ruToPl = true;
+  late bool _deepl;
   String _result = '';
   bool _loading = false;
   String? _error;
@@ -30,11 +32,14 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
 
   String get _from => _ruToPl ? 'RU' : 'PL';
   String get _to => _ruToPl ? 'PL' : 'RU';
+  String get _srcLang => _ruToPl ? 'ru' : 'pl';
+  String get _dstLang => _ruToPl ? 'pl' : 'ru';
   bool get _sourceRussian => _ruToPl;
 
   @override
   void initState() {
     super.initState();
+    _deepl = ref.read(settingsProvider).translatorApiKey.trim().isNotEmpty;
     _source.addListener(_onSourceChanged);
   }
 
@@ -58,8 +63,9 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
 
   Future<void> _translate(String text) async {
     final id = ++_reqId;
+    final via = _deepl ? TranslationProvider.deepl : TranslationProvider.myMemory;
     try {
-      final out = await ref.read(translationServiceProvider).translate(text, from: _from, to: _to);
+      final out = await ref.read(translationServiceProvider).translate(text, from: _from, to: _to, via: via);
       if (!mounted || id != _reqId) return;
       setState(() {
         _result = out;
@@ -81,6 +87,18 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
     }
   }
 
+  void _retranslate() {
+    if (_source.text.trim().isEmpty) {
+      setState(() {
+        _result = '';
+        _error = null;
+        _loading = false;
+      });
+    } else {
+      _onSourceChanged();
+    }
+  }
+
   void _swap() {
     final newSource = _result;
     setState(() {
@@ -88,6 +106,20 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
       _result = _source.text;
     });
     _source.text = newSource;
+  }
+
+  Future<void> _speak(BuildContext context, String text, String lang) async {
+    if (text.trim().isEmpty) return;
+    final ok = await ref.read(audioServiceProvider).speakSystem(text, lang: lang);
+    if (!ok && context.mounted) {
+      final name = lang == 'ru' ? 'rosyjskiego' : 'polskiego';
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+          content: Text('Brak $name głosu w Windows. Dodaj go: Ustawienia → Czas i język → Mowa.'),
+          duration: const Duration(seconds: 4),
+        ));
+    }
   }
 
   @override
@@ -102,9 +134,6 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
   @override
   Widget build(BuildContext context) {
     final hasKey = ref.watch(settingsProvider.select((s) => s.translatorApiKey.trim().isNotEmpty));
-    final srcLabel = _sourceRussian ? 'Rosyjski' : 'Polski';
-    final dstLabel = _sourceRussian ? 'Polski' : 'Rosyjski';
-
     return SingleChildScrollView(
       padding: const EdgeInsets.all(40),
       child: Column(
@@ -112,23 +141,19 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
         children: [
           Text('Tłumacz', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: context.c.foreground)),
           const SizedBox(height: 4),
-          Text('Tłumaczenie rosyjski ↔ polski · ${hasKey ? 'DeepL' : 'MyMemory'}',
+          Text('Tłumaczenie rosyjski ↔ polski',
               style: TextStyle(fontSize: 14, color: context.c.mutedForeground)),
           const SizedBox(height: 20),
           Row(
             children: [
-              Text(srcLabel, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: context.c.foreground)),
-              IconButton(
-                onPressed: _swap,
-                icon: Icon(Icons.swap_horiz, size: 20, color: context.c.mutedForeground),
-                tooltip: 'Zamień kierunek',
-              ),
-              Text(dstLabel, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: context.c.foreground)),
+              _directionSelector(context),
+              const Spacer(),
+              _providerSelector(context, hasKey),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 14),
           SizedBox(
-            height: 200,
+            height: 210,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -148,6 +173,58 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _directionSelector(BuildContext context) {
+    final style = TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: context.c.foreground);
+    final srcLabel = _sourceRussian ? 'Rosyjski' : 'Polski';
+    final dstLabel = _sourceRussian ? 'Polski' : 'Rosyjski';
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(width: 76, child: Text(srcLabel, textAlign: TextAlign.right, style: style)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: IconButton(
+            onPressed: _swap,
+            icon: Icon(Icons.swap_horiz, size: 20, color: context.c.mutedForeground),
+            tooltip: 'Zamień kierunek',
+            visualDensity: VisualDensity.compact,
+          ),
+        ),
+        SizedBox(width: 76, child: Text(dstLabel, textAlign: TextAlign.left, style: style)),
+      ],
+    );
+  }
+
+  Widget _providerSelector(BuildContext context, bool hasKey) {
+    return SegmentedButton<bool>(
+      segments: [
+        const ButtonSegment(value: false, label: Text('MyMemory')),
+        ButtonSegment(
+          value: true,
+          label: hasKey
+              ? const Text('DeepL')
+              : Tooltip(
+                  message: 'Wymaga własnego klucza DeepL — dodaj w Ustawieniach → Tłumacz',
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text('DeepL'),
+                      const SizedBox(width: 5),
+                      Icon(Icons.lock_outline, size: 13, color: context.c.mutedForeground),
+                    ],
+                  ),
+                ),
+        ),
+      ],
+      selected: {_deepl},
+      showSelectedIcon: false,
+      onSelectionChanged: (selection) {
+        setState(() => _deepl = selection.first);
+        _retranslate();
+      },
     );
   }
 
@@ -177,12 +254,11 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
             ),
           ),
           Divider(height: 1, color: context.c.border),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () => _source.clear(),
-              child: const Text('Wyczyść'),
-            ),
+          _footer(
+            context,
+            speakLang: _srcLang,
+            speakText: _source.text,
+            action: TextButton(onPressed: () => _source.clear(), child: const Text('Wyczyść')),
           ),
         ],
       ),
@@ -223,9 +299,11 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
             ),
           ),
           Divider(height: 1, color: context.c.border),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton.icon(
+          _footer(
+            context,
+            speakLang: _dstLang,
+            speakText: _result,
+            action: TextButton.icon(
               onPressed: _result.isEmpty
                   ? null
                   : () async {
@@ -242,6 +320,26 @@ class _TranslatorScreenState extends ConsumerState<TranslatorScreen> {
               label: const Text('Kopiuj'),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _footer(BuildContext context, {required String speakLang, required String speakText, required Widget action}) {
+    final enabled = speakText.trim().isNotEmpty;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: enabled ? () => _speak(context, speakText, speakLang) : null,
+            icon: const Icon(Icons.volume_up_outlined, size: 18),
+            color: context.c.mutedForeground,
+            tooltip: 'Wymów',
+            visualDensity: VisualDensity.compact,
+          ),
+          const Spacer(),
+          action,
         ],
       ),
     );

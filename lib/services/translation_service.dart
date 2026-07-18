@@ -14,6 +14,8 @@ class TranslationException implements Exception {
   String toString() => message;
 }
 
+enum TranslationProvider { myMemory, deepl }
+
 class TranslationService {
   TranslationService(this.apiKey, {http.Client? client}) : _client = client ?? http.Client();
 
@@ -23,15 +25,18 @@ class TranslationService {
 
   bool get hasKey => apiKey.trim().isNotEmpty;
 
-  String get provider => hasKey ? 'DeepL' : 'MyMemory';
-
-  Future<String> translate(String text, {required String from, required String to}) async {
+  Future<String> translate(String text,
+      {required String from, required String to, required TranslationProvider via}) async {
     final source = text.trim();
     if (source.isEmpty) return '';
-    final cacheKey = '$provider>$from>$to>$source';
+    if (via == TranslationProvider.deepl && !hasKey) {
+      throw const TranslationException('Dodaj klucz DeepL w Ustawieniach → Tłumacz.');
+    }
+    final cacheKey = '${via.name}>$from>$to>$source';
     final cached = _cache[cacheKey];
     if (cached != null) return cached;
-    final result = hasKey ? await _deepl(source, from, to) : await _myMemory(source, from, to);
+    final result =
+        via == TranslationProvider.deepl ? await _deepl(source, from, to) : await _myMemory(source, from, to);
     _cache[cacheKey] = result;
     return result;
   }

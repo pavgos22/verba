@@ -36,6 +36,7 @@ String lectorKey(String text) {
 
 abstract class AudioService {
   Future<bool> speakRussian(String text, {bool slow = false});
+  Future<bool> speakSystem(String text, {required String lang, bool slow = false});
 }
 
 class VerbaAudioService implements AudioService {
@@ -44,7 +45,7 @@ class VerbaAudioService implements AudioService {
   final Ref _ref;
   final AudioPlayer _player = AudioPlayer()..setReleaseMode(ReleaseMode.stop);
   final FlutterTts _tts = FlutterTts();
-  bool _ttsConfigured = false;
+  String? _ttsLang;
 
   @override
   Future<bool> speakRussian(String text, {bool slow = false}) async {
@@ -52,7 +53,7 @@ class VerbaAudioService implements AudioService {
     if (useAssetVoice(settings.lector, settings.activeCourseId)) {
       if (await _playAsset(settings.lector, text, slow: slow)) return true;
     }
-    return _speakSystem(text, slow: slow);
+    return speakSystem(text, lang: 'ru', slow: slow);
   }
 
   Future<bool> _playAsset(Lector lector, String text, {required bool slow}) async {
@@ -68,15 +69,15 @@ class VerbaAudioService implements AudioService {
     }
   }
 
-  Future<bool> _ensureRussianVoice() async {
-    if (_ttsConfigured) return true;
+  Future<bool> _ensureVoice(String prefix) async {
+    if (_ttsLang == prefix) return true;
     try {
       final voices = await _tts.getVoices;
       if (voices is List) {
         for (final voice in voices) {
-          if (voice is Map && (voice['locale']?.toString().toLowerCase() ?? '').startsWith('ru')) {
+          if (voice is Map && (voice['locale']?.toString().toLowerCase() ?? '').startsWith(prefix)) {
             await _tts.setVoice({'name': voice['name'].toString(), 'locale': voice['locale'].toString()});
-            _ttsConfigured = true;
+            _ttsLang = prefix;
             return true;
           }
         }
@@ -84,9 +85,9 @@ class VerbaAudioService implements AudioService {
       final languages = await _tts.getLanguages;
       if (languages is List) {
         for (final language in languages) {
-          if (language.toString().toLowerCase().startsWith('ru')) {
+          if (language.toString().toLowerCase().startsWith(prefix)) {
             await _tts.setLanguage(language.toString());
-            _ttsConfigured = true;
+            _ttsLang = prefix;
             return true;
           }
         }
@@ -97,8 +98,9 @@ class VerbaAudioService implements AudioService {
     }
   }
 
-  Future<bool> _speakSystem(String text, {required bool slow}) async {
-    if (!await _ensureRussianVoice()) return false;
+  @override
+  Future<bool> speakSystem(String text, {required String lang, bool slow = false}) async {
+    if (!await _ensureVoice(lang)) return false;
     try {
       await _tts.stop();
       await _tts.setSpeechRate(slow ? 0.3 : 0.5);

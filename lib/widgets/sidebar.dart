@@ -5,10 +5,11 @@ import '../theme/app_colors.dart';
 import '../theme/theme_fade.dart';
 
 class SidebarItem {
-  const SidebarItem({required this.icon, required this.label});
+  const SidebarItem({required this.icon, required this.label, this.badge});
 
   final IconData icon;
   final String label;
+  final String? badge;
 }
 
 const sidebarItems = [
@@ -16,7 +17,7 @@ const sidebarItems = [
   SidebarItem(icon: Icons.school_outlined, label: 'Kursy'),
   SidebarItem(icon: Icons.menu_book_outlined, label: 'Słówka'),
   SidebarItem(icon: Icons.keyboard_outlined, label: 'Klawiatura'),
-  SidebarItem(icon: Icons.translate, label: 'Tłumacz'),
+  SidebarItem(icon: Icons.translate, label: 'Tłumacz', badge: 'BETA'),
   SidebarItem(icon: Icons.bar_chart_outlined, label: 'Statystyki'),
   SidebarItem(icon: Icons.settings_outlined, label: 'Ustawienia'),
 ];
@@ -108,6 +109,19 @@ class _NavTile extends StatelessWidget {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: color),
                   ),
                 ),
+                if (item.badge != null)
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: context.c.muted,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      item.badge!,
+                      style: TextStyle(
+                          fontSize: 10, fontWeight: FontWeight.w700, letterSpacing: 0.5, color: context.c.mutedForeground),
+                    ),
+                  ),
               ],
             ),
           ),
