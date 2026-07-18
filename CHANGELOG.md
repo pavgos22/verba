@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.10 — Polish→Russian answers now accept synonyms. In the built-in "1000 słówek" course, when a Polish word has several valid Russian translations (81 cases — każdy → каждый/любой, cały → весь/целый, rodzaj → вид/род/тип, …), all of them count as correct when translating into Russian, not just the one on the card; the shown word and audio are unchanged. In custom courses the "Rosyjski" field now accepts several answers separated by commas (like the Polish field does) — in the editor and in JSON import
+
 ## 0.13.9 — reworked the on/off toggle colours and animation: dropped the heavy near-black look for a softer grey — the track is a mid grey when on, a faint grey when off, with a light thumb in both themes — so on/off now read clearly in the dark theme (where they were nearly indistinguishable) and the light theme is no longer overwhelmingly black. The slide is also slower (340 ms) with an ease-out curve
 
 ## 0.13.8 — the on-screen Cyrillic keyboard on the Klawiatura screen now has a row of accented vowels (а́ е́ и́ о́ у́ ы́ э́ ю́ я́) you can click to add a stress mark, matching the course-editor keyboard — previously stress marks were only reachable by physically typing a vowel then q (that shortcut, and its hint, still works)
