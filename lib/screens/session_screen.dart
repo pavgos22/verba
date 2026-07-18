@@ -56,8 +56,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   int _answered = 0;
   int _correct = 0;
   final List<SessionMistake> _mistakes = [];
-  final List<SessionTask> _retryQueue = [];
   final Set<String> _penalized = {};
+  final Set<String> _cleared = {};
+  int _toFixTotal = 0;
   bool _finished = false;
   bool _tabHeld = false;
 
@@ -141,6 +142,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             SessionTask(word: pool[i], kind: _kindFor(cfg.direction, i, rng)),
         ];
       case SessionMode.retry:
+        _toFixTotal = {for (final t in widget.retryTasks) t.word.id}.length;
         return List.of(widget.retryTasks);
     }
   }
@@ -165,12 +167,14 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _answered++;
       if (grade == AnswerGrade.correct) {
         _correct++;
+        if (widget.mode == SessionMode.retry && widget.loop) _cleared.add(task.word.id);
       } else if (widget.mode == SessionMode.retry && widget.loop) {
-        _retryQueue.add(SessionTask(word: task.word, kind: task.kind));
+        _tasks!.add(SessionTask(word: task.word, kind: task.kind));
       } else {
         _mistakes.add(SessionMistake(word: task.word, kind: task.kind, given: given));
       }
     });
+    _syncTabHeld();
   }
 
   void _next() {
@@ -178,10 +182,6 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     setState(() {
       if (_index + 1 < tasks.length) {
         _index++;
-      } else if (widget.mode == SessionMode.retry && widget.loop && _retryQueue.isNotEmpty) {
-        _tasks = List.of(_retryQueue);
-        _retryQueue.clear();
-        _index = 0;
       } else {
         _finished = true;
         ref.read(progressProvider.notifier).finishSession();
@@ -225,6 +225,13 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           final task = tasks[_index];
           final wordIds = <String>{for (final t in tasks) t.word.id}.toList();
           final wordIndex = wordIds.indexOf(task.word.id);
+          final isRetryLoop = widget.mode == SessionMode.retry && widget.loop;
+          final progress = isRetryLoop
+              ? (_toFixTotal == 0 ? 0.0 : _cleared.length / _toFixTotal)
+              : (wordIds.isEmpty ? 0.0 : wordIndex / wordIds.length);
+          final counterLabel = isRetryLoop
+              ? '${_cleared.length} / $_toFixTotal'
+              : '${wordIndex + 1} / ${wordIds.length}';
           final courseName = ref.watch(activeCourseProvider).asData?.value.name ?? '';
           final modeName = switch (widget.mode) {
             SessionMode.full => 'Dzisiejsza sesja',
@@ -248,8 +255,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             child: Column(
               children: [
                 _SessionTopBar(
-                  index: wordIndex,
-                  total: wordIds.length,
+                  progress: progress,
+                  counterLabel: counterLabel,
                   courseName: courseName,
                   modeName: modeName,
                   category: category,
@@ -280,15 +287,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 
 class _SessionTopBar extends StatelessWidget {
   const _SessionTopBar({
-    required this.index,
-    required this.total,
+    required this.progress,
+    required this.counterLabel,
     required this.courseName,
     required this.modeName,
     this.category,
   });
 
-  final int index;
-  final int total;
+  final double progress;
+  final String counterLabel;
   final String courseName;
   final String modeName;
   final String? category;
@@ -330,7 +337,7 @@ class _SessionTopBar extends StatelessWidget {
                         AppBadge(label: _capitalize(category!)),
                         const SizedBox(width: 12),
                       ],
-                      Text('${index + 1} / $total',
+                      Text(counterLabel,
                           style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
                     ],
                   ),
@@ -339,7 +346,7 @@ class _SessionTopBar extends StatelessWidget {
             ),
           ),
           LinearProgressIndicator(
-            value: total == 0 ? 0 : index / total,
+            value: progress,
             minHeight: 8,
             backgroundColor: context.c.muted,
             color: context.c.primary,
@@ -688,13 +695,16 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                   GrammarInfoSlot(
                     word: widget.word,
                     visible: (!_isPlToRu || _done) &&
-                        showGrammarInfo(widget.word, settings.verbInfo, widget.showPronunciation),
-                    reserve: settings.verbInfo != VerbInfoMode.never,
+                        (showGrammarInfo(widget.word, settings.verbInfo, widget.showPronunciation) ||
+                            (_done &&
+                                settings.detailsAfterCorrect &&
+                                (widget.word.hasVerbInfo || widget.word.hasAdjInfo))),
+                    reserve: settings.verbInfo != VerbInfoMode.never || settings.detailsAfterCorrect,
                     fontSize: 13,
                   ),
                   PronunciationSlot(
                     pronunciation: _isPlToRu && !_done ? null : widget.word.pronunciation,
-                    visible: widget.showPronunciation,
+                    visible: widget.showPronunciation || (_done && settings.detailsAfterCorrect),
                     fontSize: 13,
                   ),
                   const SizedBox(height: 12),
@@ -786,7 +796,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
   }
 }
 
-class _SummaryView extends StatelessWidget {
+class _SummaryView extends StatefulWidget {
   const _SummaryView({
     required this.correct,
     required this.total,
@@ -808,10 +818,49 @@ class _SummaryView extends StatelessWidget {
   final VoidCallback onFinish;
 
   @override
+  State<_SummaryView> createState() => _SummaryViewState();
+}
+
+class _SummaryViewState extends State<_SummaryView> {
+  bool _enterArmed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final pressed = HardwareKeyboard.instance.logicalKeysPressed;
+    _enterArmed = !pressed.contains(LogicalKeyboardKey.enter) &&
+        !pressed.contains(LogicalKeyboardKey.numpadEnter);
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    final isEnter = event.logicalKey == LogicalKeyboardKey.enter ||
+        event.logicalKey == LogicalKeyboardKey.numpadEnter;
+    if (!isEnter) return KeyEventResult.ignored;
+    if (event is KeyUpEvent) {
+      _enterArmed = true;
+      return KeyEventResult.ignored;
+    }
+    if (event is KeyDownEvent && _enterArmed && widget.allowRetry) {
+      widget.onRetry();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final correct = widget.correct;
+    final total = widget.total;
+    final mistakes = widget.mistakes;
+    final allowRetry = widget.allowRetry;
+    final cleared = widget.cleared;
+    final loose = widget.loose;
+    final onRetry = widget.onRetry;
+    final onFinish = widget.onFinish;
     final percent = total == 0 ? 100 : (correct * 100 / total).round();
     return Focus(
       autofocus: true,
+      onKeyEvent: _onKey,
       child: Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(40),

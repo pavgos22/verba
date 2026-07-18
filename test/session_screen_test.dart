@@ -109,7 +109,7 @@ void main() {
     expect(container.read(progressProvider).words['w1']!.wrong, 1);
   });
 
-  testWidgets('loop retry counter shrinks to the words still to fix each round', (tester) async {
+  testWidgets('loop retry counter counts cleared words out of the original total', (tester) async {
     tester.view.physicalSize = const Size(1400, 1400);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.reset);
@@ -144,27 +144,34 @@ void main() {
     ));
     await tester.pumpAndSettle();
 
-    expect(find.text('1 / 2'), findsOneWidget);
+    expect(find.text('0 / 2'), findsOneWidget);
 
     await tester.enterText(find.byType(TextField), 'kot'); // w1 correct
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Dalej'));
     await tester.pumpAndSettle();
-    expect(find.text('2 / 2'), findsOneWidget);
+    expect(find.text('1 / 2'), findsOneWidget);
 
-    await tester.enterText(find.byType(TextField), 'zzz'); // w2 wrong
+    await tester.enterText(find.byType(TextField), 'zzz'); // w2 wrong -> requeued at the end
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'dom'); // retype correct
+    await tester.enterText(find.byType(TextField), 'dom'); // retype correct to move on
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Dalej'));
     await tester.pumpAndSettle();
 
-    // second round contains only the one word that was still wrong
-    expect(find.text('1 / 1'), findsOneWidget);
+    // one cleared out of two; now re-testing the word that was still wrong, count does not jump back
+    expect(find.text('1 / 2'), findsOneWidget);
     expect(find.text('дом'), findsOneWidget);
+
+    await tester.enterText(find.byType(TextField), 'dom'); // clears the requeued word
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Dalej'));
+    await tester.pumpAndSettle();
+    expect(find.text('Wszystko poprawione!'), findsOneWidget);
   });
 
   testWidgets('the session top bar shows the category filter as a badge, hidden for all words', (tester) async {
@@ -292,7 +299,7 @@ void main() {
     await tester.sendKeyUpEvent(LogicalKeyboardKey.tab);
   });
 
-  testWidgets('the end-of-session summary always shows and no Enter skips it into the retry', (tester) async {
+  testWidgets('a fresh Enter on the summary starts the retry, a carried-over one does not', (tester) async {
     await _pumpRetry(tester, loop: false);
 
     await tester.enterText(find.byType(TextField), 'zzz');
@@ -302,25 +309,62 @@ void main() {
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
 
+    // Enter on the focused "Dalej" advances to the summary; the key stays held.
     await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
     expect(find.text('Sesja ukończona!'), findsOneWidget);
 
+    // The still-held Enter (auto-repeat) must not skip straight into the retry.
     await tester.sendKeyRepeatEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
     expect(find.text('Sesja ukończona!'), findsOneWidget);
     expect(find.byType(TextField), findsNothing);
 
+    // A fresh Enter press (after release) starts the retry.
     await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
     await tester.sendKeyDownEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
     await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
-    await tester.pumpAndSettle();
-    expect(find.text('Sesja ukończona!'), findsOneWidget);
-    expect(find.byType(TextField), findsNothing);
-
-    await tester.tap(find.text('Popraw błędne (1)'));
-    await tester.pumpAndSettle();
     expect(find.byType(TextField), findsOneWidget);
     expect(find.text('Sesja ukończona!'), findsNothing);
+  });
+
+  testWidgets('detailsAfterCorrect reveals verb info without Tab after a correct answer', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    SharedPreferences.setMockInitialValues({
+      'settings.autoplay': false,
+      'settings.answerSounds': false,
+      'settings.showKeyboard': false,
+      'settings.showAccents': false,
+      'settings.detailsAfterCorrect': true,
+    });
+    final prefs = await SharedPreferences.getInstance();
+    const verb = Word(id: 'v', ru: 'ехать', ruAccented: 'е́хать', pl: ['jechać'], firstPerson: 'еду', verbType: '1');
+    final container = ProviderContainer(overrides: [
+      prefsProvider.overrideWithValue(prefs),
+      wordsProvider.overrideWith((ref) => [verb]),
+    ]);
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp(
+        theme: buildTheme(Brightness.light),
+        home: const SessionScreen(
+          mode: SessionMode.retry,
+          retryTasks: [SessionTask(word: verb, kind: TaskKind.typingPlToRu)],
+          loop: false,
+        ),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'ехать');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    expect(find.text('еду'), findsOneWidget);
   });
 }

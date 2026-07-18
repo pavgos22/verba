@@ -149,6 +149,11 @@ class SettingsScreen extends ConsumerWidget {
                 control: VerbaSwitch(value: settings.enterEmptyIsGiveUp, onChanged: notifier.setEnterEmptyIsGiveUp),
               ),
               _SettingRow(
+                title: 'Szczegóły po poprawnej odpowiedzi',
+                description: 'Po dobrej odpowiedzi pokazuj odmianę i wymowę (jak na Tab)',
+                control: VerbaSwitch(value: settings.detailsAfterCorrect, onChanged: notifier.setDetailsAfterCorrect),
+              ),
+              _SettingRow(
                 title: 'Kolumna punktów (debug)',
                 description: 'Pokazuje wynik punktowy słówka w tabeli Słówka',
                 control: VerbaSwitch(value: settings.showWordPoints, onChanged: notifier.setShowWordPoints),

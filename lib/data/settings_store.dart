@@ -48,6 +48,7 @@ class Settings {
     required this.showWordPoints,
     required this.autoKeyboardLayout,
     required this.enterEmptyIsGiveUp,
+    required this.detailsAfterCorrect,
     required this.modes,
   });
 
@@ -65,6 +66,7 @@ class Settings {
   final bool showWordPoints;
   final bool autoKeyboardLayout;
   final bool enterEmptyIsGiveUp;
+  final bool detailsAfterCorrect;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -85,6 +87,7 @@ class Settings {
     bool? showWordPoints,
     bool? autoKeyboardLayout,
     bool? enterEmptyIsGiveUp,
+    bool? detailsAfterCorrect,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -102,6 +105,7 @@ class Settings {
       showWordPoints: showWordPoints ?? this.showWordPoints,
       autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
       enterEmptyIsGiveUp: enterEmptyIsGiveUp ?? this.enterEmptyIsGiveUp,
+      detailsAfterCorrect: detailsAfterCorrect ?? this.detailsAfterCorrect,
       modes: modes ?? this.modes,
     );
   }
@@ -127,6 +131,7 @@ class SettingsNotifier extends Notifier<Settings> {
       showWordPoints: prefs.getBool('settings.showWordPoints') ?? false,
       autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
       enterEmptyIsGiveUp: prefs.getBool('settings.enterEmptyIsGiveUp') ?? true,
+      detailsAfterCorrect: prefs.getBool('settings.detailsAfterCorrect') ?? false,
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -209,6 +214,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setEnterEmptyIsGiveUp(bool value) {
     state = state.copyWith(enterEmptyIsGiveUp: value);
     ref.read(prefsProvider).setBool('settings.enterEmptyIsGiveUp', value);
+  }
+
+  void setDetailsAfterCorrect(bool value) {
+    state = state.copyWith(detailsAfterCorrect: value);
+    ref.read(prefsProvider).setBool('settings.detailsAfterCorrect', value);
   }
 
   void setModeConfig(String mode, ModeConfig config) {
