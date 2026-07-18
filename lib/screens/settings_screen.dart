@@ -175,6 +175,17 @@ class SettingsScreen extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 20),
+          _Section(
+            title: 'Tłumacz',
+            rows: [
+              _SettingRow(
+                title: 'Klucz API DeepL',
+                description: 'Opcjonalnie — klucz DeepL (deepl.com) dla lepszej jakości; bez klucza tłumaczy MyMemory',
+                control: const _ApiKeyField(),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
           FutureBuilder<PackageInfo>(
             future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
@@ -260,6 +271,57 @@ class _SettingRow extends StatelessWidget {
           const SizedBox(width: 16),
           control,
         ],
+      ),
+    );
+  }
+}
+
+class _ApiKeyField extends ConsumerStatefulWidget {
+  const _ApiKeyField();
+
+  @override
+  ConsumerState<_ApiKeyField> createState() => _ApiKeyFieldState();
+}
+
+class _ApiKeyFieldState extends ConsumerState<_ApiKeyField> {
+  late final TextEditingController _controller =
+      TextEditingController(text: ref.read(settingsProvider).translatorApiKey);
+  bool _obscure = true;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 280,
+      child: TextField(
+        controller: _controller,
+        obscureText: _obscure,
+        onChanged: (value) => ref.read(settingsProvider.notifier).setTranslatorApiKey(value.trim()),
+        style: TextStyle(fontSize: 14, color: context.c.foreground),
+        decoration: InputDecoration(
+          hintText: 'xxxxxxxx-…:fx',
+          isDense: true,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          suffixIcon: IconButton(
+            icon: Icon(_obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                size: 18, color: context.c.mutedForeground),
+            onPressed: () => setState(() => _obscure = !_obscure),
+            tooltip: _obscure ? 'Pokaż' : 'Ukryj',
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: context.c.inputBorder),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: context.c.ring),
+          ),
+        ),
       ),
     );
   }

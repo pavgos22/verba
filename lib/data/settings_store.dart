@@ -49,6 +49,7 @@ class Settings {
     required this.autoKeyboardLayout,
     required this.enterEmptyIsGiveUp,
     required this.detailsAfterCorrect,
+    required this.translatorApiKey,
     required this.modes,
   });
 
@@ -67,6 +68,7 @@ class Settings {
   final bool autoKeyboardLayout;
   final bool enterEmptyIsGiveUp;
   final bool detailsAfterCorrect;
+  final String translatorApiKey;
   final Map<String, ModeConfig> modes;
 
   ModeConfig configFor(String mode) =>
@@ -88,6 +90,7 @@ class Settings {
     bool? autoKeyboardLayout,
     bool? enterEmptyIsGiveUp,
     bool? detailsAfterCorrect,
+    String? translatorApiKey,
     Map<String, ModeConfig>? modes,
   }) {
     return Settings(
@@ -106,6 +109,7 @@ class Settings {
       autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
       enterEmptyIsGiveUp: enterEmptyIsGiveUp ?? this.enterEmptyIsGiveUp,
       detailsAfterCorrect: detailsAfterCorrect ?? this.detailsAfterCorrect,
+      translatorApiKey: translatorApiKey ?? this.translatorApiKey,
       modes: modes ?? this.modes,
     );
   }
@@ -132,6 +136,7 @@ class SettingsNotifier extends Notifier<Settings> {
       autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
       enterEmptyIsGiveUp: prefs.getBool('settings.enterEmptyIsGiveUp') ?? true,
       detailsAfterCorrect: prefs.getBool('settings.detailsAfterCorrect') ?? false,
+      translatorApiKey: prefs.getString('settings.translatorApiKey') ?? '',
       modes: {
         for (final mode in sessionModeKeys)
           mode: ModeConfig(
@@ -219,6 +224,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setDetailsAfterCorrect(bool value) {
     state = state.copyWith(detailsAfterCorrect: value);
     ref.read(prefsProvider).setBool('settings.detailsAfterCorrect', value);
+  }
+
+  void setTranslatorApiKey(String value) {
+    state = state.copyWith(translatorApiKey: value);
+    ref.read(prefsProvider).setString('settings.translatorApiKey', value);
   }
 
   void setModeConfig(String mode, ModeConfig config) {

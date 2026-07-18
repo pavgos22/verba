@@ -6,6 +6,7 @@ import 'dashboard_screen.dart';
 import 'keyboard_screen.dart';
 import 'settings_screen.dart';
 import 'stats_screen.dart';
+import 'translator_screen.dart';
 import 'words_screen.dart';
 
 class ShellScreen extends StatefulWidget {
@@ -32,6 +33,7 @@ class _ShellScreenState extends State<ShellScreen> {
                 CoursesScreen(),
                 WordsScreen(),
                 KeyboardScreen(),
+                TranslatorScreen(),
                 StatsScreen(),
                 SettingsScreen(),
               ],

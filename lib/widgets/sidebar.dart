@@ -16,6 +16,7 @@ const sidebarItems = [
   SidebarItem(icon: Icons.school_outlined, label: 'Kursy'),
   SidebarItem(icon: Icons.menu_book_outlined, label: 'Słówka'),
   SidebarItem(icon: Icons.keyboard_outlined, label: 'Klawiatura'),
+  SidebarItem(icon: Icons.translate, label: 'Tłumacz'),
   SidebarItem(icon: Icons.bar_chart_outlined, label: 'Statystyki'),
   SidebarItem(icon: Icons.settings_outlined, label: 'Ustawienia'),
 ];
