@@ -11,6 +11,8 @@ import '../widgets/common.dart';
 
 enum _WordFilter { all, fresh, learning, mastered, hard }
 
+enum _SortCol { word, translation, category, status, points }
+
 class WordsScreen extends ConsumerStatefulWidget {
   const WordsScreen({super.key});
 
@@ -22,6 +24,19 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
   String _query = '';
   String? _category;
   _WordFilter _filter = _WordFilter.all;
+  _SortCol _sortCol = _SortCol.word;
+  bool _sortAsc = true;
+
+  void _onSort(_SortCol col) {
+    setState(() {
+      if (_sortCol == col) {
+        _sortAsc = !_sortAsc;
+      } else {
+        _sortCol = col;
+        _sortAsc = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +66,21 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
           if (query.isEmpty) return true;
           return w.ru.contains(query) || w.pl.any((p) => p.toLowerCase().contains(query));
         }).toList();
+        final order = {for (var i = 0; i < words.length; i++) words[i].id: i};
+        int primaryCmp(Word a, Word b) => switch (_sortCol) {
+              _SortCol.word => order[a.id]!.compareTo(order[b.id]!),
+              _SortCol.translation =>
+                a.pl.join(', ').toLowerCase().compareTo(b.pl.join(', ').toLowerCase()),
+              _SortCol.category =>
+                (a.category ?? '').toLowerCase().compareTo((b.category ?? '').toLowerCase()),
+              _SortCol.status => progress.statusOf(a.id).index.compareTo(progress.statusOf(b.id).index),
+              _SortCol.points =>
+                (progress.words[a.id]?.points ?? 0).compareTo(progress.words[b.id]?.points ?? 0),
+            };
+        filtered.sort((a, b) {
+          final c = _sortAsc ? primaryCmp(a, b) : -primaryCmp(a, b);
+          return c != 0 ? c : order[a.id]!.compareTo(order[b.id]!);
+        });
         final total = words.length;
         final mastered = words.where((w) => progress.statusOf(w.id) == WordStatus.mastered).length;
         final learning = words.where((w) => progress.statusOf(w.id) == WordStatus.learning).length;
@@ -186,13 +216,35 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                     children: [
                       _TableRow(
                         height: 44,
-                        points: showPoints ? const _HeaderCell('Punkty') : null,
+                        points: showPoints
+                            ? _SortHeader(
+                                label: 'Punkty',
+                                active: _sortCol == _SortCol.points,
+                                asc: _sortAsc,
+                                onTap: () => _onSort(_SortCol.points))
+                            : null,
                         cells: [
-                          _HeaderCell('Słowo'),
-                          _HeaderCell('Tłumaczenie'),
-                          _HeaderCell('Kategoria'),
-                          _HeaderCell('Status'),
-                          _HeaderCell('Audio'),
+                          _SortHeader(
+                              label: 'Słowo',
+                              active: _sortCol == _SortCol.word,
+                              asc: _sortAsc,
+                              onTap: () => _onSort(_SortCol.word)),
+                          _SortHeader(
+                              label: 'Tłumaczenie',
+                              active: _sortCol == _SortCol.translation,
+                              asc: _sortAsc,
+                              onTap: () => _onSort(_SortCol.translation)),
+                          _SortHeader(
+                              label: 'Kategoria',
+                              active: _sortCol == _SortCol.category,
+                              asc: _sortAsc,
+                              onTap: () => _onSort(_SortCol.category)),
+                          _SortHeader(
+                              label: 'Status',
+                              active: _sortCol == _SortCol.status,
+                              asc: _sortAsc,
+                              onTap: () => _onSort(_SortCol.status)),
+                          const _HeaderCell('Audio'),
                         ],
                       ),
                       Expanded(
@@ -335,10 +387,14 @@ class _TableRow extends StatelessWidget {
           const SizedBox(width: 16),
           Expanded(flex: 3, child: cells[2]),
           const SizedBox(width: 16),
-          Expanded(flex: 2, child: cells[3]),
+          Expanded(
+              flex: 2,
+              child: points != null
+                  ? Transform.translate(offset: const Offset(-10, 0), child: cells[3])
+                  : cells[3]),
           const SizedBox(width: 16),
           if (points != null) ...[
-            SizedBox(width: 56, child: points!),
+            SizedBox(width: 56, child: Transform.translate(offset: const Offset(-10, 0), child: points!)),
             const SizedBox(width: 16),
           ],
           SizedBox(width: 56, child: cells[4]),
@@ -358,6 +414,72 @@ class _HeaderCell extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(label, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: context.c.mutedForeground)),
+    );
+  }
+}
+
+class _SortHeader extends StatelessWidget {
+  const _SortHeader({required this.label, required this.active, required this.asc, required this.onTap});
+
+  final String label;
+  final bool active;
+  final bool asc;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: Text(
+                  label,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: active ? context.c.foreground : context.c.mutedForeground),
+                ),
+              ),
+              const SizedBox(width: 3),
+              _SortArrows(active: active, asc: asc),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SortArrows extends StatelessWidget {
+  const _SortArrows({required this.active, required this.asc});
+
+  final bool active;
+  final bool asc;
+
+  @override
+  Widget build(BuildContext context) {
+    final faded = context.c.mutedForeground.withValues(alpha: 0.4);
+    final upColor = active && asc ? context.c.foreground : faded;
+    final downColor = active && !asc ? context.c.foreground : faded;
+    return SizedBox(
+      width: 14,
+      height: 16,
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.center,
+        children: [
+          Positioned(top: -4, child: Icon(Icons.arrow_drop_up, size: 16, color: upColor)),
+          Positioned(bottom: -4, child: Icon(Icons.arrow_drop_down, size: 16, color: downColor)),
+        ],
+      ),
     );
   }
 }

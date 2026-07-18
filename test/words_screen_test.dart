@@ -89,4 +89,27 @@ void main() {
     expect(find.text('Punkty'), findsOneWidget);
     expect(find.text('-1'), findsOneWidget);
   });
+
+  testWidgets('columns sort; word column keeps the course order, not alphabetical', (tester) async {
+    await _pump(tester);
+    double dy(String t) => tester.getTopLeft(find.text(t)).dy;
+
+    // default: the order the words were added to the course (kot, pies, dom)
+    expect(dy('kot') < dy('pies') && dy('pies') < dy('dom'), isTrue);
+
+    // translation ascending is alphabetical: dom, kot, pies
+    await tester.tap(find.text('Tłumaczenie'));
+    await tester.pumpAndSettle();
+    expect(dy('dom') < dy('kot') && dy('kot') < dy('pies'), isTrue);
+
+    // tapping again flips to descending: pies, kot, dom
+    await tester.tap(find.text('Tłumaczenie'));
+    await tester.pumpAndSettle();
+    expect(dy('pies') < dy('kot') && dy('kot') < dy('dom'), isTrue);
+
+    // the word column restores the course order (not an alphabetical ru sort)
+    await tester.tap(find.text('Słowo'));
+    await tester.pumpAndSettle();
+    expect(dy('kot') < dy('pies') && dy('pies') < dy('dom'), isTrue);
+  });
 }
