@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.13.13 — the sort indicator in the "Słówka" table is now a single centred arrow that changes shape instead of a stacked pair of triangles: a subtle ⇅ when the column isn't the current sort key, and a solid ▲ or ▼ on the active column showing the direction
+
 ## 0.13.12 — the "Słówka" table columns are now sortable: click a header (a small up/down triangle marks the direction) to sort ascending or descending. The "Słowo" column sorts by the order the words were added to the course, not alphabetically; Audio has no sort. When the points column is on, the Status and Punkty columns sit slightly further left. The in-session progress bar now slides smoothly to each new value instead of jumping
 
 ## 0.13.11 — a batch of session fixes. (1) Fixed two pronunciations in "1000 słówek": далёкий and счёт (a stressed ё reads as "o", so daljokij/sciot, not daljekij/sciet). (2) The "fix your mistakes" loop now shows one continuous count of how many you've already got right out of the original total (e.g. 5/7) instead of restarting the count every round, and a missed word is pushed to the end of the queue rather than jumping back to an earlier position. (3) On the "Sesja ukończona" summary a fresh Enter press now goes straight into "Powtórz błędne" — a still-held Enter carried over from your last answer still can't skip the summary. (4) Grammar and pronunciation details no longer appear on their own after a correct answer; a new "Szczegóły po poprawnej odpowiedzi" toggle in Settings → Nauka (off by default) turns that on if you want it
