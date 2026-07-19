@@ -73,4 +73,36 @@ void main() {
     final container = await _container({'settings.enterEmptyIsGiveUp': false});
     expect(container.read(settingsProvider).enterEmptyIsGiveUp, isFalse);
   });
+
+  test('polish speaker defaults to off', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).showPolishSpeaker, isFalse);
+  });
+
+  test('setShowPolishSpeaker updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setShowPolishSpeaker(true);
+    expect(container.read(settingsProvider).showPolishSpeaker, isTrue);
+  });
+
+  test('loads persisted polish speaker', () async {
+    final container = await _container({'settings.showPolishSpeaker': true});
+    expect(container.read(settingsProvider).showPolishSpeaker, isTrue);
+  });
+
+  test('polish autoplay defaults to off', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).autoplayPolish, isFalse);
+  });
+
+  test('setAutoplayPolish updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setAutoplayPolish(true);
+    expect(container.read(settingsProvider).autoplayPolish, isTrue);
+  });
+
+  test('loads persisted polish autoplay', () async {
+    final container = await _container({'settings.autoplayPolish': true});
+    expect(container.read(settingsProvider).autoplayPolish, isTrue);
+  });
 }

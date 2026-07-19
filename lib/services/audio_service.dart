@@ -36,6 +36,7 @@ String lectorKey(String text) {
 
 abstract class AudioService {
   Future<bool> speakRussian(String text, {bool slow = false});
+  Future<bool> speakPolish(String text, {bool slow = false});
   Future<bool> speakSystem(String text, {required String lang, bool slow = false});
 }
 
@@ -63,6 +64,26 @@ class VerbaAudioService implements AudioService {
       await _player.stop();
       await _player.setPlaybackRate(rate);
       await _player.play(AssetSource('lector/$folder/${lectorKey(text)}.mp3'));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> speakPolish(String text, {bool slow = false}) async {
+    final settings = _ref.read(settingsProvider);
+    if (!settings.activeCourseId.startsWith('custom-')) {
+      if (await _playPolishAsset(text, slow: slow)) return true;
+    }
+    return speakSystem(text, lang: 'pl', slow: slow);
+  }
+
+  Future<bool> _playPolishAsset(String text, {required bool slow}) async {
+    try {
+      await _player.stop();
+      await _player.setPlaybackRate(slow ? 0.75 : 1.0);
+      await _player.play(AssetSource('lector/google_pl/${lectorKey(text)}.mp3'));
       return true;
     } catch (_) {
       return false;

@@ -49,6 +49,8 @@ class Settings {
     required this.autoKeyboardLayout,
     required this.enterEmptyIsGiveUp,
     required this.detailsAfterCorrect,
+    required this.showPolishSpeaker,
+    required this.autoplayPolish,
     required this.translatorApiKey,
     required this.modes,
   });
@@ -68,6 +70,8 @@ class Settings {
   final bool autoKeyboardLayout;
   final bool enterEmptyIsGiveUp;
   final bool detailsAfterCorrect;
+  final bool showPolishSpeaker;
+  final bool autoplayPolish;
   final String translatorApiKey;
   final Map<String, ModeConfig> modes;
 
@@ -90,6 +94,8 @@ class Settings {
     bool? autoKeyboardLayout,
     bool? enterEmptyIsGiveUp,
     bool? detailsAfterCorrect,
+    bool? showPolishSpeaker,
+    bool? autoplayPolish,
     String? translatorApiKey,
     Map<String, ModeConfig>? modes,
   }) {
@@ -109,6 +115,8 @@ class Settings {
       autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
       enterEmptyIsGiveUp: enterEmptyIsGiveUp ?? this.enterEmptyIsGiveUp,
       detailsAfterCorrect: detailsAfterCorrect ?? this.detailsAfterCorrect,
+      showPolishSpeaker: showPolishSpeaker ?? this.showPolishSpeaker,
+      autoplayPolish: autoplayPolish ?? this.autoplayPolish,
       translatorApiKey: translatorApiKey ?? this.translatorApiKey,
       modes: modes ?? this.modes,
     );
@@ -136,6 +144,8 @@ class SettingsNotifier extends Notifier<Settings> {
       autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
       enterEmptyIsGiveUp: prefs.getBool('settings.enterEmptyIsGiveUp') ?? true,
       detailsAfterCorrect: prefs.getBool('settings.detailsAfterCorrect') ?? false,
+      showPolishSpeaker: prefs.getBool('settings.showPolishSpeaker') ?? false,
+      autoplayPolish: prefs.getBool('settings.autoplayPolish') ?? false,
       translatorApiKey: prefs.getString('settings.translatorApiKey') ?? '',
       modes: {
         for (final mode in sessionModeKeys)
@@ -224,6 +234,16 @@ class SettingsNotifier extends Notifier<Settings> {
   void setDetailsAfterCorrect(bool value) {
     state = state.copyWith(detailsAfterCorrect: value);
     ref.read(prefsProvider).setBool('settings.detailsAfterCorrect', value);
+  }
+
+  void setShowPolishSpeaker(bool value) {
+    state = state.copyWith(showPolishSpeaker: value);
+    ref.read(prefsProvider).setBool('settings.showPolishSpeaker', value);
+  }
+
+  void setAutoplayPolish(bool value) {
+    state = state.copyWith(autoplayPolish: value);
+    ref.read(prefsProvider).setBool('settings.autoplayPolish', value);
   }
 
   void setTranslatorApiKey(String value) {

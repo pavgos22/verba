@@ -86,6 +86,16 @@ class SettingsScreen extends ConsumerWidget {
                 control: VerbaSwitch(value: settings.autoplay, onChanged: notifier.setAutoplay),
               ),
               _SettingRow(
+                title: 'Głośniczek polskich słówek',
+                description: 'Pokazuj polski głośnik obok polskich słówek w sesji',
+                control: VerbaSwitch(value: settings.showPolishSpeaker, onChanged: notifier.setShowPolishSpeaker),
+              ),
+              _SettingRow(
+                title: 'Auto-czytanie po polsku',
+                description: 'Przy pytaniach PL→RU czytaj na głos polskie słówko',
+                control: VerbaSwitch(value: settings.autoplayPolish, onChanged: notifier.setAutoplayPolish),
+              ),
+              _SettingRow(
                 title: 'Dźwięki odpowiedzi',
                 description: 'Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi',
                 control: VerbaSwitch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),

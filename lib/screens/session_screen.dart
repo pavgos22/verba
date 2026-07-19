@@ -82,9 +82,13 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final tasks = _tasks;
     if (tasks == null || _finished || _index >= tasks.length) return;
     final task = tasks[_index];
-    if (task.kind == TaskKind.typingPlToRu) return;
     final settings = ref.read(settingsProvider);
-    ref.read(audioServiceProvider).speakRussian(task.word.ru, slow: settings.slowSpeech);
+    final audio = ref.read(audioServiceProvider);
+    if (task.kind == TaskKind.typingPlToRu) {
+      audio.speakPolish(task.word.plPrimary, slow: settings.slowSpeech);
+    } else {
+      audio.speakRussian(task.word.ru, slow: settings.slowSpeech);
+    }
   }
 
   List<Word> _inCategory(List<Word> words, String? category) =>
@@ -455,8 +459,17 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                 const SizedBox(height: 16),
                 Container(width: 64, height: 1, color: context.c.border),
                 const SizedBox(height: 24),
-                Text(widget.word.pl.join(', '),
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: context.c.foreground)),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(widget.word.pl.join(', '),
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: context.c.foreground)),
+                    if (settings.showPolishSpeaker) ...[
+                      const SizedBox(width: 12),
+                      SpeakerButton(text: widget.word.plPrimary, polish: true),
+                    ],
+                  ],
+                ),
                 const SizedBox(height: 24),
                 if (widget.word.category != null) AppBadge(label: widget.word.category!),
               ],
@@ -528,11 +541,14 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
   @override
   void initState() {
     super.initState();
+    final settings = ref.read(settingsProvider);
+    final audio = ref.read(audioServiceProvider);
     if (!_isPlToRu) {
-      final settings = ref.read(settingsProvider);
       if (settings.autoplay) {
-        ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+        audio.speakRussian(widget.word.ru, slow: settings.slowSpeech);
       }
+    } else if (settings.autoplay && settings.autoplayPolish) {
+      audio.speakPolish(widget.word.plPrimary, slow: settings.slowSpeech);
     }
   }
 
@@ -703,6 +719,13 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                         Tooltip(
                           message: 'Ctrl+Spacja',
                           child: SpeakerButton(text: widget.word.ru, size: 40),
+                        ),
+                      ],
+                      if (_isPlToRu && settings.showPolishSpeaker) ...[
+                        const SizedBox(width: 14),
+                        Tooltip(
+                          message: 'Ctrl+Spacja',
+                          child: SpeakerButton(text: widget.word.plPrimary, size: 40, polish: true),
                         ),
                       ],
                     ],

@@ -185,10 +185,11 @@ Widget _highlightJo(String form, TextStyle base, Color joColor) {
 }
 
 class SpeakerButton extends ConsumerWidget {
-  const SpeakerButton({super.key, required this.text, this.size = 36});
+  const SpeakerButton({super.key, required this.text, this.size = 36, this.polish = false});
 
   final String text;
   final double size;
+  final bool polish;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -206,15 +207,19 @@ class SpeakerButton extends ConsumerWidget {
           mouseCursor: SystemMouseCursors.click,
           onTap: () async {
             final settings = ref.read(settingsProvider);
-            final spoken =
-                await ref.read(audioServiceProvider).speakRussian(text, slow: settings.slowSpeech);
+            final audio = ref.read(audioServiceProvider);
+            final spoken = polish
+                ? await audio.speakPolish(text, slow: settings.slowSpeech)
+                : await audio.speakRussian(text, slow: settings.slowSpeech);
             if (!spoken && context.mounted) {
+              final language = polish ? 'polskiego' : 'rosyjskiego';
+              final voice = polish ? 'polski' : 'rosyjski';
               ScaffoldMessenger.of(context)
                 ..hideCurrentSnackBar()
-                ..showSnackBar(const SnackBar(
+                ..showSnackBar(SnackBar(
                   content: Text(
-                      'Brak rosyjskiego głosu w Windows. Zainstaluj: Ustawienia → Czas i język → Mowa → Dodaj głosy → rosyjski.'),
-                  duration: Duration(seconds: 4),
+                      'Brak $language głosu w Windows. Zainstaluj: Ustawienia → Czas i język → Mowa → Dodaj głosy → $voice.'),
+                  duration: const Duration(seconds: 4),
                 ));
             }
           },
