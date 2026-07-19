@@ -170,73 +170,62 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                 ],
               ),
               const SizedBox(height: 12),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Expanded(
-                    child: Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 280,
-                          height: 40,
-                          child: TextField(
-                            onChanged: (value) => setState(() => _query = value),
-                            style: TextStyle(fontSize: 14, color: context.c.foreground),
-                            decoration: InputDecoration(
-                              hintText: 'Szukaj słówka...',
-                              hintStyle: TextStyle(fontSize: 14, color: context.c.mutedForeground),
-                              prefixIcon: Icon(Icons.search, size: 18, color: context.c.mutedForeground),
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(color: context.c.inputBorder),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(color: context.c.ring),
-                              ),
-                            ),
-                          ),
+                  SizedBox(
+                    width: 280,
+                    height: 40,
+                    child: TextField(
+                      onChanged: (value) => setState(() => _query = value),
+                      style: TextStyle(fontSize: 14, color: context.c.foreground),
+                      decoration: InputDecoration(
+                        hintText: 'Szukaj słówka...',
+                        hintStyle: TextStyle(fontSize: 14, color: context.c.mutedForeground),
+                        prefixIcon: Icon(Icons.search, size: 18, color: context.c.mutedForeground),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: context.c.inputBorder),
                         ),
-                        if (categories.isNotEmpty) ...[
-                          _FilterChip(
-                            label: 'Wszystkie (${words.length})',
-                            active: _category == null,
-                            onTap: () => setState(() => _category = null),
-                          ),
-                          for (final category in categories)
-                            _FilterChip(
-                              label: category,
-                              active: _category == category,
-                              onTap: () => setState(() => _category = category),
-                            ),
-                        ],
-                      ],
-                    ),
-                  ),
-                  if (!_isDefaultSort) ...[
-                    const SizedBox(width: 12),
-                    Tooltip(
-                      message: 'Resetuj sortowanie do kolejności kursu',
-                      child: OutlinedButton.icon(
-                        onPressed: _resetSort,
-                        icon: const Icon(Icons.restart_alt, size: 16),
-                        label: const Text('Kolejność kursu'),
-                        style: OutlinedButton.styleFrom(
-                          minimumSize: const Size(0, 40),
-                          padding: const EdgeInsets.symmetric(horizontal: 14),
-                          foregroundColor: context.c.mutedForeground,
-                          side: BorderSide(color: context.c.border),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: context.c.ring),
                         ),
                       ),
                     ),
+                  ),
+                  if (categories.isNotEmpty) ...[
+                    _FilterChip(
+                      label: 'Wszystkie (${words.length})',
+                      active: _category == null,
+                      onTap: () => setState(() => _category = null),
+                    ),
+                    for (final category in categories)
+                      _FilterChip(
+                        label: category,
+                        active: _category == category,
+                        onTap: () => setState(() => _category = category),
+                      ),
                   ],
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 14),
+              Align(
+                alignment: Alignment.centerRight,
+                child: AnimatedOpacity(
+                  opacity: _isDefaultSort ? 0.0 : 1.0,
+                  duration: const Duration(milliseconds: 350),
+                  curve: Curves.easeOut,
+                  child: IgnorePointer(
+                    ignoring: _isDefaultSort,
+                    child: _ResetSortButton(onTap: _resetSort),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
@@ -505,6 +494,36 @@ class _SortArrows extends StatelessWidget {
       width: 16,
       height: 18,
       child: Center(child: Icon(icon, size: active ? 18 : 15, color: color)),
+    );
+  }
+}
+
+class _ResetSortButton extends StatelessWidget {
+  const _ResetSortButton({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: 'Resetuj sortowanie do kolejności kursu',
+      child: SizedBox(
+        width: 34,
+        height: 34,
+        child: Material(
+          color: context.c.background,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(color: context.c.border),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(8),
+            mouseCursor: SystemMouseCursors.click,
+            onTap: onTap,
+            child: Icon(Icons.restart_alt, size: 18, color: context.c.mutedForeground),
+          ),
+        ),
+      ),
     );
   }
 }
