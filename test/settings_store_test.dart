@@ -105,4 +105,36 @@ void main() {
     final container = await _container({'settings.autoplayPolish': true});
     expect(container.read(settingsProvider).autoplayPolish, isTrue);
   });
+
+  test('russian speaker defaults to on', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).showRussianSpeaker, isTrue);
+  });
+
+  test('setShowRussianSpeaker updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setShowRussianSpeaker(false);
+    expect(container.read(settingsProvider).showRussianSpeaker, isFalse);
+  });
+
+  test('loads persisted russian speaker', () async {
+    final container = await _container({'settings.showRussianSpeaker': false});
+    expect(container.read(settingsProvider).showRussianSpeaker, isFalse);
+  });
+
+  test('polish speech tempo defaults to normal', () async {
+    final container = await _container();
+    expect(container.read(settingsProvider).slowSpeechPolish, isFalse);
+  });
+
+  test('setSlowSpeechPolish updates and persists', () async {
+    final container = await _container();
+    container.read(settingsProvider.notifier).setSlowSpeechPolish(true);
+    expect(container.read(settingsProvider).slowSpeechPolish, isTrue);
+  });
+
+  test('loads persisted polish speech tempo', () async {
+    final container = await _container({'settings.slowSpeechPolish': true});
+    expect(container.read(settingsProvider).slowSpeechPolish, isTrue);
+  });
 }

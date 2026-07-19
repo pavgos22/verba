@@ -49,8 +49,10 @@ class Settings {
     required this.autoKeyboardLayout,
     required this.enterEmptyIsGiveUp,
     required this.detailsAfterCorrect,
+    required this.showRussianSpeaker,
     required this.showPolishSpeaker,
     required this.autoplayPolish,
+    required this.slowSpeechPolish,
     required this.translatorApiKey,
     required this.modes,
   });
@@ -70,8 +72,10 @@ class Settings {
   final bool autoKeyboardLayout;
   final bool enterEmptyIsGiveUp;
   final bool detailsAfterCorrect;
+  final bool showRussianSpeaker;
   final bool showPolishSpeaker;
   final bool autoplayPolish;
+  final bool slowSpeechPolish;
   final String translatorApiKey;
   final Map<String, ModeConfig> modes;
 
@@ -94,8 +98,10 @@ class Settings {
     bool? autoKeyboardLayout,
     bool? enterEmptyIsGiveUp,
     bool? detailsAfterCorrect,
+    bool? showRussianSpeaker,
     bool? showPolishSpeaker,
     bool? autoplayPolish,
+    bool? slowSpeechPolish,
     String? translatorApiKey,
     Map<String, ModeConfig>? modes,
   }) {
@@ -115,8 +121,10 @@ class Settings {
       autoKeyboardLayout: autoKeyboardLayout ?? this.autoKeyboardLayout,
       enterEmptyIsGiveUp: enterEmptyIsGiveUp ?? this.enterEmptyIsGiveUp,
       detailsAfterCorrect: detailsAfterCorrect ?? this.detailsAfterCorrect,
+      showRussianSpeaker: showRussianSpeaker ?? this.showRussianSpeaker,
       showPolishSpeaker: showPolishSpeaker ?? this.showPolishSpeaker,
       autoplayPolish: autoplayPolish ?? this.autoplayPolish,
+      slowSpeechPolish: slowSpeechPolish ?? this.slowSpeechPolish,
       translatorApiKey: translatorApiKey ?? this.translatorApiKey,
       modes: modes ?? this.modes,
     );
@@ -144,8 +152,10 @@ class SettingsNotifier extends Notifier<Settings> {
       autoKeyboardLayout: prefs.getBool('settings.autoKeyboardLayout') ?? true,
       enterEmptyIsGiveUp: prefs.getBool('settings.enterEmptyIsGiveUp') ?? true,
       detailsAfterCorrect: prefs.getBool('settings.detailsAfterCorrect') ?? false,
+      showRussianSpeaker: prefs.getBool('settings.showRussianSpeaker') ?? true,
       showPolishSpeaker: prefs.getBool('settings.showPolishSpeaker') ?? false,
       autoplayPolish: prefs.getBool('settings.autoplayPolish') ?? false,
+      slowSpeechPolish: prefs.getBool('settings.slowSpeechPolish') ?? false,
       translatorApiKey: prefs.getString('settings.translatorApiKey') ?? '',
       modes: {
         for (final mode in sessionModeKeys)
@@ -236,6 +246,11 @@ class SettingsNotifier extends Notifier<Settings> {
     ref.read(prefsProvider).setBool('settings.detailsAfterCorrect', value);
   }
 
+  void setShowRussianSpeaker(bool value) {
+    state = state.copyWith(showRussianSpeaker: value);
+    ref.read(prefsProvider).setBool('settings.showRussianSpeaker', value);
+  }
+
   void setShowPolishSpeaker(bool value) {
     state = state.copyWith(showPolishSpeaker: value);
     ref.read(prefsProvider).setBool('settings.showPolishSpeaker', value);
@@ -244,6 +259,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setAutoplayPolish(bool value) {
     state = state.copyWith(autoplayPolish: value);
     ref.read(prefsProvider).setBool('settings.autoplayPolish', value);
+  }
+
+  void setSlowSpeechPolish(bool value) {
+    state = state.copyWith(slowSpeechPolish: value);
+    ref.read(prefsProvider).setBool('settings.slowSpeechPolish', value);
   }
 
   void setTranslatorApiKey(String value) {

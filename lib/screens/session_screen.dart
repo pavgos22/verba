@@ -13,6 +13,7 @@ import '../data/words_repository.dart';
 import '../services/audio_service.dart';
 import '../services/sfx_service.dart';
 import '../theme/app_colors.dart';
+import '../theme/theme_fade.dart';
 import '../widgets/accented_text.dart';
 import '../widgets/common.dart';
 import '../widgets/lector_dropdown.dart';
@@ -85,7 +86,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final settings = ref.read(settingsProvider);
     final audio = ref.read(audioServiceProvider);
     if (task.kind == TaskKind.typingPlToRu) {
-      audio.speakPolish(task.word.plPrimary, slow: settings.slowSpeech);
+      audio.speakPolish(task.word.plPrimary, slow: settings.slowSpeechPolish);
     } else {
       audio.speakRussian(task.word.ru, slow: settings.slowSpeech);
     }
@@ -402,6 +403,36 @@ class _SessionFooter extends StatelessWidget {
   }
 }
 
+class _ThemeToggleButton extends ConsumerWidget {
+  const _ThemeToggleButton();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Tooltip(
+      message: isDark ? 'Tryb jasny' : 'Tryb ciemny',
+      child: SizedBox(
+        width: 40,
+        height: 40,
+        child: Material(
+          color: context.c.background,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(color: context.c.border),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(8),
+            mouseCursor: SystemMouseCursors.click,
+            onTap: () => switchThemeAnimated(ref, isDark ? ThemeMode.light : ThemeMode.dark),
+            child: Icon(isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
+                size: 18, color: context.c.foreground),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _PresentationView extends ConsumerStatefulWidget {
   const _PresentationView({required this.word, required this.showPronunciation, required this.onNext});
 
@@ -440,8 +471,10 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
                   children: [
                     AccentedText(widget.word.ruAccented,
                         style: TextStyle(fontSize: 48, fontWeight: FontWeight.w600, color: context.c.foreground)),
-                    const SizedBox(width: 16),
-                    SpeakerButton(text: widget.word.ru, size: 44),
+                    if (settings.showRussianSpeaker) ...[
+                      const SizedBox(width: 16),
+                      SpeakerButton(text: widget.word.ru, size: 44),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -477,13 +510,20 @@ class _PresentationViewState extends ConsumerState<_PresentationView> {
           ),
         ),
         _SessionFooter(
-          leading: LectorDropdown(
-            value: settings.lector,
-            googleUnavailable: settings.activeCourseId.startsWith('custom-'),
-            onChanged: (lector) {
-              ref.read(settingsProvider.notifier).setLector(lector);
-              ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
-            },
+          leading: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const _ThemeToggleButton(),
+              const SizedBox(width: 12),
+              LectorDropdown(
+                value: settings.lector,
+                googleUnavailable: settings.activeCourseId.startsWith('custom-'),
+                onChanged: (lector) {
+                  ref.read(settingsProvider.notifier).setLector(lector);
+                  ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+                },
+              ),
+            ],
           ),
           children: [
             Text(
@@ -548,7 +588,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
         audio.speakRussian(widget.word.ru, slow: settings.slowSpeech);
       }
     } else if (settings.autoplay && settings.autoplayPolish) {
-      audio.speakPolish(widget.word.plPrimary, slow: settings.slowSpeech);
+      audio.speakPolish(widget.word.plPrimary, slow: settings.slowSpeechPolish);
     }
   }
 
@@ -714,7 +754,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
                           : AccentedText(widget.word.ruAccented,
                               style:
                                   TextStyle(fontSize: 36, fontWeight: FontWeight.w600, color: context.c.foreground)),
-                      if (!_isPlToRu) ...[
+                      if (!_isPlToRu && settings.showRussianSpeaker) ...[
                         const SizedBox(width: 14),
                         Tooltip(
                           message: 'Ctrl+Spacja',
@@ -806,15 +846,22 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
           ),
         ),
         _SessionFooter(
-          leading: LectorDropdown(
-            value: settings.lector,
-            googleUnavailable: settings.activeCourseId.startsWith('custom-'),
-            onChanged: (lector) {
-              ref.read(settingsProvider.notifier).setLector(lector);
-              if (!_isPlToRu) {
-                ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
-              }
-            },
+          leading: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const _ThemeToggleButton(),
+              const SizedBox(width: 12),
+              LectorDropdown(
+                value: settings.lector,
+                googleUnavailable: settings.activeCourseId.startsWith('custom-'),
+                onChanged: (lector) {
+                  ref.read(settingsProvider.notifier).setLector(lector);
+                  if (!_isPlToRu) {
+                    ref.read(audioServiceProvider).speakRussian(widget.word.ru, slow: settings.slowSpeech);
+                  }
+                },
+              ),
+            ],
           ),
           children: _done
               ? [

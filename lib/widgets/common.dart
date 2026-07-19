@@ -209,7 +209,7 @@ class SpeakerButton extends ConsumerWidget {
             final settings = ref.read(settingsProvider);
             final audio = ref.read(audioServiceProvider);
             final spoken = polish
-                ? await audio.speakPolish(text, slow: settings.slowSpeech)
+                ? await audio.speakPolish(text, slow: settings.slowSpeechPolish)
                 : await audio.speakRussian(text, slow: settings.slowSpeech);
             if (!spoken && context.mounted) {
               final language = polish ? 'polskiego' : 'rosyjskiego';

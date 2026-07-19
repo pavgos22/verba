@@ -81,28 +81,28 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               _SettingRow(
-                title: 'Auto-czytanie słówek',
-                description: 'Czytaj na głos nowe słówka i pytania po rosyjsku',
+                title: 'Auto-odczyt rosyjskich słówek',
+                description: 'Czytaj automatycznie nowe słówka i pytania RU→PL',
                 control: VerbaSwitch(value: settings.autoplay, onChanged: notifier.setAutoplay),
               ),
               _SettingRow(
-                title: 'Głośniczek polskich słówek',
-                description: 'Pokazuj polski głośnik obok polskich słówek w sesji',
-                control: VerbaSwitch(value: settings.showPolishSpeaker, onChanged: notifier.setShowPolishSpeaker),
-              ),
-              _SettingRow(
-                title: 'Auto-czytanie po polsku',
-                description: 'Przy pytaniach PL→RU czytaj na głos polskie słówko',
+                title: 'Auto-odczyt polskich słówek',
+                description: 'Czytaj automatycznie polskie słówko przy pytaniach PL→RU',
                 control: VerbaSwitch(value: settings.autoplayPolish, onChanged: notifier.setAutoplayPolish),
               ),
               _SettingRow(
-                title: 'Dźwięki odpowiedzi',
-                description: 'Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi',
-                control: VerbaSwitch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),
+                title: 'Odsłuch rosyjskich słówek',
+                description: 'Przycisk głośnika przy rosyjskich słówkach w sesji',
+                control: VerbaSwitch(value: settings.showRussianSpeaker, onChanged: notifier.setShowRussianSpeaker),
               ),
               _SettingRow(
-                title: 'Tempo mowy',
-                description: 'Szybkość czytania słówek',
+                title: 'Odsłuch polskich słówek',
+                description: 'Przycisk głośnika przy polskich słówkach w sesji',
+                control: VerbaSwitch(value: settings.showPolishSpeaker, onChanged: notifier.setShowPolishSpeaker),
+              ),
+              _SettingRow(
+                title: 'Tempo mowy — rosyjski',
+                description: 'Szybkość czytania rosyjskich słówek',
                 control: SegmentedButton<bool>(
                   segments: const [
                     ButtonSegment(value: true, label: Text('Wolno')),
@@ -112,6 +112,24 @@ class SettingsScreen extends ConsumerWidget {
                   onSelectionChanged: (selection) => notifier.setSlowSpeech(selection.first),
                   showSelectedIcon: false,
                 ),
+              ),
+              _SettingRow(
+                title: 'Tempo mowy — polski',
+                description: 'Szybkość czytania polskich słówek',
+                control: SegmentedButton<bool>(
+                  segments: const [
+                    ButtonSegment(value: true, label: Text('Wolno')),
+                    ButtonSegment(value: false, label: Text('Normalnie')),
+                  ],
+                  selected: {settings.slowSpeechPolish},
+                  onSelectionChanged: (selection) => notifier.setSlowSpeechPolish(selection.first),
+                  showSelectedIcon: false,
+                ),
+              ),
+              _SettingRow(
+                title: 'Dźwięki odpowiedzi',
+                description: 'Sygnał przy dobrej, prawie dobrej i błędnej odpowiedzi',
+                control: VerbaSwitch(value: settings.answerSounds, onChanged: notifier.setAnswerSounds),
               ),
             ],
           ),
