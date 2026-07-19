@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.14.3 — Polish audio in sessions: every word in the built-in courses now has a pre-generated Polish voice (same approach as the Russian "Nadia" clips, bundled with the app), and two new options in Settings → Audio, both off by default. "Głośniczek polskich słówek" shows a Polish speaker button next to the Polish word during a session — on the new-word card and on Polish→Russian questions (Ctrl+Space reads it too). "Auto-czytanie po polsku" reads the Polish word aloud automatically on Polish→Russian questions, mirroring how Russian questions are already read out. Also fixed: честь ("honor") was mislabelled as a verb and showed a made-up conjugation ("я чту") when you held Tab — it's now correctly a noun with no verb form
+
 ## 0.14.2 — the DeepL API-key field in Settings now uses a more muted font (placeholder and typed text) in both light and dark themes
 
 ## 0.14.1 — Tłumacz polish: pick the engine right on the screen (MyMemory or DeepL, with a lock hint on DeepL until you add your key); a speaker button on each side reads the text aloud in Polish or Russian with the system voice; the direction labels sit in fixed slots so they no longer jump when you swap; footer buttons got a tidier hover; and a small BETA tag marks "Tłumacz" in the sidebar
