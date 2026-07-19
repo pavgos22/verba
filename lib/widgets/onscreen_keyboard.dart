@@ -136,8 +136,8 @@ class OnScreenKeyboard extends StatelessWidget {
     rows.add(Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        _KeyCap(label: 'spacja', width: 380, small: true, onTap: () => onText(' ')),
-        _KeyCap(icon: Icons.backspace_outlined, width: 80, onTap: onBackspace),
+        _KeyCap(label: 'spacja', width: 340, small: true, onTap: () => onText(' ')),
+        _KeyCap(icon: Icons.backspace_outlined, width: 72, onTap: onBackspace),
       ],
     ));
     return FittedBox(
@@ -146,7 +146,7 @@ class OnScreenKeyboard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           for (final row in rows)
-            Padding(padding: const EdgeInsets.only(bottom: 6), child: row),
+            Padding(padding: const EdgeInsets.only(bottom: 5), child: row),
         ],
       ),
     );
@@ -158,7 +158,7 @@ class _KeyCap extends StatelessWidget {
     this.hint,
     this.label,
     this.icon,
-    this.width = 50,
+    this.width = 46,
     this.small = false,
     required this.onTap,
   });
@@ -173,10 +173,10 @@ class _KeyCap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 5),
+      padding: const EdgeInsets.only(right: 4),
       child: SizedBox(
         width: width,
-        height: 52,
+        height: 44,
         child: Material(
           color: context.c.card,
           shape: RoundedRectangleBorder(
