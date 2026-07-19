@@ -27,6 +27,8 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
   _SortCol _sortCol = _SortCol.word;
   bool _sortAsc = true;
 
+  bool get _isDefaultSort => _sortCol == _SortCol.word && _sortAsc;
+
   void _onSort(_SortCol col) {
     setState(() {
       if (_sortCol == col) {
@@ -35,6 +37,13 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
         _sortCol = col;
         _sortAsc = true;
       }
+    });
+  }
+
+  void _resetSort() {
+    setState(() {
+      _sortCol = _SortCol.word;
+      _sortAsc = true;
     });
   }
 
@@ -161,45 +170,69 @@ class _WordsScreenState extends ConsumerState<WordsScreen> {
                 ],
               ),
               const SizedBox(height: 12),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                crossAxisAlignment: WrapCrossAlignment.center,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 280,
-                    height: 40,
-                    child: TextField(
-                      onChanged: (value) => setState(() => _query = value),
-                      style: TextStyle(fontSize: 14, color: context.c.foreground),
-                      decoration: InputDecoration(
-                        hintText: 'Szukaj słówka...',
-                        hintStyle: TextStyle(fontSize: 14, color: context.c.mutedForeground),
-                        prefixIcon: Icon(Icons.search, size: 18, color: context.c.mutedForeground),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: context.c.inputBorder),
+                  Expanded(
+                    child: Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 280,
+                          height: 40,
+                          child: TextField(
+                            onChanged: (value) => setState(() => _query = value),
+                            style: TextStyle(fontSize: 14, color: context.c.foreground),
+                            decoration: InputDecoration(
+                              hintText: 'Szukaj słówka...',
+                              hintStyle: TextStyle(fontSize: 14, color: context.c.mutedForeground),
+                              prefixIcon: Icon(Icons.search, size: 18, color: context.c.mutedForeground),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(color: context.c.inputBorder),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(color: context.c.ring),
+                              ),
+                            ),
+                          ),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: context.c.ring),
-                        ),
-                      ),
+                        if (categories.isNotEmpty) ...[
+                          _FilterChip(
+                            label: 'Wszystkie (${words.length})',
+                            active: _category == null,
+                            onTap: () => setState(() => _category = null),
+                          ),
+                          for (final category in categories)
+                            _FilterChip(
+                              label: category,
+                              active: _category == category,
+                              onTap: () => setState(() => _category = category),
+                            ),
+                        ],
+                      ],
                     ),
                   ),
-                  if (categories.isNotEmpty) ...[
-                    _FilterChip(
-                      label: 'Wszystkie (${words.length})',
-                      active: _category == null,
-                      onTap: () => setState(() => _category = null),
-                    ),
-                    for (final category in categories)
-                      _FilterChip(
-                        label: category,
-                        active: _category == category,
-                        onTap: () => setState(() => _category = category),
+                  if (!_isDefaultSort) ...[
+                    const SizedBox(width: 12),
+                    Tooltip(
+                      message: 'Resetuj sortowanie do kolejności kursu',
+                      child: OutlinedButton.icon(
+                        onPressed: _resetSort,
+                        icon: const Icon(Icons.restart_alt, size: 16),
+                        label: const Text('Kolejność kursu'),
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(0, 40),
+                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          foregroundColor: context.c.mutedForeground,
+                          side: BorderSide(color: context.c.border),
+                        ),
                       ),
+                    ),
                   ],
                 ],
               ),
