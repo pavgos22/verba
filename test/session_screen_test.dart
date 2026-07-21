@@ -8,9 +8,30 @@ import 'package:verba/data/settings_store.dart';
 import 'package:verba/data/word.dart';
 import 'package:verba/data/words_repository.dart';
 import 'package:verba/screens/session_screen.dart';
+import 'package:verba/services/audio_service.dart';
 import 'package:verba/theme/app_theme.dart';
 
 const _word = Word(id: 'w1', ru: 'кот', pl: ['kot']);
+
+class _FakeAudio implements AudioService {
+  final List<String> polish = [];
+  final List<String> russian = [];
+
+  @override
+  Future<bool> speakRussian(String text, {bool slow = false}) async {
+    russian.add(text);
+    return true;
+  }
+
+  @override
+  Future<bool> speakPolish(String text, {bool slow = false}) async {
+    polish.add(text);
+    return true;
+  }
+
+  @override
+  Future<bool> speakSystem(String text, {required String lang, bool slow = false}) async => true;
+}
 
 Future<ProviderContainer> _pumpRetry(WidgetTester tester, {bool loop = false, bool enterEmpty = true}) async {
   tester.view.physicalSize = const Size(1400, 1400);
@@ -327,6 +348,54 @@ void main() {
     await tester.sendKeyUpEvent(LogicalKeyboardKey.enter);
     expect(find.byType(TextField), findsOneWidget);
     expect(find.text('Sesja ukończona!'), findsNothing);
+  });
+
+  testWidgets('polish autoplay stays silent in the main learning session but fires elsewhere', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    Future<_FakeAudio> pump({required SessionMode mode, required String runKey}) async {
+      SharedPreferences.setMockInitialValues({
+        'settings.autoplay': true,
+        'settings.autoplayPolish': true,
+        'settings.answerSounds': false,
+        'settings.showKeyboard': false,
+      });
+      final prefs = await SharedPreferences.getInstance();
+      final audio = _FakeAudio();
+      final container = ProviderContainer(overrides: [
+        prefsProvider.overrideWithValue(prefs),
+        wordsProvider.overrideWith((ref) => [_word]),
+        audioServiceProvider.overrideWithValue(audio),
+      ]);
+      addTearDown(container.dispose);
+      await tester.pumpWidget(UncontrolledProviderScope(
+        container: container,
+        child: MaterialApp(
+          theme: buildTheme(Brightness.light),
+          home: SessionScreen(
+            key: ValueKey(runKey),
+            mode: mode,
+            retryTasks: const [SessionTask(word: _word, kind: TaskKind.typingPlToRu)],
+            loop: false,
+          ),
+        ),
+      ));
+      await tester.pumpAndSettle();
+      return audio;
+    }
+
+    // "Dzisiejsza sesja": a fresh word gives a presentation, then the PL->RU drill.
+    final full = await pump(mode: SessionMode.full, runKey: 'full');
+    await tester.tap(find.text('Dalej'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TextField), findsOneWidget); // now on the PL->RU task
+    expect(full.polish, isEmpty);
+
+    // Any other mode still reads the Polish prompt aloud.
+    final retry = await pump(mode: SessionMode.retry, runKey: 'retry');
+    expect(retry.polish, ['kot']);
   });
 
   testWidgets('a PL->RU answer given as a synonym counts but names the card word', (tester) async {

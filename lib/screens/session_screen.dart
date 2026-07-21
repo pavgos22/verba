@@ -275,6 +275,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                             word: task.word,
                             kind: task.kind,
                             showCorrections: widget.mode != SessionMode.test,
+                            allowPolishAutoplay: widget.mode != SessionMode.full,
                             showPronunciation: _tabHeld,
                             onResult: (grade, given) => _onTypingResult(task, grade, given),
                             onNext: _next,
@@ -545,6 +546,7 @@ class _TypingView extends ConsumerStatefulWidget {
     required this.word,
     required this.kind,
     required this.showCorrections,
+    required this.allowPolishAutoplay,
     required this.showPronunciation,
     required this.onResult,
     required this.onNext,
@@ -553,6 +555,7 @@ class _TypingView extends ConsumerStatefulWidget {
   final Word word;
   final TaskKind kind;
   final bool showCorrections;
+  final bool allowPolishAutoplay;
   final bool showPronunciation;
   final void Function(AnswerGrade grade, String given) onResult;
   final VoidCallback onNext;
@@ -588,7 +591,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
       if (settings.autoplay) {
         audio.speakRussian(widget.word.ru, slow: settings.slowSpeech);
       }
-    } else if (settings.autoplay && settings.autoplayPolish) {
+    } else if (settings.autoplay && settings.autoplayPolish && widget.allowPolishAutoplay) {
       audio.speakPolish(widget.word.plPrimary, slow: settings.slowSpeechPolish);
     }
   }

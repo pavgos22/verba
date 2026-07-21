@@ -87,7 +87,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               _SettingRow(
                 title: 'Auto-odczyt polskich słówek',
-                description: 'Czytaj automatycznie polskie słówko przy pytaniach PL→RU',
+                description: 'Czytaj automatycznie polskie słówko przy pytaniach PL→RU (poza „Dzisiejszą sesją")',
                 control: VerbaSwitch(value: settings.autoplayPolish, onChanged: notifier.setAutoplayPolish),
               ),
               _SettingRow(
