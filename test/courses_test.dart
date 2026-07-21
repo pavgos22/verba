@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:verba/core/answer_check.dart';
 import 'package:verba/data/course.dart';
+import 'package:verba/services/audio_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +14,24 @@ void main() {
     final raw = await rootBundle.loadString(asset);
     return Course.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   }
+
+  test('every built-in word has its pre-generated russian and polish clip', () async {
+    final missing = <String>[];
+    for (final asset in ['assets/data/course_starter.json', 'assets/data/course_ru1000.json']) {
+      final course = await load(asset);
+      for (final word in course.words) {
+        if (!File('assets/lector/google/${lectorKey(word.ru)}.mp3').existsSync()) {
+          missing.add('ru "${word.ru}"');
+        }
+        if (!File('assets/lector/google_pl/${lectorKey(word.pl.first)}.mp3').existsSync()) {
+          missing.add('pl "${word.pl.first}" (${word.ru})');
+        }
+      }
+    }
+    expect(missing, isEmpty,
+        reason: 'changing ru or pl[0] re-keys the clip — rerun tool/generate_google_lector.py '
+            'and tool/generate_polish_lector.py');
+  });
 
   test('course assets load with unique word ids across courses', () async {
     final ids = <String>{};

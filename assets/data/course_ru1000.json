@@ -1888,7 +1888,7 @@
    "ru": "россия",
    "ruAccented": "росси́я",
    "pl": [
-    "rosja"
+    "Rosja"
    ],
    "category": "rzeczowniki",
    "pronunciation": "rassija"
@@ -1940,7 +1940,7 @@
    "ru": "москва",
    "ruAccented": "москва́",
    "pl": [
-    "moskwa"
+    "Moskwa"
    ],
    "category": "rzeczowniki",
    "pronunciation": "maskwa"
@@ -2124,8 +2124,7 @@
    "ru": "плечо",
    "ruAccented": "плечо́",
    "pl": [
-    "ramie",
-    "brak"
+    "ramię"
    ],
    "category": "rzeczowniki",
    "pronunciation": "pljecio"
@@ -2234,7 +2233,7 @@
    "rank": 179,
    "ru": "зачем",
    "pl": [
-    "poco"
+    "po co"
    ],
    "category": "pytania",
    "pronunciation": "zaciem"
@@ -3529,7 +3528,7 @@
    "ru": "немец",
    "ruAccented": "не́мец",
    "pl": [
-    "niemiec"
+    "Niemiec"
    ],
    "category": "rzeczowniki",
    "pronunciation": "niemiec"
@@ -7601,7 +7600,7 @@
    "rank": 608,
    "ru": "тип",
    "pl": [
-    "tyn",
+    "typ",
     "rodzaj"
    ],
    "category": "rzeczowniki",
@@ -9186,7 +9185,7 @@
    "ru": "петербург",
    "ruAccented": "петербу́рг",
    "pl": [
-    "petersburg"
+    "Petersburg"
    ],
    "category": "rzeczowniki",
    "pronunciation": "pietierburg"
