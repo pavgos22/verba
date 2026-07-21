@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.14.7 — when a Polish prompt has more than one valid Russian translation (e.g. "podobny" → похожий / подобный, 136 cards in "1000 słówek"), answering with the other one still counts as correct — but the app now tells you which word the card was actually about, with a "· na tej karcie: похожий" note next to "Świetnie!". Previously it just said "Świetnie!", so you could clear those cards forever with the synonym you already knew and never pick up the other word
+
 ## 0.14.6 — two UI fixes. The on-screen keyboard keys are a bit smaller, so the taller Polish layout in the course editor no longer runs off the bottom of the screen. And the "reset sort" control in the "Słówka" table moved: instead of a button in the search row that pushed the other controls around when it appeared, it is now a small rounded reset icon above the table (over the Audio column) that gently fades in once you change the sort and fades back out when you return to the course order
 
 ## 0.14.5 — fixed the Polish pronunciation hints for 11 words in "1000 słówek" where an и after ж, ш or ц was written with an "i" even though it is pronounced like ы — so, for example, похожий now reads "pachożyj" (not "pachożij"), and машина/старший/революция/служить and others were corrected the same way. Words with ч or щ are unchanged, since those stay soft (e.g. читать is still "citac")
