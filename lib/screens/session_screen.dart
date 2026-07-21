@@ -573,6 +573,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
   int _shakeCycles = 6;
   AnswerGrade? _grade;
   bool _done = false;
+  bool _answeredWithAlt = false;
 
   bool get _isPlToRu => widget.kind == TaskKind.typingPlToRu;
 
@@ -633,6 +634,13 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
           const SizedBox(width: 8),
           Text('Świetnie!',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: context.c.success)),
+          if (_answeredWithAlt) ...[
+            const SizedBox(width: 10),
+            Text('· na tej karcie:', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
+            const SizedBox(width: 5),
+            AccentedText(widget.word.ruAccented,
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: context.c.foreground)),
+          ],
           if (_isPlToRu && (widget.word.pronunciation != null || widget.word.hasVerbInfo)) ...[
             const SizedBox(width: 10),
             Text('· Tab — szczegóły', style: TextStyle(fontSize: 13, color: context.c.mutedForeground)),
@@ -666,9 +674,12 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     return const SizedBox.shrink();
   }
 
-  void _finish() {
+  void _finish(String given) {
     _playFeedback(AnswerGrade.correct);
-    setState(() => _done = true);
+    setState(() {
+      _done = true;
+      _answeredWithAlt = _isPlToRu && answeredWithAlt(widget.word, given);
+    });
     _pop.forward(from: 0);
     _nextFocus.requestFocus();
   }
@@ -689,7 +700,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
       }
       setState(() => _grade = grade);
       if (grade == AnswerGrade.correct) {
-        _finish();
+        _finish(given);
       } else {
         _playFeedback(grade);
         _startShake(slow: grade == AnswerGrade.almost);
@@ -698,7 +709,7 @@ class _TypingViewState extends ConsumerState<_TypingView> with TickerProviderSta
     } else {
       final exact = _isPlToRu ? checkRuAnswer(widget.word, given) : checkPlAnswer(widget.word, given);
       if (exact) {
-        _finish();
+        _finish(given);
       } else {
         _playFeedback(AnswerGrade.wrong);
         _startShake(slow: false);

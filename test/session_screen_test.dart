@@ -329,6 +329,64 @@ void main() {
     expect(find.text('Sesja ukończona!'), findsNothing);
   });
 
+  testWidgets('a PL->RU answer given as a synonym counts but names the card word', (tester) async {
+    tester.view.physicalSize = const Size(1400, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    const similar = Word(
+      id: 's',
+      ru: 'похожий',
+      ruAccented: 'похожий',
+      ruAlt: ['подобный'],
+      pl: ['podobny'],
+      category: 'przymiotniki',
+    );
+
+    Future<void> pump(String runKey) async {
+      SharedPreferences.setMockInitialValues({
+        'settings.autoplay': false,
+        'settings.answerSounds': false,
+        'settings.showKeyboard': false,
+        'settings.showAccents': false,
+      });
+      final prefs = await SharedPreferences.getInstance();
+      final container = ProviderContainer(overrides: [
+        prefsProvider.overrideWithValue(prefs),
+        wordsProvider.overrideWith((ref) => [similar]),
+      ]);
+      addTearDown(container.dispose);
+      await tester.pumpWidget(UncontrolledProviderScope(
+        container: container,
+        child: MaterialApp(
+          theme: buildTheme(Brightness.light),
+          home: SessionScreen(
+            key: ValueKey(runKey),
+            mode: SessionMode.retry,
+            retryTasks: const [SessionTask(word: similar, kind: TaskKind.typingPlToRu)],
+            loop: false,
+          ),
+        ),
+      ));
+      await tester.pumpAndSettle();
+    }
+
+    await pump('alt');
+    await tester.enterText(find.byType(TextField), 'подобный');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    expect(find.text('Świetnie!'), findsOneWidget);
+    expect(find.text('· na tej karcie:'), findsOneWidget);
+    expect(find.text('похожий'), findsOneWidget);
+
+    await pump('own');
+    await tester.enterText(find.byType(TextField), 'похожий');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    expect(find.text('Świetnie!'), findsOneWidget);
+    expect(find.text('· na tej karcie:'), findsNothing);
+  });
+
   testWidgets('detailsAfterCorrect reveals verb info without Tab after a correct answer', (tester) async {
     tester.view.physicalSize = const Size(1400, 1400);
     tester.view.devicePixelRatio = 1.0;

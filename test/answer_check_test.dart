@@ -113,6 +113,19 @@ void main() {
     expect(checkRuAnswer(every, 'весь'), isFalse);
   });
 
+  test('flags a correct answer that used a synonym instead of the card word', () {
+    expect(answeredWithAlt(every, 'любой'), isTrue);
+    expect(answeredWithAlt(every, 'любо́й'), isTrue);
+    expect(answeredWithAlt(every, 'каждый'), isFalse);
+    expect(answeredWithAlt(every, 'весь'), isFalse);
+  });
+
+  test('the synonym flag also covers the hardcoded synonym groups', () {
+    const yesWord = Word(id: 'y', ru: 'да', ruAccented: 'да', pl: ['tak'], category: 'zwroty');
+    expect(answeredWithAlt(yesWord, 'так'), isTrue);
+    expect(answeredWithAlt(yesWord, 'да'), isFalse);
+  });
+
   test('grades polish answers including diacritic slips', () {
     expect(gradePlAnswer(thanks, 'dziękuję'), AnswerGrade.correct);
     expect(gradePlAnswer(thanks, 'dziekuje'), AnswerGrade.almost);

@@ -46,6 +46,11 @@ bool _checkTokens(String answer, List<String> accepted, String Function(String) 
 
 bool checkRuAnswer(Word word, String answer) => _checkTokens(answer, acceptedRu(word), normalizeRu);
 
+bool answeredWithAlt(Word word, String answer) {
+  if (!checkRuAnswer(word, answer)) return false;
+  return !_answerTokens(answer, normalizeRu).contains(normalizeRu(word.ru));
+}
+
 bool checkPlAnswer(Word word, String answer) =>
     _checkTokens(answer, [for (final variant in word.pl) normalizePl(variant)], normalizePl);
 
