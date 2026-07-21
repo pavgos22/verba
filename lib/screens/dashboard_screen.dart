@@ -444,6 +444,7 @@ class _SessionSettingsDialogState extends ConsumerState<_SessionSettingsDialog> 
                 (SessionScope.all, 'Wszystkie rozpoczęte'),
                 (SessionScope.newest, 'Najnowsze poznane'),
                 (SessionScope.hardest, 'Sprawiające trudności'),
+                (SessionScope.recentHardest, 'Najtrudniejsze z ostatnio poznanych'),
               ])
                 _DirectionOption(
                   label: label,

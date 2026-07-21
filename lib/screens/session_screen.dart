@@ -138,6 +138,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             pool = progress.newestStarted(byId.keys).map((id) => byId[id]!).take(cfg.count).toList()..shuffle(rng);
           case SessionScope.hardest:
             pool = progress.hardestStarted(byId.keys).map((id) => byId[id]!).take(cfg.count).toList()..shuffle(rng);
+          case SessionScope.recentHardest:
+            pool = progress.hardestOfNewest(byId.keys, cfg.count).map((id) => byId[id]!).take(cfg.count).toList()
+              ..shuffle(rng);
           case SessionScope.all:
             final started = inCat.where((w) => progress.statusOf(w.id) != WordStatus.fresh).toList()..shuffle(rng);
             pool = started.take(cfg.count).toList();

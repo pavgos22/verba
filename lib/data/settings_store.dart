@@ -12,7 +12,7 @@ enum SessionDirection { alternate, ruToPl, plToRu, random }
 
 enum NewWordOrder { inOrder, random }
 
-enum SessionScope { all, newest, hardest }
+enum SessionScope { all, newest, hardest, recentHardest }
 
 enum VerbInfoMode { never, always, onHold }
 

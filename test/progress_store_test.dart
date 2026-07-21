@@ -134,6 +134,29 @@ void main() {
     expect(progress.hardestStarted(['a', 'b', 'c', 'd']), ['a', 'b']);
   });
 
+  test('hardestOfNewest ranks only inside the recent window', () async {
+    final container = await createContainer();
+    final notifier = container.read(progressProvider.notifier);
+
+    // learned long ago, and the hardest of them all
+    notifier.recordAnswer('old', false, now: DateTime(2026, 1, 1));
+    notifier.recordAnswer('old', false, now: DateTime(2026, 1, 2));
+    notifier.recordAnswer('old', false, now: DateTime(2026, 1, 3));
+
+    notifier.recordAnswer('r1', false, now: DateTime(2026, 1, 10));
+    notifier.recordAnswer('r2', false, now: DateTime(2026, 1, 11));
+    notifier.recordAnswer('r2', false, now: DateTime(2026, 1, 12));
+    notifier.recordAnswer('r3', true, now: DateTime(2026, 1, 13));
+    notifier.recordAnswer('r4', false, now: DateTime(2026, 1, 14));
+
+    final progress = container.read(progressProvider);
+    const ids = ['old', 'r1', 'r2', 'r3', 'r4'];
+
+    expect(progress.hardestStarted(ids).first, 'old');
+    // count 1 means a window of the 3 newest (r4, r3, r2); r3 was never missed so it drops out
+    expect(progress.hardestOfNewest(ids, 1), ['r2', 'r4']);
+  });
+
   test('a hard word heals out after a streak of clean correct answers', () async {
     final container = await createContainer();
     final notifier = container.read(progressProvider.notifier);

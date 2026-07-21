@@ -80,6 +80,12 @@ class ProgressState {
     ids.sort((a, b) => words[b]!.struggle.compareTo(words[a]!.struggle));
     return ids;
   }
+
+  static const recentWindowFactor = 3;
+
+  List<String> hardestOfNewest(Iterable<String> wordIds, int count) {
+    return hardestStarted(newestStarted(wordIds).take(count * recentWindowFactor));
+  }
 }
 
 class ProgressNotifier extends Notifier<ProgressState> {
