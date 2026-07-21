@@ -347,7 +347,7 @@
     "sprawa"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "djeło"
+   "pronunciation": "djeła"
   },
   {
    "id": "ru1000-028",
@@ -652,7 +652,7 @@
     "возможно"
    ],
    "category": "inne",
-   "pronunciation": "możno"
+   "pronunciation": "można"
   },
   {
    "id": "ru1000-053",
@@ -663,7 +663,7 @@
     "słowo"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "slowo"
+   "pronunciation": "slowa"
   },
   {
    "id": "ru1000-054",
@@ -674,7 +674,7 @@
     "miejsce"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "miesto"
+   "pronunciation": "miesta"
   },
   {
    "id": "ru1000-055",
@@ -851,7 +851,7 @@
     "страница"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "storona"
+   "pronunciation": "starana"
   },
   {
    "id": "ru1000-068",
@@ -893,7 +893,7 @@
     "prosto"
    ],
    "category": "przysłówki",
-   "pronunciation": "prosto"
+   "pronunciation": "prosta"
   },
   {
    "id": "ru1000-071",
@@ -1090,7 +1090,7 @@
     "miasto"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "gorod"
+   "pronunciation": "gorad"
   },
   {
    "id": "ru1000-087",
@@ -1101,7 +1101,7 @@
     "kilka"
    ],
    "category": "liczebniki",
-   "pronunciation": "nieskol'ko"
+   "pronunciation": "nieskal'ka"
   },
   {
    "id": "ru1000-088",
@@ -1127,7 +1127,7 @@
     "głos"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "golos"
+   "pronunciation": "golas"
   },
   {
    "id": "ru1000-090",
@@ -1221,7 +1221,7 @@
     "woda"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "woda"
+   "pronunciation": "wada"
   },
   {
    "id": "ru1000-098",
@@ -1376,7 +1376,7 @@
     "zostać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ostacsje",
+   "pronunciation": "astacsje",
    "firstPerson": "останусь",
    "verbType": "1"
   },
@@ -1400,7 +1400,7 @@
     "zupełnie"
    ],
    "category": "przysłówki",
-   "pronunciation": "sowsjem"
+   "pronunciation": "sawsjem"
   },
   {
    "id": "ru1000-113",
@@ -1502,7 +1502,7 @@
     "okazać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "okazacsja",
+   "pronunciation": "akazacsja",
    "firstPerson": "окажусь",
    "verbType": "1"
   },
@@ -1598,7 +1598,7 @@
     "wiele"
    ],
    "category": "przysłówki",
-   "pronunciation": "mnogo"
+   "pronunciation": "mnoga"
   },
   {
    "id": "ru1000-128",
@@ -1609,7 +1609,7 @@
     "wojna"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "wojna"
+   "pronunciation": "wajna"
   },
   {
    "id": "ru1000-129",
@@ -1723,7 +1723,7 @@
     "kompan"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "towariść"
+   "pronunciation": "tawariść"
   },
   {
    "id": "ru1000-138",
@@ -1759,10 +1759,10 @@
    "ru": "правда",
    "ruAccented": "пра́вда",
    "pl": [
-    "PRAWDA"
+    "prawda"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "PRAWDA"
+   "pronunciation": "prawda"
   },
   {
    "id": "ru1000-141",
@@ -1807,7 +1807,7 @@
     "mianowicie"
    ],
    "category": "przysłówki",
-   "pronunciation": "imienno"
+   "pronunciation": "imienna"
   },
   {
    "id": "ru1000-145",
@@ -1943,7 +1943,7 @@
     "moskwa"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "moskwa"
+   "pronunciation": "maskwa"
   },
   {
    "id": "ru1000-156",
@@ -1992,7 +1992,7 @@
     "w ogóle"
    ],
    "category": "przysłówki",
-   "pronunciation": "woobście"
+   "pronunciation": "waabście"
   },
   {
    "id": "ru1000-160",
@@ -2055,7 +2055,7 @@
     "rano"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "utro"
+   "pronunciation": "utra"
   },
   {
    "id": "ru1000-165",
@@ -2066,7 +2066,7 @@
     "radziecki"
    ],
    "category": "przymiotniki",
-   "pronunciation": "sowjetskij",
+   "pronunciation": "sawjetskij",
    "feminine": "сове́тская",
    "neuter": "сове́тское",
    "plural": "сове́тские"
@@ -2188,7 +2188,7 @@
     "ile"
    ],
    "category": "pytania",
-   "pronunciation": "skolko"
+   "pronunciation": "skolka"
   },
   {
    "id": "ru1000-176",
@@ -2499,7 +2499,7 @@
     "bać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "bojatsja",
+   "pronunciation": "bajatsja",
    "firstPerson": "боюсь",
    "verbType": "2"
   },
@@ -2550,7 +2550,7 @@
     "просто"
    ],
    "category": "przysłówki",
-   "pronunciation": "prjamo"
+   "pronunciation": "prjama"
   },
   {
    "id": "ru1000-204",
@@ -2575,7 +2575,7 @@
     "długo"
    ],
    "category": "przysłówki",
-   "pronunciation": "dołgo"
+   "pronunciation": "dołga"
   },
   {
    "id": "ru1000-206",
@@ -2618,7 +2618,7 @@
     "закон"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "prawo"
+   "pronunciation": "prawa"
   },
   {
    "id": "ru1000-209",
@@ -2700,7 +2700,7 @@
     "okres"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "pora"
+   "pronunciation": "para"
   },
   {
    "id": "ru1000-216",
@@ -2751,7 +2751,7 @@
     "zostawać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ostawacsja",
+   "pronunciation": "astawacsja",
    "firstPerson": "остаюсь",
    "verbType": "1",
    "secondPerson": "остаёшься"
@@ -2870,7 +2870,7 @@
     "czuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "ciuwstwować",
+   "pronunciation": "ciuwstwawać",
    "firstPerson": "чувствую",
    "verbType": "1"
   },
@@ -2960,7 +2960,7 @@
     "pomoc"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "pomosh'"
+   "pronunciation": "pomash'"
   },
   {
    "id": "ru1000-236",
@@ -3063,7 +3063,7 @@
     "prawdopodobnie"
    ],
    "category": "przysłówki",
-   "pronunciation": "vidno"
+   "pronunciation": "vidna"
   },
   {
    "id": "ru1000-244",
@@ -3087,7 +3087,7 @@
     "uczucie"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "cziustvo"
+   "pronunciation": "cziustva"
   },
   {
    "id": "ru1000-246",
@@ -3131,7 +3131,7 @@
     "niewiele"
    ],
    "category": "przysłówki",
-   "pronunciation": "niemnogo"
+   "pronunciation": "niemnoga"
   },
   {
    "id": "ru1000-250",
@@ -3209,7 +3209,7 @@
     "стать"
    ],
    "category": "czasowniki",
-   "pronunciation": "stanovit'sa",
+   "pronunciation": "stanavit'sa",
    "firstPerson": "становлюсь",
    "verbType": "2"
   },
@@ -3256,7 +3256,7 @@
     "cicho"
    ],
    "category": "przysłówki",
-   "pronunciation": "tiho"
+   "pronunciation": "tiha"
   },
   {
    "id": "ru1000-260",
@@ -3383,7 +3383,7 @@
     "вероятно"
    ],
    "category": "przysłówki",
-   "pronunciation": "naviernoje"
+   "pronunciation": "naviernaje"
   },
   {
    "id": "ru1000-269",
@@ -3438,7 +3438,7 @@
     "kąt"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "ugol"
+   "pronunciation": "ugal"
   },
   {
    "id": "ru1000-273",
@@ -3472,7 +3472,7 @@
     "społeczeństwo"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "obsiestvo"
+   "pronunciation": "obsiestva"
   },
   {
    "id": "ru1000-276",
@@ -3521,7 +3521,7 @@
     "drzewo"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "dierievo"
+   "pronunciation": "dierieva"
   },
   {
    "id": "ru1000-280",
@@ -3796,7 +3796,7 @@
     "zgoda"
    ],
    "category": "zwroty",
-   "pronunciation": "ladno"
+   "pronunciation": "ladna"
   },
   {
    "id": "ru1000-302",
@@ -3818,7 +3818,7 @@
     "często"
    ],
    "category": "przysłówki",
-   "pronunciation": "czasto"
+   "pronunciation": "czasta"
   },
   {
    "id": "ru1000-304",
@@ -3861,7 +3861,7 @@
     "девушка"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "dievochka"
+   "pronunciation": "dievachka"
   },
   {
    "id": "ru1000-307",
@@ -4052,7 +4052,7 @@
     "środek"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "sriedstvo"
+   "pronunciation": "sriedstva"
   },
   {
    "id": "ru1000-323",
@@ -4311,7 +4311,7 @@
     "całkiem"
    ],
    "category": "przysłówki",
-   "pronunciation": "wpolnie"
+   "pronunciation": "wpalnie"
   },
   {
    "id": "ru1000-343",
@@ -5336,7 +5336,7 @@
     "можно"
    ],
    "category": "przysłówki",
-   "pronunciation": "wozmożno"
+   "pronunciation": "wazmożna"
   },
   {
    "id": "ru1000-426",
@@ -5397,7 +5397,7 @@
     "zgodzić się"
    ],
    "category": "czasowniki",
-   "pronunciation": "sogłasitsja",
+   "pronunciation": "sagłasitsja",
    "firstPerson": "соглашусь",
    "verbType": "2"
   },
@@ -5445,7 +5445,7 @@
     "samolot"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "samoljot"
+   "pronunciation": "samaljot"
   },
   {
    "id": "ru1000-435",
@@ -5457,7 +5457,7 @@
     "ciężko"
    ],
    "category": "przysłówki",
-   "pronunciation": "trudno"
+   "pronunciation": "trudna"
   },
   {
    "id": "ru1000-436",
@@ -5526,7 +5526,7 @@
     "poczuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "pociuwstwowac",
+   "pronunciation": "paciuwstwawac",
    "firstPerson": "почувствую",
    "verbType": "1"
   },
@@ -5550,7 +5550,7 @@
     "korytarz"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "koridor"
+   "pronunciation": "karidor"
   },
   {
    "id": "ru1000-443",
@@ -5602,7 +5602,7 @@
     "chory"
    ],
    "category": "przymiotniki",
-   "pronunciation": "bolnoj",
+   "pronunciation": "balnoj",
    "feminine": "больна́я",
    "neuter": "больно́е",
    "plural": "больны́е"
@@ -5651,7 +5651,7 @@
     "zaoferować"
    ],
    "category": "czasowniki",
-   "pronunciation": "prjedłożyc",
+   "pronunciation": "prjedłażyc",
    "firstPerson": "предложу",
    "verbType": "2"
   },
@@ -5677,7 +5677,7 @@
     "mało"
    ],
    "category": "przysłówki",
-   "pronunciation": "mało"
+   "pronunciation": "mała"
   },
   {
    "id": "ru1000-453",
@@ -5725,7 +5725,7 @@
     "kolano"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "koljeno"
+   "pronunciation": "kaljena"
   },
   {
    "id": "ru1000-457",
@@ -5763,7 +5763,7 @@
     "wszelakie"
    ],
    "category": "inne",
-   "pronunciation": "wsjakoje"
+   "pronunciation": "wsjakaje"
   },
   {
    "id": "ru1000-460",
@@ -5786,7 +5786,7 @@
     "państwowy"
    ],
    "category": "przymiotniki",
-   "pronunciation": "gosudarstwjennyj",
+   "pronunciation": "gasudarstwjennyj",
    "feminine": "госуда́рственная",
    "neuter": "госуда́рственное",
    "plural": "госуда́рственные"
@@ -5839,7 +5839,7 @@
     "firma"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "kompanija"
+   "pronunciation": "kampanija"
   },
   {
    "id": "ru1000-466",
@@ -5867,7 +5867,7 @@
     "otwarty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "otkrytyj",
+   "pronunciation": "atkrytyj",
    "feminine": "откры́тая",
    "neuter": "откры́тое",
    "plural": "откры́тые"
@@ -5884,7 +5884,7 @@
     "врач"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "doktor"
+   "pronunciation": "doktar"
   },
   {
    "id": "ru1000-469",
@@ -5919,7 +5919,7 @@
     "autor"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "awtor"
+   "pronunciation": "awtar"
   },
   {
    "id": "ru1000-472",
@@ -5965,7 +5965,7 @@
     "przeprowadzić"
    ],
    "category": "czasowniki",
-   "pronunciation": "prowjesti",
+   "pronunciation": "prawjesti",
    "firstPerson": "проведу",
    "verbType": "1",
    "secondPerson": "проведёшь"
@@ -6001,7 +6001,7 @@
     "zimny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "chołodnyj",
+   "pronunciation": "chałodnyj",
    "feminine": "холо́дная",
    "neuter": "холо́дное",
    "plural": "холо́дные"
@@ -6064,7 +6064,7 @@
     "broń"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "orużyje"
+   "pronunciation": "arużyje"
   },
   {
    "id": "ru1000-484",
@@ -6086,7 +6086,7 @@
     "to"
    ],
    "category": "czasowniki",
-   "pronunciation": "prichoditsja",
+   "pronunciation": "prichaditsja",
    "firstPerson": "прихожусь",
    "verbType": "2"
   },
@@ -6112,7 +6112,7 @@
     "spytać"
    ],
    "category": "czasowniki",
-   "pronunciation": "poprosic",
+   "pronunciation": "paprasic",
    "firstPerson": "попрошу",
    "verbType": "2"
   },
@@ -6125,7 +6125,7 @@
     "żądać"
    ],
    "category": "czasowniki",
-   "pronunciation": "trjebowac",
+   "pronunciation": "trjebawac",
    "firstPerson": "требую",
    "verbType": "1"
   },
@@ -6151,7 +6151,7 @@
     "jakość"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "kaciestwo"
+   "pronunciation": "kaciestwa"
   },
   {
    "id": "ru1000-491",
@@ -6176,7 +6176,7 @@
     "ojczysty"
    ],
    "category": "przymiotniki",
-   "pronunciation": "rodnoj",
+   "pronunciation": "radnoj",
    "feminine": "родна́я",
    "neuter": "родно́е",
    "plural": "родны́е"
@@ -6262,7 +6262,7 @@
     "polityczny"
    ],
    "category": "przymiotniki",
-   "pronunciation": "politicieskij",
+   "pronunciation": "paliticieskij",
    "feminine": "полити́ческая",
    "neuter": "полити́ческое",
    "plural": "полити́ческие"
@@ -6276,7 +6276,7 @@
     "zwykły"
    ],
    "category": "przymiotniki",
-   "pronunciation": "obyćnyj",
+   "pronunciation": "abyćnyj",
    "feminine": "обы́чная",
    "neuter": "обы́чное",
    "plural": "обы́чные"
@@ -6325,7 +6325,7 @@
     "rada"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "cowjet"
+   "pronunciation": "cawjet"
   },
   {
    "id": "ru1000-505",
@@ -6347,7 +6347,7 @@
     "wracać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "wozwraściatsja",
+   "pronunciation": "wazwraściatsja",
    "firstPerson": "возвращаюсь",
    "verbType": "1"
   },
@@ -6396,7 +6396,7 @@
     "okazywać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "okazywacsja",
+   "pronunciation": "akazywacsja",
    "firstPerson": "оказываюсь",
    "verbType": "1"
   },
@@ -6420,7 +6420,7 @@
     "zgubić"
    ],
    "category": "czasowniki",
-   "pronunciation": "potjerjac",
+   "pronunciation": "patjerjac",
    "firstPerson": "потеряю",
    "verbType": "1"
   },
@@ -6448,7 +6448,7 @@
     "ряд"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "prawitjelstwo"
+   "pronunciation": "prawitjelstwa"
   },
   {
    "id": "ru1000-515",
@@ -6459,7 +6459,7 @@
     "inni"
    ],
    "category": "przymiotniki",
-   "pronunciation": "ostalnoj",
+   "pronunciation": "astalnoj",
    "feminine": "остальна́я",
    "neuter": "остально́е",
    "plural": "остальны́е"
@@ -6490,7 +6490,7 @@
     "pokazywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "pokazywac",
+   "pronunciation": "pakazywac",
    "firstPerson": "показываю",
    "verbType": "1"
   },
@@ -6525,7 +6525,7 @@
     "poziom"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "urowjeń"
+   "pronunciation": "urawjeń"
   },
   {
    "id": "ru1000-521",
@@ -6536,7 +6536,7 @@
     "profesor"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "profiessor"
+   "pronunciation": "prafiessar"
   },
   {
    "id": "ru1000-522",
@@ -6561,7 +6561,7 @@
     "действие"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "sobytje"
+   "pronunciation": "sabytje"
   },
   {
    "id": "ru1000-524",
@@ -6769,7 +6769,7 @@
     "informacja"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "informacyja"
+   "pronunciation": "infarmacyja"
   },
   {
    "id": "ru1000-541",
@@ -6785,7 +6785,7 @@
     "выйти"
    ],
    "category": "czasowniki",
-   "pronunciation": "połuczitsa",
+   "pronunciation": "pałuczitsa",
    "firstPerson": "получусь",
    "verbType": "2"
   },
@@ -7099,7 +7099,7 @@
     "tłum"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "tołpa"
+   "pronunciation": "tałpa"
   },
   {
    "id": "ru1000-567",
@@ -7172,7 +7172,7 @@
     "westchnąć"
    ],
    "category": "czasowniki",
-   "pronunciation": "vzdohnut'",
+   "pronunciation": "vzdahnut'",
    "firstPerson": "вздохну",
    "verbType": "1",
    "secondPerson": "вздохнёшь"
@@ -7330,7 +7330,7 @@
     "przytomność"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "soznanie"
+   "pronunciation": "saznanie"
   },
   {
    "id": "ru1000-586",
@@ -7805,7 +7805,7 @@
     "pojawiać się"
    ],
    "category": "czasowniki",
-   "pronunciation": "pojawliatsja",
+   "pronunciation": "pajawliatsja",
    "firstPerson": "появляюсь",
    "verbType": "1"
   },
@@ -7869,7 +7869,7 @@
     "wykorzystywać"
    ],
    "category": "czasowniki",
-   "pronunciation": "ispol'zować",
+   "pronunciation": "ispol'zawać",
    "firstPerson": "использую",
    "verbType": "1"
   },
@@ -8131,7 +8131,7 @@
     "nie ma czego"
    ],
    "category": "inne",
-   "pronunciation": "nieciewo"
+   "pronunciation": "nieciewa"
   },
   {
    "id": "ru1000-652",
@@ -8444,7 +8444,7 @@
     "radość"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "rados't'"
+   "pronunciation": "radas't'"
   },
   {
    "id": "ru1000-678",
@@ -8503,7 +8503,7 @@
     "postępować"
    ],
    "category": "czasowniki",
-   "pronunciation": "diejstwować",
+   "pronunciation": "diejstwawać",
    "firstPerson": "действую",
    "verbType": "1"
   },
@@ -8585,7 +8585,7 @@
     "dodać"
    ],
    "category": "czasowniki",
-   "pronunciation": "dobawić",
+   "pronunciation": "dabawić",
    "firstPerson": "добавлю",
    "verbType": "2"
   },
@@ -8598,7 +8598,7 @@
     "lato"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "leto"
+   "pronunciation": "leta"
   },
   {
    "id": "ru1000-690",
@@ -8740,7 +8740,7 @@
     "prawidłowo"
    ],
    "category": "przysłówki",
-   "pronunciation": "prawil'no"
+   "pronunciation": "prawil'na"
   },
   {
    "id": "ru1000-701",
@@ -8787,7 +8787,7 @@
     "interesująco"
    ],
    "category": "przysłówki",
-   "pronunciation": "intieriesno"
+   "pronunciation": "intieriesna"
   },
   {
    "id": "ru1000-705",
@@ -9020,7 +9020,7 @@
     "wojsko"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "wojsko"
+   "pronunciation": "wojska"
   },
   {
    "id": "ru1000-724",
@@ -9031,7 +9031,7 @@
     "niedawno"
    ],
    "category": "przysłówki",
-   "pronunciation": "niedawno"
+   "pronunciation": "niedawna"
   },
   {
    "id": "ru1000-725",
@@ -9165,7 +9165,7 @@
     "z powrotem"
    ],
    "category": "przysłówki",
-   "pronunciation": "obratno"
+   "pronunciation": "abratna"
   },
   {
    "id": "ru1000-736",
@@ -9313,7 +9313,7 @@
     "ciemność"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "tiemnota"
+   "pronunciation": "tiemnata"
   },
   {
    "id": "ru1000-748",
@@ -9404,7 +9404,7 @@
     "kilometr"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "kilomietr"
+   "pronunciation": "kilamietr"
   },
   {
    "id": "ru1000-756",
@@ -9415,7 +9415,7 @@
     "zadzwonić"
    ],
    "category": "czasowniki",
-   "pronunciation": "pozwonić",
+   "pronunciation": "pazwanić",
    "firstPerson": "позвоню",
    "verbType": "2"
   },
@@ -9816,7 +9816,7 @@
     "łóżko"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "krować"
+   "pronunciation": "krawać"
   },
   {
    "id": "ru1000-789",
@@ -9841,7 +9841,7 @@
     "działalność"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "diejatiel'nosć"
+   "pronunciation": "diejatiel'nasć"
   },
   {
    "id": "ru1000-791",
@@ -9908,7 +9908,7 @@
     "strasznie"
    ],
    "category": "przysłówki",
-   "pronunciation": "straszno"
+   "pronunciation": "straszna"
   },
   {
    "id": "ru1000-797",
@@ -9932,7 +9932,7 @@
     "dziwnie"
    ],
    "category": "przysłówki",
-   "pronunciation": "stranno"
+   "pronunciation": "stranna"
   },
   {
    "id": "ru1000-799",
@@ -9991,7 +9991,7 @@
     "ukłuć"
    ],
    "category": "czasowniki",
-   "pronunciation": "koloć",
+   "pronunciation": "kaloć",
    "firstPerson": "колю",
    "verbType": "1"
   },
@@ -10004,7 +10004,7 @@
     "lustro"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "zierkalo"
+   "pronunciation": "zierkala"
   },
   {
    "id": "ru1000-805",
@@ -10029,7 +10029,7 @@
     "sztuka"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "iskustwo"
+   "pronunciation": "iskustwa"
   },
   {
    "id": "ru1000-807",
@@ -10040,7 +10040,7 @@
     "początek"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "nacialo"
+   "pronunciation": "naciala"
   },
   {
    "id": "ru1000-808",
@@ -10099,7 +10099,7 @@
     "automat"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "awtomat"
+   "pronunciation": "awtamat"
   },
   {
    "id": "ru1000-813",
@@ -10233,7 +10233,7 @@
     "trzeba"
    ],
    "category": "inne",
-   "pronunciation": "nużno"
+   "pronunciation": "nużna"
   },
   {
    "id": "ru1000-824",
@@ -10437,7 +10437,7 @@
     "ciało"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "tieło"
+   "pronunciation": "tieła"
   },
   {
    "id": "ru1000-840",
@@ -10448,7 +10448,7 @@
     "obok"
    ],
    "category": "przysłówki",
-   "pronunciation": "riadom"
+   "pronunciation": "riadam"
   },
   {
    "id": "ru1000-841",
@@ -11194,7 +11194,7 @@
     "kierowca"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "szofior"
+   "pronunciation": "szafior"
   },
   {
    "id": "ru1000-902",
@@ -11795,7 +11795,7 @@
     "metoda"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "mietod"
+   "pronunciation": "mietad"
   },
   {
    "id": "ru1000-952",
@@ -12373,7 +12373,7 @@
     "ludzkość"
    ],
    "category": "rzeczowniki",
-   "pronunciation": "cziełowieczestwo"
+   "pronunciation": "czieławieczestwa"
   },
   {
    "id": "ru1000-998",
